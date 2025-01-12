@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SV = void 0;
+exports.SVEjemplo = exports.SV = void 0;
 const SV = [
     {
         codigo: 1,
@@ -27,4 +27,9 @@ const SV = [
     }
 ];
 exports.SV = SV;
+let SVEjemplo = {
+    codigo: 10,
+    descripcion: "Presión arterial 2"
+};
+exports.SVEjemplo = SVEjemplo;
 //# sourceMappingURL=signoVital.data.js.map
