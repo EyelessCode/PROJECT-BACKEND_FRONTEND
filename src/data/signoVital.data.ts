@@ -26,4 +26,9 @@ const SV:ISignoVital[]=[
     }
 ]
 
-export {SV}
+let SVEjemplo:ISignoVital={
+    codigo:10,
+    descripcion:"Presión arterial 2"
+}
+
+export {SV,SVEjemplo}
