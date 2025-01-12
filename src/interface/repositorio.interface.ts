@@ -1,5 +1,9 @@
-import { ISignoVital } from "./signoVital.interface";
+import { ISignoVital } from './signoVital.interface';
 
 export interface IRepositorioSignoVital{
-    obtenerTodo():ISignoVital[]|undefined
+    obtenerSignos():ISignoVital[]
+    obtenerUnSigno(codigo:number):ISignoVital|undefined
+    crearSigno(signo:ISignoVital):ISignoVital
+    actualizarSigno(codigo:number,signo:ISignoVital):ISignoVital|undefined
+    eliminarSigno(codigo:number):boolean
 }
