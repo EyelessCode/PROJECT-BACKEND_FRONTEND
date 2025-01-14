@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const signoVital_data_1 = require("./data/signoVital.data");
-const signoVital_repositorio_1 = require("./repository/signoVital.repositorio");
-const repositorio = new signoVital_repositorio_1.SignoVital;
+const signoVital_repository_1 = require("./repository/signoVital.repository");
+const repositorio = new signoVital_repository_1.SignoVital;
 repositorio.obtenerSignos().forEach((signos) => {
     console.log(`-`.repeat(8) + `\nCódigo: ${signos.codigo} - Descripción: ${signos.descripcion}`);
 });
