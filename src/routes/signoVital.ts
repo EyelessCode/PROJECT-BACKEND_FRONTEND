@@ -9,3 +9,5 @@ ruta.get('/:codigo',controlador.controladorObtenerUnSigno)
 ruta.post('/',controlador.controladorCrearSigno)
 ruta.put('/:codigo',controlador.controladorActualizarSigno)
 ruta.delete('/:codigo',controlador.controladorEliminarSigno)
+
+export {ruta}
