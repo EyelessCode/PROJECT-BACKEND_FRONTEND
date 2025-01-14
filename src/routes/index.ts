@@ -15,7 +15,7 @@ readdirSync(PATH).filter((archivo)=>{
     if (limpiar!=="index") {
         import (`/${limpiar}`).then((rutaModulo)=>{
             console.log(`${limpiar} encontrado/a`);
-            rutas.use(`${limpiar}`,rutaModulo.router)
+            rutas.use(`/${limpiar}`,rutaModulo.router)
         })
     }
 })
