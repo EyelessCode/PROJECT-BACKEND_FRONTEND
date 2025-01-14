@@ -20,4 +20,4 @@ readdirSync(PATH).filter((archivo)=>{
     }
 })
 
-export default rutas;
+export {rutas};
