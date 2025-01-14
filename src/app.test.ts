@@ -1,5 +1,5 @@
 import { SVEjemplo } from "./data/signoVital.data";
-import { SignoVital } from "./repository/signoVital.repositorio";
+import { SignoVital } from "./repository/signoVital.repository";
 
 const repositorio=new SignoVital
 
