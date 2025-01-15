@@ -1,13 +1,13 @@
-const mensajeSatisfactorio=(res:Response,error:string,errorBruto:any)=>{
+const generarMensajeSatisfactorio=()=>{
     return{
-        message:"Petición exitosa",
+        message:"Petición exitosa"
     }
 }
 
-const mensajeError=(res:Response,error:string,errorBruto:any)=>{
+const generarMensajeError=()=>{
     return{
-        message:"Error en la petición",
+        message:"Error en la petición"
     }
 }
 
-export {mensajeError,mensajeSatisfactorio}
+export {generarMensajeError,generarMensajeSatisfactorio}
