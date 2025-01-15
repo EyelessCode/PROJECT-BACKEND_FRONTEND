@@ -46,7 +46,7 @@ const cortarArchivos = (archivo) => {
 (0, fs_1.readdirSync)(PATH).filter((archivo) => {
     const limpiar = cortarArchivos(archivo);
     if (limpiar !== "index") {
-        Promise.resolve(`${`/${limpiar}`}`).then(s => __importStar(require(s))).then((rutaModulo) => {
+        Promise.resolve(`${`./${limpiar}`}`).then(s => __importStar(require(s))).then((rutaModulo) => {
             console.log(`La ruta ${limpiar} encontrado/a`);
             rutas.use(`/${limpiar}`, rutaModulo.rutas);
         });
