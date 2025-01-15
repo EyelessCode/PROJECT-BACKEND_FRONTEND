@@ -1,6 +1,6 @@
 import express, { Request, Response } from 'express'
 import 'dotenv/config'
-import {rutas} from './routes'
+import {ruta} from './routes'
 
 const app=express()
 const PORT=process.env.PORT||4001
@@ -8,7 +8,7 @@ const PORT=process.env.PORT||4001
 app.use(express.json())
 // app.use(express.static('public/view'))
 
-app.use(rutas)
+app.use(ruta)
 
 // Para prueba
 app.get('/test',(req:Request,res:Response)=>{
