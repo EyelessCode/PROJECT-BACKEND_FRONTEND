@@ -33,11 +33,11 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.rutas = void 0;
+exports.ruta = void 0;
 const express_1 = require("express");
 const fs_1 = require("fs");
-const rutas = (0, express_1.Router)();
-exports.rutas = rutas;
+const ruta = (0, express_1.Router)();
+exports.ruta = ruta;
 const PATH = `${__dirname}`;
 const cortarArchivos = (archivo) => {
     const archivoCortar = archivo.split('.').shift();
@@ -48,7 +48,7 @@ const cortarArchivos = (archivo) => {
     if (limpiar !== "index") {
         Promise.resolve(`${`./${limpiar}`}`).then(s => __importStar(require(s))).then((rutaModulo) => {
             console.log(`La ruta ${limpiar} encontrado/a`);
-            rutas.use(`/${limpiar}`, rutaModulo.rutas);
+            ruta.use(`/${limpiar}`, rutaModulo.ruta);
         });
     }
 });
