@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { SignoVitalController } from "../infrastructure/controller/signoVital.controller";
+import { SignoVitalController } from "../controller/signoVital.controller";
 
 const ruta=Router()
 const controlador=new SignoVitalController()
