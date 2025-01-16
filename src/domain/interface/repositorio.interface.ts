@@ -1,6 +1,6 @@
 import { ISignoVital } from './signoVital.interface';
 
-export interface IRepositorioSignoVital{
+export interface ISignoVitalRepositorio{
     obtenerSignos():ISignoVital[]
     obtenerUnSigno(codigo:number):ISignoVital|undefined
     crearSigno(signo:ISignoVital):ISignoVital
