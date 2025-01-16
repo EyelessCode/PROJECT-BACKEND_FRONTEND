@@ -1,0 +1,66 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model CentroMedico{
+  id Int @id @default(autoincrement())
+  nombre String
+  direccion String
+  tomas TomaSignos[]
+}
+
+model Paciente{
+  id Int @id @default(autoincrement())
+  cedula String @unique
+  nombres String
+  fechaNacimiento DateTime
+  tomas TomaSignos[]
+}
+
+model Enfermera{
+  id Int @id @default(autoincrement())
+  cedula String @unique
+  nombres String
+  tomas TomaSignos[]
+}
+
+model SignoVital{
+  id Int @id @default(autoincrement())
+  descripcion String
+  unidad String
+  valorMinimo Float
+  valorMaximo Float
+  signosPaciente SignosPacientes[]
+}
+
+model TomaSignos{
+  numero Int @id @default(autoincrement())
+  fecha DateTime
+  centroMedico CentroMedico @relation(fields: [centroMedicoId],references: [id])
+  centroMedicoId Int
+  paciente Paciente @relation(fields: [pacienteId],references: [id])
+  pacienteId Int
+  enfermera Enfermera @relation(fields: [enfermeraId],references: [id])
+  enfermeraId Int
+  signosPaciente SignosPacientes[]
+}
+
+model SignosPacientes{
+  linea Int @id @default(autoincrement())
+  valor Float
+  signoVitalId Int
+  tomaSignosId Int
+  signoVital SignoVital @relation(fields: [signoVitalId],references: [id])
+  tomaSignos TomaSignos @relation(fields: [tomaSignosId],references: [numero])
+}
