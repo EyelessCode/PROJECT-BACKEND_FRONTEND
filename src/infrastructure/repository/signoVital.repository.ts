@@ -1,8 +1,8 @@
 import { SV } from "../../data/signoVital.data";
-import { IRepositorioSignoVital } from "../../domain/interface/repositorio.interface";
+import { ISignoVitalRepositorio } from "../../domain/interface/repositorio.interface";
 import { ISignoVital } from "../../domain/interface/signoVital.interface";
 
-export class SignoVital implements IRepositorioSignoVital{
+export class SignoVitalRepositorio implements ISignoVitalRepositorio{
     private signoVital=SV
 
     obtenerSignos(): ISignoVital[] {
