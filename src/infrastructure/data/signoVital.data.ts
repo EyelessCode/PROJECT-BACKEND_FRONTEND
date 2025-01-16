@@ -1,4 +1,4 @@
-import { ISignoVital } from "../domain/interface/signoVital.interface";
+import { ISignoVital } from "../../domain/interface/signoVital.interface";
 
 const SV: ISignoVital[] = [
     {

@@ -1,4 +1,4 @@
-import { ISignoVitalRepositorio } from "../../domain/interface/repositorio.interface";
+import { ISignoVitalRepositorio } from "../../domain/interface/signoVital.repository.interface";
 import { ISignoVital } from "../../domain/interface/signoVital.interface";
 
 

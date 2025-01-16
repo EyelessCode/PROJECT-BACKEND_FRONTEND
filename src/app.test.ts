@@ -1,7 +1,8 @@
-import { SVEjemplo } from "./data/signoVital.data";
-import { SignoVital } from "./infrastructure/repository/signoVital.repository";
+import { SVEjemplo } from "./infrastructure/data/signoVital.data";
+import { SignoVitalRepositorio } from "./infrastructure/repository/signoVital.repository";
+// import { SignoVital } from "./infrastructure/repository/signoVital.repository";
 
-const repositorio=new SignoVital
+const repositorio=new SignoVitalRepositorio
 
 repositorio.obtenerSignos().forEach((signos)=>{
     console.log(`-`.repeat(8)+`\nCódigo: ${signos.codigo} - Descripción: ${signos.descripcion}`);

@@ -1,5 +1,5 @@
-import { SV } from "../../data/signoVital.data";
-import { ISignoVitalRepositorio } from "../../domain/interface/repositorio.interface";
+import { SV } from "../data/signoVital.data";
+import { ISignoVitalRepositorio } from "../../domain/interface/signoVital.repository.interface";
 import { ISignoVital } from "../../domain/interface/signoVital.interface";
 
 export class SignoVitalRepositorio implements ISignoVitalRepositorio{
