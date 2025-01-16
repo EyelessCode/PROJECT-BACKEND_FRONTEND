@@ -1,4 +1,4 @@
-import { ISignoVital } from './signoVital.interface';
+import { ISignoVital } from '../signoVital/signoVital.interface';
 
 export interface ISignoVitalRepositorio{
     obtenerSignos():ISignoVital[]

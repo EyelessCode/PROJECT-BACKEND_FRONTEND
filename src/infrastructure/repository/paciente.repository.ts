@@ -1,9 +1,9 @@
 // import { SV } from "../data/signoVital.data";
-import { IPaciente } from "../../domain/interface/paciente.interface";
-import { IPacienteRepositorio } from "../../domain/interface/paciente.repository.interface";
+import { IPaciente } from "../../domain/interface/paciente/paciente.interface";
+import { IPacienteRepositorio } from "../../domain/interface/paciente/paciente.repository.interface";
 
 export class PacienteRepositorio implements IPacienteRepositorio{
-    obtenerPaciente(): IPaciente[] {
+    obtenerPacientes(): IPaciente[] {
         throw new Error("Method not implemented.");
     }
     obtenerUnPaciente(codigo: number): IPaciente | undefined {

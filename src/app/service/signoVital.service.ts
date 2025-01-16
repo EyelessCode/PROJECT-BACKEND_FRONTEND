@@ -1,5 +1,5 @@
-import { ISignoVitalRepositorio } from "../../domain/interface/signoVital.repository.interface";
-import { ISignoVital } from "../../domain/interface/signoVital.interface";
+import { ISignoVitalRepositorio } from "../../domain/interface/signoVital/signoVital.repository.interface";
+import { ISignoVital } from "../../domain/interface/signoVital/signoVital.interface";
 
 
 export class SignoVitalService {

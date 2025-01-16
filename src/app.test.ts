@@ -20,7 +20,10 @@ repositorio.obtenerSignos().forEach((signos)=>{
 
 let actualizarSigno=repositorio.actualizarSigno(10,{
     codigo:11,
-    descripcion:"Presión arterial 1"
+    descripcion:"Presión arterial 1",
+    unidad:"longitud",
+    valorMaximo:190.15,
+    valorMinimo:15.00
 })
 console.log(`Actulización de un Signo: Código: ${actualizarSigno?.codigo} - Descripción: ${actualizarSigno?.descripcion}`);
 
