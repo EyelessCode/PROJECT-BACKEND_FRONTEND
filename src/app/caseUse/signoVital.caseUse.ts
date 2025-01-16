@@ -1,5 +1,5 @@
 import { SignoVital } from "@prisma/client";
-import { prisma } from "../../infrastructure/data/prisma.data";
+import { prisma } from "../../infrastructure/data/prisma.service";
 
 async function useCaseCrearSignoVital(descripcion:string,unidad:string,
     valorMinimo:number,valorMaximo:number) {
