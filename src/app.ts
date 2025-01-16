@@ -8,7 +8,7 @@ const PORT=process.env.PORT||4001
 app.use(express.json())
 // app.use(express.static('public/view'))
 
-app.use(ruta)
+app.use("/comsulmed",ruta)
 
 // Para prueba
 app.get('/test',(req:Request,res:Response)=>{
