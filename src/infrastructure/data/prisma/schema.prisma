@@ -13,54 +13,54 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model CentroMedico{
-  id Int @id @default(autoincrement())
-  nombre String
+model CentroMedico {
+  id        Int          @id @default(autoincrement())
+  nombre    String
   direccion String
-  tomas TomaSignos[]
+  tomas     TomaSignos[]
 }
 
-model Paciente{
-  id Int @id @default(autoincrement())
-  cedula String @unique
-  nombres String
+model Paciente {
+  id              Int          @id @default(autoincrement())
+  cedula          String       @unique
+  nombres         String
   fechaNacimiento DateTime
-  tomas TomaSignos[]
+  tomas           TomaSignos[]
 }
 
-model Enfermera{
-  id Int @id @default(autoincrement())
-  cedula String @unique
+model Enfermera {
+  id      Int          @id @default(autoincrement())
+  cedula  String       @unique
   nombres String
-  tomas TomaSignos[]
+  tomas   TomaSignos[]
 }
 
-model SignoVital{
-  id Int @id @default(autoincrement())
-  descripcion String
-  unidad String
-  valorMinimo Float
-  valorMaximo Float
+model SignoVital {
+  id             Int               @id @default(autoincrement())
+  descripcion    String
+  unidad         String
+  valorMinimo    Float
+  valorMaximo    Float
   signosPaciente SignosPacientes[]
 }
 
-model TomaSignos{
-  numero Int @id @default(autoincrement())
-  fecha DateTime
-  centroMedico CentroMedico @relation(fields: [centroMedicoId],references: [id])
+model TomaSignos {
+  numero         Int               @id @default(autoincrement())
+  fecha          DateTime
+  centroMedico   CentroMedico      @relation(fields: [centroMedicoId], references: [id])
   centroMedicoId Int
-  paciente Paciente @relation(fields: [pacienteId],references: [id])
-  pacienteId Int
-  enfermera Enfermera @relation(fields: [enfermeraId],references: [id])
-  enfermeraId Int
+  paciente       Paciente          @relation(fields: [pacienteId], references: [id])
+  pacienteId     Int
+  enfermera      Enfermera         @relation(fields: [enfermeraId], references: [id])
+  enfermeraId    Int
   signosPaciente SignosPacientes[]
 }
 
-model SignosPacientes{
-  linea Int @id @default(autoincrement())
-  valor Float
+model SignosPacientes {
+  linea        Int        @id @default(autoincrement())
+  valor        Float
   signoVitalId Int
   tomaSignosId Int
-  signoVital SignoVital @relation(fields: [signoVitalId],references: [id])
-  tomaSignos TomaSignos @relation(fields: [tomaSignosId],references: [numero])
+  signoVital   SignoVital @relation(fields: [signoVitalId], references: [id])
+  tomaSignos   TomaSignos @relation(fields: [tomaSignosId], references: [numero])
 }
