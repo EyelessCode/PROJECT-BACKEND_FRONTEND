@@ -1,6 +1,6 @@
 import { SV } from "../../data/signoVital.data";
-import { IRepositorioSignoVital } from "../../interface/repositorio.interface";
-import { ISignoVital } from "../../interface/signoVital.interface";
+import { IRepositorioSignoVital } from "../../domain/interface/repositorio.interface";
+import { ISignoVital } from "../../domain/interface/signoVital.interface";
 
 export class SignoVital implements IRepositorioSignoVital{
     private signoVital=SV

@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
-import { IRepositorioSignoVital } from '../../interface/repositorio.interface';
+import { IRepositorioSignoVital } from '../../domain/interface/repositorio.interface';
 import { SignoVital } from '../repository/signoVital.repository';
-import {handleHttp} from '../../util/error.handle';
-import { generarMensajeError, generarMensajeSatisfactorio } from '../../util/mensaje.handle';
+import {handleHttp} from '../../util/error.until';
+import { generarMensajeError, generarMensajeSatisfactorio } from '../../util/mensaje.until';
 
 export class SignoVitalController{
     private repositorioAtributo:IRepositorioSignoVital
