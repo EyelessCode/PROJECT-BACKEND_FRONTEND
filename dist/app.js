@@ -9,7 +9,7 @@ const routes_1 = require("./routes");
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 4001;
 app.use(express_1.default.json());
-app.use(routes_1.ruta);
+app.use("/comsulmed", routes_1.ruta);
 app.get('/test', (req, res) => {
     res.send('PROBANDO SI EL SERVIDOR SI CONECTA!');
 });

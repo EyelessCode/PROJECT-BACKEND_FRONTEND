@@ -9,25 +9,27 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ruta = void 0;
-const express_1 = require("express");
-const prisma_service_1 = require("../infrastructure/data/prisma.service");
-const ruta = (0, express_1.Router)();
-exports.ruta = ruta;
-ruta.get('/test', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const signoVitales = yield prisma_service_1.prisma.signoVital.findMany();
-        res.json({
-            sucess: true,
-            data: signoVitales
+const prisma_service_1 = require("../../infrastructure/data/prisma.service");
+function useCaseCrearSignoVital(descripcion, unidad, valorMinimo, valorMaximo) {
+    return __awaiter(this, void 0, void 0, function* () {
+        return yield prisma_service_1.prisma.signoVital.create({
+            data: {
+                descripcion,
+                unidad,
+                valorMinimo,
+                valorMaximo
+            }
         });
-    }
-    catch (error) {
-        console.error(`Error al conectar con la BD, ${error}`);
-        res.status(500).json({
-            succes: false,
-            error: "Error al conectar con la BD"
+    });
+}
+function useCaseActualizarSigno(codigo, data) {
+    return __awaiter(this, void 0, void 0, function* () {
+        return yield prisma_service_1.prisma.signoVital.update({
+            where: {
+                codigo
+            },
+            data
         });
-    }
-}));
-//# sourceMappingURL=signoVital.js.map
+    });
+}
+//# sourceMappingURL=signoVital.caseUse.js.map
