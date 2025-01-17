@@ -3,6 +3,7 @@ import { SignoVitalController } from "../infrastructure/controller/signoVital.co
 import { prisma } from "../infrastructure/data/prisma.service";
 
 const ruta=Router()
+const controlador=new SignoVitalController()
 /* const controlador=new SignoVitalController()
 
 ruta.get('/',controlador.controladorObtenerSignos)
@@ -11,6 +12,7 @@ ruta.post('/',controlador.controladorCrearSigno)
 ruta.put('/:codigo',controlador.controladorActualizarSigno)
 ruta.delete('/:codigo',controlador.controladorEliminarSigno) */
 
+//! PARA HACER PRUEBA DE QUE SI CONECTE EL BD
 ruta.get('/test',async(req:Request,res:Response)=>{
     try {
         const signoVitales=await prisma.signoVital.findMany()
@@ -26,5 +28,7 @@ ruta.get('/test',async(req:Request,res:Response)=>{
         })
     }
 })
+
+ruta.post('/',controlador.controladorCrearSigno.bind(controlador))
 
 export {ruta}
