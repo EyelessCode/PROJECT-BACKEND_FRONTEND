@@ -1,5 +1,5 @@
 export interface ISignoVital{
-    codigo:number
+    // codigo:number
     descripcion:string
     unidad:string
     valorMinimo:number
