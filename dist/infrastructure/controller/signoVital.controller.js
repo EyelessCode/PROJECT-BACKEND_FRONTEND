@@ -1,88 +1,130 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SignoVitalController = void 0;
-const signoVital_repository_1 = require("../repository/signoVital.repository");
-const error_until_1 = require("../../util/error.until");
-const mensaje_until_1 = require("../../util/mensaje.until");
-const signoVital_service_1 = require("../../app/service/signoVital.service");
+const crearSignoVital_useCase_1 = require("../../app/useCase/signoVital/crearSignoVital.useCase");
+const actualizarSignoVital_useCase_1 = require("../../app/useCase/signoVital/actualizarSignoVital.useCase");
+const eliminarSignoVital_useCase_1 = require("../../app/useCase/signoVital/eliminarSignoVital.useCase");
+const obtenerSignoVital_useCase_1 = require("../../app/useCase/signoVital/obtenerSignoVital.useCase");
+const obtenerSignosVitales_caseUse_1 = require("../../app/useCase/signoVital/obtenerSignosVitales.caseUse");
 class SignoVitalController {
-    constructor() {
-        this.controladorObtenerSignos = (req, res) => {
+    controladorCrearSigno(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
             try {
-                let signo = this.service.obtenerSignos();
-                res.json(signo);
+                const data = req.body;
+                const nuevoSignoVital = yield (0, crearSignoVital_useCase_1.crearSignoVital)(data);
+                res.status(201).json(nuevoSignoVital);
             }
             catch (error) {
-                (0, error_until_1.handleHttp)(res.status(404), 'ERROR_EN_OBTENER_SIGNOS', error);
+                console.error(error);
+                res.status(500).json({
+                    message: "Error al crear el signo vital",
+                    error: error
+                });
             }
-        };
-        this.controladorObtenerUnSigno = (req, res) => {
+        });
+    }
+    controladorActualizarSigno(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
             try {
-                let buscarCodigo = parseInt(req.params.codigo);
-                if (isNaN(buscarCodigo)) {
+                const codigo = parseInt(req.params.codigo);
+                if (isNaN(codigo)) {
                     res.status(400).json({
-                        mensaje: "Código inválido!"
+                        message: "El código no es un número"
                     });
                 }
-                let SoloSigno = this.service.obtenerUnSigno(buscarCodigo);
-                if (!SoloSigno) {
-                    res.status(404).json((0, mensaje_until_1.generarMensajeError)());
-                }
-                res.json(SoloSigno);
-            }
-            catch (error) {
-                (0, error_until_1.handleHttp)(res, 'ERROR_EN_OBTENER_UN_SIGNO', error);
-            }
-        };
-        this.controladorCrearSigno = (req, res) => {
-            try {
-                let crearSigno = this.service.crearSigno(req.body);
-                res.status(201).json(crearSigno);
-            }
-            catch (error) {
-                (0, error_until_1.handleHttp)(res, 'ERROR_CREAR_SIGNO', error);
-            }
-        };
-        this.controladorActualizarSigno = (req, res) => {
-            try {
-                let buscarCodigo = parseInt(req.params.codigo);
-                if (isNaN(buscarCodigo)) {
-                    res.status(400).json({
-                        mensaje: "Código inválido"
+                const data = req.body;
+                const signoVitalActualizado = yield (0, actualizarSignoVital_useCase_1.actualizarSignoVital)(codigo, data);
+                if (!signoVitalActualizado) {
+                    res.status(404).json({
+                        message: `El signo vital: ${codigo} no existe`
                     });
                 }
-                let actualizarSigno = this.service.actualizarSigno(buscarCodigo, req.body);
-                if (!actualizarSigno) {
-                    res.status(404).json((0, mensaje_until_1.generarMensajeError)());
-                }
-                res.json(actualizarSigno);
+                res.status(200).json(signoVitalActualizado);
             }
             catch (error) {
-                (0, error_until_1.handleHttp)(res, 'ERROR_ACTUALIZAR_SIGNO', error);
+                console.error(error);
+                res.status(500).json({
+                    message: "Error al actualizar el signo vital",
+                    error: error
+                });
             }
-        };
-        this.controladorEliminarSigno = (req, res) => {
+        });
+    }
+    controladorEliminarSigno(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
             try {
-                let buscarCodigo = parseInt(req.params.codigo);
-                if (isNaN(buscarCodigo)) {
+                const codigo = parseInt(req.params.codigo);
+                if (isNaN(codigo)) {
                     res.status(400).json({
-                        mensaje: "Código inválido!"
+                        message: "El código no es un número"
                     });
                 }
-                let eliminarSigno = this.service.eliminarSigno(buscarCodigo);
-                if (eliminarSigno) {
-                    res.status(200).json((0, mensaje_until_1.generarMensajeSatisfactorio)());
+                const eliminarSignoVital = yield (0, eliminarSignoVital_useCase_1.eliminarSignoVitalCasoUso)(codigo);
+                if (!eliminarSignoVital) {
+                    res.status(404).json({
+                        message: `El signo vital: ${codigo} no existe`
+                    });
                 }
-                else {
-                    res.status(404).json((0, mensaje_until_1.generarMensajeError)());
-                }
+                res.status(200).json(eliminarSignoVital);
             }
             catch (error) {
-                (0, error_until_1.handleHttp)(res, 'ERROR_ELIMINAR_SIGNO', error);
+                console.error(error);
+                res.status(500).json({
+                    message: "Error al eliminar el signo vital",
+                    error: error
+                });
             }
-        };
-        const repositorio = new signoVital_repository_1.SignoVitalRepositorio();
-        this.service = new signoVital_service_1.SignoVitalService(repositorio);
+        });
+    }
+    controladorObtenerSigno(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const codigo = parseInt(req.params.codigo);
+                if (isNaN(codigo)) {
+                    res.status(400).json({
+                        message: "El código no es un número"
+                    });
+                }
+                const obtenerSigno = yield (0, obtenerSignoVital_useCase_1.obtenerUnSignoVitalCasoUso)(codigo);
+                if (!obtenerSigno) {
+                    res.status(404).json({
+                        message: `El signo vital: ${codigo} no existe`
+                    });
+                }
+                res.status(200).json(obtenerSigno);
+            }
+            catch (error) {
+                console.error(error);
+                res.status(500).json({
+                    message: "Error al obtener el signo vital",
+                    error: error
+                });
+            }
+        });
+    }
+    controladorObtenerSignos(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const obtenerSignos = yield (0, obtenerSignosVitales_caseUse_1.obtenerSignosVitalesCasoUso)();
+                res.status(200).json(obtenerSignos);
+            }
+            catch (error) {
+                console.error(error);
+                res.status(500).json({
+                    message: "Error al obtener los signos vitales",
+                    error: error
+                });
+            }
+        });
     }
 }
 exports.SignoVitalController = SignoVitalController;

@@ -9,27 +9,24 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const prisma_service_1 = require("../../infrastructure/data/prisma.service");
-function useCaseCrearSignoVital(descripcion, unidad, valorMinimo, valorMaximo) {
-    return __awaiter(this, void 0, void 0, function* () {
-        return yield prisma_service_1.prisma.signoVital.create({
+exports.crearSignoVital = void 0;
+const prisma_service_1 = require("../../../infrastructure/data/prisma.service");
+const crearSignoVital = (data) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const nuevoSignoVital = yield prisma_service_1.prisma.signoVital.create({
             data: {
-                descripcion,
-                unidad,
-                valorMinimo,
-                valorMaximo
+                descripcion: data.descripcion,
+                unidad: data.unidad,
+                valorMinimo: data.valorMinimo,
+                valorMaximo: data.valorMaximo
             }
         });
-    });
-}
-function useCaseActualizarSigno(codigo, data) {
-    return __awaiter(this, void 0, void 0, function* () {
-        return yield prisma_service_1.prisma.signoVital.update({
-            where: {
-                codigo
-            },
-            data
-        });
-    });
-}
-//# sourceMappingURL=signoVital.caseUse.js.map
+        return nuevoSignoVital;
+    }
+    catch (error) {
+        console.error(`Error al crear un nuevo Signo Vital: ${error}`);
+        throw new Error('No se pudo crear un nuevo Signo Vital');
+    }
+});
+exports.crearSignoVital = crearSignoVital;
+//# sourceMappingURL=crearSignoVital.useCase.js.map

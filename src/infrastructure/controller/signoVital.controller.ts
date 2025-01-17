@@ -35,7 +35,7 @@ export class SignoVitalController{
             const signoVitalActualizado=await actualizarSignoVital(codigo,data)
             
             if (!signoVitalActualizado) {
-                return res.status(404).json({
+                res.status(404).json({
                     message: `El signo vital: ${codigo} no existe`
                 })
             }
@@ -65,7 +65,7 @@ export class SignoVitalController{
             const eliminarSignoVital=await eliminarSignoVitalCasoUso(codigo)
 
             if (!eliminarSignoVital) {
-                return res.status(404).json({
+                res.status(404).json({
                     message: `El signo vital: ${codigo} no existe`
                 })
             }
@@ -95,7 +95,7 @@ export class SignoVitalController{
             const obtenerSigno=await obtenerUnSignoVitalCasoUso(codigo)
 
             if (!obtenerSigno) {
-                return res.status(404).json({
+                res.status(404).json({
                     message: `El signo vital: ${codigo} no existe`
                 })
             }

@@ -11,9 +11,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ruta = void 0;
 const express_1 = require("express");
+const signoVital_controller_1 = require("../infrastructure/controller/signoVital.controller");
 const prisma_service_1 = require("../infrastructure/data/prisma.service");
 const ruta = (0, express_1.Router)();
 exports.ruta = ruta;
+const controlador = new signoVital_controller_1.SignoVitalController();
 ruta.get('/test', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const signoVitales = yield prisma_service_1.prisma.signoVital.findMany();
@@ -30,4 +32,9 @@ ruta.get('/test', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         });
     }
 }));
+ruta.get('/', controlador.controladorObtenerSignos.bind(controlador));
+ruta.get('/:codigo', controlador.controladorObtenerSigno.bind(controlador));
+ruta.post('/', controlador.controladorCrearSigno.bind(controlador));
+ruta.put('/:codigo', controlador.controladorActualizarSigno.bind(controlador));
+ruta.delete('/:codigo', controlador.controladorEliminarSigno.bind(controlador));
 //# sourceMappingURL=signoVital.js.map
