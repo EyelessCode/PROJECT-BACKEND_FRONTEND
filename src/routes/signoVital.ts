@@ -1,4 +1,4 @@
-import { Router } from "express";
+import { Request, Response, Router } from "express";
 import { SignoVitalController } from "../infrastructure/controller/signoVital.controller";
 import { prisma } from "../infrastructure/data/prisma.service";
 
@@ -11,9 +11,9 @@ ruta.post('/',controlador.controladorCrearSigno)
 ruta.put('/:codigo',controlador.controladorActualizarSigno)
 ruta.delete('/:codigo',controlador.controladorEliminarSigno) */
 
-ruta.get('/test',async(req,res)=>{
+ruta.get('/test',async(req:Request,res:Response)=>{
     try {
-        const signoVitales=prisma.signoVital.findMany()
+        const signoVitales=await prisma.signoVital.findMany()
         res.json({
             sucess:true,
             data:signoVitales
