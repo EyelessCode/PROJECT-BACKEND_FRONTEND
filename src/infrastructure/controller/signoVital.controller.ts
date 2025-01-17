@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { crearSignoVital } from "../../app/useCase/crearSignoVital.useCase";
+import { crearSignoVital } from "../../app/useCase/signoVital/crearSignoVital.useCase";
 
 export class SignoVitalController{
     async controladorCrearSigno(req:Request,res:Response){

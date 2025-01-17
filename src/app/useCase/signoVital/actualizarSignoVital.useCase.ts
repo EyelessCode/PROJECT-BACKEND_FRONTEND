@@ -1,6 +1,6 @@
 import { SignoVital } from "@prisma/client";
-import { ISignoVital } from "../../domain/interface/signoVital/signoVital.interface";
-import { prisma } from "../../infrastructure/data/prisma.service";
+import { ISignoVital } from "../../../domain/interface/signoVital/signoVital.interface";
+import { prisma } from "../../../infrastructure/data/prisma.service";
 
 const actualizarSignoVital=async(codigo:number,data:ISignoVital):Promise<SignoVital|null>=>{
     try {

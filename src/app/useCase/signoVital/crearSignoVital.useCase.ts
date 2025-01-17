@@ -1,6 +1,6 @@
 import { SignoVital } from "@prisma/client"
-import { prisma } from "../../infrastructure/data/prisma.service"
-import { ISignoVital } from "../../domain/interface/signoVital/signoVital.interface"
+import { prisma } from "../../../infrastructure/data/prisma.service"
+import { ISignoVital } from "../../../domain/interface/signoVital/signoVital.interface"
 
 /* export interface crearSignoVitalCasoUso{
     descripcion:string

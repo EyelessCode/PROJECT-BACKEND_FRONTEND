@@ -1,5 +1,5 @@
 import { SignoVital } from "@prisma/client";
-import { prisma } from "../../infrastructure/data/prisma.service";
+import { prisma } from "../../../infrastructure/data/prisma.service";
 
 const eliminarSignoVitalCasoUso=async(codigo:number):Promise<SignoVital|null>=>{
     try {
