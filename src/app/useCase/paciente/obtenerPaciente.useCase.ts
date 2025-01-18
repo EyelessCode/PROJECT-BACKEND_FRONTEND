@@ -1,8 +1,7 @@
 import { Paciente } from "@prisma/client";
-import { IPaciente } from "../../../domain/interface/paciente/paciente.interface";
 import { prisma } from "../../../infrastructure/data/prisma.service";
 
-const obtenerPaciente=async(codigo:number,data:IPaciente):Promise<Paciente|null>=>{
+const obtenerPaciente=async(codigo:number):Promise<Paciente|null>=>{
     try {
         const existePaciente=await prisma.paciente.findUnique({
             where:{
