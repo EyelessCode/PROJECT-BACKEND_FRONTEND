@@ -1,8 +1,7 @@
 import { Paciente } from "@prisma/client";
-import { IPaciente } from "../../../domain/interface/paciente/paciente.interface";
 import { prisma } from "../../../infrastructure/data/prisma.service";
 
-const eliminarPaciente=async(codigo:number,data:IPaciente):Promise<Paciente|null>=>{
+const eliminarPaciente=async(codigo:number):Promise<Paciente|null>=>{
     try {
         const existePaciente=await prisma.paciente.findUnique({
             where:{
@@ -23,8 +22,8 @@ const eliminarPaciente=async(codigo:number,data:IPaciente):Promise<Paciente|null
     
         return eliminarPaciente
     } catch (error) {
-        console.error(`Error al tratar de eliminar un Paciente`);
-        throw new Error(`No se pudo eliminar un Paciente`)
+        console.error(`Error al tratar de eliminar un Paciente con el código: ${codigo}`);
+        throw new Error(`No se pudo eliminar un Paciente con el código: ${codigo}`);
     }
 }
 
