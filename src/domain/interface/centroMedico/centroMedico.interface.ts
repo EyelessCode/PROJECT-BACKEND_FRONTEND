@@ -1,5 +1,5 @@
 export interface ICentroMedico{
-    codigo:number
+    // codigo:number
     cedula:string
     direccion:string
 }
