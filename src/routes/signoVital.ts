@@ -1,6 +1,7 @@
 import { Request, Response, Router } from "express";
 import { SignoVitalController } from "../infrastructure/controller/signoVital.controller";
 import { prisma } from "../infrastructure/data/prisma.service";
+import { validarSignoVital } from "../infrastructure/validaciones.middleware";
 
 const ruta=Router()
 const controlador=new SignoVitalController()
@@ -31,8 +32,8 @@ ruta.get('/test',async(req:Request,res:Response)=>{
 
 ruta.get('/',controlador.controladorObtenerSignos.bind(controlador))
 ruta.get('/:codigo',controlador.controladorObtenerSigno.bind(controlador))
-ruta.post('/',controlador.controladorCrearSigno.bind(controlador))
-ruta.put('/:codigo',controlador.controladorActualizarSigno.bind(controlador))
+ruta.post('/',validarSignoVital,controlador.controladorCrearSigno.bind(controlador))
+ruta.put('/:codigo',validarSignoVital,validarSignoVital,controlador.controladorActualizarSigno.bind(controlador))
 ruta.delete('/:codigo',controlador.controladorEliminarSigno.bind(controlador))
 
 export {ruta}
