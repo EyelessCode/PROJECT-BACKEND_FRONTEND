@@ -1,6 +1,6 @@
 export interface IPaciente{
     // codigo:number
     cedula:string
-    nombre:string
+    nombres:string
     fechaNacimiento:Date
 }
