@@ -1,7 +1,7 @@
 import { Request, Response, Router } from "express";
 import { SignoVitalController } from "../infrastructure/controller/signoVital.controller";
 import { prisma } from "../infrastructure/data/prisma.service";
-import { validarSignoVital } from "../infrastructure/validaciones.middleware";
+import { validarSignoVital } from "../infrastructure/validation/validaciones.middleware";
 
 const ruta=Router()
 const controlador=new SignoVitalController()
