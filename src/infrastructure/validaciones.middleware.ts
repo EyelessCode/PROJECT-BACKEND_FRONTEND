@@ -3,7 +3,7 @@
 import { Request, Response } from "express";
 import { body, validationResult } from "express-validator";
 
-const validarSignoVital=[
+const validarSignoVital:any=[
     body("descripcion").isString().withMessage("La descripción debe de ser un texto"),
     body("unidad").isString().withMessage("La unidad debe de ser texto"),
     body("valorMinimo").isFloat({gt:0}).withMessage("El valor mínimo debe ser un número positivo"),
@@ -19,3 +19,5 @@ const validarSignoVital=[
         next()
     }
 ]
+
+export {validarSignoVital}
