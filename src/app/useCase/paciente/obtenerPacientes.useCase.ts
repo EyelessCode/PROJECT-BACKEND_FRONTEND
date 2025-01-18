@@ -6,7 +6,7 @@ const obtenerPacientes=async():Promise<Paciente[]|null>=>{
         const obtenerPacientes=await prisma.paciente.findMany()
 
         if (!obtenerPacientes) {
-            console.log(`No existen Signos Vitales`);
+            console.log(`No existen Pacientes`);
             return null
         }
 
