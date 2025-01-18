@@ -1,5 +1,5 @@
 export interface IEnfermera{
-    codigo:number
+    // codigo:number
     cedula:string
     nombre:string
 }
