@@ -2,7 +2,7 @@ import { Paciente } from "@prisma/client";
 import { IPaciente } from "../../../domain/interface/paciente/paciente.interface";
 import { prisma } from "../../../infrastructure/data/prisma.service";
 
-const crearPacienteUseCase=async(data:IPaciente):Promise<Paciente>=>{
+const crearPaciente=async(data:IPaciente):Promise<Paciente>=>{
     try {
         const nuevoPaciente=await prisma.paciente.create({
             data:{
@@ -19,4 +19,4 @@ const crearPacienteUseCase=async(data:IPaciente):Promise<Paciente>=>{
     }
 }
 
-export {crearPacienteUseCase}
+export {crearPaciente}
