@@ -15,7 +15,7 @@ const crearPaciente=async(data:IPaciente):Promise<Paciente>=>{
         return nuevoPaciente
     } catch (error) {
         console.error(`Error al crear un nuevo Paciente: ${error}`);
-        throw new Error('No se pudo crear un nuevo Signo Vital')
+        throw new Error('No se pudo crear un nuevo Paciente')
     }
 }
 
