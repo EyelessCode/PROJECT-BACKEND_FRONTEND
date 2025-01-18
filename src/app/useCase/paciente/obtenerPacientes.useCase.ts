@@ -16,3 +16,5 @@ const obtenerPacientes=async():Promise<Paciente[]|null>=>{
         throw new Error(`No se pudo obtener los Pacientes`)
     }
 }
+
+export {obtenerPacientes}
