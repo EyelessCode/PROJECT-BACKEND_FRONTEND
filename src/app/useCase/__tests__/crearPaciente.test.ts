@@ -1,5 +1,5 @@
-import { crearPaciente } from "../crearPaciente.useCase";
-import { prisma } from "../../../../infrastructure/data/prisma.service";
+import { crearPaciente } from "../paciente.useCase";
+import { prisma } from "../../../infrastructure/data/prisma.service";
 
 beforeEach(async () => {
     await prisma.paciente.deleteMany();
@@ -8,6 +8,7 @@ beforeEach(async () => {
 describe("Caso de uso: Crear Paciente", () => {
     it("Debería crear un paciente correctamente", async () => {
         const data = {
+            codigo:45,
             cedula: "0987452896",
             nombres: "Pepe Gonzáles",
             fechaNacimiento: "2004-12-12",
@@ -15,6 +16,7 @@ describe("Caso de uso: Crear Paciente", () => {
 
         const paciente = await crearPaciente(data);
 
+        // expect(codigo).toHaveProperty("codigo", 45);
         expect(paciente).toHaveProperty("cedula", "0987452896");
         expect(paciente).toHaveProperty("nombres", "Pepe Gonzáles");
         expect(paciente.fechaNacimiento).toBe("2004-12-12")

@@ -1,38 +1,35 @@
 import { Request, Response } from "express";
-import { crearPaciente } from "../../app/useCase/paciente/crearPaciente.useCase";
-import { actualizarPaciente } from "../../app/useCase/paciente/actualizarPaciente.useCase";
-import { eliminarPaciente } from "../../app/useCase/paciente/eliminarPaciente.useCase";
-import { obtenerPaciente } from "../../app/useCase/paciente/obtenerPaciente.useCase";
-import { obtenerPacientes } from "../../app/useCase/paciente/obtenerPacientes.useCase";
-import { logger } from "../log/logger.service";
 
-export class PacienteController{
-    async controladorCrearPaciente(req:Request,res:Response):Promise<any>{
+import { logger } from "../log/logger.service";
+import { actualizarPaciente, crearPaciente, eliminarPaciente, obtenerPaciente, obtenerPacientes } from "../../app/useCase/paciente.useCase";
+
+export class PacienteController {
+    async controladorCrearPaciente(req: Request, res: Response): Promise<any> {
         try {
-            const data=req.body
-            const nuevoPaciente=await crearPaciente(data)
+            const data = req.body
+            const nuevoPaciente = await crearPaciente(data)
             logger.info(`PACIENTE CREADO ${nuevoPaciente.cedula}`)
             return res.status(201).json(nuevoPaciente)
         } catch (error) {
-                console.error(error);
-                logger.error(`ERROR AL CREAR AL PACIENTE. ${error}`)
-                return res.status(500).json({
-                    message:"Error al crear un Paciente",
-                    error: error,
+            console.error(error);
+            logger.error(`ERROR AL CREAR AL PACIENTE. ${error}`)
+            return res.status(500).json({
+                message: "Error al crear un Paciente",
+                error: error,
             })
         }
     }
 
-    async controladorActualizarPaciente(req:Request,res:Response):Promise<any> {
+    async controladorActualizarPaciente(req: Request, res: Response): Promise<any> {
         try {
-            const codigo=parseInt(req.params.codigo)
+            const codigo = parseInt(req.params.codigo)
 
-            
 
-            const data=req.body
 
-            const pacienteActualizado=await actualizarPaciente(codigo,data)
-            
+            const data = req.body
+
+            const pacienteActualizado = await actualizarPaciente(codigo, data)
+
             if (!pacienteActualizado) {
                 return res.status(404).json({
                     message: `El Paciente: ${codigo} no existe`
@@ -46,21 +43,21 @@ export class PacienteController{
             console.error(error);
             logger.error(`ERROR AL ACTUALIZAR AL PACIENTE. ${error}`)
             return res.status(500).json({
-                message:"Error al actualizar el Paciente",
+                message: "Error al actualizar el Paciente",
                 error: error
 
             })
         }
     }
 
-    async controladorEliminarPaciente(req:Request,res:Response):Promise<any>{
+    async controladorEliminarPaciente(req: Request, res: Response): Promise<any> {
         try {
-            const codigo=parseInt(req.params.codigo)
+            const codigo = parseInt(req.params.codigo)
 
-            
+
             // const data=req.body
 
-            const pacienteEliminado=await eliminarPaciente(codigo)
+            const pacienteEliminado = await eliminarPaciente(codigo)
 
             if (!pacienteEliminado) {
                 return res.status(404).json({
@@ -75,21 +72,21 @@ export class PacienteController{
             console.error(error);
             logger.error(`ERROR AL ELIMINAR PACIENTE. ${error}`)
             return res.status(500).json({
-                message:"Error al eliminar el Paciente",
+                message: "Error al eliminar el Paciente",
                 error: error
 
             })
         }
     }
 
-    async controladorObtenerPaciente(req:Request,res:Response):Promise<any>{
+    async controladorObtenerPaciente(req: Request, res: Response): Promise<any> {
         try {
-            const codigo=parseInt(req.params.codigo)
+            const codigo = parseInt(req.params.codigo)
 
-            
+
             // const data=req.body
 
-            const paciente=await obtenerPaciente(codigo)
+            const paciente = await obtenerPaciente(codigo)
 
             if (!paciente) {
                 return res.status(404).json({
@@ -104,18 +101,18 @@ export class PacienteController{
             console.error(error);
             logger.error(`ERROR AL OBTENER PACIENTE. ${error}`)
             return res.status(500).json({
-                message:"Error al obtener el Paciente",
+                message: "Error al obtener el Paciente",
                 error: error
 
             })
         }
     }
 
-    async controladorObtenerPacientes(req:Request,res:Response):Promise<any>{
+    async controladorObtenerPacientes(req: Request, res: Response): Promise<any> {
         try {
             // const data=req.body
 
-            const pacientes=await obtenerPacientes()
+            const pacientes = await obtenerPacientes()
 
             logger.info(`\nLISTADO DE PACIENTES\n`)
             return res.status(200).json(pacientes)
@@ -123,7 +120,7 @@ export class PacienteController{
             console.error(error);
             logger.error(`ERROR AL OBTENER LOS PACIENTES. ${error}`)
             return res.status(500).json({
-                message:"Error al obtener los Pacientes",
+                message: "Error al obtener los Pacientes",
                 error: error
 
             })

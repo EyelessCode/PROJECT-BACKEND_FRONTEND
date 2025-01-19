@@ -6,7 +6,7 @@ export class PacienteRepositorio implements IPacienteRepositorio{
     async crearPaciente(data: Paciente): Promise<Paciente> {
         // throw new Error("Method not implemented.");
         return await prisma.paciente.create({
-            data
+            data:data
         })
     }
 
@@ -30,7 +30,7 @@ export class PacienteRepositorio implements IPacienteRepositorio{
             where:{
                 codigo:codigo
             },
-            data
+            data:data
         })
     }
 
