@@ -27,7 +27,7 @@ const actualizarCentroMedico=async(codigo:number,data:ICentroMedico):Promise<Cen
 
         return actualizar
     } catch (error) {
-        console.error(`Error al crear actualizar Centro Médico: ${error}`);
+        console.error(`Error al actualizar Centro Médico: ${error}`);
         throw new Error('No se pudo actualizar un Centro Médico')
     }
 }
