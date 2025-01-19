@@ -9,30 +9,33 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SignoVitalController = void 0;
-const crearSignoVital_useCase_1 = require("../../app/useCase/signoVital/crearSignoVital.useCase");
-const actualizarSignoVital_useCase_1 = require("../../app/useCase/signoVital/actualizarSignoVital.useCase");
-const eliminarSignoVital_useCase_1 = require("../../app/useCase/signoVital/eliminarSignoVital.useCase");
-const obtenerSignoVital_useCase_1 = require("../../app/useCase/signoVital/obtenerSignoVital.useCase");
-const obtenerSignosVitales_caseUse_1 = require("../../app/useCase/signoVital/obtenerSignosVitales.caseUse");
-class SignoVitalController {
-    controladorCrearSigno(req, res) {
+exports.PacienteController = void 0;
+const crearPaciente_useCase_1 = require("../../app/useCase/paciente/crearPaciente.useCase");
+const actualizarPaciente_useCase_1 = require("../../app/useCase/paciente/actualizarPaciente.useCase");
+const eliminarPaciente_useCase_1 = require("../../app/useCase/paciente/eliminarPaciente.useCase");
+const obtenerPaciente_useCase_1 = require("../../app/useCase/paciente/obtenerPaciente.useCase");
+const obtenerPacientes_useCase_1 = require("../../app/useCase/paciente/obtenerPacientes.useCase");
+const logger_service_1 = require("../log/logger.service");
+class PacienteController {
+    controladorCrearPaciente(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const data = req.body;
-                const nuevoSignoVital = yield (0, crearSignoVital_useCase_1.crearSignoVital)(data);
-                return res.status(201).json(nuevoSignoVital);
+                const nuevoPaciente = yield (0, crearPaciente_useCase_1.crearPaciente)(data);
+                logger_service_1.logger.info(`PACIENTE CREADO ${nuevoPaciente.cedula}`);
+                return res.status(201).json(nuevoPaciente);
             }
             catch (error) {
                 console.error(error);
+                logger_service_1.logger.error(`ERROR AL CREAR AL PACIENTE. ${error}`);
                 return res.status(500).json({
-                    message: "Error al crear el signo vital",
-                    error: error
+                    message: "Error al crear un Paciente",
+                    error: error,
                 });
             }
         });
     }
-    controladorActualizarSigno(req, res) {
+    controladorActualizarPaciente(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const codigo = parseInt(req.params.codigo);
@@ -42,24 +45,26 @@ class SignoVitalController {
                     });
                 }
                 const data = req.body;
-                const signoVitalActualizado = yield (0, actualizarSignoVital_useCase_1.actualizarSignoVital)(codigo, data);
-                if (!signoVitalActualizado) {
+                const pacienteActualizado = yield (0, actualizarPaciente_useCase_1.actualizarPaciente)(codigo, data);
+                if (!pacienteActualizado) {
                     return res.status(404).json({
-                        message: `El signo vital: ${codigo} no existe`
+                        message: `El Paciente: ${codigo} no existe`
                     });
                 }
-                return res.status(200).json(signoVitalActualizado);
+                logger_service_1.logger.info(`PACIENTE ACTUALIZADO ${pacienteActualizado.cedula}`);
+                return res.status(200).json(pacienteActualizado);
             }
             catch (error) {
                 console.error(error);
+                logger_service_1.logger.error(`ERROR AL ACTUALIZAR AL PACIENTE. ${error}`);
                 return res.status(500).json({
-                    message: "Error al actualizar el signo vital",
+                    message: "Error al actualizar el Paciente",
                     error: error
                 });
             }
         });
     }
-    controladorEliminarSigno(req, res) {
+    controladorEliminarPaciente(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const codigo = parseInt(req.params.codigo);
@@ -68,24 +73,26 @@ class SignoVitalController {
                         message: "El código no es un número"
                     });
                 }
-                const eliminarSignoVital = yield (0, eliminarSignoVital_useCase_1.eliminarSignoVitalCasoUso)(codigo);
-                if (!eliminarSignoVital) {
+                const pacienteEliminado = yield (0, eliminarPaciente_useCase_1.eliminarPaciente)(codigo);
+                if (!pacienteEliminado) {
                     return res.status(404).json({
-                        message: `El signo vital: ${codigo} no existe`
+                        message: `El Paciente: ${codigo} no existe`
                     });
                 }
-                return res.status(200).json(eliminarSignoVital);
+                logger_service_1.logger.info(`PACIENTE ELIMINADO ${pacienteEliminado.cedula}`);
+                return res.status(200).json(pacienteEliminado);
             }
             catch (error) {
                 console.error(error);
+                logger_service_1.logger.error(`ERROR AL ELIMINAR PACIENTE. ${error}`);
                 return res.status(500).json({
-                    message: "Error al eliminar el signo vital",
+                    message: "Error al eliminar el Paciente",
                     error: error
                 });
             }
         });
     }
-    controladorObtenerSigno(req, res) {
+    controladorObtenerPaciente(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const codigo = parseInt(req.params.codigo);
@@ -94,38 +101,42 @@ class SignoVitalController {
                         message: "El código no es un número"
                     });
                 }
-                const obtenerSigno = yield (0, obtenerSignoVital_useCase_1.obtenerUnSignoVitalCasoUso)(codigo);
-                if (!obtenerSigno) {
+                const paciente = yield (0, obtenerPaciente_useCase_1.obtenerPaciente)(codigo);
+                if (!paciente) {
                     return res.status(404).json({
-                        message: `El signo vital: ${codigo} no existe`
+                        message: `El Paciente: ${codigo} no existe`
                     });
                 }
-                return res.status(200).json(obtenerSigno);
+                logger_service_1.logger.info(`PACIENTE FILTRADO ${paciente.cedula}`);
+                return res.status(200).json(paciente);
             }
             catch (error) {
                 console.error(error);
+                logger_service_1.logger.error(`ERROR AL OBTENER PACIENTE. ${error}`);
                 return res.status(500).json({
-                    message: "Error al obtener el signo vital",
+                    message: "Error al obtener el Paciente",
                     error: error
                 });
             }
         });
     }
-    controladorObtenerSignos(req, res) {
+    controladorObtenerPacientes(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const obtenerSignos = yield (0, obtenerSignosVitales_caseUse_1.obtenerSignosVitalesCasoUso)();
-                return res.status(200).json(obtenerSignos);
+                const pacientes = yield (0, obtenerPacientes_useCase_1.obtenerPacientes)();
+                logger_service_1.logger.info(`\nLISTADO DE PACIENTES\n`);
+                return res.status(200).json(pacientes);
             }
             catch (error) {
                 console.error(error);
+                logger_service_1.logger.error(`ERROR AL OBTENER LOS PACIENTES. ${error}`);
                 return res.status(500).json({
-                    message: "Error al obtener los signos vitales",
+                    message: "Error al obtener los Pacientes",
                     error: error
                 });
             }
         });
     }
 }
-exports.SignoVitalController = SignoVitalController;
-//# sourceMappingURL=signoVital.controller.js.map
+exports.PacienteController = PacienteController;
+//# sourceMappingURL=paciente.controller.js.map
