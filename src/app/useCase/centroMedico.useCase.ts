@@ -24,4 +24,33 @@ const crearCentroMedico=async(data:CentroMedico):Promise<CentroMedico>=>{
     }
 }
 
-export {actualizarCentroMedico}
+const eliminarCentroMedico=async(codigo:number):Promise<CentroMedico|null>=>{
+    try {
+        return await repositorio.eliminarCentroMedico(codigo)
+    } catch (error) {
+        console.error(`Error al eliminar Centro Médico: ${error}`);
+        throw new Error('No se pudo eliminar un Centro Médico')
+    }
+}
+
+const obtenerCentroMedico=async(codigo:number):Promise<CentroMedico|null>=>{
+    try {
+        return await repositorio.obtenerCentroMedico(codigo)
+    } catch (error) {
+        console.error(`Error al obtener un Centro Médico: ${error}`);
+        throw new Error('No se pudo obtener un Centro Médico')
+    }
+}
+
+const obtenerCentrosMedicos=async():Promise<CentroMedico[]>=>{
+    try {
+        return await repositorio.obtenerCentrosMedicos()
+    } catch (error) {
+        console.error(`Error al obtener los Centros Médicos: ${error}`);
+        throw new Error('No se pudo obtener los Centros Médicos')
+    }
+}
+
+export {actualizarCentroMedico,crearCentroMedico,eliminarCentroMedico,
+    obtenerCentroMedico,obtenerCentrosMedicos
+}
