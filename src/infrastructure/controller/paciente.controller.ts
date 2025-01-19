@@ -10,7 +10,7 @@ export class PacienteController{
         try {
             const data=req.body
             const nuevoPaciente=await crearPaciente(data)
-            return nuevoPaciente
+            return res.status(201).json(nuevoPaciente)
         } catch (error) {
             console.error(error);
             return res.status(500).json({

@@ -8,7 +8,7 @@ const validarSignoVital:any=[
     body("unidad").isString().withMessage("La unidad debe de ser texto"),
     body("valorMinimo").isFloat({gt:0}).withMessage("El valor mínimo debe ser un número positivo"),
     body("valorMaximo").isFloat({gt:0}).withMessage("El valor máximo debe ser un número positivo"),
-    (req:Request,res:Response,next:any)=>{
+    (req:Request,res:Response,next:Function)=>{
         const errores=validationResult(req)
 
         if (!errores.isEmpty()) {
@@ -23,8 +23,9 @@ const validarSignoVital:any=[
 const validarPaciente:any=[
     body("cedula").isString().withMessage("La cédula debe de ser un texto"),
     body("nombres").isString().withMessage("Los nombres deben de ser texto"),
-    body("fechaNacimiento").isDate({format:"dd/mm/yyyy"}).withMessage("La fecha de nacimiento debe ser una fecha"),
-    (req:Request,res:Response,next:any)=>{
+    body("fechaNacimiento").isString().withMessage("La fecha de nacimiento debe ser válida")
+    .matches(/^\d{4}-\d{2}-\d{2}$/).withMessage("Formato de fecha inválido (YYYY-MM-DD)"),
+    (req:Request,res:Response,next:Function)=>{
         const errores=validationResult(req)
 
         if (!errores.isEmpty()) {
