@@ -9,7 +9,7 @@ export class CentroMedicoController{
     async controladorCrearCentroMedico(req:Request,res:Response):Promise<any>{
         try {
             const data=req.body
-            const crear=crearCentroMedico(data)
+            const crear=await crearCentroMedico(data)
 
             return res.status(201).json(crear)
         } catch (error) {
@@ -33,7 +33,7 @@ export class CentroMedicoController{
             }
             // const data=req.body
 
-            const eliminar=eliminarCentroMedico(codigo)
+            const eliminar=await eliminarCentroMedico(codigo)
 
             if (!eliminar) {
                 return res.status(404).json({
@@ -63,7 +63,7 @@ export class CentroMedicoController{
             }
             const data=req.body
 
-            const actualizar=actualizarCentroMedico(codigo,data)
+            const actualizar=await actualizarCentroMedico(codigo,data)
 
             if (!actualizar) {
                 return res.status(404).json({
@@ -93,7 +93,7 @@ export class CentroMedicoController{
                 })
             }
 
-            const obtener=obtenerCentroMedico(codigo)
+            const obtener=await obtenerCentroMedico(codigo)
 
             if (!obtener) {
                 return res.status(404).json({
@@ -112,9 +112,9 @@ export class CentroMedicoController{
         }
     }
 
-    async controladorObtenerCentrosMedicos(res:Response):Promise<any>{
+    async controladorObtenerCentrosMedicos(req:Request,res:Response):Promise<any>{
         try {
-            const obtener=obtenerCentrosMedicos()
+            const obtener=await obtenerCentrosMedicos()
 
             return res.status(200).json(obtener)
         } catch (error) {

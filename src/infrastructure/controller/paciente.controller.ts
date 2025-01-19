@@ -123,7 +123,7 @@ export class PacienteController{
         }
     }
 
-    async controladorObtenerPacientes(res:Response):Promise<any>{
+    async controladorObtenerPacientes(req:Request,res:Response):Promise<any>{
         try {
             // const data=req.body
 
