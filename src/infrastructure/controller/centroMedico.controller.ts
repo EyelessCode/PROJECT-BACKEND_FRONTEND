@@ -1,9 +1,5 @@
 import { Request, Response } from "express";
-import { crearCentroMedico } from "../../app/useCase/centroMedico/crearCentroMedico.useCase";
-import { eliminarCentroMedico } from "../../app/useCase/centroMedico/eliminarCentroMedico.useCase";
-import { actualizarCentroMedico } from "../../app/useCase/centroMedico.useCase";
-import { obtenerCentroMedico } from "../../app/useCase/centroMedico/obtenerCentroMedico.useCase";
-import { obtenerCentrosMedicos } from "../../app/useCase/centroMedico/obtenerCentrosMedicos.useCase";
+import { actualizarCentroMedico, crearCentroMedico, eliminarCentroMedico, obtenerCentroMedico, obtenerCentrosMedicos } from "../../app/useCase/centroMedico.useCase";
 
 export class CentroMedicoController{
     async controladorCrearCentroMedico(req:Request,res:Response):Promise<any>{
