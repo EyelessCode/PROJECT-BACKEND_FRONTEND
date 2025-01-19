@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { crearCentroMedico } from "../../app/useCase/centroMedico/crearCentroMedico.useCase";
 import { eliminarCentroMedico } from "../../app/useCase/centroMedico/eliminarCentroMedico.useCase";
-import { actualizarCentroMedico } from "../../app/useCase/centroMedico/actualizarCentroMedico.useCase";
+import { actualizarCentroMedico } from "../../app/useCase/centroMedico/centroMedico.useCase";
 import { obtenerCentroMedico } from "../../app/useCase/centroMedico/obtenerCentroMedico.useCase";
 import { obtenerCentrosMedicos } from "../../app/useCase/centroMedico/obtenerCentrosMedicos.useCase";
 
