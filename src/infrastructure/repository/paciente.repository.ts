@@ -12,6 +12,10 @@ export class PacienteRepositorio implements IPacienteRepositorio{
 
     async obtenerPaciente(codigo: number): Promise<Paciente | null> {
         // throw new Error("Method not implemented.");
+        if (codigo <= 0) {
+            throw new Error("El código debe ser un número positivo mayor a cero.");
+        }
+
         return await prisma.paciente.findUnique({
             where: {
                 codigo:codigo
@@ -26,6 +30,11 @@ export class PacienteRepositorio implements IPacienteRepositorio{
     
     async actualizarPaciente(codigo: number, data: Partial<Paciente>): Promise<Paciente | null> {
         // throw new Error("Method not implemented.");
+
+        if (codigo <= 0) {
+            throw new Error("El código debe ser un número positivo mayor a cero.");
+        }
+
         return await prisma.paciente.update({
             where:{
                 codigo:codigo
@@ -36,6 +45,10 @@ export class PacienteRepositorio implements IPacienteRepositorio{
 
     async eliminarPaciente(codigo: number): Promise<Paciente | null> {
         // throw new Error("Method not implemented.");
+        if (codigo <= 0) {
+            throw new Error("El código debe ser un número positivo mayor a cero.");
+        }
+
         return await prisma.paciente.delete({
             where:{
                 codigo:codigo
