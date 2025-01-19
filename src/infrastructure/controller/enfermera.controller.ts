@@ -28,11 +28,7 @@ export class EnfermeraController{
         try {
             const codigo=parseInt(req.params.codigo)
             
-            if (isNaN(codigo)) {
-                return res.status(400).json({
-                    message: "El código no es un número"
-                })
-            }
+            
             // const data=req.body
 
             
@@ -60,11 +56,7 @@ export class EnfermeraController{
         try {
             const codigo=parseInt(req.params.codigo)
             
-            if (isNaN(codigo)) {
-                return res.status(400).json({
-                    message: "El código no es un número"
-                })
-            }
+            
             const data=req.body
 
             const actualizar=await actualizarEnfermeras(codigo,data)
@@ -92,11 +84,7 @@ export class EnfermeraController{
         try {
             const codigo=parseInt(req.params.codigo)
             
-            if (isNaN(codigo)) {
-                return res.status(400).json({
-                    message: "El código no es un número"
-                })
-            }
+            
 
             const obtener=await obtenerEnfermera(codigo)
 
@@ -110,7 +98,7 @@ export class EnfermeraController{
             return res.status(200).json(obtener)
         } catch (error) {
             console.error(error);
-            logger.error(`ERROR AL CREAR AL ENFERMERA. ${error}`)
+            logger.error(`ERROR AL OBTENER LA ENFERMERA. ${error}`)
             return res.status(500).json({
                 message:"Error al obtener una Enfermera",
                 error: error,

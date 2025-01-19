@@ -24,11 +24,7 @@ export class SignoVitalController{
         try {
             const codigo=parseInt(req.params.codigo)
 
-            if (isNaN(codigo)) {
-                return res.status(400).json({
-                    message: "El código no es un número"
-                })
-            }
+            
 
             const data=req.body
 
@@ -55,11 +51,7 @@ export class SignoVitalController{
         try {
             const codigo=parseInt(req.params.codigo)
 
-            if (isNaN(codigo)) {
-                return res.status(400).json({
-                    message: "El código no es un número"
-                })
-            }
+            
             // const data=req.body
 
             const eliminarSignoVital=await eliminarSignoVitalCasoUso(codigo)
@@ -85,11 +77,7 @@ export class SignoVitalController{
         try {
             const codigo=parseInt(req.params.codigo)
 
-            if (isNaN(codigo)) {
-                return res.status(400).json({
-                    message: "El código no es un número"
-                })
-            }
+            
             // const data=req.body
 
             const obtenerSigno=await obtenerUnSignoVitalCasoUso(codigo)

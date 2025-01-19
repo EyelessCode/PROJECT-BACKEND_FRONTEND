@@ -26,11 +26,7 @@ export class CentroMedicoController{
         try {
             const codigo=parseInt(req.params.codigo)
             
-            if (isNaN(codigo)) {
-                return res.status(400).json({
-                    message: "El código no es un número"
-                })
-            }
+            
             // const data=req.body
 
             const eliminar=await eliminarCentroMedico(codigo)
@@ -56,11 +52,7 @@ export class CentroMedicoController{
         try {
             const codigo=parseInt(req.params.codigo)
             
-            if (isNaN(codigo)) {
-                return res.status(400).json({
-                    message: "El código no es un número"
-                })
-            }
+            
             const data=req.body
 
             const actualizar=await actualizarCentroMedico(codigo,data)
@@ -87,11 +79,7 @@ export class CentroMedicoController{
         try {
             const codigo=parseInt(req.params.codigo)
             
-            if (isNaN(codigo)) {
-                return res.status(400).json({
-                    message: "El código no es un número"
-                })
-            }
+            
 
             const obtener=await obtenerCentroMedico(codigo)
 

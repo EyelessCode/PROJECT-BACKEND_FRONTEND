@@ -75,4 +75,17 @@ const validarEnfermera:any=[
     }
 ]
 
-export {validarPaciente,validarSignoVital,validarCentroMedico,validarEnfermera}
+const validarCodigo=(req:Request,res:Response,next:NextFunction):any=>{
+    const codigo=parseInt(req.params.codigo)
+
+    if (isNaN(codigo)) {
+        return res.status(400).json({
+            message:"El código no es un número válido"
+        })
+    }
+
+    next()
+}
+
+export {validarPaciente,validarSignoVital,validarCentroMedico,validarEnfermera,
+    validarCodigo}

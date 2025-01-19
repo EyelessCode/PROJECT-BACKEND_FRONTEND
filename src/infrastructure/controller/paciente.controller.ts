@@ -27,11 +27,7 @@ export class PacienteController{
         try {
             const codigo=parseInt(req.params.codigo)
 
-            if (isNaN(codigo)) {
-                return res.status(400).json({
-                    message: "El código no es un número"
-                })
-            }
+            
 
             const data=req.body
 
@@ -61,11 +57,7 @@ export class PacienteController{
         try {
             const codigo=parseInt(req.params.codigo)
 
-            if (isNaN(codigo)) {
-                return res.status(400).json({
-                    message: "El código no es un número"
-                })
-            }
+            
             // const data=req.body
 
             const pacienteEliminado=await eliminarPaciente(codigo)
@@ -94,11 +86,7 @@ export class PacienteController{
         try {
             const codigo=parseInt(req.params.codigo)
 
-            if (isNaN(codigo)) {
-                return res.status(400).json({
-                    message: "El código no es un número"
-                })
-            }
+            
             // const data=req.body
 
             const paciente=await obtenerPaciente(codigo)
