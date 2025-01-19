@@ -111,7 +111,7 @@ export class SignoVitalController{
         }
     }
 
-    async controladorObtenerSignos(req:Request,res:Response):Promise<any>{
+    async controladorObtenerSignos(res:Response):Promise<any>{
         try {
             // const data=req.body
 
