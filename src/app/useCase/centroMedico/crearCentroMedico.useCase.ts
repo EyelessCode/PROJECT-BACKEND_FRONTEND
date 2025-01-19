@@ -13,8 +13,8 @@ const crearCentroMedico=async(data:ICentroMedico):Promise<CentroMedico>=>{
 
         return crear
     } catch (error) {
-        console.error(`Error al crear un nuevo Paciente: ${error}`);
-        throw new Error('No se pudo crear un nuevo Paciente')
+        console.error(`Error al crear un nuevo un Centro Médico: ${error}`);
+        throw new Error('No se pudo crear un nuevo Centro Médico')
     }
 }
 
