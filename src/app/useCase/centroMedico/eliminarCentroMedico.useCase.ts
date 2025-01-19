@@ -26,3 +26,5 @@ const eliminarCentroMedico=async(codigo:number):Promise<CentroMedico|null>=>{
         throw new Error('No se pudo eliminar un Centro Médico')
     }
 }
+
+export {eliminarCentroMedico}
