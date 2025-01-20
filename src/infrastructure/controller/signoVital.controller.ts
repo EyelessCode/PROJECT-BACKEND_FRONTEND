@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { crearSignoVital } from "../../app/useCase/signoVital/crearSignoVital.useCase";
-import { actualizarSignoVital } from "../../app/useCase/signoVital/actualizarSignoVital.useCase";
+import { actualizarSignoVital } from "../../app/useCase/signoVital.useCase";
 import { eliminarSignoVitalCasoUso } from "../../app/useCase/signoVital/eliminarSignoVital.useCase";
 import { obtenerUnSignoVitalCasoUso } from "../../app/useCase/signoVital/obtenerSignoVital.useCase";
 import { obtenerSignosVitalesCasoUso } from "../../app/useCase/signoVital/obtenerSignosVitales.caseUse";
