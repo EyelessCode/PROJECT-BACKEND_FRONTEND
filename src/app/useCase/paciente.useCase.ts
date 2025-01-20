@@ -1,11 +1,11 @@
 import { Paciente } from "@prisma/client";
-import { IPaciente } from "../../domain/interface/paciente/paciente.interface";
+// import { IPaciente } from "../../domain/interface/paciente/paciente.interface";
 // import { prisma } from "../../../infrastructure/data/prisma.service";
 import { PacienteRepositorio } from "../../infrastructure/repository/paciente.repository";
 
 const repositorio=new PacienteRepositorio()
 
-const actualizarPaciente=async(codigo:number,data:IPaciente):Promise<Paciente|null>=>{
+const actualizarPaciente=async(codigo:number,data:Paciente):Promise<Paciente|null>=>{
     try {
 
         return await repositorio.actualizarPaciente(codigo,data)
