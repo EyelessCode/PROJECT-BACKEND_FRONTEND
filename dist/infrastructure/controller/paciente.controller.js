@@ -10,18 +10,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PacienteController = void 0;
-const crearPaciente_useCase_1 = require("../../app/useCase/paciente/crearPaciente.useCase");
-const actualizarPaciente_useCase_1 = require("../../app/useCase/paciente/actualizarPaciente.useCase");
-const eliminarPaciente_useCase_1 = require("../../app/useCase/paciente/eliminarPaciente.useCase");
-const obtenerPaciente_useCase_1 = require("../../app/useCase/paciente/obtenerPaciente.useCase");
-const obtenerPacientes_useCase_1 = require("../../app/useCase/paciente/obtenerPacientes.useCase");
 const logger_service_1 = require("../log/logger.service");
+const paciente_useCase_1 = require("../../app/useCase/paciente.useCase");
 class PacienteController {
     controladorCrearPaciente(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const data = req.body;
-                const nuevoPaciente = yield (0, crearPaciente_useCase_1.crearPaciente)(data);
+                const nuevoPaciente = yield (0, paciente_useCase_1.crearPaciente)(data);
                 logger_service_1.logger.info(`PACIENTE CREADO ${nuevoPaciente.cedula}`);
                 return res.status(201).json(nuevoPaciente);
             }
@@ -39,13 +35,8 @@ class PacienteController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const codigo = parseInt(req.params.codigo);
-                if (isNaN(codigo)) {
-                    return res.status(400).json({
-                        message: "El código no es un número"
-                    });
-                }
                 const data = req.body;
-                const pacienteActualizado = yield (0, actualizarPaciente_useCase_1.actualizarPaciente)(codigo, data);
+                const pacienteActualizado = yield (0, paciente_useCase_1.actualizarPaciente)(codigo, data);
                 if (!pacienteActualizado) {
                     return res.status(404).json({
                         message: `El Paciente: ${codigo} no existe`
@@ -68,12 +59,7 @@ class PacienteController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const codigo = parseInt(req.params.codigo);
-                if (isNaN(codigo)) {
-                    return res.status(400).json({
-                        message: "El código no es un número"
-                    });
-                }
-                const pacienteEliminado = yield (0, eliminarPaciente_useCase_1.eliminarPaciente)(codigo);
+                const pacienteEliminado = yield (0, paciente_useCase_1.eliminarPaciente)(codigo);
                 if (!pacienteEliminado) {
                     return res.status(404).json({
                         message: `El Paciente: ${codigo} no existe`
@@ -96,12 +82,7 @@ class PacienteController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const codigo = parseInt(req.params.codigo);
-                if (isNaN(codigo)) {
-                    return res.status(400).json({
-                        message: "El código no es un número"
-                    });
-                }
-                const paciente = yield (0, obtenerPaciente_useCase_1.obtenerPaciente)(codigo);
+                const paciente = yield (0, paciente_useCase_1.obtenerPaciente)(codigo);
                 if (!paciente) {
                     return res.status(404).json({
                         message: `El Paciente: ${codigo} no existe`
@@ -123,7 +104,7 @@ class PacienteController {
     controladorObtenerPacientes(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const pacientes = yield (0, obtenerPacientes_useCase_1.obtenerPacientes)();
+                const pacientes = yield (0, paciente_useCase_1.obtenerPacientes)();
                 logger_service_1.logger.info(`\nLISTADO DE PACIENTES\n`);
                 return res.status(200).json(pacientes);
             }

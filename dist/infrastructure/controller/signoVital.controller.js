@@ -36,11 +36,6 @@ class SignoVitalController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const codigo = parseInt(req.params.codigo);
-                if (isNaN(codigo)) {
-                    return res.status(400).json({
-                        message: "El código no es un número"
-                    });
-                }
                 const data = req.body;
                 const signoVitalActualizado = yield (0, actualizarSignoVital_useCase_1.actualizarSignoVital)(codigo, data);
                 if (!signoVitalActualizado) {
@@ -63,11 +58,6 @@ class SignoVitalController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const codigo = parseInt(req.params.codigo);
-                if (isNaN(codigo)) {
-                    return res.status(400).json({
-                        message: "El código no es un número"
-                    });
-                }
                 const eliminarSignoVital = yield (0, eliminarSignoVital_useCase_1.eliminarSignoVitalCasoUso)(codigo);
                 if (!eliminarSignoVital) {
                     return res.status(404).json({
@@ -89,11 +79,6 @@ class SignoVitalController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const codigo = parseInt(req.params.codigo);
-                if (isNaN(codigo)) {
-                    return res.status(400).json({
-                        message: "El código no es un número"
-                    });
-                }
                 const obtenerSigno = yield (0, obtenerSignoVital_useCase_1.obtenerUnSignoVitalCasoUso)(codigo);
                 if (!obtenerSigno) {
                     return res.status(404).json({
