@@ -54,4 +54,4 @@ const obtenerUnSignoVital=async(codigo:number):Promise<SignoVital|null>=>{
     }
 }
 
-export {actualizarSignoVital}
+export {actualizarSignoVital,crearSignoVital,eliminarSignoVital,obtenerSignosVitales,obtenerUnSignoVital}
