@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { crearEnfermera } from "../../app/useCase/enfermera/crearEnfermera.useCase";
 import { eliminarEnfermera } from "../../app/useCase/enfermera/eliminarEnfermera.useCase";
 import { logger } from "../log/logger.service";
-import { actualizarEnfermeras } from "../../app/useCase/enfermera/enfermera.useCase";
+import { actualizarEnfermeras } from "../../app/useCase/enfermera.useCase";
 import { obtenerEnfermera } from "../../app/useCase/enfermera/obtenerEnfermera.useCase";
 import { obtenerEnfermeras } from "../../app/useCase/enfermera/obtenerEnfermeras.useCase";
 
