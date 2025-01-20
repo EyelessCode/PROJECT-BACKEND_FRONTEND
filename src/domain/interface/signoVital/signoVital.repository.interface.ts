@@ -1,6 +1,6 @@
 import { SignoVital } from "@prisma/client"
 
-export interface IPacienteRepositorio{
+export interface ISignoPacienteRepositorio{
     crearSignoVital(data:SignoVital):Promise<SignoVital>
     obtenerSignoVital(codigo:number):Promise<SignoVital|null>
     obtenerSignoVitales():Promise<SignoVital[]>
