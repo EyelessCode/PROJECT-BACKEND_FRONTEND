@@ -38,7 +38,7 @@ const eliminarPaciente=async(codigo:number):Promise<Paciente|null>=>{
 const obtenerPaciente=async(codigo:number):Promise<Paciente|null>=>{
     try {
 
-        return repositorio.obtenerPaciente(codigo)
+        return await repositorio.obtenerPaciente(codigo)
     } catch (error) {
         console.error(`Error al obtener un Paciente con el código: ${codigo}`);
         throw new Error(`No se pudo obtener un Paciente con el código: ${codigo}`);
@@ -47,7 +47,7 @@ const obtenerPaciente=async(codigo:number):Promise<Paciente|null>=>{
 
 const obtenerPacientes=async():Promise<Paciente[]>=>{
     try {
-        return repositorio.obtenerPacientes()
+        return await repositorio.obtenerPacientes()
     } catch (error) {
         console.error(`Error al obtener todos los Pacientes, ${error}`);
         throw new Error(`No se pudo obtener los Pacientes`)
