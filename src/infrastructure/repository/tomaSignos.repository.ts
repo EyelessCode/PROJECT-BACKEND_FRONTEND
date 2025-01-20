@@ -1,8 +1,8 @@
 import { TomaSignos } from "@prisma/client";
-import { ITomaSignosRepositorio } from "../../domain/interface/tomaSigno/tomaSigno.repository.interace";
+import { ITomaSignoRepositorio } from "../../domain/interface/tomaSigno/tomaSigno.repository.interace";
 import { prisma } from "../data/prisma.service";
 
-export class TomaSignosRepositorio implements ITomaSignosRepositorio{
+export class TomaSignosRepositorio implements ITomaSignoRepositorio{
     async crearTomaSigno(data: TomaSignos): Promise<TomaSignos> {
         // throw new Error("Method not implemented.");
         return await prisma.tomaSignos.create({

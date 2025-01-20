@@ -1,6 +1,6 @@
 import { TomaSignos } from "@prisma/client";
 
-export interface ITomaSignosRepositorio{
+export interface ITomaSignoRepositorio{
     crearTomaSigno(data:TomaSignos):Promise<TomaSignos>
     obtenerTomaSigno(codigo:number):Promise<TomaSignos|null>
     obtenerTomaSignos():Promise<TomaSignos[]>

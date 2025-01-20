@@ -1,8 +1,8 @@
 import { SignoVital } from "@prisma/client";
-import { ISignoPacienteRepositorio } from "../../domain/interface/signoVital/signoVital.repository.interface";
+import { ISignoVitalRepositorio } from "../../domain/interface/signoVital/signoVital.repository.interface";
 import { prisma } from "../data/prisma.service";
 
-export class SignoVitalRepositorio implements ISignoPacienteRepositorio{
+export class SignoVitalRepositorio implements ISignoVitalRepositorio{
     async crearSignoVital(data: SignoVital): Promise<SignoVital> {
         // throw new Error("Method not implemented.");
         return await prisma.signoVital.create({
