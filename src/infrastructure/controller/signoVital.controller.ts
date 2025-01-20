@@ -1,9 +1,5 @@
 import { Request, Response } from "express";
-import { crearSignoVital } from "../../app/useCase/signoVital/crearSignoVital.useCase";
-import { actualizarSignoVital } from "../../app/useCase/signoVital.useCase";
-import { eliminarSignoVitalCasoUso } from "../../app/useCase/signoVital/eliminarSignoVital.useCase";
-import { obtenerUnSignoVitalCasoUso } from "../../app/useCase/signoVital/obtenerSignoVital.useCase";
-import { obtenerSignosVitalesCasoUso } from "../../app/useCase/signoVital/obtenerSignosVitales.caseUse";
+import { actualizarSignoVital, eliminarSignoVital, obtenerSignosVitales, obtenerUnSignoVital } from "../../app/useCase/signoVital.useCase";
 
 export class SignoVitalController{
     async controladorCrearSigno(req:Request,res:Response):Promise<any>{
@@ -54,15 +50,15 @@ export class SignoVitalController{
             
             // const data=req.body
 
-            const eliminarSignoVital=await eliminarSignoVitalCasoUso(codigo)
+            const eliminar=await eliminarSignoVital(codigo)
 
-            if (!eliminarSignoVital) {
+            if (!eliminar) {
                 return res.status(404).json({
                     message: `El signo vital: ${codigo} no existe`
                 })
             }
 
-            return res.status(200).json(eliminarSignoVital)
+            return res.status(200).json(eliminar)
         } catch (error) {
             console.error(error);
             return res.status(500).json({
@@ -80,7 +76,7 @@ export class SignoVitalController{
             
             // const data=req.body
 
-            const obtenerSigno=await obtenerUnSignoVitalCasoUso(codigo)
+            const obtenerSigno=await obtenerUnSignoVital(codigo)
 
             if (!obtenerSigno) {
                 return res.status(404).json({
@@ -103,7 +99,7 @@ export class SignoVitalController{
         try {
             // const data=req.body
 
-            const obtenerSignos=await obtenerSignosVitalesCasoUso()
+            const obtenerSignos=await obtenerSignosVitales()
             return res.status(200).json(obtenerSignos)
         } catch (error) {
             console.error(error);
@@ -114,4 +110,8 @@ export class SignoVitalController{
             })
         }
     }
+}
+
+function crearSignoVital(data: any) {
+    throw new Error("Function not implemented.");
 }
