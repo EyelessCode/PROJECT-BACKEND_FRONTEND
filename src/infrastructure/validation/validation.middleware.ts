@@ -58,7 +58,7 @@ const validarCentroMedico:any=[
 ]
 
 const validarEnfermera:any=[
-    body('nombre').isString().withMessage("El nombre debe ser texto").isLength({min:3,max:60})
+    body('nombres').isString().withMessage("El nombre debe ser texto").isLength({min:3,max:60})
     .withMessage("El nombre mínimo debe de tener 3 caracteres o máximo 60"),
     body("cedula").isString().withMessage("La cédula debe de ser un texto").matches(/^\d{10}$/)
     .withMessage("La cédula debe contener exactamente 10 dígitos numéricos"),
