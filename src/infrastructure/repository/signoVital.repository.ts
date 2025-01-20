@@ -48,6 +48,7 @@ export class SignoVitalRepositorio implements ISignoPacienteRepositorio{
 
         if (codigo<=0) {
             throw new Error(`El código debe ser un número positivo mayor a cero.`);
+            // return null
         }
 
         return await prisma.signoVital.delete({
