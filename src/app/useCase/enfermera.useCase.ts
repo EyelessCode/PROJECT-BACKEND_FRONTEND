@@ -35,4 +35,23 @@ const eliminarEnfermera=async(codigo:number):Promise<Enfermera|null>=>{
     }
 }
 
-export {actualizarEnfermeras}
+const obtenerEnfermera=async(codigo:number):Promise<Enfermera|null>=>{
+    try {
+
+        return await repositorio.obtenerEnfermera(codigo)
+    } catch (error) {
+        console.error(`Error al obtener una Enfermera: ${error}`);
+        throw new Error('No se pudo obtener una Enfermera')
+    }
+}
+
+const obtenerEnfermeras=async():Promise<Enfermera[]>=>{
+    try {
+        return await repositorio.obtenerEnfermeras()
+    } catch (error) {
+        console.error(`Error al obtener las Enfermeras: ${error}`);
+        throw new Error('No se pudo obtener las Enfermeras')
+    }
+}
+
+export {actualizarEnfermeras,crearEnfermera,eliminarEnfermera,obtenerEnfermera,obtenerEnfermeras}
