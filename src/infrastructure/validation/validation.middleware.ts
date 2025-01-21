@@ -84,6 +84,12 @@ const validarCodigo=(req:Request,res:Response,next:NextFunction):any=>{
         })
     }
 
+    if (codigo<=0) {
+        return res.status(400).json({
+            message:"El código debe de ser positivo"
+        })
+    }
+
     next()
 }
 
