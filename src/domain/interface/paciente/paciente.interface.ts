@@ -14,3 +14,11 @@ export interface IPacienteRepositorio{
     actualizarPaciente(codigo:number,data:Partial<Paciente>):Promise<Paciente|null>
     eliminarPaciente(codigo:number):Promise<Paciente|null>
 }
+
+export interface IPacientecasoUso{
+    actualizarPaciente(codigo:number,data:Paciente):Promise<Paciente|null>
+    crearPaciente(data:Paciente):Promise<Paciente>
+    eliminarPaciente(codigo:number):Promise<Paciente|null>
+    obtenerPaciente(codigo:number):Promise<Paciente|null>
+    obtenerPacientes():Promise<Paciente[]>
+}
