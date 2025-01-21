@@ -1,5 +1,5 @@
 import { TomaSignos } from "@prisma/client";
-import { ITomaSignoRepositorio } from "../../domain/interface/tomaSigno/tomaSigno.repository.interace";
+import { ITomaSignoRepositorio } from "../../domain/interface/tomaSigno/tomaSigno.interface";
 import { prisma } from "../data/prisma.service";
 
 export class TomaSignosRepositorio implements ITomaSignoRepositorio{
