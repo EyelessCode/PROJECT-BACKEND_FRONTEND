@@ -9,6 +9,9 @@ export interface ITomaSignoRepositorio{
 }
 
 export interface ITomaSignoCasoUso{
-    crearTomaSigno(data:TomaSignos):Promise<TomaSignos>
-    obtenerTomaSigno(codigo:number):Promise<TomaSignos|null>
+    registrarTomaSigno(data:TomaSignos):Promise<TomaSignos>
+    // obtenerTomaSigno(codigo:number):Promise<TomaSignos|null>
+    validarPaciente(codigo:number):Promise<void>
+    validarEnfermera(codigo:number):Promise<void>
+    validarCentroMedico(codigo:number):Promise<void>
 }
