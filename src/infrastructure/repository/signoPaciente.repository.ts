@@ -1,6 +1,6 @@
-import { SignosPacientes, SignoVital } from "@prisma/client";
 import { prisma } from "../data/prisma.service";
 import { ISignoPacienteRepositorio } from "../../domain/interface/signoPaciente/signoPaciente.interface";
+import { SignosPacientes } from "@prisma/client";
 
 export class SignoPacienteRepositorio implements ISignoPacienteRepositorio{
     async crearSignoPaciente(data: SignosPacientes): Promise<SignosPacientes> {

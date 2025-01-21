@@ -1,5 +1,5 @@
 import { SignoVital } from "@prisma/client";
-import { ISignoVitalRepositorio } from "../../domain/interface/signoVital/signoVital.repository.interface";
+import { ISignoVitalRepositorio } from "../../domain/interface/signoVital/signoVital.interface";
 import { prisma } from "../data/prisma.service";
 
 export class SignoVitalRepositorio implements ISignoVitalRepositorio{
