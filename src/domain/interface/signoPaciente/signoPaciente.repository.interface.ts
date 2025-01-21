@@ -7,3 +7,7 @@ export interface ISignoPacienteRepositorio{
     actualizarSignoPaciente(codigo:number,data:Partial<SignosPacientes>):Promise<SignosPacientes|null>
     eliminarSignoPaciente(codigo:number):Promise<SignosPacientes|null>
 }
+
+export interface ISignoPacienteCasoUso{
+    
+}
