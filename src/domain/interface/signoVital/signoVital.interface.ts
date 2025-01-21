@@ -15,3 +15,7 @@ export interface ISignoVitalRepositorio{
     actualizarSignoVital(codigo:number,data:Partial<SignoVital>):Promise<SignoVital|null>
     eliminarSignoVital(codigo:number):Promise<SignoVital|null>
 }
+
+export interface ISignoVitalCasoUso{
+    
+}
