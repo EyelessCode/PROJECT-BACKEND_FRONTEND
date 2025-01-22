@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Paciente | Consulmed</title>
+        <link rel="shortcut icon" href="/image/icon/paciente/icon-paciente.ICO"
+            type="image/x-icon">
+        <link rel="stylesheet" href="/css/paciente/paciente.css">
+        <meta name="author" content="EyelessCode">
+    </head>
+    <body>
+        <header>
+            <h1>Gestión de Pacientes</h1>
+        </header>
+        <main>
+            <h2>Registrar Paciente</h2>
+            <form id="pacienteForm">
+                <label for="cedula">Cédula:</label>
+                <input type="text" id="cedula" name="cedula" required>
+
+                <label for="nombres">Nombres:</label>
+                <input type="text" id="nombres" name="nombres" required>
+
+                <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                <input type="date" id="fechaNacimiento" name="fechaNacimiento"
+                    required>
+
+                <button type="submit">Agregar Paciente</button>
+            </form>
+
+            <h2>Listado de Pacientes</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cédula</th>
+                        <th>Nombres</th>
+                        <th>Fecha de Nacimiento</th>
+                    </tr>
+                </thead>
+                <tbody id="pacientesTableBody">
+                    <!-- Aquí se insertarán las filas dinámicamente -->
+                </tbody>
+            </table>
+        </main>
+    </body>
+</html>
