@@ -1,5 +1,5 @@
 import { CentroMedico } from "@prisma/client";
-import { ICentroMedicoRepositorio } from "../../domain/interface/centroMedico/centroMedico.interface";
+import { ICentroMedicoRepositorio } from "../../domain/interface/centroMedico.interface";
 import { prisma } from "../data/prisma.service";
 
 export class CentroMedicoRepositorio implements ICentroMedicoRepositorio{
