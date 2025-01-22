@@ -1,0 +1,28 @@
+{
+  "root": [
+    "./src/app.test.ts",
+    "./src/app.ts",
+    "./src/app/usecase/signovital/actualizarsignovital.usecase.ts",
+    "./src/app/usecase/signovital/crearsignovital.usecase.ts",
+    "./src/app/usecase/signovital/eliminarsignovital.usecase.ts",
+    "./src/app/usecase/signovital/obtenersignovital.usecase.ts",
+    "./src/app/usecase/signovital/obtenersignosvitales.caseuse.ts",
+    "./src/domain/entity/paciente.entity.ts",
+    "./src/domain/entity/signovital.entity.ts",
+    "./src/domain/interface/centromedico/centromedico.interface.ts",
+    "./src/domain/interface/centromedico/centromedico.repository.interface.ts",
+    "./src/domain/interface/enfermera/enfermera.interface.ts",
+    "./src/domain/interface/enfermera/enfermera.repository.interface.ts",
+    "./src/domain/interface/paciente/paciente.interface.ts",
+    "./src/domain/interface/paciente/paciente.repository.interface.ts",
+    "./src/domain/interface/signovital/signovital.interface.ts",
+    "./src/infrastructure/controller/signovital.controller.ts",
+    "./src/infrastructure/data/prisma.service.ts",
+    "./src/routes/index.ts",
+    "./src/routes/signovital.ts",
+    "./src/util/error.until.ts",
+    "./src/util/mensaje.until.ts"
+  ],
+  "errors": true,
+  "version": "5.7.3"
+}
