@@ -28,6 +28,10 @@ formularioPaciente.addEventListener("submit",async(event)=>{
         if (!respuesta.ok) {
             throw new Error(`Error al agregar al paciente`)
         }
+
+        formularioPaciente.reset()
+        fetchPaciente()
+        alert(`Paciente agregado exitosamente`)
     } catch (error) {
         console.error(error);
         alert(`HUBO UN PROBLEMA AL AGREGAR EL PACIENTE`)
@@ -37,8 +41,8 @@ formularioPaciente.addEventListener("submit",async(event)=>{
 async function fetchPaciente() {
     try {
         const respuesta=await fetch(API_URL)
-        if (!respuesta) {
-            throw new Error(`Error al obtener pacientes: ${respuesta.status(400)}`)
+        if (!respuesta.ok) {
+            throw new Error(`Error al obtener pacientes!`)
         }
 
         const paciente=await respuesta.json()
@@ -56,9 +60,9 @@ function renderizarPaciente(paciente) {
         const fila=document.createElement("tr")
 
         fila.innerHTML=`
-        <td>${paciente.cedula}</td>
-        <td>${paciente.nombres}</td>
-        <td>${paciente.fechaNacimiento}</td>`
+        <td>${pacienteEach.cedula}</td>
+        <td>${pacienteEach.nombres}</td>
+        <td>${pacienteEach.fechaNacimiento}</td>`
 
         tablaPaciente.appendChild(fila)
     });
