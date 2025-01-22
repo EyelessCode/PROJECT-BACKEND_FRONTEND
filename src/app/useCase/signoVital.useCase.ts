@@ -1,6 +1,6 @@
 import { SignoVital } from "@prisma/client";
 import { SignoVitalRepositorio } from "../../infrastructure/repository/signoVital.repository";
-import { ISignoVitalCasoUso } from "../../domain/interface/signoVital/signoVital.interface";
+import { ISignoVitalCasoUso } from "../../domain/interface/signoVital.interface";
 
 export class SignoVitalCasoUso implements ISignoVitalCasoUso{
     constructor(private repositorio:SignoVitalRepositorio) {

@@ -1,5 +1,5 @@
 import { Enfermera } from "@prisma/client";
-import { IEnfermeraRepositorio } from "../../domain/interface/enfermera/enfermera.interface";
+import { IEnfermeraRepositorio } from "../../domain/interface/enfermera.interface";
 import { prisma } from "../data/prisma.service";
 
 export class EnfermeraRepositorio implements IEnfermeraRepositorio{

@@ -2,7 +2,7 @@ import { Paciente } from "@prisma/client";
 // import { IPaciente, IPacientecasoUso } from '../../domain/interface/paciente/paciente.interface';
 // import { prisma } from "../../../infrastructure/data/prisma.service";
 import { PacienteRepositorio } from '../../infrastructure/repository/paciente.repository';
-import { IPacientecasoUso } from "../../domain/interface/paciente/paciente.interface";
+import { IPacientecasoUso } from "../../domain/interface/paciente.interface";
 
 export class PacienteCasoUso implements IPacientecasoUso{
     constructor(private repositorio:PacienteRepositorio) {

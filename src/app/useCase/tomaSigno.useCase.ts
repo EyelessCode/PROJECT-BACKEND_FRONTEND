@@ -3,7 +3,7 @@ import { PacienteRepositorio } from '../../infrastructure/repository/paciente.re
 import { CentroMedicoRepositorio } from '../../infrastructure/repository/centroMedico.repository';
 import { EnfermeraRepositorio } from '../../infrastructure/repository/enfermera.repository';
 import { TomaSignosRepositorio } from '../../infrastructure/repository/tomaSignos.repository';
-import { ITomaSignoCasoUso } from "../../domain/interface/tomaSigno/tomaSigno.interface";
+import { ITomaSignoCasoUso } from "../../domain/interface/tomaSigno.interface";
 
 export class TomaSignoCasoUso implements ITomaSignoCasoUso{
     constructor(

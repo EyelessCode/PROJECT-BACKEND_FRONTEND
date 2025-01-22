@@ -2,8 +2,9 @@ import { CentroMedico } from "@prisma/client";
 // import { ICentroMedico } from "../../../domain/interface/centroMedico/centroMedico.interface";
 // import { prisma } from "../../../infrastructure/data/prisma.service";
 import { CentroMedicoRepositorio } from "../../infrastructure/repository/centroMedico.repository";
+import { ICentroMedicoCasoUso } from "../../domain/interface/centroMedico/centroMedico.interface";
 
-export class CentroMedicoCasoUso{
+export class CentroMedicoCasoUso implements ICentroMedicoCasoUso{
     constructor(private repositorio:CentroMedicoRepositorio){}
 
     async actualizarCentroMedico(codigo:number,data:Partial<CentroMedico>):Promise<CentroMedico|null>{

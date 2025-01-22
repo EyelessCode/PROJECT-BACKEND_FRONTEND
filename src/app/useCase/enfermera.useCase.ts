@@ -1,7 +1,7 @@
 import { Enfermera } from "@prisma/client";
 // import { IEnfermera } from "../../../domain/interface/enfermera/enfermera.interface";
 import { EnfermeraRepositorio } from "../../infrastructure/repository/enfermera.repository";
-import { IEnfermeraCasoUso } from "../../domain/interface/enfermera/enfermera.interface";
+import { IEnfermeraCasoUso } from "../../domain/interface/enfermera.interface";
 // import { prisma } from "../../../infrastructure/data/prisma.service";
 
 export class EnfermeraCasoUso implements IEnfermeraCasoUso{
