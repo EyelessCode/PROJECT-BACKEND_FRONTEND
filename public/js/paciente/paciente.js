@@ -56,7 +56,7 @@ function loadPatients(searchTerm = '') {
 }
 
 // Mostrar u ocultar el formulario de registro
-document.getElementById('btnMostrarRegistro').addEventListener('click', () => {
+document.getElementById('btnMostrarFormulario').addEventListener('click', () => {
     const form = document.getElementById('registroPaciente');
     form.style.display = form.style.display === 'none' ? 'block' : 'none';
     clearForm();
