@@ -6,7 +6,7 @@ import { CentroMedicoRepositorio } from "../../infrastructure/repository/centroM
 export class CentroMedicoCasoUso{
     constructor(private repositorio:CentroMedicoRepositorio){}
 
-    async actualizarCentroMedico(codigo:number,data:CentroMedico):Promise<CentroMedico|null>{
+    async actualizarCentroMedico(codigo:number,data:Partial<CentroMedico>):Promise<CentroMedico|null>{
         try {
     
             return await this.repositorio.actualizarCentroMedico(codigo,data)
