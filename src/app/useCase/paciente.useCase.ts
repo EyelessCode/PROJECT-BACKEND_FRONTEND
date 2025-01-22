@@ -9,7 +9,7 @@ export class PacienteCasoUso implements IPacientecasoUso{
         
     }
     
-    async actualizarPaciente(codigo:number,data:Paciente):Promise<Paciente|null>{
+    async actualizarPaciente(codigo:number,data:Partial<Paciente>):Promise<Paciente|null>{
         try {
     
             return await this.repositorio.actualizarPaciente(codigo,data)
