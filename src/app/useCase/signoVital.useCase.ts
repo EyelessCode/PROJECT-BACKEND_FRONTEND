@@ -17,7 +17,7 @@ export class SignoVitalCasoUso implements ISignoVitalCasoUso{
         }
     }
 
-    async actualizarSignoVital(codigo:number,data:SignoVital):Promise<SignoVital|null>{
+    async actualizarSignoVital(codigo:number,data:Partial<SignoVital>):Promise<SignoVital|null>{
         try {
             
             return await this.repositorio.actualizarSignoVital(codigo,data)
