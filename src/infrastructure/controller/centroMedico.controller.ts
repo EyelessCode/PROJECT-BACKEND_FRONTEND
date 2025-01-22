@@ -1,11 +1,19 @@
 import { Request, Response } from "express";
-import { actualizarCentroMedico, crearCentroMedico, eliminarCentroMedico, obtenerCentroMedico, obtenerCentrosMedicos } from "../../app/useCase/centroMedico.useCase";
+import { CentroMedicoCasoUso } from "../../app/useCase/centroMedico.useCase";
+import { CentroMedicoRepositorio } from "../repository/centroMedico.repository";
+// import { actualizarCentroMedico, crearCentroMedico, eliminarCentroMedico, obtenerCentroMedico, obtenerCentrosMedicos } from "../../app/useCase/centroMedico.useCase";
 
 export class CentroMedicoController{
+    private casoUso:CentroMedicoCasoUso
+
+    constructor() {
+        const repositorio=new CentroMedicoRepositorio()
+        this.casoUso=new CentroMedicoCasoUso(repositorio)
+    }
     async controladorCrearCentroMedico(req:Request,res:Response):Promise<any>{
         try {
             const data=req.body
-            const crear=await crearCentroMedico(data)
+            const crear=await this.casoUso.crearCentroMedico(data)
 
             return res.status(201).json(crear)
         } catch (error) {
@@ -25,7 +33,7 @@ export class CentroMedicoController{
             
             // const data=req.body
 
-            const eliminar=await eliminarCentroMedico(codigo)
+            const eliminar=await this.casoUso.eliminarCentroMedico(codigo)
 
             if (!eliminar) {
                 return res.status(404).json({
@@ -51,7 +59,7 @@ export class CentroMedicoController{
             
             const data=req.body
 
-            const actualizar=await actualizarCentroMedico(codigo,data)
+            const actualizar=await this.casoUso.actualizarCentroMedico(codigo,data)
 
             if (!actualizar) {
                 return res.status(404).json({
@@ -77,7 +85,7 @@ export class CentroMedicoController{
             
             
 
-            const obtener=await obtenerCentroMedico(codigo)
+            const obtener=await this.casoUso.obtenerCentroMedico(codigo)
 
             if (!obtener) {
                 return res.status(404).json({
@@ -98,7 +106,7 @@ export class CentroMedicoController{
 
     async controladorObtenerCentrosMedicos(req:Request,res:Response):Promise<any>{
         try {
-            const obtener=await obtenerCentrosMedicos()
+            const obtener=await this.casoUso.obtenerCentrosMedicos()
 
             return res.status(200).json(obtener)
         } catch (error) {
