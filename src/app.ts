@@ -12,10 +12,10 @@ app.use(express.json())
 app.use(cors())
 app.use(express.static(path.join(__dirname,"..",'public')))
 
-// app.use("/comsulmed",ruta)
+app.use("/comsulmed",ruta)
 app.get("/comsulmed",(req:Request,res:Response)=>{
     res.sendFile(path.join(__dirname,"..","view","home.html"))
-},ruta)
+})
 app.use("/docs",swaggerUi.serve,swaggerUi.setup(swaggerSpec))
 
 //? Para prueba
