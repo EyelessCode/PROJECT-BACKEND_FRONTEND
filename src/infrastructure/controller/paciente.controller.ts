@@ -1,13 +1,20 @@
 import { Request, Response } from "express";
 
 import { logger } from "../log/logger.service";
-import { actualizarPaciente, crearPaciente, eliminarPaciente, obtenerPaciente, obtenerPacientes } from "../../app/useCase/paciente.useCase";
+import { PacienteCasoUso } from "../../app/useCase/paciente.useCase";
+import { PacienteRepositorio } from "../repository/paciente.repository";
+// import { actualizarPaciente, crearPaciente, eliminarPaciente, obtenerPaciente, obtenerPacientes } from "../../app/useCase/paciente.useCase";
 
 export class PacienteController {
+    private casoUso:PacienteCasoUso
+    constructor() {
+        const repositorio=new PacienteRepositorio()
+        this.casoUso=new PacienteCasoUso(repositorio)
+    }
     async controladorCrearPaciente(req: Request, res: Response): Promise<any> {
         try {
             const data = req.body
-            const nuevoPaciente = await crearPaciente(data)
+            const nuevoPaciente = await this.casoUso.crearPaciente(data)
             logger.info(`PACIENTE CREADO ${nuevoPaciente.cedula}`)
             return res.status(201).json(nuevoPaciente)
         } catch (error) {
@@ -28,7 +35,7 @@ export class PacienteController {
 
             const data = req.body
 
-            const pacienteActualizado = await actualizarPaciente(codigo, data)
+            const pacienteActualizado = await this.casoUso.actualizarPaciente(codigo, data)
 
             if (!pacienteActualizado) {
                 return res.status(404).json({
@@ -57,7 +64,7 @@ export class PacienteController {
 
             // const data=req.body
 
-            const pacienteEliminado = await eliminarPaciente(codigo)
+            const pacienteEliminado = await this.casoUso.eliminarPaciente(codigo)
 
             if (!pacienteEliminado) {
                 return res.status(404).json({
@@ -86,7 +93,7 @@ export class PacienteController {
 
             // const data=req.body
 
-            const paciente = await obtenerPaciente(codigo)
+            const paciente = await this.casoUso.obtenerPaciente(codigo)
 
             if (!paciente) {
                 return res.status(404).json({
@@ -112,7 +119,7 @@ export class PacienteController {
         try {
             // const data=req.body
 
-            const pacientes = await obtenerPacientes()
+            const pacientes = await this.casoUso.obtenerPacientes()
 
             logger.info(`\nLISTADO DE PACIENTES\n`)
             return res.status(200).json(pacientes)
