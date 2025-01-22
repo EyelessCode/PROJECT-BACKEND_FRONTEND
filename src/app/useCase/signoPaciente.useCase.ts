@@ -1,36 +1,40 @@
 import { SignosPacientes, TomaSignos } from "@prisma/client";
 // import { TomaSignosRepositorio } from "../../infrastructure/repository/tomaSignos.repository";
-import { SignoPacienteRepositorio } from "../../infrastructure/repository/signoPaciente.repository";
+// import { SignoPacienteRepositorio } from '../../infrastructure/repository/signoPaciente.repository';
+// import { SignoVitalRepositorio } from "../../infrastructure/repository/signoVital.repository";
+import { ISignoPacienteCasoUso } from "../../domain/interface/signoPaciente.interface";
+import { TomaSignosRepositorio } from "../../infrastructure/repository/tomaSignos.repository";
 import { SignoVitalRepositorio } from "../../infrastructure/repository/signoVital.repository";
+import { SignoPacienteRepositorio } from "../../infrastructure/repository/signoPaciente.repository";
 
 // const repositorioTomaSignos=new TomaSignosRepositorio()
-const repositorioSignoVital=new SignoVitalRepositorio()
-const repositorioSignoPaciente=new SignoPacienteRepositorio()
-
-const agregarSignoPaciente=async(data:SignosPacientes):Promise<SignosPacientes>=>{
-    const signoVital=await repositorioSignoVital.obtenerSignoVital(data.signoVitalId)
-    if(!signoVital) throw new Error(`El Signo Vital con ID ${data.signoVitalId} no existe`)
-
-    if (data.valor<signoVital.valorMinimo||data.valor>signoVital.valorMaximo) {
-        throw new Error(`El valor ${data.valor} está fuera del rango permitido para el Signo Vital`)
+export class SignoPacienteCasoUso implements ISignoPacienteCasoUso{
+    constructor(
+        private tomaSignoRepositorio:TomaSignosRepositorio,
+        private signoVitalRepositorio:SignoVitalRepositorio,
+        private signoPacienteRepositorio:SignoPacienteRepositorio) {
+        
     }
 
-    return await repositorioSignoPaciente.crearSignoPaciente(data)
-}
-
-const obtenerSignoPaciente=async(codigo:number,data:SignosPacientes):Promise<SignosPacientes|null>=>{
-    const signoVital=await repositorioSignoVital.obtenerSignoVital(data.signoVitalId)
-    if(!signoVital) throw new Error(`El Signo Vital con ID ${data.signoVitalId} no existe`)
-
-    if (data.valor<signoVital.valorMinimo||data.valor>signoVital.valorMaximo) {
-        throw new Error(`El valor ${data.valor} está fuera del rango permitido para el Signo Vital`)
+    async registrarSignoPaciente(data: SignosPacientes): Promise<SignosPacientes> {
+        throw new Error("Method not implemented.");
     }
 
-    return await repositorioSignoPaciente.obtenerSignoPaciente(codigo)
+    async validarTomaSigno(codigo: number): Promise<void> {
+        // throw new Error("Method not implemented.");
+        const tomaSigno=await this.tomaSignoRepositorio.obtenerTomaSigno(codigo)
+        if(!tomaSigno)throw new Error(`La Toma de Signo con el código ${codigo} no existe`)
+    }
+    
+    async validarSignoVital(codigo: number, valor: number): Promise<void> {
+        // throw new Error("Method not implemented.");
+        const signoVital=await this.signoVitalRepositorio.obtenerSignoVital(codigo)
+        if(!signoVital)throw new Error(`El Signo Vital con el código ${codigo} no existe`)
+        
+        if (valor<signoVital.valorMinimo||valor>signoVital.valorMaximo) {
+            throw new Error(`El Valor ${valor} está fuera del rango permitido (${signoVital.valorMinimo} - ${signoVital.valorMaximo})`)
+        }
+    }
+
+
 }
-
-/* const obtenerSignosPacientes=async():Promise<TomaSignos[]>=>{
-    return await repositorioSignoPaciente.obtenerSignosPacientes()
-} */
-
-//! AQUÍ ESTABA HACIENDO EL CASO DE USO DE SIGNO PACIENTE!!!!!
