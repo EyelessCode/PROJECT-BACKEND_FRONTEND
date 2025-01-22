@@ -6,7 +6,7 @@ import path from "path";
 const ruta=Router()
 const controlador=new PacienteController()
 
-ruta.get("/",(req:Request,res:Response)=>{
+ruta.get("/html",(req:Request,res:Response)=>{
     res.sendFile(path.join(__dirname,"..","..","view","paciente.html"))
 })
 ruta.get('/',controlador.controladorObtenerPacientes.bind(controlador))
