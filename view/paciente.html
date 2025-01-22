@@ -8,6 +8,7 @@
             type="image/x-icon">
         <link rel="stylesheet" href="/css/paciente/paciente.css">
         <meta name="author" content="EyelessCode">
+        <script type="module" defer src="/js/paciente/paciente.js"></script>
     </head>
     <body>
         <header>
@@ -15,15 +16,15 @@
         </header>
         <main>
             <h2>Registrar Paciente</h2>
-            <form id="pacienteForm">
-                <label for="cedula">Cédula:</label>
-                <input type="text" id="cedula" name="cedula" required>
+            <form id="formularioPaciente">
+                <label for="txtCedulaPaciente">Cédula:</label>
+                <input type="text" id="txtCedulaPaciente" name="cedula" required>
 
-                <label for="nombres">Nombres:</label>
-                <input type="text" id="nombres" name="nombres" required>
+                <label for="txtNombrePaciente">Nombres:</label>
+                <input type="text" id="txtNombrePaciente" name="nombres" required>
 
-                <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-                <input type="date" id="fechaNacimiento" name="fechaNacimiento"
+                <label for="txtFechaNaciPaciente">Fecha de Nacimiento:</label>
+                <input type="date" id="txtFechaNaciPaciente" name="fechaNacimiento"
                     required>
 
                 <button type="submit">Agregar Paciente</button>
@@ -38,7 +39,7 @@
                         <th>Fecha de Nacimiento</th>
                     </tr>
                 </thead>
-                <tbody id="pacientesTableBody">
+                <tbody id="tablaPaciente">
                     <!-- Aquí se insertarán las filas dinámicamente -->
                 </tbody>
             </table>
