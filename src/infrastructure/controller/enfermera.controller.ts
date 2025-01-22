@@ -1,12 +1,21 @@
 import { Request, Response } from "express";
 import { logger } from "../log/logger.service";
-import { actualizarEnfermeras, crearEnfermera, eliminarEnfermera, obtenerEnfermera, obtenerEnfermeras } from "../../app/useCase/enfermera.useCase";
+import { EnfermeraCasoUso } from "../../app/useCase/enfermera.useCase";
+import { EnfermeraRepositorio } from "../repository/enfermera.repository";
+// import { actualizarEnfermeras, crearEnfermera, eliminarEnfermera, obtenerEnfermera, obtenerEnfermeras } from "../../app/useCase/enfermera.useCase";
 
 export class EnfermeraController{
+    private casoUso:EnfermeraCasoUso
+
+    constructor() {
+        const repositorio=new EnfermeraRepositorio()
+        this.casoUso=new EnfermeraCasoUso(repositorio)
+    }
+
     async controladorCrearEnfermera(req:Request,res:Response):Promise<any>{
         try {
             const data=req.body
-            const crear=await crearEnfermera(data)
+            const crear=await this.casoUso.crearEnfermera(data)
             logger.info(`ENFERMERA CREADA ${crear.cedula}`)
 
             return res.status(201).json(crear)
@@ -28,7 +37,7 @@ export class EnfermeraController{
             // const data=req.body
 
             
-            const eliminar=await eliminarEnfermera(codigo)
+            const eliminar=await this.casoUso.eliminarEnfermera(codigo)
             
             if (!eliminar) {
                 return res.status(404).json({
@@ -55,7 +64,7 @@ export class EnfermeraController{
             
             const data=req.body
 
-            const actualizar=await actualizarEnfermeras(codigo,data)
+            const actualizar=await this.casoUso.actualizarEnfermera(codigo,data)
 
             if (!actualizar) {
                 return res.status(404).json({
@@ -82,7 +91,7 @@ export class EnfermeraController{
             
             
 
-            const obtener=await obtenerEnfermera(codigo)
+            const obtener=await this.casoUso.obtenerEnfermera(codigo)
 
             if (!obtener) {
                 return res.status(404).json({
@@ -104,7 +113,7 @@ export class EnfermeraController{
 
     async controladorObtenerEnfermeras(req:Request,res:Response):Promise<any>{
         try {
-            const obtener=await obtenerEnfermeras()
+            const obtener=await this.casoUso.obtenerEnfermeras()
 
             logger.info(`\nLISTADO DE PACIENTES\n`)
 
