@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacientes - Consulmed</title>
+    <link rel="shortcut icon" href="/image/icon/icons-paciente.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/paciente/paciente.css">
+    <link rel="stylesheet" href="/css/paciente/alertas.css">
+</head>
+<body>
+    <h1>PACIENTES - CONSULMED</h1>
+    <br>
+
+    
+    <div>
+        <label for="idInput">Buscar Paciente:</label>
+        <input type="text" id="idInput" placeholder="Ingrese nombre o ID">
+        <button id="btnbuscarP">Buscar</button>
+    </div>
+
+    
+    <div id="resultados">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Edad</th>
+                    <th>Teléfono</th>
+                    <th>Enfermera</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="patientsTableBody">
+                
+            </tbody>
+        </table>
+    </div>
+
+    
+    <div id="registroPaciente" style="display: none;">
+        <h2>Registrar Nuevo Paciente</h2>
+        <form id="registerPatientForm">
+            <label for="idPaciente">ID:</label>
+            <input type="text" id="idPaciente" placeholder="Ingrese ID"><br>
+            
+            <label for="name">Nombres:</label>
+            <input type="text" id="name" placeholder="Ingrese nombres"><br>
+            
+            <label for="age">Edad:</label>
+            <input type="number" id="age" placeholder="Ingrese edad"><br>
+            
+            <label for="contact">Teléfono:</label>
+            <input type="text" id="contact" placeholder="Ingrese teléfono"><br>
+            
+            <label for="idEnfermera">Enfermera:</label>
+            <input type="text" id="idEnfermera" placeholder="Ingrese enfermera"><br>
+            
+            <button type="submit">Registrar</button>
+        </form>
+    </div>
+
+    <!-- Botones -->
+    <button id="btnMostrarRegistro">Registrar Paciente</button>
+
+    
+    <script type="module" src="./js/paciente/paciente.js"></script>
+</body>
+</html>

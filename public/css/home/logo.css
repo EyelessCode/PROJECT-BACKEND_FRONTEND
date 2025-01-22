@@ -1,0 +1,21 @@
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 20px; 
+    padding: 20px; 
+}
+
+
+.logo {
+    width: 100px; 
+    height: auto; 
+}
+
+
+.logo-text {
+    font-size: 50px; 
+    font-weight: bold; 
+    color: #00bcd4; 
+    text-transform: uppercase; 
+}
