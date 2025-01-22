@@ -15,7 +15,7 @@ export interface ICentroMedicoRepositorio{
 }
 
 export interface ICentroMedicoCasoUso{
-    actualizarCentroMedico(codigo:number,data:CentroMedico):Promise<CentroMedico|null>
+    actualizarCentroMedico(codigo:number,data:Partial<CentroMedico>):Promise<CentroMedico|null>
     crearCentroMedico(data:CentroMedico):Promise<CentroMedico>
     eliminarCentroMedico(codigo:number):Promise<CentroMedico|null>
     obtenerCentroMedico(codigo:number):Promise<CentroMedico|null>
