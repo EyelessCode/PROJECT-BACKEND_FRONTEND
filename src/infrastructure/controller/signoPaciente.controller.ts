@@ -17,7 +17,7 @@ export class SignoPacienteController{
             const resultado=casoUso.registrarSignoPaciente(data)
             res.status(201).json(resultado)
         } catch (error) {
-            res.status(500).json({
+            res.status(400).json({
                 message:error
             })
         }
