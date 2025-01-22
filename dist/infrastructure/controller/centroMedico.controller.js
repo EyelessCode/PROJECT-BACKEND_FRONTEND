@@ -11,12 +11,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CentroMedicoController = void 0;
 const centroMedico_useCase_1 = require("../../app/useCase/centroMedico.useCase");
+const centroMedico_repository_1 = require("../repository/centroMedico.repository");
 class CentroMedicoController {
+    constructor() {
+        const repositorio = new centroMedico_repository_1.CentroMedicoRepositorio();
+        this.casoUso = new centroMedico_useCase_1.CentroMedicoCasoUso(repositorio);
+    }
     controladorCrearCentroMedico(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const data = req.body;
-                const crear = yield (0, centroMedico_useCase_1.crearCentroMedico)(data);
+                const crear = yield this.casoUso.crearCentroMedico(data);
                 return res.status(201).json(crear);
             }
             catch (error) {
@@ -32,7 +37,7 @@ class CentroMedicoController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const codigo = parseInt(req.params.codigo);
-                const eliminar = yield (0, centroMedico_useCase_1.eliminarCentroMedico)(codigo);
+                const eliminar = yield this.casoUso.eliminarCentroMedico(codigo);
                 if (!eliminar) {
                     return res.status(404).json({
                         message: `El Centro Médico: ${codigo} no existe`
@@ -54,7 +59,7 @@ class CentroMedicoController {
             try {
                 const codigo = parseInt(req.params.codigo);
                 const data = req.body;
-                const actualizar = yield (0, centroMedico_useCase_1.actualizarCentroMedico)(codigo, data);
+                const actualizar = yield this.casoUso.actualizarCentroMedico(codigo, data);
                 if (!actualizar) {
                     return res.status(404).json({
                         message: `El Centro Médico: ${codigo} no existe`
@@ -75,7 +80,7 @@ class CentroMedicoController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const codigo = parseInt(req.params.codigo);
-                const obtener = yield (0, centroMedico_useCase_1.obtenerCentroMedico)(codigo);
+                const obtener = yield this.casoUso.obtenerCentroMedico(codigo);
                 if (!obtener) {
                     return res.status(404).json({
                         message: `El Centro Médico: ${codigo} no existe`
@@ -95,7 +100,7 @@ class CentroMedicoController {
     controladorObtenerCentrosMedicos(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const obtener = yield (0, centroMedico_useCase_1.obtenerCentrosMedicos)();
+                const obtener = yield this.casoUso.obtenerCentrosMedicos();
                 return res.status(200).json(obtener);
             }
             catch (error) {

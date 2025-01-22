@@ -12,12 +12,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.EnfermeraController = void 0;
 const logger_service_1 = require("../log/logger.service");
 const enfermera_useCase_1 = require("../../app/useCase/enfermera.useCase");
+const enfermera_repository_1 = require("../repository/enfermera.repository");
 class EnfermeraController {
+    constructor() {
+        const repositorio = new enfermera_repository_1.EnfermeraRepositorio();
+        this.casoUso = new enfermera_useCase_1.EnfermeraCasoUso(repositorio);
+    }
     controladorCrearEnfermera(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const data = req.body;
-                const crear = yield (0, enfermera_useCase_1.crearEnfermera)(data);
+                const crear = yield this.casoUso.crearEnfermera(data);
                 logger_service_1.logger.info(`ENFERMERA CREADA ${crear.cedula}`);
                 return res.status(201).json(crear);
             }
@@ -35,7 +40,7 @@ class EnfermeraController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const codigo = parseInt(req.params.codigo);
-                const eliminar = yield (0, enfermera_useCase_1.eliminarEnfermera)(codigo);
+                const eliminar = yield this.casoUso.eliminarEnfermera(codigo);
                 if (!eliminar) {
                     return res.status(404).json({
                         message: `La Enfermera: ${codigo} no existe`
@@ -59,7 +64,7 @@ class EnfermeraController {
             try {
                 const codigo = parseInt(req.params.codigo);
                 const data = req.body;
-                const actualizar = yield (0, enfermera_useCase_1.actualizarEnfermeras)(codigo, data);
+                const actualizar = yield this.casoUso.actualizarEnfermera(codigo, data);
                 if (!actualizar) {
                     return res.status(404).json({
                         message: `La Enfermera: ${codigo} no existe`
@@ -82,7 +87,7 @@ class EnfermeraController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const codigo = parseInt(req.params.codigo);
-                const obtener = yield (0, enfermera_useCase_1.obtenerEnfermera)(codigo);
+                const obtener = yield this.casoUso.obtenerEnfermera(codigo);
                 if (!obtener) {
                     return res.status(404).json({
                         message: `La Enfermera: ${codigo} no existe`
@@ -104,7 +109,7 @@ class EnfermeraController {
     controladorObtenerEnfermeras(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const obtener = yield (0, enfermera_useCase_1.obtenerEnfermeras)();
+                const obtener = yield this.casoUso.obtenerEnfermeras();
                 logger_service_1.logger.info(`\nLISTADO DE PACIENTES\n`);
                 return res.status(200).json(obtener);
             }

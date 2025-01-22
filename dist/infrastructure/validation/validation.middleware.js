@@ -75,6 +75,11 @@ const validarCodigo = (req, res, next) => {
             message: "El código no es un número válido"
         });
     }
+    if (codigo <= 0) {
+        return res.status(400).json({
+            message: "El código debe de ser positivo"
+        });
+    }
     next();
 };
 exports.validarCodigo = validarCodigo;

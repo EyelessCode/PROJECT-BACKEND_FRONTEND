@@ -9,57 +9,66 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.obtenerPacientes = exports.obtenerPaciente = exports.eliminarPaciente = exports.crearPaciente = exports.actualizarPaciente = void 0;
-const paciente_repository_1 = require("../../infrastructure/repository/paciente.repository");
-const repositorio = new paciente_repository_1.PacienteRepositorio();
-const actualizarPaciente = (codigo, data) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        return yield repositorio.actualizarPaciente(codigo, data);
+exports.PacienteCasoUso = void 0;
+class PacienteCasoUso {
+    constructor(repositorio) {
+        this.repositorio = repositorio;
     }
-    catch (error) {
-        console.error(`Error al actualizar un Paciente: ${error}`);
-        throw new Error('No se pudo actualizar un Paciente');
+    actualizarPaciente(codigo, data) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                return yield this.repositorio.actualizarPaciente(codigo, data);
+            }
+            catch (error) {
+                console.error(`Error al actualizar un Paciente: ${error}`);
+                throw new Error('No se pudo actualizar un Paciente');
+            }
+        });
     }
-});
-exports.actualizarPaciente = actualizarPaciente;
-const crearPaciente = (data) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        return yield repositorio.crearPaciente(data);
+    crearPaciente(data) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                return yield this.repositorio.crearPaciente(data);
+            }
+            catch (error) {
+                console.error(`Error al crear un nuevo Paciente: ${error}`);
+                throw new Error('No se pudo crear un nuevo Paciente');
+            }
+        });
     }
-    catch (error) {
-        console.error(`Error al crear un nuevo Paciente: ${error}`);
-        throw new Error('No se pudo crear un nuevo Paciente');
+    eliminarPaciente(codigo) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                return yield this.repositorio.eliminarPaciente(codigo);
+            }
+            catch (error) {
+                console.error(`Error al tratar de eliminar un Paciente con el código: ${codigo}`);
+                throw new Error(`No se pudo eliminar un Paciente con el código: ${codigo}`);
+            }
+        });
     }
-});
-exports.crearPaciente = crearPaciente;
-const eliminarPaciente = (codigo) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        return yield repositorio.eliminarPaciente(codigo);
+    obtenerPaciente(codigo) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                return yield this.repositorio.obtenerPaciente(codigo);
+            }
+            catch (error) {
+                console.error(`Error al obtener un Paciente con el código: ${codigo}`);
+                throw new Error(`No se pudo obtener un Paciente con el código: ${codigo}`);
+            }
+        });
     }
-    catch (error) {
-        console.error(`Error al tratar de eliminar un Paciente con el código: ${codigo}`);
-        throw new Error(`No se pudo eliminar un Paciente con el código: ${codigo}`);
+    obtenerPacientes() {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                return yield this.repositorio.obtenerPacientes();
+            }
+            catch (error) {
+                console.error(`Error al obtener todos los Pacientes, ${error}`);
+                throw new Error(`No se pudo obtener los Pacientes`);
+            }
+        });
     }
-});
-exports.eliminarPaciente = eliminarPaciente;
-const obtenerPaciente = (codigo) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        return yield repositorio.obtenerPaciente(codigo);
-    }
-    catch (error) {
-        console.error(`Error al obtener un Paciente con el código: ${codigo}`);
-        throw new Error(`No se pudo obtener un Paciente con el código: ${codigo}`);
-    }
-});
-exports.obtenerPaciente = obtenerPaciente;
-const obtenerPacientes = () => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        return yield repositorio.obtenerPacientes();
-    }
-    catch (error) {
-        console.error(`Error al obtener todos los Pacientes, ${error}`);
-        throw new Error(`No se pudo obtener los Pacientes`);
-    }
-});
-exports.obtenerPacientes = obtenerPacientes;
+}
+exports.PacienteCasoUso = PacienteCasoUso;
 //# sourceMappingURL=paciente.useCase.js.map

@@ -1,85 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pacientes - Consulmed</title>
     <link rel="shortcut icon" href="/image/icon/icons-paciente.png" type="image/x-icon">
-    <link rel="stylesheet" href="/css/paciente/paciente.css">
+    <link rel="stylesheet" href="/css/paciente/test.css">
     <link rel="stylesheet" href="/css/paciente/alertas.css">
 </head>
 <body>
-    <!-- <br> -->
-    <header>
-        <h1>PACIENTES - CONSULMED</h1>
-    </header>
-
+    <h1>Gestión de Pacientes</h1>
+    <form id="formulario-paciente">
+        <label for="cedula">Cédula:</label>
+        <input type="text" id="cedula" name="cedula" required>
     
-    <div class="contenedorId">
-        <label for="txtId">Buscar Paciente:</label>
-<!-- From Uiverse.io by vinodjangid07 --> 
-        <div class="InputIdContainer">
-            <input placeholder="Buscar ID..." id="txtId" class="inputClass" name="text" type="text">
-        </div>
-        
-            <button class="btnSearchClass" id="btnBuscarPaciente">
-                Buscar
-                <svg class="svgSearch"
-                    xmlns="http://www.w3.org/2000/svg" height="180px"
-                    viewBox="0 -960 960 960" width="180px"
-                    fill="#000000"><path fill-rule="evenodd"
-                        d="M796-121 533-384q-30 26-69.96 40.5Q423.08-329 378-329q-108.16 0-183.08-75Q120-479 120-585t75-181q75-75 181.5-75t181 75Q632-691 632-584.85 632-542 618-502q-14 40-42 75l264 262-44 44ZM377-389q81.25 0 138.13-57.5Q572-504 572-585t-56.87-138.5Q458.25-781 377-781q-82.08 0-139.54 57.5Q180-666 180-585t57.46 138.5Q294.92-389 377-389Z" /></svg>
-            </button>
-    </div>
-
+        <label for="nombres">Nombres:</label>
+        <input type="text" id="nombres" name="nombres" required>
     
-    <div id="resultados">
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Edad</th>
-                    <th>Teléfono</th>
-                    <th>Enfermera</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody id="patientsTableBody">
-                
-            </tbody>
-        </table>
-    </div>
-
+        <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+        <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
     
-    <div id="registroPaciente"">
-        <h2>Registrar Nuevo Paciente</h2>
-        <form id="registerPatientForm">
-            <label for="idPaciente">ID:</label>
-            <input type="text" id="idPaciente" placeholder="Ingrese ID"><br>
-            
-            <label for="name">Nombres:</label>
-            <input type="text" id="name" placeholder="Ingrese nombres"><br>
-            
-            <label for="age">Edad:</label>
-            <input type="number" id="age" placeholder="Ingrese edad"><br>
-            
-            <label for="contact">Teléfono:</label>
-            <input type="text" id="contact" placeholder="Ingrese teléfono"><br>
-            
-            <label for="idEnfermera">Enfermera:</label>
-            <input type="text" id="idEnfermera" placeholder="Ingrese enfermera"><br>
-            
-            <button type="submit">Registrar</button>
-        </form>
-    </div>
-
-        <button class="btnMostrarFormulario" id="btnMostrarFormulario">
-            Registrar nuevo paciente        
-            <svg class="svgMostrarFormulario" xmlns="http://www.w3.org/2000/svg" height="180px" viewBox="0 -960 960 960" width="180px" fill="#000000"><path fill="#000000" fill-rule="evenodd" d="M720-400v-120H600v-80h120v-120h80v120h120v80H800v120h-80Zm-360-80q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM40-160v-112q0-34 17.5-62.5T104-378q62-31 126-46.5T360-440q66 0 130 15.5T616-378q29 15 46.5 43.5T680-272v112H40Zm80-80h480v-32q0-11-5.5-20T580-306q-54-27-109-40.5T360-360q-56 0-111 13.5T140-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T440-640q0-33-23.5-56.5T360-720q-33 0-56.5 23.5T280-640q0 33 23.5 56.5T360-560Zm0-80Zm0 400Z"/></svg>
-        </button>
-
+        <button type="submit">Crear Paciente</button>
+    </form>
     
-    <script type="module" src="/js/paciente/paciente.js"></script>
+    <table>
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Cédula</th>
+                <th>Nombres</th>
+                <th>Fecha de Nacimiento</th>
+            </tr>
+        </thead>
+        <tbody id="tabla-pacientes"></tbody>
+    </table>
+    <script src="/js/paciente/test.js"></script>
 </body>
 </html>

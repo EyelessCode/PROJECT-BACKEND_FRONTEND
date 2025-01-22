@@ -3,11 +3,13 @@ import 'dotenv/config'
 import {ruta} from './routes'
 import { swaggerSpec, swaggerUi } from './infrastructure/doc/swagger.config'
 import path from 'path'
+import cors from 'cors'
 
 const app=express()
 const PORT=process.env.PORT||4001
 
 app.use(express.json())
+app.use(cors())
 app.use(express.static(path.join(__dirname,"..",'public')))
 
 app.use("/comsulmed",ruta)

@@ -11,12 +11,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SignoVitalController = void 0;
 const signoVital_useCase_1 = require("../../app/useCase/signoVital.useCase");
+const signoVital_repository_1 = require("../repository/signoVital.repository");
 class SignoVitalController {
+    constructor() {
+        const repositorio = new signoVital_repository_1.SignoVitalRepositorio();
+        this.casoUso = new signoVital_useCase_1.SignoVitalCasoUso(repositorio);
+    }
     controladorCrearSigno(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const data = req.body;
-                const nuevoSignoVital = yield crearSignoVital(data);
+                const nuevoSignoVital = yield this.casoUso.crearSignoVital(data);
                 return res.status(201).json(nuevoSignoVital);
             }
             catch (error) {
@@ -33,7 +38,7 @@ class SignoVitalController {
             try {
                 const codigo = parseInt(req.params.codigo);
                 const data = req.body;
-                const signoVitalActualizado = yield (0, signoVital_useCase_1.actualizarSignoVital)(codigo, data);
+                const signoVitalActualizado = yield this.casoUso.actualizarSignoVital(codigo, data);
                 if (!signoVitalActualizado) {
                     return res.status(404).json({
                         message: `El signo vital: ${codigo} no existe`
@@ -54,7 +59,7 @@ class SignoVitalController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const codigo = parseInt(req.params.codigo);
-                const eliminar = yield (0, signoVital_useCase_1.eliminarSignoVital)(codigo);
+                const eliminar = yield this.casoUso.eliminarSignoVital(codigo);
                 if (!eliminar) {
                     return res.status(404).json({
                         message: `El signo vital: ${codigo} no existe`
@@ -75,7 +80,7 @@ class SignoVitalController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const codigo = parseInt(req.params.codigo);
-                const obtenerSigno = yield (0, signoVital_useCase_1.obtenerUnSignoVital)(codigo);
+                const obtenerSigno = yield this.casoUso.obtenerSignoVital(codigo);
                 if (!obtenerSigno) {
                     return res.status(404).json({
                         message: `El signo vital: ${codigo} no existe`
@@ -95,7 +100,7 @@ class SignoVitalController {
     controladorObtenerSignos(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const obtenerSignos = yield (0, signoVital_useCase_1.obtenerSignosVitales)();
+                const obtenerSignos = yield this.casoUso.obtenerSignosVitales();
                 return res.status(200).json(obtenerSignos);
             }
             catch (error) {
@@ -109,7 +114,4 @@ class SignoVitalController {
     }
 }
 exports.SignoVitalController = SignoVitalController;
-function crearSignoVital(data) {
-    throw new Error("Function not implemented.");
-}
 //# sourceMappingURL=signoVital.controller.js.map

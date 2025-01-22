@@ -9,57 +9,66 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.obtenerEnfermeras = exports.obtenerEnfermera = exports.eliminarEnfermera = exports.crearEnfermera = exports.actualizarEnfermeras = void 0;
-const enfermera_repository_1 = require("../../infrastructure/repository/enfermera.repository");
-const repositorio = new enfermera_repository_1.EnfermeraRepositorio();
-const actualizarEnfermeras = (codigo, data) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        return yield repositorio.actualizarEnfermera(codigo, data);
+exports.EnfermeraCasoUso = void 0;
+class EnfermeraCasoUso {
+    constructor(repositorio) {
+        this.repositorio = repositorio;
     }
-    catch (error) {
-        console.error(`Error al actualizar una Enfermera: ${error}`);
-        throw new Error('No se pudo actualizar una Enfermera');
+    actualizarEnfermera(codigo, data) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                return yield this.repositorio.actualizarEnfermera(codigo, data);
+            }
+            catch (error) {
+                console.error(`Error al actualizar una Enfermera: ${error}`);
+                throw new Error('No se pudo actualizar una Enfermera');
+            }
+        });
     }
-});
-exports.actualizarEnfermeras = actualizarEnfermeras;
-const crearEnfermera = (data) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        return yield repositorio.crearEnfermera(data);
+    crearEnfermera(data) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                return yield this.repositorio.crearEnfermera(data);
+            }
+            catch (error) {
+                console.error(`Error al crear una Enfermera: ${error}`);
+                throw new Error('No se pudo crear una nuevo Enfermera');
+            }
+        });
     }
-    catch (error) {
-        console.error(`Error al crear una Enfermera: ${error}`);
-        throw new Error('No se pudo crear una nuevo Enfermera');
+    eliminarEnfermera(codigo) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                return yield this.repositorio.eliminarEnfermera(codigo);
+            }
+            catch (error) {
+                console.error(`Error al eliminar una Enfermera: ${error}`);
+                throw new Error('No se pudo eliminar una Enfermera');
+            }
+        });
     }
-});
-exports.crearEnfermera = crearEnfermera;
-const eliminarEnfermera = (codigo) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        return yield repositorio.eliminarEnfermera(codigo);
+    obtenerEnfermera(codigo) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                return yield this.repositorio.obtenerEnfermera(codigo);
+            }
+            catch (error) {
+                console.error(`Error al obtener una Enfermera: ${error}`);
+                throw new Error('No se pudo obtener una Enfermera');
+            }
+        });
     }
-    catch (error) {
-        console.error(`Error al eliminar una Enfermera: ${error}`);
-        throw new Error('No se pudo eliminar una Enfermera');
+    obtenerEnfermeras() {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                return yield this.repositorio.obtenerEnfermeras();
+            }
+            catch (error) {
+                console.error(`Error al obtener las Enfermeras: ${error}`);
+                throw new Error('No se pudo obtener las Enfermeras');
+            }
+        });
     }
-});
-exports.eliminarEnfermera = eliminarEnfermera;
-const obtenerEnfermera = (codigo) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        return yield repositorio.obtenerEnfermera(codigo);
-    }
-    catch (error) {
-        console.error(`Error al obtener una Enfermera: ${error}`);
-        throw new Error('No se pudo obtener una Enfermera');
-    }
-});
-exports.obtenerEnfermera = obtenerEnfermera;
-const obtenerEnfermeras = () => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        return yield repositorio.obtenerEnfermeras();
-    }
-    catch (error) {
-        console.error(`Error al obtener las Enfermeras: ${error}`);
-        throw new Error('No se pudo obtener las Enfermeras');
-    }
-});
-exports.obtenerEnfermeras = obtenerEnfermeras;
+}
+exports.EnfermeraCasoUso = EnfermeraCasoUso;
 //# sourceMappingURL=enfermera.useCase.js.map

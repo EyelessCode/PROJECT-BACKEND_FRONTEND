@@ -9,57 +9,66 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.obtenerCentrosMedicos = exports.obtenerCentroMedico = exports.eliminarCentroMedico = exports.crearCentroMedico = exports.actualizarCentroMedico = void 0;
-const centroMedico_repository_1 = require("../../infrastructure/repository/centroMedico.repository");
-const repositorio = new centroMedico_repository_1.CentroMedicoRepositorio();
-const actualizarCentroMedico = (codigo, data) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        return yield repositorio.actualizarCentroMedico(codigo, data);
+exports.CentroMedicoCasoUso = void 0;
+class CentroMedicoCasoUso {
+    constructor(repositorio) {
+        this.repositorio = repositorio;
     }
-    catch (error) {
-        console.error(`Error al actualizar Centro Médico: ${error}`);
-        throw new Error('No se pudo actualizar un Centro Médico');
+    actualizarCentroMedico(codigo, data) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                return yield this.repositorio.actualizarCentroMedico(codigo, data);
+            }
+            catch (error) {
+                console.error(`Error al actualizar Centro Médico: ${error}`);
+                throw new Error('No se pudo actualizar un Centro Médico');
+            }
+        });
     }
-});
-exports.actualizarCentroMedico = actualizarCentroMedico;
-const crearCentroMedico = (data) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        return yield repositorio.crearCentroMedico(data);
+    crearCentroMedico(data) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                return yield this.repositorio.crearCentroMedico(data);
+            }
+            catch (error) {
+                console.error(`Error al crear un nuevo un Centro Médico: ${error}`);
+                throw new Error('No se pudo crear un nuevo Centro Médico');
+            }
+        });
     }
-    catch (error) {
-        console.error(`Error al crear un nuevo un Centro Médico: ${error}`);
-        throw new Error('No se pudo crear un nuevo Centro Médico');
+    eliminarCentroMedico(codigo) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                return yield this.repositorio.eliminarCentroMedico(codigo);
+            }
+            catch (error) {
+                console.error(`Error al eliminar Centro Médico: ${error}`);
+                throw new Error('No se pudo eliminar un Centro Médico');
+            }
+        });
     }
-});
-exports.crearCentroMedico = crearCentroMedico;
-const eliminarCentroMedico = (codigo) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        return yield repositorio.eliminarCentroMedico(codigo);
+    obtenerCentroMedico(codigo) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                return yield this.repositorio.obtenerCentroMedico(codigo);
+            }
+            catch (error) {
+                console.error(`Error al obtener un Centro Médico: ${error}`);
+                throw new Error('No se pudo obtener un Centro Médico');
+            }
+        });
     }
-    catch (error) {
-        console.error(`Error al eliminar Centro Médico: ${error}`);
-        throw new Error('No se pudo eliminar un Centro Médico');
+    obtenerCentrosMedicos() {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                return yield this.repositorio.obtenerCentrosMedicos();
+            }
+            catch (error) {
+                console.error(`Error al obtener los Centros Médicos: ${error}`);
+                throw new Error('No se pudo obtener los Centros Médicos');
+            }
+        });
     }
-});
-exports.eliminarCentroMedico = eliminarCentroMedico;
-const obtenerCentroMedico = (codigo) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        return yield repositorio.obtenerCentroMedico(codigo);
-    }
-    catch (error) {
-        console.error(`Error al obtener un Centro Médico: ${error}`);
-        throw new Error('No se pudo obtener un Centro Médico');
-    }
-});
-exports.obtenerCentroMedico = obtenerCentroMedico;
-const obtenerCentrosMedicos = () => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        return yield repositorio.obtenerCentrosMedicos();
-    }
-    catch (error) {
-        console.error(`Error al obtener los Centros Médicos: ${error}`);
-        throw new Error('No se pudo obtener los Centros Médicos');
-    }
-});
-exports.obtenerCentrosMedicos = obtenerCentrosMedicos;
+}
+exports.CentroMedicoCasoUso = CentroMedicoCasoUso;
 //# sourceMappingURL=centroMedico.useCase.js.map
