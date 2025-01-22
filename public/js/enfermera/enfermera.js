@@ -6,9 +6,6 @@ const btnRegresar=document.getElementById("btnRegresar")
 
 document.addEventListener("DOMContentLoaded",fecthEnfermera)
 
-btnRegresar.addEventListener("click",()=>{
-    window.location.href="comsulmed/"
-})
 
 async function fecthEnfermera() {
     try {
