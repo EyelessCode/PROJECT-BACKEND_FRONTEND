@@ -28,7 +28,7 @@ function renderizarEnfermera(enfermera) {
     enfermera.forEach(enfermeraEach => {
         const fila=document.createElement("tr")
 
-        fila.innerHTML`
+        fila.innerHTML=`
         <td>${enfermeraEach.cedula}</td>
         <td>${enfermeraEach.nombres}</td>`
         tablaEnfermera.appendChild(fila)
