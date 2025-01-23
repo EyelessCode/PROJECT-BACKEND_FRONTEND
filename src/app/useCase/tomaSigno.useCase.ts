@@ -14,6 +14,10 @@ export class TomaSignoCasoUso implements ITomaSignoCasoUso{
     ) {
         
     }
+    async obtenerTomaSignos(): Promise<TomaSignos[]> {
+        // throw new Error("Method not implemented.");
+        return await this.tomaSignosRepositorio.obtenerTomaSignos()
+    }
 
 
     async registrarTomaSigno(data: TomaSignos): Promise<TomaSignos> {
