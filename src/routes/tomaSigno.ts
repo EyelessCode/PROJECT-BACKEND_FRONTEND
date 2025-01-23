@@ -9,6 +9,7 @@ const controlador=new TomaSignoController()
 ruta.get("/html",(req:Request,res:Response)=>{
     res.sendFile(path.join(__dirname,"..","..","view","tomaSigno.html"))
 })
-ruta.post("/",controlador.registrarTomaSigno.bind(controlador))
+ruta.get("/",controlador.controladorObtenerTomaSignos.bind(controlador))
+ruta.post("/",controlador.controladorRegistrarTomaSigno.bind(controlador))
 
 export{ruta}
