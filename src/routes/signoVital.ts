@@ -2,6 +2,7 @@ import { Request, Response, Router } from "express";
 import { SignoVitalController } from "../infrastructure/controller/signoVital.controller";
 import { prisma } from "../infrastructure/data/prisma.service";
 import { validarCodigo, validarSignoVital } from "../infrastructure/validation/validation.middleware";
+import path from "path";
 
 const ruta=Router()
 const controlador=new SignoVitalController()
@@ -30,6 +31,9 @@ ruta.get('/test',async(req:Request,res:Response)=>{
     }
 })
 
+ruta.get("/html",(req:Request,res:Response)=>{
+    res.sendFile(path.join(__dirname,"..","..","view","signoVital.html"))
+})
 ruta.get('/',controlador.controladorObtenerSignos.bind(controlador))
 ruta.get('/:codigo',validarCodigo,controlador.controladorObtenerSigno.bind(controlador))
 ruta.post('/',validarSignoVital,controlador.controladorCrearSigno.bind(controlador))
