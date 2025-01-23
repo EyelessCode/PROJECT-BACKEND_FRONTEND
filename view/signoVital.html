@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signos Vitales | Consulmed</title>
+    <link rel="stylesheet" href="/css/signoVital/signoVital.css">
+    <meta name="author" content="EyelessCode">
+    <script type="module" defer src="/js/signoVital/signoVital.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Gestión de Signos Vitales</h1>
+    </header>
+    <main>
+        <h2>Registrar Signo Vital</h2>
+        <form id="formularioSignoVital">
+            <label for="descripcion">Descripción:</label>
+            <input type="text" id="descripcion" name="descripcion" required>
+
+            <label for="unidad">Unidad:</label>
+            <input type="text" id="unidad" name="unidad" required>
+
+            <label for="valorMinimo">Valor Mínimo:</label>
+            <input type="number" id="valorMinimo" name="valorMinimo" required>
+
+            <label for="valorMaximo">Valor Máximo:</label>
+            <input type="number" id="valorMaximo" name="valorMaximo" required>
+
+            <button type="submit">Registrar Signo Vital</button>
+        </form>
+
+        <h2>Listado de Signos Vitales</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Descripción</th>
+                    <th>Unidad</th>
+                    <th>Valor Mínimo</th>
+                    <th>Valor Máximo</th>
+                </tr>
+            </thead>
+            <tbody id="tablaSignosVitales">
+                <!-- Aquí se insertarán las filas dinámicamente -->
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
