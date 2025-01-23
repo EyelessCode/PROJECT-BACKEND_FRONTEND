@@ -17,7 +17,8 @@ async function fetchCentroMedico() {
         const centroMedico=await respuesta.json()
         renderizarCentroMedico(centroMedico)
     } catch (error) {
-        
+        console.error(error)
+        alert("Hubo un problema al registrar el Centro Médico")
     }
 }
 
