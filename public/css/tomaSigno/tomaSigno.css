@@ -73,3 +73,48 @@ table th {
     background-color: #FF7043;
     color: white;
 }
+
+.btnRegresar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 135px;
+    height: 40px;
+    padding: 0px 20px;
+    background-color: #007BFF;
+    color: white;
+    font-weight: 700;
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 5px 5px 0px #00264e;
+    transition: color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.svgRegresar {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    right: 20px;
+    fill: white;
+    transition: right 0.3s;
+    stroke: white;
+    stroke-width: 75;
+}
+
+.btnRegresar:hover {
+    color: transparent;
+}
+
+.btnRegresar:hover .svgRegresar {
+    right: 43%;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.btnRegresar:active {
+    transform: translate(3px, 3px);
+    box-shadow: 2px 2px 0px white;
+}
