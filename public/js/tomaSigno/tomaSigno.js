@@ -24,8 +24,8 @@ formularioTomaSigno.addEventListener("submit",async(event)=>{
     const formulario=new FormData(formularioTomaSigno)
     const data={
         pacienteId:parseInt(formulario.get("pacienteId")),
-        centroMedicoId:parseInt(formulario.get("centroMedicoId")),
         enfermeraId:parseInt(formulario.get("enfermeraId")),
+        centroMedicoId:parseInt(formulario.get("centroMedicoId")),
         fecha:formulario.get("fecha")
     }
 
