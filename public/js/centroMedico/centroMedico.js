@@ -4,7 +4,7 @@ const API_URL="http://localhost:4000/comsulmed/centroMedico"
 const btnBuscarPaciente=document.getElementById("btnBuscarPaciente")
 const tablaCentroMedico=document.getElementById("tablaCentroMedico")
 
-tablaCentroMedico.addEventListener()
+document.addEventListener("DOMContentLoaded",fetchCentroMedico)
 
 
 async function fetchCentroMedico() {
