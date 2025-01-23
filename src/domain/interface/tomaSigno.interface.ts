@@ -14,4 +14,5 @@ export interface ITomaSignoCasoUso{
     validarPaciente(codigo:number):Promise<void>
     validarEnfermera(codigo:number):Promise<void>
     validarCentroMedico(codigo:number):Promise<void>
+    obtenerTomaSignos():Promise<TomaSignos[]>
 }
