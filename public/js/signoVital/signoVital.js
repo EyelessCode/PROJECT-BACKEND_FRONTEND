@@ -37,7 +37,8 @@ formularioSignoVital.addEventListener("submit",async(event)=>{
         }
 
         const signoVital=await respuesta.json()
-        filaSignoVital(signoVital)
+        generadorFila(signoVital)
+        formularioSignoVital.reset()
     } catch (error) {
         console.error(error)
         alert("Hubo un problema al registrar el signo vital")
@@ -53,7 +54,6 @@ async function fetchSignoVital() {
 
         const signoVital=await respuesta.json()
         renderizarSignoVital(signoVital)
-        render
     } catch (error) {
         console.error(error)
         alert("Hubo un problema al cargar los signos vitales")
