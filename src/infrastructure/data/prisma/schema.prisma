@@ -32,9 +32,9 @@ model Paciente {
   genero          String
   telefono        String
   tipoSangre      String
-  direccion       String?
-  correo          String?
-  ocupacion       String?
+  direccion       String? @default("")
+  correo          String @unique
+  ocupacion       String? @default("ninguno")
   tomas           TomaSignos[]
 }
 
@@ -75,7 +75,7 @@ model SignosPacientes {
   TipoSignoId  Int
   tomaSignosId Int
   fecha        String
-  comentario   String?
+  comentario   String? @default("")
   tipoSigno    TipoSigno  @relation(fields: [TipoSignoId], references: [codigo])
   tomaSignos   TomaSignos @relation(fields: [tomaSignosId], references: [numero])
 }
