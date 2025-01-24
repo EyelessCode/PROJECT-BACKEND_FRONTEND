@@ -51,7 +51,7 @@ export class TipoSignoCasoUso implements ITipoSignoCasoUso{
         try {
             // const obtenerTipoSignos=await prisma.TipoSigno.findMany()
     
-            return await this.repositorio.obtenerTipoSignoes()
+            return await this.repositorio.obtenerTiposSignos()
         } catch (error) {
             console.error(`Error al obtener todos los Signos Vitales, ${error}`);
             throw new Error(`No se pudo obtener los Signos Vitales`)

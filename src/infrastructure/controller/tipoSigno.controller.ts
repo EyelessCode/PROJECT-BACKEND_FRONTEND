@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
 import { TipoSignoCasoUso } from "../../app/useCase/tipoSigno.useCase";
-import { SignoVitalRepositorio } from "../repository/tipoSigno.repository";
+import { TipoSignoRepositorio } from "../repository/tipoSigno.repository";
 // import { actualizarSignoVital, eliminarSignoVital, obtenerSignosVitales, obtenerUnSignoVital } from "../../app/useCase/signoVital.useCase";
 
 export class SignoVitalController{
     private casoUso:TipoSignoCasoUso
     constructor() {
-        const repositorio=new SignoVitalRepositorio()
+        const repositorio=new TipoSignoRepositorio()
         this.casoUso=new TipoSignoCasoUso(repositorio)
     }
     async controladorCrearSigno(req:Request,res:Response):Promise<any>{
@@ -106,7 +106,7 @@ export class SignoVitalController{
         try {
             // const data=req.body
 
-            const obtenerSignos=await this.casoUso.obtenerSignosVitales()
+            const obtenerSignos=await this.casoUso.obtenerTiposSignos()
             return res.status(200).json(obtenerSignos)
         } catch (error) {
             console.error(error);
