@@ -1,6 +1,6 @@
-import { SignoVital } from "@prisma/client"
+import { TipoSigno } from "@prisma/client"
 
-export interface ISignoVital{
+export interface ITipoSigno{
     // codigo:number
     descripcion:string
     unidad:string
@@ -8,18 +8,18 @@ export interface ISignoVital{
     valorMaximo:number
 }
 
-export interface ISignoVitalRepositorio{
-    crearSignoVital(data:SignoVital):Promise<SignoVital>
-    obtenerSignoVital(codigo:number):Promise<SignoVital|null>
-    obtenerSignoVitales():Promise<SignoVital[]>
-    actualizarSignoVital(codigo:number,data:Partial<SignoVital>):Promise<SignoVital|null>
-    eliminarSignoVital(codigo:number):Promise<SignoVital|null>
+export interface ITipoSignoRepositorio{
+    crearTipoSigno(data:TipoSigno):Promise<TipoSigno>
+    obtenerTipoSigno(codigo:number):Promise<TipoSigno|null>
+    obtenerTipoSignos():Promise<TipoSigno[]>
+    actualizarTipoSigno(codigo:number,data:Partial<TipoSigno>):Promise<TipoSigno|null>
+    eliminarTipoSigno(codigo:number):Promise<TipoSigno|null>
 }
 
-export interface ISignoVitalCasoUso{
-    actualizarSignoVital(codigo:number,data:Partial<SignoVital>):Promise<SignoVital|null>
-    crearSignoVital(data:SignoVital):Promise<SignoVital>
-    eliminarSignoVital(codigo:number):Promise<SignoVital|null>
-    obtenerSignoVital(codigo:number):Promise<SignoVital|null>
-    obtenerSignosVitales():Promise<SignoVital[]>
+export interface ITipoSignoCasoUso{
+    actualizarTipoSigno(codigo:number,data:Partial<TipoSigno>):Promise<TipoSigno|null>
+    crearTipoSigno(data:TipoSigno):Promise<TipoSigno>
+    eliminarTipoSigno(codigo:number):Promise<TipoSigno|null>
+    obtenerTipoSigno(codigo:number):Promise<TipoSigno|null>
+    obtenerTipoSignos():Promise<TipoSigno[]>
 }
