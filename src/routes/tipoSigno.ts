@@ -17,7 +17,7 @@ ruta.delete('/:codigo',controlador.controladorEliminarSigno) */
 //! PARA HACER PRUEBA DE QUE SI CONECTE EL BD
 ruta.get('/test',async(req:Request,res:Response)=>{
     try {
-        const signoVitales=await prisma.signoVital.findMany()
+        const signoVitales=await prisma.tipoSigno.findMany()
         res.json({
             sucess:true,
             data:signoVitales
@@ -32,7 +32,7 @@ ruta.get('/test',async(req:Request,res:Response)=>{
 })
 
 ruta.get("/html",(req:Request,res:Response)=>{
-    res.sendFile(path.join(__dirname,"..","..","view","signoVital.html"))
+    res.sendFile(path.join(__dirname,"..","..","view","tipoSigno.html"))
 })
 ruta.get('/',controlador.controladorObtenerSignos.bind(controlador))
 ruta.get('/:codigo',validarCodigo,controlador.controladorObtenerSigno.bind(controlador))
