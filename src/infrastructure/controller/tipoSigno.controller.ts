@@ -1,18 +1,18 @@
 import { Request, Response } from "express";
-import { SignoVitalCasoUso } from "../../app/useCase/signoVital.useCase";
-import { SignoVitalRepositorio } from "../repository/signoVital.repository";
+import { TipoSignoCasoUso } from "../../app/useCase/tipoSigno.useCase";
+import { SignoVitalRepositorio } from "../repository/tipoSigno.repository";
 // import { actualizarSignoVital, eliminarSignoVital, obtenerSignosVitales, obtenerUnSignoVital } from "../../app/useCase/signoVital.useCase";
 
 export class SignoVitalController{
-    private casoUso:SignoVitalCasoUso
+    private casoUso:TipoSignoCasoUso
     constructor() {
         const repositorio=new SignoVitalRepositorio()
-        this.casoUso=new SignoVitalCasoUso(repositorio)
+        this.casoUso=new TipoSignoCasoUso(repositorio)
     }
     async controladorCrearSigno(req:Request,res:Response):Promise<any>{
         try {
             const data=req.body
-            const nuevoSignoVital=await this.casoUso.crearSignoVital(data)
+            const nuevoSignoVital=await this.casoUso.crearTipoSigno(data)
             return res.status(201).json(nuevoSignoVital)
         } catch (error) {
             console.error(error);
@@ -31,7 +31,7 @@ export class SignoVitalController{
 
             const data=req.body
 
-            const signoVitalActualizado=await this.casoUso.actualizarSignoVital(codigo,data)
+            const signoVitalActualizado=await this.casoUso.actualizarTipoSigno(codigo,data)
             
             if (!signoVitalActualizado) {
                 return res.status(404).json({
@@ -57,7 +57,7 @@ export class SignoVitalController{
             
             // const data=req.body
 
-            const eliminar=await this.casoUso.eliminarSignoVital(codigo)
+            const eliminar=await this.casoUso.eliminarTipoSigno(codigo)
 
             if (!eliminar) {
                 return res.status(404).json({
@@ -83,7 +83,7 @@ export class SignoVitalController{
             
             // const data=req.body
 
-            const obtenerSigno=await this.casoUso.obtenerSignoVital(codigo)
+            const obtenerSigno=await this.casoUso.obtenerTipoSigno(codigo)
 
             if (!obtenerSigno) {
                 return res.status(404).json({

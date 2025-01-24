@@ -1,5 +1,5 @@
 import { Request, Response, Router } from "express";
-import { SignoVitalController } from "../infrastructure/controller/signoVital.controller";
+import { SignoVitalController } from "../infrastructure/controller/tipoSigno.controller";
 import { prisma } from "../infrastructure/data/prisma.service";
 import { validarCodigo, validarSignoVital } from "../infrastructure/validation/validation.middleware";
 import path from "path";

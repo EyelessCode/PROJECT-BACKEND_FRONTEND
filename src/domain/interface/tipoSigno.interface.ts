@@ -11,7 +11,7 @@ export interface ITipoSigno{
 export interface ITipoSignoRepositorio{
     crearTipoSigno(data:TipoSigno):Promise<TipoSigno>
     obtenerTipoSigno(codigo:number):Promise<TipoSigno|null>
-    obtenerTipoSignos():Promise<TipoSigno[]>
+    obtenerTiposSignos():Promise<TipoSigno[]>
     actualizarTipoSigno(codigo:number,data:Partial<TipoSigno>):Promise<TipoSigno|null>
     eliminarTipoSigno(codigo:number):Promise<TipoSigno|null>
 }
@@ -21,5 +21,5 @@ export interface ITipoSignoCasoUso{
     crearTipoSigno(data:TipoSigno):Promise<TipoSigno>
     eliminarTipoSigno(codigo:number):Promise<TipoSigno|null>
     obtenerTipoSigno(codigo:number):Promise<TipoSigno|null>
-    obtenerTipoSignos():Promise<TipoSigno[]>
+    obtenerTiposSignos():Promise<TipoSigno[]>
 }

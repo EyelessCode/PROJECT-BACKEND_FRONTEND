@@ -4,7 +4,7 @@ import { SignosPacientes, TomaSignos } from "@prisma/client";
 // import { SignoVitalRepositorio } from "../../infrastructure/repository/signoVital.repository";
 import { ISignoPacienteCasoUso } from "../../domain/interface/signoPaciente.interface";
 import { TomaSignosRepositorio } from "../../infrastructure/repository/tomaSignos.repository";
-import { SignoVitalRepositorio } from "../../infrastructure/repository/signoVital.repository";
+import { SignoVitalRepositorio } from "../../infrastructure/repository/tipoSigno.repository";
 import { SignoPacienteRepositorio } from "../../infrastructure/repository/signoPaciente.repository";
 
 // const repositorioTomaSignos=new TomaSignosRepositorio()

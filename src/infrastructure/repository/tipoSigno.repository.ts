@@ -1,41 +1,41 @@
-import { SignoVital } from "@prisma/client";
-import { ISignoVitalRepositorio } from "../../domain/interface/signoVital.interface";
+import { TipoSigno } from "@prisma/client";
+import { ITipoSignoRepositorio } from "../../domain/interface/tipoSigno.interface";
 import { prisma } from "../data/prisma.service";
 
-export class SignoVitalRepositorio implements ISignoVitalRepositorio{
-    async crearSignoVital(data: SignoVital): Promise<SignoVital> {
+export class TipoSignoRepositorio implements ITipoSignoRepositorio{
+    async crearTipoSigno(data: TipoSigno): Promise<TipoSigno> {
         // throw new Error("Method not implemented.");
-        return await prisma.signoVital.create({
+        return await prisma.tipoSigno.create({
             data:data
         })
     }
 
-    async obtenerSignoVital(codigo: number): Promise<SignoVital | null> {
+    async obtenerTipoSigno(codigo: number): Promise<TipoSigno | null> {
         // throw new Error("Method not implemented.");
         if (codigo<=0) {
             throw new Error("El código debe ser un número positivo mayor a cero.");
         }
 
-        return await prisma.signoVital.findUnique({
+        return await prisma.tipoSigno.findUnique({
             where:{
                 codigo:codigo
             }
         })
     }
 
-    async obtenerSignoVitales(): Promise<SignoVital[]> {
+    async obtenerTiposSignos(): Promise<TipoSigno[]> {
         // throw new Error("Method not implemented.");
-        return await prisma.signoVital.findMany()
+        return await prisma.tipoSigno.findMany()
     }
 
-    async actualizarSignoVital(codigo: number, data: Partial<SignoVital>): Promise<SignoVital | null> {
+    async actualizarTipoSigno(codigo: number, data: Partial<TipoSigno>): Promise<TipoSigno | null> {
         // throw new Error("Method not implemented.");
 
         if (codigo<=0) {
             throw new Error(`El código debe ser un número positivo mayor a cero.`);
         }
 
-        return await prisma.signoVital.update({
+        return await prisma.tipoSigno.update({
             where:{
                 codigo:codigo
             },
@@ -43,7 +43,7 @@ export class SignoVitalRepositorio implements ISignoVitalRepositorio{
         })
     }
 
-    async eliminarSignoVital(codigo: number): Promise<SignoVital | null> {
+    async eliminarTipoSigno(codigo: number): Promise<TipoSigno | null> {
         // throw new Error("Method not implemented.");
 
         if (codigo<=0) {
@@ -51,7 +51,7 @@ export class SignoVitalRepositorio implements ISignoVitalRepositorio{
             // return null
         }
 
-        return await prisma.signoVital.delete({
+        return await prisma.tipoSigno.delete({
             where:{
                 codigo:codigo
             }
