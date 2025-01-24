@@ -12,10 +12,7 @@ export class TipoSignoRepositorio implements ITipoSignoRepositorio{
 
     async obtenerTipoSigno(codigo: number): Promise<TipoSigno | null> {
         // throw new Error("Method not implemented.");
-        if (codigo<=0) {
-            throw new Error("El código debe ser un número positivo mayor a cero.");
-        }
-
+        
         return await prisma.tipoSigno.findUnique({
             where:{
                 codigo:codigo
@@ -31,10 +28,7 @@ export class TipoSignoRepositorio implements ITipoSignoRepositorio{
     async actualizarTipoSigno(codigo: number, data: Partial<TipoSigno>): Promise<TipoSigno | null> {
         // throw new Error("Method not implemented.");
 
-        if (codigo<=0) {
-            throw new Error(`El código debe ser un número positivo mayor a cero.`);
-        }
-
+        
         return await prisma.tipoSigno.update({
             where:{
                 codigo:codigo
@@ -46,10 +40,7 @@ export class TipoSignoRepositorio implements ITipoSignoRepositorio{
     async eliminarTipoSigno(codigo: number): Promise<TipoSigno | null> {
         // throw new Error("Method not implemented.");
 
-        if (codigo<=0) {
-            throw new Error(`El código debe ser un número positivo mayor a cero.`);
-            // return null
-        }
+        
 
         return await prisma.tipoSigno.delete({
             where:{
