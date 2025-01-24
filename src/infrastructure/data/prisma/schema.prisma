@@ -17,6 +17,8 @@ model CentroMedico {
   codigo        Int          @id @default(autoincrement())
   nombre    String
   direccion String
+  telefono String
+  RUC String @unique
   tomas     TomaSignos[]
 }
 
@@ -25,6 +27,14 @@ model Paciente {
   cedula          String       @unique
   nombres         String
   fechaNacimiento String
+  apellidos String
+  edad Int
+  genero String
+  telefono String
+  tipoSangre String
+  direccion String?
+  correo String?
+  ocupacion String?
   tomas           TomaSignos[]
 }
 
@@ -32,10 +42,12 @@ model Enfermera {
   codigo      Int          @id @default(autoincrement())
   cedula  String       @unique
   nombres String
+  apellidos String
+  especialidad String
   tomas   TomaSignos[]
 }
 
-model SignoVital {
+model TipoSigno {
   codigo             Int               @id @default(autoincrement())
   descripcion    String
   unidad         String
@@ -47,20 +59,23 @@ model SignoVital {
 model TomaSignos {
   numero         Int               @id @default(autoincrement())
   fecha          String
-  centroMedico   CentroMedico      @relation(fields: [centroMedicoId], references: [codigo])
   centroMedicoId Int
-  paciente       Paciente          @relation(fields: [pacienteId], references: [codigo])
   pacienteId     Int
-  enfermera      Enfermera         @relation(fields: [enfermeraId], references: [codigo])
   enfermeraId    Int
+  observacion String
+  centroMedico   CentroMedico      @relation(fields: [centroMedicoId], references: [codigo])
+  paciente       Paciente          @relation(fields: [pacienteId], references: [codigo])
+  enfermera      Enfermera         @relation(fields: [enfermeraId], references: [codigo])
   signosPaciente SignosPacientes[]
 }
 
 model SignosPacientes {
   linea        Int        @id @default(autoincrement())
   valor        Float
-  signoVitalId Int
+  TipoSignoId Int
   tomaSignosId Int
-  signoVital   SignoVital @relation(fields: [signoVitalId], references: [codigo])
+  fecha String
+  comentario String?
+  tipoSigno   TipoSigno @relation(fields: [TipoSignoId], references: [codigo])
   tomaSignos   TomaSignos @relation(fields: [tomaSignosId], references: [numero])
 }
