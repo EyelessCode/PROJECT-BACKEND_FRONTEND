@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>ConsulMed - Enfermeras</title>
+        <link rel="stylesheet" href="css/estilos.css">
+    </head>
+    <body>
+        <!-- Menú de navegación -->
+        <nav>
+            <!-- (Reutilizar menú del home) -->
+        </nav>
+
+        <!-- Contenido principal -->
+        <main>
+            <h1>Enfermeras</h1>
+            <div class="acciones">
+                <button id="btnListarEnfermeras">Listar Enfermeras</button>
+                <button id="btnOcultarEnfermeras" style="display: none;">Ocultar
+                    Tabla</button>
+            </div>
+
+            <!-- Tabla de enfermeras -->
+            <div id="tablaEnfermeras" style="display: none;">
+                <!-- Campo de búsqueda -->
+                <div class="busqueda">
+                    <input type="text" id="buscarEnfermera"
+                        placeholder="Buscar por código">
+                    <button id="btnBuscarEnfermera">Buscar</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Cédula</th>
+                            <th>Nombres</th>
+                            <th>Apellidos</th>
+                            <th>Especialidad</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cuerpoTablaEnfermeras">
+                        <!-- Filas de enfermeras -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Botón de regresar -->
+            <button
+                onclick="window.location.href='index.html';">Regresar</button>
+        </main>
+
+        <script src="js/enfermera.js"></script>
+    </body>
+</html>
