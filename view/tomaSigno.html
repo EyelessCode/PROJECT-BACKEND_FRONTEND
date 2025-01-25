@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>ConsulMed - Toma de Signos</title>
+        <link rel="stylesheet" href="css/estilos.css">
+    </head>
+    <body>
+        <!-- Menú de navegación -->
+        <nav>
+            <!-- (Reutilizar menú del home) -->
+        </nav>
+
+        <!-- Contenido principal -->
+        <main>
+            <h1>Toma de Signos</h1>
+
+            <!-- Información superior -->
+            <div class="info-superior">
+                <span>Número de Consulta: <strong
+                        id="numeroConsulta">001</strong></span>
+                <span>Fecha Actual: <strong id="fechaActual"></strong></span>
+            </div>
+
+            <!-- Formulario principal -->
+            <form id="formTomaSignos">
+                <!-- Seleccionar enfermera -->
+                <label for="enfermera">Enfermera:</label>
+                <select id="enfermera">
+                    <!-- Opciones dinámicas -->
+                </select>
+
+                <!-- Código de paciente -->
+                <label for="codigoPaciente">Código del Paciente:</label>
+                <input type="text" id="codigoPaciente" required>
+                <button type="button" id="btnBuscarPaciente">Buscar</button>
+
+                <!-- Datos del paciente -->
+                <div id="datosPaciente" style="display: none;">
+                    <p>Nombre: <span id="nombrePaciente"></span></p>
+                    <p>Edad: <span id="edadPaciente"></span></p>
+                    <!-- Más datos si es necesario -->
+                </div>
+
+                <!-- Botones de acción -->
+                <div class="acciones">
+                    <button type="button" id="btnCancelar">Cancelar</button>
+                    <button type="button" id="btnSiguiente">Siguiente</button>
+                    <button type="button"
+                        onclick="window.location.href='index.html';">Regresar</button>
+                </div>
+            </form>
+        </main>
+
+        <script src="js/toma_signos.js"></script>
+    </body>
+</html>
