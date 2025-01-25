@@ -16,6 +16,11 @@ export class SignoPacienteCasoUso implements ISignoPacienteCasoUso{
         
     }
 
+    async obtenerSignosPacientes(): Promise<SignosPacientes[]> {
+        // throw new Error("Method not implemented.");
+        return await this.signoPacienteRepositorio.obtenerSignosPacientes()
+    }
+
     async registrarSignoPaciente(data: SignosPacientes): Promise<SignosPacientes> {
         // throw new Error("Method not implemented.");
         await this.validarTipoSigno(data.TipoSignoId,data.valor)
@@ -24,28 +29,17 @@ export class SignoPacienteCasoUso implements ISignoPacienteCasoUso{
         return await this.signoPacienteRepositorio.crearSignoPaciente(data)
     }
 
-    async validarTomaSigno(codigo: number): Promise<void> {
+    private async validarTomaSigno(codigo: number): Promise<void> {
         // throw new Error("Method not implemented.");
         const tomaSigno=await this.tomaSignoRepositorio.obtenerTomaSigno(codigo)
         if(!tomaSigno)throw new Error(`La Toma de Signo con el código ${codigo} no existe`)
     }
     
-    async validarTipoSigno(codigo: number, valor: number): Promise<void> {
+    private async validarTipoSigno(codigo: number, valor: number): Promise<void> {
         // throw new Error("Method not implemented.");
         const signoVital=await this.tipoSignoRepositorio.obtenerTipoSigno(codigo)
-        if(!signoVital)throw new Error(`El Signo Vital con el código ${codigo} no existe`)
-        
-        /* if (valor<signoVital.valorMinimo||valor>signoVital.valorMaximo) {
-            throw new Error(`El Valor ${valor} está fuera del rango permitido (${signoVital.valorMinimo} - ${signoVital.valorMaximo})`)
-        } */
-    //! HACIENDO ESTO DEL VALOR
+        if(!signoVital)
+            throw new Error(`El Signo Vital con el código ${codigo} no existe`)
     }
-
-    async validacionTipoSignoYTomaSigno(codigo:number,codigo2:number,
-        data:TomaSignos,data2:SignosPacientes
-    ):Promise<void>{
-        
-    }
-
 
 }
