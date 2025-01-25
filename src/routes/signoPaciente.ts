@@ -5,6 +5,7 @@ import { SignoPacienteController } from "../infrastructure/controller/signoPacie
 const ruta=Router()
 const controlador=new SignoPacienteController()
 
-ruta.post("/",controlador.registrarSignoPaciente.bind(controlador))
+ruta.get("/",controlador.controladorObtenerSignosPacientes.bind(controlador))
+ruta.post("/",controlador.controladorRegistrarSignoPaciente.bind(controlador))
 
 export{ruta}

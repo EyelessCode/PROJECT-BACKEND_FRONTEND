@@ -40,6 +40,9 @@ export class SignoPacienteCasoUso implements ISignoPacienteCasoUso{
         const signoVital=await this.tipoSignoRepositorio.obtenerTipoSigno(codigo)
         if(!signoVital)
             throw new Error(`El Signo Vital con el código ${codigo} no existe`)
+        if (!valor) {
+            throw new Error(`Debe de ingresar un valor`)
+        }
     }
 
 }

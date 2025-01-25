@@ -11,14 +11,32 @@ const casoUso=new SignoPacienteCasoUso(
 )
 
 export class SignoPacienteController{
-    async registrarSignoPaciente(req:Request,res:Response):Promise<any>{
+    async controladorRegistrarSignoPaciente(req:Request,res:Response):Promise<any>{
         try {
             const data=req.body
-            const resultado=casoUso.registrarSignoPaciente(data)
-            res.status(201).json(resultado)
+            const resultado=await casoUso.registrarSignoPaciente(data)
+            return res.status(201).json(resultado)
         } catch (error) {
-            res.status(400).json({
-                message:error
+            console.error(error);
+            // logger.error(`ERROR AL CREAR AL CENTRO MÉDICO. ${error}`)
+            return res.status(400).json({
+                message:"Error al crear Signo Paciente",
+                error: error,
+            })
+        }
+    }
+
+    async controladorObtenerSignosPacientes(req:Request,res:Response):Promise<any>{
+        try {
+            const resultado=await casoUso.obtenerSignosPacientes()
+
+            return res.status(200).json(resultado)
+        } catch (error) {
+            console.error(error);
+            // logger.error(`ERROR AL CREAR AL CENTRO MÉDICO. ${error}`)
+            return res.status(400).json({
+                message:"Error al obtener los Signos Pacientes",
+                error: error,
             })
         }
     }

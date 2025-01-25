@@ -24,7 +24,7 @@ export class TomaSignoController{
         }
     }
 
-    /* async controladorObtenerTomaSignos(req:Request,res:Response):Promise<any>{
+    async controladorObtenerTomaSignos(req:Request,res:Response):Promise<any>{
         try {
             const tomaSignos=await casoUso.obtenerTomaSignos()
             return res.status(200).json(tomaSignos)
@@ -32,5 +32,5 @@ export class TomaSignoController{
             console.error(error)
             return res.status(400).json({ message: error })
         }
-    } */
+    }
 }
