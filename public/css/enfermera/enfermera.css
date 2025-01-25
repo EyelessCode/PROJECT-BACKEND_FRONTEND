@@ -1,0 +1,54 @@
+/* Estilos específicos para la página de Paciente */
+main h1 {
+    text-align: center;
+}
+
+.acciones {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.acciones button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#formRegistro {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#formRegistro form {
+    display: flex;
+    flex-direction: column;
+}
+
+#formRegistro label {
+    margin-top: 10px;
+}
+
+#tablaPacientes table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#tablaPacientes th, #tablaPacientes td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#tablaPacientes th {
+    background-color: #0275d8;
+    color: white;
+}
+
+.busqueda {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+.busqueda input {
+    padding: 5px;
+}
