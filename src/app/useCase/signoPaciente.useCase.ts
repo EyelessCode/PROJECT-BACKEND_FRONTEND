@@ -35,9 +35,9 @@ export class SignoPacienteCasoUso implements ISignoPacienteCasoUso{
         const signoVital=await this.tipoSignoRepositorio.obtenerTipoSigno(codigo)
         if(!signoVital)throw new Error(`El Signo Vital con el código ${codigo} no existe`)
         
-        if (valor<signoVital.valorMinimo||valor>signoVital.valorMaximo) {
+/*         if (valor<signoVital.valorMinimo||valor>signoVital.valorMaximo) {
             throw new Error(`El Valor ${valor} está fuera del rango permitido (${signoVital.valorMinimo} - ${signoVital.valorMaximo})`)
-        }
+        } */
     }
 
 
