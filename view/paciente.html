@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>ConsulMed - Pacientes</title>
+        <link rel="stylesheet" href="css/estilos.css">
+    </head>
+    <body>
+        <!-- Menú de navegación -->
+        <nav>
+            <!-- (Puedes reutilizar el mismo menú del home) -->
+        </nav>
+
+        <!-- Contenido principal -->
+        <main>
+            <h1>Gestión de Pacientes</h1>
+            <!-- Botones de acción -->
+            <div class="acciones">
+                <button id="btnRegistrar">Registrar Paciente</button>
+                <button id="btnListar">Listar Pacientes</button>
+                <button id="btnDesaparecer" style="display: none;">Ocultar
+                    Tabla</button>
+            </div>
+
+            <!-- Formulario de registro -->
+            <div id="formRegistro" style="display: none;">
+                <h2>Registrar Nuevo Paciente</h2>
+                <form id="formPaciente">
+                    <!-- Campos del formulario -->
+                    <label for="cedula">Cédula:</label>
+                    <input type="text" id="cedula" required>
+
+                    <label for="nombres">Nombres:</label>
+                    <input type="text" id="nombres" required>
+
+                    <label for="apellidos">Apellidos:</label>
+                    <input type="text" id="apellidos" required>
+
+                    <!-- Añade los demás campos aquí -->
+                    <!-- ... -->
+
+                    <button type="submit">Guardar</button>
+                    <button type="button" id="btnCancelar">Cancelar</button>
+                </form>
+            </div>
+
+            <!-- Tabla de pacientes -->
+            <div id="tablaPacientes" style="display: none;">
+                <!-- Campo de búsqueda -->
+                <div class="busqueda">
+                    <input type="text" id="buscarCodigo"
+                        placeholder="Buscar por código">
+                    <button id="btnBuscar">Buscar</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Cédula</th>
+                            <th>Nombres</th>
+                            <th>Apellidos</th>
+                            <!-- Añade las demás columnas aquí -->
+                            <!-- ... -->
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cuerpoTabla">
+                        <!-- Filas de pacientes -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Botón de regresar -->
+            <button
+                onclick="window.location.href='index.html';">Regresar</button>
+        </main>
+
+        <script src="js/paciente.js"></script>
+    </body>
+</html>
