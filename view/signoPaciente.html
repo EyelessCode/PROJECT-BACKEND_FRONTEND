@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>ConsulMed - Signo Paciente</title>
+        <link rel="stylesheet" href="css/estilos.css">
+    </head>
+    <body>
+        <!-- Menú de navegación -->
+        <nav>
+            <!-- (Reutilizar menú del home) -->
+        </nav>
+
+        <!-- Contenido principal -->
+        <main>
+            <h1>Registro de Signos del Paciente</h1>
+
+            <!-- Formulario de signos -->
+            <form id="formSignoPaciente">
+                <!-- Valor del signo -->
+                <label for="valorSigno">Valor:</label>
+                <input type="number" id="valorSigno" required>
+
+                <!-- Seleccionar unidad -->
+                <label for="unidadSigno">Unidad:</label>
+                <select id="unidadSigno">
+                    <!-- Opciones dinámicas -->
+                </select>
+
+                <!-- Botones de acción -->
+                <div class="acciones">
+                    <button type="button" id="btnRegresar">Regresar</button>
+                    <button type="button" id="btnCancelar">Cancelar</button>
+                    <button type="submit" id="btnGrabar">Grabar</button>
+                </div>
+            </form>
+        </main>
+
+        <script src="js/signo_paciente.js"></script>
+    </body>
+</html>
