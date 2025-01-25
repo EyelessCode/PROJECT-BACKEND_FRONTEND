@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.validarCodigo = exports.validarEnfermera = exports.validarCentroMedico = exports.validarSignoVital = exports.validarPaciente = void 0;
+exports.validarTomaSigno = exports.validarCodigo = exports.validarEnfermera = exports.validarCentroMedico = exports.validarSignoVital = exports.validarPaciente = void 0;
 const express_validator_1 = require("express-validator");
 const validarSignoVital = [
     (0, express_validator_1.body)("descripcion").isString().withMessage("La descripción debe de ser un texto").isLength({ max: 120 })
@@ -68,6 +68,20 @@ const validarEnfermera = [
     }
 ];
 exports.validarEnfermera = validarEnfermera;
+const validarTomaSigno = [
+    (0, express_validator_1.body)("pacienteId").isInt().withMessage("El ID del paciente debe ser un número entero."),
+    (0, express_validator_1.body)("enfermeraId").isInt().withMessage("El ID de la enfermera debe ser un número entero."),
+    (0, express_validator_1.body)("centroMedicoId").isInt().withMessage("El ID del centro médico debe ser un número entero."),
+    (0, express_validator_1.body)("fecha").isISO8601().withMessage("La fecha debe estar en formato ISO8601 (YYYY-MM-DD)."),
+    (req, res, next) => {
+        const errores = (0, express_validator_1.validationResult)(req);
+        if (!errores.isEmpty()) {
+            return res.status(400).json({ errores: errores.array() });
+        }
+        next();
+    }
+];
+exports.validarTomaSigno = validarTomaSigno;
 const validarCodigo = (req, res, next) => {
     const codigo = parseInt(req.params.codigo);
     if (isNaN(codigo)) {

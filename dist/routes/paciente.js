@@ -11,7 +11,7 @@ const path_1 = __importDefault(require("path"));
 const ruta = (0, express_1.Router)();
 exports.ruta = ruta;
 const controlador = new paciente_controller_1.PacienteController();
-ruta.get("/", (req, res) => {
+ruta.get("/html", (req, res) => {
     res.sendFile(path_1.default.join(__dirname, "..", "..", "view", "paciente.html"));
 });
 ruta.get('/', controlador.controladorObtenerPacientes.bind(controlador));

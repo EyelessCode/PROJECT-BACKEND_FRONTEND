@@ -25,7 +25,7 @@ export class TomaSignosRepositorio implements ITomaSignoRepositorio{
         return await prisma.tomaSignos.findMany()
     }
 
-    async actualizarTomaSigno(codigo: number, data: Partial<TomaSignos>): Promise<TomaSignos | null> {
+    /* async actualizarTomaSigno(codigo: number, data: Partial<TomaSignos>): Promise<TomaSignos | null> {
         // throw new Error("Method not implemented.");
 
         return await prisma.tomaSignos.update({
@@ -43,6 +43,6 @@ export class TomaSignosRepositorio implements ITomaSignoRepositorio{
                 numero:codigo
             }
         })
-    }
+    } */
 
 }

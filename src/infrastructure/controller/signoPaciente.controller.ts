@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
 import { SignoPacienteCasoUso } from "../../app/useCase/signoPaciente.useCase";
 import { SignoPacienteRepositorio } from "../repository/signoPaciente.repository";
-import { SignoVitalRepositorio } from "../repository/tipoSigno.repository";
+import { TipoSignoRepositorio } from "../repository/tipoSigno.repository";
 import { TomaSignosRepositorio } from "../repository/tomaSignos.repository";
 
 const casoUso=new SignoPacienteCasoUso(
     new TomaSignosRepositorio(),
-    new SignoVitalRepositorio(),
+    new TipoSignoRepositorio(),
     new SignoPacienteRepositorio()
 )
 

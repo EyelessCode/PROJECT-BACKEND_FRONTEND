@@ -4,21 +4,21 @@ import { SignosPacientes, TomaSignos } from "@prisma/client";
 // import { SignoVitalRepositorio } from "../../infrastructure/repository/signoVital.repository";
 import { ISignoPacienteCasoUso } from "../../domain/interface/signoPaciente.interface";
 import { TomaSignosRepositorio } from "../../infrastructure/repository/tomaSignos.repository";
-import { SignoVitalRepositorio } from "../../infrastructure/repository/tipoSigno.repository";
+import { TipoSignoRepositorio } from "../../infrastructure/repository/tipoSigno.repository";
 import { SignoPacienteRepositorio } from "../../infrastructure/repository/signoPaciente.repository";
 
 // const repositorioTomaSignos=new TomaSignosRepositorio()
 export class SignoPacienteCasoUso implements ISignoPacienteCasoUso{
     constructor(
         private tomaSignoRepositorio:TomaSignosRepositorio,
-        private signoVitalRepositorio:SignoVitalRepositorio,
+        private tipoSignoRepositorio:TipoSignoRepositorio,
         private signoPacienteRepositorio:SignoPacienteRepositorio) {
         
     }
 
     async registrarSignoPaciente(data: SignosPacientes): Promise<SignosPacientes> {
         // throw new Error("Method not implemented.");
-        await this.validarSignoVital(data.signoVitalId,data.valor)
+        await this.validarSignoVital(data.TipoSignoId,data.valor)
         await this.validarTomaSigno(data.tomaSignosId)
 
         return await this.signoPacienteRepositorio.crearSignoPaciente(data)
@@ -32,7 +32,7 @@ export class SignoPacienteCasoUso implements ISignoPacienteCasoUso{
     
     async validarSignoVital(codigo: number, valor: number): Promise<void> {
         // throw new Error("Method not implemented.");
-        const signoVital=await this.signoVitalRepositorio.obtenerSignoVital(codigo)
+        const signoVital=await this.tipoSignoRepositorio.obtenerTipoSigno(codigo)
         if(!signoVital)throw new Error(`El Signo Vital con el código ${codigo} no existe`)
         
         if (valor<signoVital.valorMinimo||valor>signoVital.valorMaximo) {

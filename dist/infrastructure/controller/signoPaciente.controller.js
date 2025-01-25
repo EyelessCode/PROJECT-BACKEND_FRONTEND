@@ -12,9 +12,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.SignoPacienteController = void 0;
 const signoPaciente_useCase_1 = require("../../app/useCase/signoPaciente.useCase");
 const signoPaciente_repository_1 = require("../repository/signoPaciente.repository");
-const signoVital_repository_1 = require("../repository/signoVital.repository");
+const tipoSigno_repository_1 = require("../repository/tipoSigno.repository");
 const tomaSignos_repository_1 = require("../repository/tomaSignos.repository");
-const casoUso = new signoPaciente_useCase_1.SignoPacienteCasoUso(new tomaSignos_repository_1.TomaSignosRepositorio(), new signoVital_repository_1.SignoVitalRepositorio(), new signoPaciente_repository_1.SignoPacienteRepositorio());
+const casoUso = new signoPaciente_useCase_1.SignoPacienteCasoUso(new tomaSignos_repository_1.TomaSignosRepositorio(), new tipoSigno_repository_1.TipoSignoRepositorio(), new signoPaciente_repository_1.SignoPacienteRepositorio());
 class SignoPacienteController {
     registrarSignoPaciente(req, res) {
         return __awaiter(this, void 0, void 0, function* () {

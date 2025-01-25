@@ -9,7 +9,6 @@ export interface ITipoSigno{
 }
 
 export interface ITipoSignoRepositorio{
-    crearTipoSigno(data:TipoSigno):Promise<TipoSigno>
     obtenerTipoSigno(codigo:number):Promise<TipoSigno|null>
     obtenerTiposSignos():Promise<TipoSigno[]>
     actualizarTipoSigno(codigo:number,data:Partial<TipoSigno>):Promise<TipoSigno|null>

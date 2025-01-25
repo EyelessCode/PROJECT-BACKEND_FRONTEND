@@ -15,6 +15,9 @@ app.use(express_1.default.json());
 app.use((0, cors_1.default)());
 app.use(express_1.default.static(path_1.default.join(__dirname, "..", 'public')));
 app.use("/comsulmed", routes_1.ruta);
+app.get("/comsulmed", (req, res) => {
+    res.sendFile(path_1.default.join(__dirname, "..", "view", "home.html"));
+});
 app.use("/docs", swagger_config_1.swaggerUi.serve, swagger_config_1.swaggerUi.setup(swagger_config_1.swaggerSpec));
 app.get('/test', (req, res) => {
     res.send('PROBANDO SI EL SERVIDOR SI CONECTA!');

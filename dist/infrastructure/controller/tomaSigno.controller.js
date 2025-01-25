@@ -17,12 +17,24 @@ const paciente_repository_1 = require("../repository/paciente.repository");
 const tomaSignos_repository_1 = require("../repository/tomaSignos.repository");
 const casoUso = new tomaSigno_useCase_1.TomaSignoCasoUso(new paciente_repository_1.PacienteRepositorio(), new centroMedico_repository_1.CentroMedicoRepositorio(), new enfermera_repository_1.EnfermeraRepositorio(), new tomaSignos_repository_1.TomaSignosRepositorio());
 class TomaSignoController {
-    registrarTomaSigno(req, res) {
+    controladorRegistrarTomaSigno(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const data = req.body;
                 const tomaSigno = yield casoUso.registrarTomaSigno(data);
                 return res.status(201).json(tomaSigno);
+            }
+            catch (error) {
+                console.error(error);
+                return res.status(400).json({ message: error });
+            }
+        });
+    }
+    controladorObtenerTomaSignos(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const tomaSignos = yield casoUso.obtenerTomaSignos();
+                return res.status(200).json(tomaSignos);
             }
             catch (error) {
                 console.error(error);

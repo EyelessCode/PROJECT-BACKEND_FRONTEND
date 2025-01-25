@@ -17,6 +17,11 @@ class TomaSignoCasoUso {
         this.enfermeraRepositorio = enfermeraRepositorio;
         this.tomaSignosRepositorio = tomaSignosRepositorio;
     }
+    obtenerTomaSignos() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.tomaSignosRepositorio.obtenerTomaSignos();
+        });
+    }
     registrarTomaSigno(data) {
         return __awaiter(this, void 0, void 0, function* () {
             yield this.validarPaciente(data.pacienteId);

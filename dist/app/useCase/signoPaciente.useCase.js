@@ -11,14 +11,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SignoPacienteCasoUso = void 0;
 class SignoPacienteCasoUso {
-    constructor(tomaSignoRepositorio, signoVitalRepositorio, signoPacienteRepositorio) {
+    constructor(tomaSignoRepositorio, tipoSignoRepositorio, signoPacienteRepositorio) {
         this.tomaSignoRepositorio = tomaSignoRepositorio;
-        this.signoVitalRepositorio = signoVitalRepositorio;
+        this.tipoSignoRepositorio = tipoSignoRepositorio;
         this.signoPacienteRepositorio = signoPacienteRepositorio;
     }
     registrarSignoPaciente(data) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield this.validarSignoVital(data.signoVitalId, data.valor);
+            yield this.validarSignoVital(data.TipoSignoId, data.valor);
             yield this.validarTomaSigno(data.tomaSignosId);
             return yield this.signoPacienteRepositorio.crearSignoPaciente(data);
         });
@@ -32,7 +32,7 @@ class SignoPacienteCasoUso {
     }
     validarSignoVital(codigo, valor) {
         return __awaiter(this, void 0, void 0, function* () {
-            const signoVital = yield this.signoVitalRepositorio.obtenerSignoVital(codigo);
+            const signoVital = yield this.tipoSignoRepositorio.obtenerTipoSigno(codigo);
             if (!signoVital)
                 throw new Error(`El Signo Vital con el código ${codigo} no existe`);
             if (valor < signoVital.valorMinimo || valor > signoVital.valorMaximo) {

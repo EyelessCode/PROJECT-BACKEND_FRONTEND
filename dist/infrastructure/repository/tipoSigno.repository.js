@@ -9,30 +9,49 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TomaSignosRepositorio = void 0;
+exports.TipoSignoRepositorio = void 0;
 const prisma_service_1 = require("../data/prisma.service");
-class TomaSignosRepositorio {
-    crearTomaSigno(data) {
+class TipoSignoRepositorio {
+    crearTipoSigno(data) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield prisma_service_1.prisma.tomaSignos.create({
+            return yield prisma_service_1.prisma.tipoSigno.create({
                 data: data
             });
         });
     }
-    obtenerTomaSigno(codigo) {
+    obtenerTipoSigno(codigo) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield prisma_service_1.prisma.tomaSignos.findUnique({
+            return yield prisma_service_1.prisma.tipoSigno.findUnique({
                 where: {
-                    numero: codigo
+                    codigo: codigo
                 }
             });
         });
     }
-    obtenerTomaSignos() {
+    obtenerTiposSignos() {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield prisma_service_1.prisma.tomaSignos.findMany();
+            return yield prisma_service_1.prisma.tipoSigno.findMany();
+        });
+    }
+    actualizarTipoSigno(codigo, data) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield prisma_service_1.prisma.tipoSigno.update({
+                where: {
+                    codigo: codigo
+                },
+                data: data
+            });
+        });
+    }
+    eliminarTipoSigno(codigo) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield prisma_service_1.prisma.tipoSigno.delete({
+                where: {
+                    codigo: codigo
+                }
+            });
         });
     }
 }
-exports.TomaSignosRepositorio = TomaSignosRepositorio;
-//# sourceMappingURL=tomaSignos.repository.js.map
+exports.TipoSignoRepositorio = TipoSignoRepositorio;
+//# sourceMappingURL=tipoSigno.repository.js.map
