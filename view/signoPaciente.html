@@ -1,71 +1,68 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <title>ConsulMed - Signo Paciente</title>
-        <link rel="stylesheet" href="/css/signoPaciente/signoPaciente.css">
-    </head>
-    <body>
-        <!-- Menú de navegación -->
-        <nav>
-            <ul>
-                <li><a href="http://localhost:4000/comsulmed">Inicio</a></li>
-                <li class="submenu">
-                    <a href="#">Servicios</a>
-                    <ul>
-                        <li><a
-                                href="http://localhost:4000/comsulmed/paciente/html">Pacientes</a></li>
-                        <li><a
-                                href="http://localhost:4000/comsulmed/centroMedico/html">Centro
-                                Médico</a></li>
-                        <li><a
-                                href="http://localhost:4000/comsulmed/enfermera/html">Enfermeras</a></li>
-                        <li><a
-                                href="http://localhost:4000/comsulmed/tomaSigno/html">Toma
-                                de Signos</a></li>
-                        <li><a
-                                href="http://localhost:4000/comsulmed/signoPaciente/html">Signo
-                                Paciente</a></li>
-                    </ul>
-                </li>
-                <li><a href="http://localhost:4000/comsulmed">Sobre
-                        Nosotros</a></li>
-                <li class="submenu">
-                    <a href="#">Más</a>
-                    <ul>
-                        <li><a href="#">Noticias</a></li>
-                        <li><a href="#">Eventos</a></li>
-                        <li><a href="#">Contacto</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConsulMed - Signo Paciente</title>
+    <link rel="stylesheet" href="/css/signoPaciente/signoPaciente.css">
+</head>
+<body>
+    <!-- Menú de navegación -->
+    <nav>
+        <ul>
+            <li><a href="http://localhost:4000/comsulmed">Inicio</a></li>
+            <li class="submenu">
+                <a href="#">Servicios</a>
+                <ul>
+                    <li><a href="http://localhost:4000/comsulmed/paciente/html">Pacientes</a></li>
+                    <li><a href="http://localhost:4000/comsulmed/centroMedico/html">Centro Médico</a></li>
+                    <li><a href="http://localhost:4000/comsulmed/enfermera/html">Enfermeras</a></li>
+                    <li><a href="http://localhost:4000/comsulmed/tomaSigno/html">Toma de Signos</a></li>
+                    <li><a href="http://localhost:4000/comsulmed/signoPaciente/html">Signo Paciente</a></li>
+                </ul>
+            </li>
+            <li><a href="http://localhost:4000/comsulmed">Sobre Nosotros</a></li>
+            <li class="submenu">
+                <a href="#">Más</a>
+                <ul>
+                    <li><a href="#">Noticias</a></li>
+                    <li><a href="#">Eventos</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
 
-        <!-- Contenido principal -->
-        <main>
-            <h1>Registro de Signos del Paciente</h1>
+    <!-- Contenido principal -->
+    <main>
+        <h1>Registro de Signos del Paciente</h1>
 
-            <!-- Formulario de signos -->
-            <form id="formSignoPaciente">
-                <!-- Valor del signo -->
-                <label for="valorSigno">Valor:</label>
-                <input type="number" id="valorSigno" required>
+        <!-- Formulario de signos -->
+        <form id="formSignoPaciente">
+            <!-- Valor del signo -->
+            <label for="valorSigno">Valor:</label>
+            <input type="number" id="valorSigno" placeholder="Ingrese el valor" required>
 
-                <!-- Seleccionar unidad -->
-                <label for="unidadSigno">Unidad:</label>
-                <select id="unidadSigno">
-                    <!-- Opciones dinámicas -->
-                </select>
+            <!-- Seleccionar unidad -->
+            <label for="unidadSigno">Unidad:</label>
+            <select id="unidadSigno" required>
+                <option value="">Seleccione una unidad</option>
+                <!-- Opciones dinámicas -->
+            </select>
 
-                <!-- Botones de acción -->
-                <div class="acciones">
-                    <button type="button" id="btnRegresar">Regresar</button>
-                    <button type="button" id="btnCancelar">Cancelar</button>
-                    <button type="submit" id="btnGrabar">Grabar</button>
-                </div>
-            </form>
-        </main>
+            <!-- Observación -->
+            <label for="observacionSigno">Observación:</label>
+            <input type="text" id="observacionSigno" placeholder="Sin observaciones" readonly>
 
-        <script src="/js/signoPaciente/signoPaciente.js"></script>
-    </body>
+            <!-- Botones de acción -->
+            <div class="acciones">
+                <button type="button" id="btnRegresar">Regresar</button>
+                <button type="button" id="btnCancelar">Cancelar</button>
+                <button type="submit" id="btnGrabar">Grabar</button>
+            </div>
+        </form>
+    </main>
+
+    <script src="/js/signoPaciente/signoPaciente.js"></script>
+</body>
 </html>
