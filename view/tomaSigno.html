@@ -1,92 +1,49 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <title>ConsulMed - Toma de Signos</title>
-        <link rel="stylesheet" href="/css/tomaSigno/tomaSigno.css">
-    </head>
-    <body>
-        <!-- Menú de navegación -->
-        <nav>
-            <ul>
-                <li><a href="http://localhost:4000/comsulmed">Inicio</a></li>
-                <li class="submenu">
-                    <a href="#">Servicios</a>
-                    <ul>
-                        <li><a
-                                href="http://localhost:4000/comsulmed/paciente/html">Pacientes</a></li>
-                        <li><a
-                                href="http://localhost:4000/comsulmed/centroMedico/html">Centro
-                                Médico</a></li>
-                        <li><a
-                                href="http://localhost:4000/comsulmed/enfermera/html">Enfermeras</a></li>
-                        <li><a
-                                href="http://localhost:4000/comsulmed/tomaSigno/html">Toma
-                                de Signos</a></li>
-                    </ul>
-                </li>
-                <li><a href="http://localhost:4000/comsulmed">Sobre
-                        Nosotros</a></li>
-                <li class="submenu">
-                    <a href="#">Más</a>
-                    <ul>
-                        <li><a href="#">Noticias</a></li>
-                        <li><a href="#">Eventos</a></li>
-                        <li><a href="#">Contacto</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-
-        <!-- Contenido principal -->
-        <main>
-            <h1>Toma de Signos</h1>
-
-            <!-- Información superior -->
-            <div class="info-superior">
-                <span>Número de Consulta: <strong
-                        id="numeroConsulta">001</strong></span>
-                <span>Fecha Actual: <strong id="fechaActual"></strong></span>
-            </div>
-
-            <!-- Formulario principal -->
-            <form id="formTomaSignos">
-                <!-- Seleccionar enfermera -->
-                <label for="enfermera">Enfermera:</label>
-                <select id="enfermera">
-                    <!-- Opciones dinámicas -->
-                </select>
-
-                <!-- Código de paciente -->
-                <label for="codigoPaciente">Código del Paciente:</label>
-                <input type="text" id="codigoPaciente" required>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConsulMed - Toma de Signos</title>
+    <link rel="stylesheet" href="/css/tomaSigno/tomaSigno.css">
+</head>
+<body>
+    <header>
+        <h1>Toma de Signos</h1>
+    </header>
+    <main>
+        <form id="formTomaSignos">
+            <!-- Selección de centro médico -->
+            <label for="centroMedico">Seleccionar Centro Médico:</label>
+            <select id="centroMedico">
+                <option value="">Seleccione un centro médico</option>
+            </select>
+        
+            <!-- Selección de enfermera -->
+            <label for="enfermera">Seleccionar Enfermera:</label>
+            <select id="enfermera">
+                <option value="">Seleccione una enfermera</option>
+            </select>
+        
+            <!-- Código del paciente -->
+            <label for="codigoPaciente">Código del Paciente:</label>
+            <div style="display: flex; gap: 0.5rem;">
+                <input type="text" id="codigoPaciente" placeholder="Ingrese el código del paciente" required>
                 <button type="button" id="btnBuscarPaciente">Buscar</button>
-
-                <!-- Datos del paciente -->
-                <div id="datosPaciente" style="display: none;">
-                    <p>Cédula: <span id="cedulaPaciente"></span></p>
-                    <p>Nombres y Apellidos: <span id="nombrePaciente"></span></p>
-                    <p>Edad: <span id="edadPaciente"></span></p>
-                    <p>Fecha: <span id="fechaPaciente"></span></p>
-                    <p>Género: <span id="generoPaciente"></span></p>
-                    <p>teléfono: <span id="telefonoPaciente"></span></p>
-                    <p>Sangre: <span id="sangrePaciente"></span></p>
-                    <p>Dirección: <span id="direccionPaciente"></span></p>
-                    <p>Correo: <span id="correoPaciente"></span></p>
-                    <p>Ocupación: <span id="ocupacionPaciente"></span></p>
-                    <!-- Más datos si es necesario -->
-                </div>
-
-                <!-- Botones de acción -->
-                <div class="acciones">
-                    <button type="button" id="btnCancelar">Cancelar</button>
-                    <button type="button" id="btnSiguiente">Siguiente</button>
-                    <button type="button"
-                        onclick="window.location.href='http://localhost:4000/comsulmed';">Regresar</button>
-                </div>
-            </form>
-        </main>
-
-        <script type="module" src="/js/tomaSigno/tomaSigno.js"></script>
-    </body>
+            </div>
+        
+            <!-- Contenedor para los datos del paciente -->
+            <div id="datosPaciente" style="margin-top: 1rem; display: none;"></div>
+        
+            <div class="acciones">
+                <button type="button" id="btnRegistrar">Registrar Toma de Signos</button>
+            </div>
+        </form>
+        
+        
+    </main>
+    <footer>
+        <p>&copy; 2025 ConsulMed</p>
+    </footer>
+    <script src="/js/tomaSigno/tomaSigno.js"></script>
+</body>
 </html>
