@@ -6,6 +6,102 @@ const API_URL_TOMA_SIGNOS = `${API_URL_BASE}/tomaSigno`;
 const API_URL_PACIENTES = `${API_URL_BASE}/paciente`;
 const API_URL_CENTROS_MEDICOS = `${API_URL_BASE}/centroMedico`; // Nueva URL para centros médicos
 
+// Abrir y cerrar popup
+document.getElementById("btnSeleccionarPaciente").addEventListener("click", abrirPopup);
+document.getElementById("btnCerrarPopup").addEventListener("click", cerrarPopup);
+
+// Función para abrir el popup
+async function abrirPopup() {
+    const popup = document.getElementById("popupPacientes");
+    popup.style.display = "flex";
+
+    try {
+        const response = await fetch(API_URL_PACIENTES);
+        if (!response.ok) throw new Error("Error al cargar los pacientes.");
+
+        const pacientes = await response.json();
+        const tablaPacientes = document.getElementById("tablaPacientes");
+        tablaPacientes.innerHTML = ""; // Limpiar tabla antes de llenarla
+
+        // Llenar la tabla con los pacientes
+        pacientes.forEach((paciente) => {
+            const fila = document.createElement("tr");
+
+            // Añadir columnas
+            fila.innerHTML = `
+                <td>${paciente.codigo}</td>
+                <td>${paciente.nombres}</td>
+                <td>${paciente.apellidos}</td>
+                <td>${calcularEdad(new Date(paciente.fechaNacimiento))}</td>
+                <td>${paciente.telefono || "N/A"}</td>
+            `;
+
+            // Evento para seleccionar paciente
+            fila.addEventListener("click", () => seleccionarPaciente(paciente));
+            tablaPacientes.appendChild(fila);
+        });
+    } catch (error) {
+        console.error(error);
+        alert("Error al cargar los pacientes.");
+    }
+}
+
+// Función para cerrar el popup
+function cerrarPopup() {
+    const popup = document.getElementById("popupPacientes");
+    popup.style.display = "none";
+}
+
+// Función para seleccionar un paciente
+function seleccionarPaciente(paciente) {
+    if (confirm(`¿Desea seleccionar al paciente ${paciente.nombres} ${paciente.apellidos}?`)) {
+        cerrarPopup(); // Cerrar el popup
+
+        // Rellenar el formulario principal
+        document.getElementById("codigoPaciente").value = paciente.codigo;
+
+        // Mostrar datos del paciente en etiquetas
+        mostrarDatosPaciente(paciente);
+    }
+}
+
+// Reutilizar función para mostrar datos del paciente
+function mostrarDatosPaciente(paciente) {
+    const datosPacienteDiv = document.getElementById("datosPaciente");
+    datosPacienteDiv.innerHTML = ""; // Limpiar datos previos
+
+    const atributos = [
+        { label: "Nombres y Apellidos", value: `${paciente.nombres} ${paciente.apellidos}` },
+        { label: "Edad", value: calcularEdad(new Date(paciente.fechaNacimiento)) },
+        { label: "Fecha de Nacimiento", value: paciente.fechaNacimiento },
+        { label: "Género", value: paciente.genero },
+        { label: "Teléfono", value: paciente.telefono || "N/A" },
+        { label: "Tipo de Sangre", value: paciente.tipoSangre || "N/A" },
+        { label: "Dirección", value: paciente.direccion || "No especificada" },
+        { label: "Correo", value: paciente.correo },
+        { label: "Ocupación", value: paciente.ocupacion || "No especificada" },
+    ];
+
+    atributos.forEach((atributo) => {
+        const p = document.createElement("p");
+        p.innerHTML = `<strong>${atributo.label}:</strong> ${atributo.value}`;
+        datosPacienteDiv.appendChild(p);
+    });
+
+    datosPacienteDiv.style.display = "block";
+}
+
+// Función para calcular la edad
+function calcularEdad(fechaNacimiento) {
+    const hoy = new Date();
+    let edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
+    const mes = hoy.getMonth() - fechaNacimiento.getMonth();
+    if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNacimiento.getDate())) edad--;
+    return edad;
+}
+
+//!
+
 document.addEventListener("DOMContentLoaded", () => {
     cargarCentrosMedicos();
     cargarEnfermeras();
@@ -97,43 +193,6 @@ async function buscarPaciente() {
         console.error(error);
         alert("Error al buscar el paciente. Verifique el código ingresado.");
     }
-}
-
-// Función para mostrar los datos del paciente en etiquetas dinámicas
-function mostrarDatosPaciente(paciente) {
-    const datosPacienteDiv = document.getElementById("datosPaciente");
-    datosPacienteDiv.innerHTML = ""; // Limpiar datos previos
-
-    // Atributos a mostrar (excluyendo el código)
-    const atributos = [
-        { label: "Nombres y Apellidos", value: `${paciente.nombres} ${paciente.apellidos}` },
-        { label: "Edad", value: calcularEdad(new Date(paciente.fechaNacimiento)) },
-        { label: "Fecha de Nacimiento", value: paciente.fechaNacimiento },
-        { label: "Género", value: paciente.genero },
-        { label: "Teléfono", value: paciente.telefono },
-        { label: "Tipo de Sangre", value: paciente.tipoSangre },
-        { label: "Dirección", value: paciente.direccion || "No especificada" },
-        { label: "Correo", value: paciente.correo },
-        { label: "Ocupación", value: paciente.ocupacion || "No especificada" },
-    ];
-
-    // Crear etiquetas dinámicamente
-    atributos.forEach((atributo) => {
-        const p = document.createElement("p");
-        p.innerHTML = `<strong>${atributo.label}:</strong> ${atributo.value}`;
-        datosPacienteDiv.appendChild(p);
-    });
-
-    datosPacienteDiv.style.display = "block"; // Mostrar el contenedor
-}
-
-// Calcular la edad del paciente
-function calcularEdad(fechaNacimiento) {
-    const hoy = new Date();
-    let edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
-    const mes = hoy.getMonth() - fechaNacimiento.getMonth();
-    if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNacimiento.getDate())) edad--;
-    return edad;
 }
 
 
