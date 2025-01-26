@@ -9,5 +9,5 @@ export function calcularEdad(fechaNacimiento) {
         edadCalculada--;
     }
 
-    return edadCalculada;
+    return Number(edadCalculada);
 }
