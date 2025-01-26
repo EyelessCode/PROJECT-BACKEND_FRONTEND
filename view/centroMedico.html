@@ -1,54 +1,71 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <title>ConsulMed - Centro Médico</title>
-        <link rel="stylesheet" href="/css/centroMedico/centroMedico.css">
-    </head>
-    <body>
-        <!-- Menú de navegación -->
-        <nav>
-            <!-- (Reutilizar menú del home) -->
-        </nav>
+<head>
+    <meta charset="UTF-8">
+    <title>ConsulMed - Centro Médico</title>
+    <link rel="stylesheet" href="/css/centroMedico/centroMedico.css">
+</head>
+<body>
+    <!-- Menú de navegación -->
+    <nav>
+        <ul>
+            <li><a href="http://localhost:4000/comsulmed">Inicio</a></li>
+            <li class="submenu">
+                <a href="#">Servicios</a>
+                <ul>
+                    <li><a href="http://localhost:4000/comsulmed/paciente/html">Pacientes</a></li>
+                    <li><a href="http://localhost:4000/comsulmed/centroMedico/html">Centro Médico</a></li>
+                    <li><a href="http://localhost:4000/comsulmed/enfermera/html">Enfermeras</a></li>
+                    <li><a href="http://localhost:4000/comsulmed/tomaSigno/html">Toma de Signos</a></li>
+                </ul>
+            </li>
+            <li><a href="http://localhost:4000/comsulmed">Sobre Nosotros</a></li>
+            <li class="submenu">
+                <a href="#">Más</a>
+                <ul>
+                    <li><a href="#">Noticias</a></li>
+                    <li><a href="#">Eventos</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
 
-        <!-- Contenido principal -->
-        <main>
-            <h1>Centros Médicos</h1>
-            <div class="acciones">
-                <button id="btnListarCentros">Listar Centros Médicos</button>
-                <button id="btnOcultarCentros" style="display: none;">Ocultar
-                    Tabla</button>
+    <!-- Contenido principal -->
+    <main>
+        <h1>Centros Médicos</h1>
+        <div class="acciones">
+            <button id="btnListarCentros">Listar Centros Médicos</button>
+            <button id="btnOcultarCentros" style="display: none;">Ocultar Tabla</button>
+        </div>
+
+        <!-- Tabla de centros médicos -->
+        <div id="tablaCentros" style="display: none;">
+            <!-- Campo de búsqueda -->
+            <div class="busqueda">
+                <input type="text" id="buscarCentro" placeholder="Buscar por código">
+                <button id="btnBuscarCentro">Buscar</button>
             </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>RUC</th>
+                        <th>Nombre</th>
+                        <th>Dirección</th>
+                        <th>Teléfono</th>
+                    </tr>
+                </thead>
+                <tbody id="cuerpoTablaCentros">
+                    <!-- Filas de centros médicos -->
+                </tbody>
+            </table>
+        </div>
 
-            <!-- Tabla de centros médicos -->
-            <div id="tablaCentros" style="display: none;">
-                <!-- Campo de búsqueda -->
-                <div class="busqueda">
-                    <input type="text" id="buscarCentro"
-                        placeholder="Buscar por código">
-                    <button id="btnBuscarCentro">Buscar</button>
-                </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Código</th>
-                            <th>RUC</th>
-                            <th>Nombre</th>
-                            <th>Dirección</th>
-                            <th>Teléfono</th>
-                        </tr>
-                    </thead>
-                    <tbody id="cuerpoTablaCentros">
-                        <!-- Filas de centros médicos -->
-                    </tbody>
-                </table>
-            </div>
+        <!-- Botón de regresar -->
+        <button onclick="window.location.href='http://localhost:4000/comsulmed';">Regresar</button>
+    </main>
 
-            <!-- Botón de regresar -->
-            <button
-                onclick="window.location.href='http://localhost:4000/comsulmed';">Regresar</button>
-        </main>
-
-        <script type="module" src="/js/centroMedico/centroMedico.js"></script>
-    </body>
+    <script type="module" src="/js/centroMedico/centroMedico.js"></script>
+</body>
 </html>
