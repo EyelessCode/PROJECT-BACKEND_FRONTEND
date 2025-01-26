@@ -106,18 +106,28 @@ async function registrarTomaSignos() {
         const response = await fetch(API_URL_TOMA_SIGNOS, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(tomaSignos)
+            body: JSON.stringify(tomaSignos),
         });
-
-        if (!response.ok) throw new Error("Error al registrar la toma de signos");
-
+    
         const responseData = await response.json();
+    
+        if (!response.ok) {
+            throw new Error(responseData.message || "Error desconocido");
+        }
+    
         alert("Toma de signos registrada correctamente.");
-        window.location.href = `${API_URL_BASE}/signoPaciente/html?numero=${responseData.numero}`;
+        window.location.href = `http://localhost:4000/comsulmed/signoPaciente/html?numero=${responseData.numero}`;
     } catch (error) {
-        console.error(error);
-        alert("Error al registrar la toma de signos. Por favor, inténtelo nuevamente.");
+        console.error("Error al registrar la toma de signos:", error);
+    
+        // Si la respuesta tiene más detalles, mostrarlos
+        if (error.response) {
+            console.error("Respuesta del servidor:", error.response);
+        }
+    
+        alert(error.message || "Error al registrar la toma de signos.");
     }
+    
 }
 
 // Restablecer el formulario al estado inicial
