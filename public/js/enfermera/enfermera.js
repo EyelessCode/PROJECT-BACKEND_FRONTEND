@@ -1,6 +1,6 @@
 import {mostrarEnfermerasTabla} from './utils.js';
 
-const API_URL = "http://localhost:4000/comsulmed/centroMedico";
+const API_URL = "http://localhost:4000/comsulmed/enfermera";
 
 document.getElementById('btnListarEnfermeras').addEventListener('click', async () => {
     console.log('Listar Enfermeras');
