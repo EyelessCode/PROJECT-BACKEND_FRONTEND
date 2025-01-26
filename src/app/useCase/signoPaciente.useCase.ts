@@ -23,7 +23,7 @@ export class SignoPacienteCasoUso implements ISignoPacienteCasoUso{
 
     async registrarSignoPaciente(data: SignosPacientes): Promise<SignosPacientes> {
         // throw new Error("Method not implemented.");
-        await this.validarTipoSigno(data.TipoSignoId,data.valor)
+        await this.validarTipoSigno(data.tipoSignoId,data.valor)
         await this.validarTomaSigno(data.tomaSignosId)
         
         return await this.signoPacienteRepositorio.crearSignoPaciente(data)

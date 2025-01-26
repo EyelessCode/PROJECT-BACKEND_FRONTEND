@@ -24,13 +24,17 @@ export class TomaSignoController{
         }
     }
 
-    async controladorObtenerTomaSignos(req:Request,res:Response):Promise<any>{
+    async controladorObtenerTomaSignos(req: Request, res: Response): Promise<any> {
         try {
-            const tomaSignos=await casoUso.obtenerTomaSignos()
-            return res.status(200).json(tomaSignos)
+            const tomaSignos = await casoUso.obtenerTomaSignos();
+            if (!tomaSignos.length) {
+                return res.status(404).json({ message: 'No se encontraron registros de toma de signos.' });
+            }
+            return res.status(200).json(tomaSignos);
         } catch (error) {
-            console.error(error)
-            return res.status(400).json({ message: error })
+            console.error('Error al obtener toma de signos:', error);
+            return res.status(500).json({ message: 'Error interno del servidor.' });
         }
     }
+    
 }

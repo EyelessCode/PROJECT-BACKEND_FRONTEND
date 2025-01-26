@@ -72,10 +72,10 @@ model TomaSignos {
 model SignosPacientes {
   linea        Int        @id @default(autoincrement())
   valor        Float
-  TipoSignoId  Int
+  tipoSignoId  Int
   tomaSignosId Int
   fecha        String
   comentario   String? @default("")
-  tipoSigno    TipoSigno  @relation(fields: [TipoSignoId], references: [codigo])
+  tipoSigno    TipoSigno  @relation(fields: [tipoSignoId], references: [codigo])
   tomaSignos   TomaSignos @relation(fields: [tomaSignosId], references: [numero])
 }
