@@ -1,127 +1,137 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>ConsulMed - Pacientes</title>
-    <link rel="stylesheet" href="/css/paciente/paciente.css">
-</head>
-<body>
-    <!-- Menú de navegación -->
-    <nav>
-        <ul>
-            <li><a href="http://localhost:4000/comsulmed">Inicio</a></li>
-            <li class="submenu">
-                <a href="#">Servicios</a>
-                <ul>
-                    <li><a href="http://localhost:4000/comsulmed/paciente/html">Pacientes</a></li>
-                    <li><a href="http://localhost:4000/comsulmed/centroMedico/html">Centro Médico</a></li>
-                    <li><a href="http://localhost:4000/comsulmed/enfermera/html">Enfermeras</a></li>
-                    <li><a href="http://localhost:4000/comsulmed/tomaSigno/html">Toma de Signos</a></li>
-                </ul>
-            </li>
-            <li><a href="http://localhost:4000/comsulmed">Sobre Nosotros</a></li>
-            <li class="submenu">
-                <a href="#">Más</a>
-                <ul>
-                    <li><a href="#">Noticias</a></li>
-                    <li><a href="#">Eventos</a></li>
-                    <li><a href="#">Contacto</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
+    <head>
+        <meta charset="UTF-8">
+        <title>ConsulMed - Pacientes</title>
+        <link rel="stylesheet" href="/css/paciente/paciente.css">
+    </head>
+    <body>
+        <!-- Menú de navegación -->
+        <nav>
+            <ul>
+                <li><a href="http://localhost:4000/comsulmed">Inicio</a></li>
+                <li class="submenu">
+                    <a href="#">Servicios</a>
+                    <ul>
+                        <li><a
+                                href="http://localhost:4000/comsulmed/paciente/html">Pacientes</a></li>
+                        <li><a
+                                href="http://localhost:4000/comsulmed/centroMedico/html">Centro
+                                Médico</a></li>
+                        <li><a
+                                href="http://localhost:4000/comsulmed/enfermera/html">Enfermeras</a></li>
+                        <li><a
+                                href="http://localhost:4000/comsulmed/tomaSigno/html">Toma
+                                de Signos</a></li>
+                    </ul>
+                </li>
+                <li><a href="http://localhost:4000/comsulmed">Sobre
+                        Nosotros</a></li>
+                <li class="submenu">
+                    <a href="#">Más</a>
+                    <ul>
+                        <li><a href="#">Noticias</a></li>
+                        <li><a href="#">Eventos</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
 
-    <!-- Contenido principal -->
-    <main>
-        <h1>Gestión de Pacientes</h1>
-        <!-- Botones de acción -->
-        <div class="acciones">
-            <button id="btnRegistrar">Registrar Paciente</button>
-            <button id="btnListar">Listar Pacientes</button>
-            <button id="btnDesaparecer" style="display: none;">Ocultar Tabla</button>
-        </div>
+        <!-- Contenido principal -->
+        <main>
+            <h1>Gestión de Pacientes</h1>
+            <!-- Botones de acción -->
+            <div class="acciones">
+                <button id="btnRegistrar">Registrar Paciente</button>
+                <button id="btnListar">Listar Pacientes</button>
+                <button id="btnDesaparecer" style="display: none;">Ocultar
+                    Tabla</button>
+            </div>
 
-        <!-- Formulario de registro -->
-        <div id="formRegistro" style="display: none;">
-            <h2>Registrar Nuevo Paciente</h2>
-            <form id="formPaciente">
-                <!-- Campos del formulario -->
-                <label for="cedula">Cédula:</label>
-                <input type="text" id="cedula" required>
+            <!-- Formulario de registro -->
+            <div id="formRegistro" style="display: none;">
+                <h2>Registrar Nuevo Paciente</h2>
+                <form id="formPaciente">
+                    <!-- Campos del formulario -->
+                    <label for="cedula">Cédula:</label>
+                    <input type="text" id="cedula" required>
 
-                <label for="nombres">Nombres:</label>
-                <input type="text" id="nombres" required>
+                    <label for="nombres">Nombres:</label>
+                    <input type="text" id="nombres" required>
 
-                <label for="apellidos">Apellidos:</label>
-                <input type="text" id="apellidos" required>
+                    <label for="apellidos">Apellidos:</label>
+                    <input type="text" id="apellidos" required>
 
-                <!-- <label for="edad">Edad:</label>
+                    <!-- <label for="edad">Edad:</label>
                 <input type="number" id="edad" required> -->
 
-                <label for="genero">Género:</label>
-                <select id="genero" required>
-                    <option value="Masculino">Masculino</option>
-                    <option value="Femenino">Femenino</option>
-                </select>
+                    <label for="genero">Género:</label>
+                    <select id="genero" required>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Femenino">Femenino</option>
+                    </select>
 
-                <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-                <input type="date" id="fechaNacimiento" required>
+                    <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                    <input type="date" id="fechaNacimiento" required>
 
-                <label for="tipoSangre">Tipo de Sangre:</label>
-                <input type="text" id="tipoSangre" required>
+                    <label for="tipoSangre">Tipo de Sangre:</label>
+                    <input type="text" id="tipoSangre" required>
 
-                <label for="telefono">Teléfono:</label>
-                <input type="tel" id="telefono" required>
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" required>
 
-                <label for="direccion">Dirección:</label>
-                <input type="text" id="direccion">
+                    <label for="direccion">Dirección:</label>
+                    <input type="text" id="direccion">
 
-                <label for="correo">Correo:</label>
-                <input type="email" id="correo" required>
+                    <label for="correo">Correo:</label>
+                    <input type="email" id="correo" required>
 
-                <label for="ocupacion">Ocupación:</label>
-                <input type="text" id="ocupacion" required>
+                    <label for="ocupacion">Ocupación:</label>
+                    <input type="text" id="ocupacion" required>
 
-                <button type="submit">Guardar</button>
-                <button type="button" id="btnCancelar">Cancelar</button>
-            </form>
-        </div>
-
-        <!-- Tabla de pacientes -->
-        <div id="tablaPacientes" style="display: none;">
-            <!-- Campo de búsqueda -->
-            <div class="busqueda">
-                <input type="text" id="buscarCodigo" placeholder="Buscar por código">
-                <button id="btnBuscar">Buscar</button>
+                    <button type="submit">Guardar</button>
+                    <button type="button" id="btnCancelar">Cancelar</button>
+                </form>
             </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Código</th>
-                        <th>Cédula</th>
-                        <th>Nombres</th>
-                        <th>Apellidos</th>
-                        <th>Edad</th>
-                        <th>Género</th>
-                        <th>Fecha de Nacimiento</th>
-                        <th>Tipo de Sangre</th>
-                        <th>Teléfono</th>
-                        <th>Dirección</th>
-                        <th>Correo</th>
-                        <th>Ocupación</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody id="cuerpoTabla">
-                    <!-- Filas de pacientes -->
-                </tbody>
-            </table>
-        </div>
 
-        <!-- Botón de regresar -->
-        <button onclick="window.location.href='http://localhost:4000/comsulmed';">Regresar</button>
-    </main>
+            <!-- Tabla de pacientes -->
+            <div id="tablaPacientes" style="display: none;">
+                <!-- Campo de búsqueda -->
+                <div class="busqueda">
+                    <input type="text" id="buscarCodigo"
+                        placeholder="Buscar por código">
+                    <button id="btnBuscar">Buscar</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Cédula</th>
+                            <th>Nombres</th>
+                            <th>Apellidos</th>
+                            <th>Edad</th>
+                            <th>Género</th>
+                            <th>Fecha de Nacimiento</th>
+                            <th>Tipo de Sangre</th>
+                            <th>Teléfono</th>
+                            <th>Dirección</th>
+                            <th>Correo</th>
+                            <th>Ocupación</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cuerpoTabla">
+                        <!-- Filas de pacientes -->
+                    </tbody>
+                </table>
+            </div>
 
-    <script type="module" src="/js/paciente/paciente.js"></script>
-</body>
+            <!-- Botón de regresar -->
+            <button
+                onclick="window.location.href='http://localhost:4000/comsulmed';">Regresar</button>
+        </main>
+
+        <script type="module" src="/js/paciente/paciente.js"></script>
+    </body>
 </html>
