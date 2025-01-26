@@ -29,6 +29,7 @@
             <div style="display: flex; gap: 0.5rem;">
                 <input type="text" id="codigoPaciente" placeholder="Ingrese el código del paciente" required>
                 <button type="button" id="btnBuscarPaciente">Buscar</button>
+                <button type="button" id="btnSeleccionarPaciente">Seleccionar</button>
             </div>
         
             <!-- Contenedor para los datos del paciente -->
@@ -39,6 +40,27 @@
             </div>
         </form>
         
+
+        
+        <!-- Contenedor para la ventana emergente -->
+        <div id="popupPacientes" class="popup" style="display: none;">
+            <div class="popup-content">
+                <h3>Seleccionar Paciente</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombres</th>
+                            <th>Apellidos</th>
+                            <th>Edad</th>
+                            <th>Teléfono</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaPacientes"></tbody>
+                </table>
+                <button type="button" id="btnCerrarPopup">Cerrar</button>
+            </div>
+        </div>
         
     </main>
     <footer>
