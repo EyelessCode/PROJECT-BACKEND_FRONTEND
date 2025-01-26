@@ -12,7 +12,7 @@ export class PacienteRepositorio implements IPacienteRepositorio{
 
     async obtenerPaciente(codigo: number): Promise<Paciente | null> {
         // throw new Error("Method not implemented.");
-        if (codigo <= 0) {
+        if (!codigo || typeof codigo !== 'number' || codigo <= 0) {
             throw new Error("El código debe ser un número positivo mayor a cero.");
         }
 
