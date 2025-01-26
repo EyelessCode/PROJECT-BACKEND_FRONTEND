@@ -5,8 +5,9 @@ export async function fetchPacientes() {
     return response.json();
 }
 
-export async function fetchPaciente(codigo) {
+export async function fetchPacienteById(codigo) {
     const response = await fetch(`${API_URL}/${codigo}`);
+    if (!response.ok) throw new Error("Paciente no encontrado");
     return response.json();
 }
 
@@ -30,5 +31,5 @@ export async function updatePaciente(codigo, paciente) {
 
 export async function deletePaciente(codigo) {
     const response = await fetch(`${API_URL}/${codigo}`, { method: 'DELETE' });
-    return response.ok;
+    if (!response.ok) throw new Error("Error al eliminar paciente");
 }

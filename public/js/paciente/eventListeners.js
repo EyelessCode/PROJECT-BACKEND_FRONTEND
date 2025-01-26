@@ -1,4 +1,4 @@
-import { fetchPacientes, fetchPaciente, createPaciente, updatePaciente, deletePaciente } from './api.js';
+import { fetchPacientes, fetchPacienteById, createPaciente } from './api.js';
 import { calcularEdad } from './utils.js';
 import { toggleElementVisibility, resetForm, populateTable } from './domHandlers.js';
 
@@ -9,9 +9,18 @@ export function configureEventListeners() {
     });
 
     document.getElementById('btnListar').addEventListener('click', async () => {
-        toggleElementVisibility('tablaPacientes', true);
         const pacientes = await fetchPacientes();
         populateTable(pacientes, 'cuerpoTabla');
+    });
+
+    document.getElementById('btnBuscar').addEventListener('click', async () => {
+        const codigo = document.getElementById('buscarCodigo').value;
+        try {
+            const paciente = await fetchPacienteById(codigo);
+            alert(`Paciente encontrado: ${paciente.nombres} ${paciente.apellidos}`);
+        } catch (error) {
+            alert(error.message);
+        }
     });
 
     document.getElementById('formPaciente').addEventListener('submit', async (e) => {
@@ -23,16 +32,20 @@ export function configureEventListeners() {
             apellidos: document.getElementById('apellidos').value,
             edad: calcularEdad(fechaNacimiento),
             genero: document.getElementById('genero').value,
-            fechaNacimiento: fechaNacimiento.toISOString(),
+            fechaNacimiento: document.getElementById('fechaNacimiento').value,
             tipoSangre: document.getElementById('tipoSangre').value,
             telefono: document.getElementById('telefono').value,
             direccion: document.getElementById('direccion').value,
             correo: document.getElementById('correo').value,
-            ocupacion: document.getElementById('ocupacion').value,
+            ocupacion: document.getElementById('ocupacion').value
         };
 
-        const response = await createPaciente(paciente);
-        if (response) alert('Paciente registrado correctamente');
-        resetForm('formPaciente');
+        try {
+            await createPaciente(paciente);
+            alert('Paciente registrado correctamente');
+            resetForm('formPaciente');
+        } catch (error) {
+            alert('Error al registrar paciente');
+        }
     });
 }
