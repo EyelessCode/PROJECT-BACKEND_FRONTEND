@@ -17,34 +17,17 @@ async function cargarEnfermeras() {
         console.log('Enfermeras cargadas:', enfermeras);
         
         const selectEnfermera = document.getElementById('enfermera');
-        selectEnfermera.innerHTML = '<option value="">Seleccione una enfermera</option>';  // Opción por defecto
+        selectEnfermera.innerHTML = '<option value="">Seleccione una enfermera</option>'; // Opción por defecto
 
         enfermeras.forEach(enfermera => {
             const option = document.createElement('option');
-            option.value = enfermera.codigo;
+            option.value = enfermera.codigo; // Asumiendo que `codigo` es el ID de la enfermera
             option.textContent = `${enfermera.nombres} ${enfermera.apellidos}`;
             selectEnfermera.appendChild(option);
         });
     } catch (error) {
         console.error(error);
         alert('Error al cargar las enfermeras');
-    }
-}
-
-async function obtenerProximoNumeroConsulta() {
-    try {
-        console.log('Obteniendo próximo número de consulta...');
-        const response = await fetch(API_URL_TOMA_SIGNOS);
-        if (!response.ok) {
-            throw new Error(`Error al obtener el número de consulta: ${response.statusText}`);
-        }
-        const tomaSignos = await response.json();
-        console.log('Toma de signos actuales:', tomaSignos);
-        return tomaSignos.length + 1;  // Suponiendo que tomaSignos es un array con todas las entradas
-    } catch (error) {
-        console.error(error);
-        alert('Error al obtener el número de consulta');
-        return 1;  // Valor predeterminado en caso de error
     }
 }
 
@@ -114,20 +97,18 @@ document.getElementById('btnSiguiente').addEventListener('click', async () => {
     }
 
     try {
-        console.log('Obteniendo próximo número de consulta...');
-        const proximoNumeroConsulta = await obtenerProximoNumeroConsulta();
-        console.log('Próximo número de consulta:', proximoNumeroConsulta);
+        console.log('Registrando nueva toma de signos...');
 
+        // Crear objeto de toma de signos SIN el campo "numero"
         const tomaSignos = {
-            numero: proximoNumeroConsulta,
             fecha: new Date().toLocaleDateString(),
-            centroMedicoId: 1,  // Asumiendo que hay un ID fijo del centro médico
-            pacienteId: codigoPaciente,
-            enfermeraId: enfermeraId,
-            observacion: ''
+            centroMedicoId: 1,  // Reemplazar por el ID real de tu centro médico
+            pacienteId: parseInt(codigoPaciente), // Convertir a número si es necesario
+            enfermeraId: parseInt(enfermeraId), // Convertir a número si es necesario
+            observacion: '' // Campo opcional
         };
 
-        console.log('Registrando toma de signos:', tomaSignos);
+        console.log('Datos a enviar al backend:', tomaSignos);
 
         const response = await fetch(API_URL_TOMA_SIGNOS, {
             method: 'POST',
@@ -138,24 +119,24 @@ document.getElementById('btnSiguiente').addEventListener('click', async () => {
         });
 
         const responseData = await response.json();
+        console.log('Respuesta del servidor:', responseData);
 
         if (!response.ok) {
-            throw new Error(`Error al registrar la toma de signos: ${response.statusText}`);
+            throw new Error(`Error al registrar la toma de signos: ${responseData.message || response.statusText}`);
         }
-        console.log('Toma de signos registrada:', responseData);
+
+        alert('Toma de signos registrada correctamente');
         window.location.href = `http://localhost:4000/comsulmed/signoPaciente/html?numero=${responseData.numero}`;
     } catch (error) {
-        console.error(error);
-        alert('Error al registrar la toma de signos');
+        console.error('Error al registrar la toma de signos:', error);
+        alert('Error al registrar la toma de signos. Verifique los datos e intente nuevamente.');
     }
 });
 
-// Inicializar la carga de enfermeras y el número de consulta
+// Inicializar la carga de enfermeras
 async function inicializarPagina() {
     console.log('Inicializando la página...');
     await cargarEnfermeras();
-    const proximoNumeroConsulta = await obtenerProximoNumeroConsulta();
-    document.getElementById('numeroConsulta').textContent = proximoNumeroConsulta.toString();
 }
 
 inicializarPagina();
