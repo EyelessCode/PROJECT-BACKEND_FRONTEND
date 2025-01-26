@@ -1,39 +1,34 @@
 const API_URL = "http://localhost:4000/comsulmed/paciente";
 
-export async function registrarPaciente(paciente) {
-    try {
-        const response = await fetch(API_URL, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(paciente)
-        });
-
-        const responseData = await response.json();
-        console.log('Respuesta del Servidor:', responseData);
-
-        if (response.ok) {
-            return { success: true };
-        } else {
-            console.error('Error en la respuesta del servidor:', responseData);
-            return { success: false, message: responseData.message || 'Desconocido' };
-        }
-    } catch (error) {
-        console.error('Error:', error);
-        return { success: false, message: 'Error al registrar el paciente' };
-    }
+export async function fetchPacientes() {
+    const response = await fetch(API_URL);
+    return response.json();
 }
 
-export async function cargarPacientes() {
-    try {
-        console.log('Cargando Pacientes');
-        const response = await fetch(API_URL);
-        const pacientes = await response.json();
-        console.log('Pacientes Cargados:', pacientes);
-        return pacientes;
-    } catch (error) {
-        console.error('Error:', error);
-        alert('Error al cargar los pacientes');
-    }
+export async function fetchPaciente(codigo) {
+    const response = await fetch(`${API_URL}/${codigo}`);
+    return response.json();
+}
+
+export async function createPaciente(paciente) {
+    const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(paciente)
+    });
+    return response.json();
+}
+
+export async function updatePaciente(codigo, paciente) {
+    const response = await fetch(`${API_URL}/${codigo}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(paciente)
+    });
+    return response.json();
+}
+
+export async function deletePaciente(codigo) {
+    const response = await fetch(`${API_URL}/${codigo}`, { method: 'DELETE' });
+    return response.ok;
 }
