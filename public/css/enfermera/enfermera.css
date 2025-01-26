@@ -83,7 +83,7 @@ h1 {
     background-color: #025aa5;
 }
 
-#tablaCentros {
+#tablaEnfermeras {
     max-width: 1000px;
     margin: 0 auto;
     background-color: #fff;
@@ -93,22 +93,22 @@ h1 {
     text-align: center;
 }
 
-#tablaCentros table {
+#tablaEnfermeras table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
     table-layout: fixed; /* Ensures that the table and its columns have a fixed layout */
 }
 
-#tablaCentros th,
-#tablaCentros td {
+#tablaEnfermeras th,
+#tablaEnfermeras td {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: left;
     word-wrap: break-word; /* Ensures that text in the table wraps and doesn't overflow */
 }
 
-#tablaCentros th {
+#tablaEnfermeras th {
     background-color: #0275d8;
     color: white;
 }
