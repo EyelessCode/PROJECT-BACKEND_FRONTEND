@@ -15,5 +15,5 @@ document.getElementById('btnCancelar').addEventListener('click', () => {
 
 document.getElementById('btnSiguiente').addEventListener('click', () => {
     // Guardar datos y navegar al siguiente formulario
-    window.location.href = 'signo_paciente.html';
+    window.location.href = 'http://localhost:4000/comsulmed/signoPaciente/html';
 });
