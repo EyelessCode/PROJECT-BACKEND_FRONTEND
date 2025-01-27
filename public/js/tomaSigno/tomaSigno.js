@@ -1,34 +1,15 @@
+import {limpiarFormulario} from './utils.js';
+import {cargarCentrosMedicos} from './load.js';
+
 const API_URL_BASE = "http://localhost:4000/comsulmed";
 const API_URL_ENFERMERAS = `${API_URL_BASE}/enfermera`;
 const API_URL_TOMA_SIGNOS = `${API_URL_BASE}/tomaSigno`;
 const API_URL_PACIENTES = `${API_URL_BASE}/paciente`;
-const API_URL_CENTROS_MEDICOS = `${API_URL_BASE}/centroMedico`;
 const API_URL_TIPO_SIGNO = `${API_URL_BASE}/tipoSigno`;
 
 let tiposSignos = []; // Lista para almacenar los tipos de signos
 
-function limpiarFormulario() {
-    // Restablecer el formulario de TomaSignos
-    const formTomaSignos = document.getElementById("formTomaSignos");
-    if (formTomaSignos) {
-        formTomaSignos.reset();
-        document.getElementById("datosPaciente").innerHTML = ""; // Limpiar datos del paciente
-        document.getElementById("datosPaciente").style.display = "none";
-    }
-
-    // Restablecer el formulario de SignosPaciente
-    const formSignoPaciente = document.getElementById("formSignoPaciente");
-    if (formSignoPaciente) {
-        formSignoPaciente.reset();
-        document.getElementById("observacionSigno").value = "Sin observaciones";
-        formSignoPaciente.style.display = "none";
-    }
-
-    // Mostrar el formulario de TomaSignos
-    if (formTomaSignos) {
-        formTomaSignos.style.display = "block";
-    }
-}
+//limpiar tomado
 
 document.addEventListener("DOMContentLoaded", () => {
     cargarCentrosMedicos();
@@ -68,25 +49,7 @@ async function buscarPaciente() {
 }
 
 // **Funciones para Centros Médicos**
-async function cargarCentrosMedicos() {
-    try {
-        const response = await fetch(API_URL_CENTROS_MEDICOS);
-        if (!response.ok) throw new Error("Error al cargar los centros médicos.");
-
-        const centrosMedicos = await response.json();
-        const selectCentroMedico = document.getElementById("centroMedico");
-
-        centrosMedicos.forEach((centro) => {
-            const option = document.createElement("option");
-            option.value = centro.codigo;
-            option.textContent = centro.nombre;
-            selectCentroMedico.appendChild(option);
-        });
-    } catch (error) {
-        console.error(error);
-        alert("No se pudo cargar la lista de centros médicos.");
-    }
-}
+//???
 
 // **Funciones para Enfermeras**
 async function cargarEnfermeras() {
