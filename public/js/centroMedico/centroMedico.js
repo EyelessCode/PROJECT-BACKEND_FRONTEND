@@ -1,6 +1,6 @@
 import {mostrarCentrosEnTabla} from './utils.js';
+import {buscarCentroMedico,cargarCentrosMedicos} from './load.js';
 
-const API_URL = "http://localhost:4000/comsulmed/centroMedico";
 
 document.getElementById('btnListarCentros').addEventListener('click', async () => {
     console.log('Listar Centros Médicos');
