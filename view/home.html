@@ -1,65 +1,70 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="Cristhian Guedes">
-        <meta name="author" content="Jeffrey Romero">
-        <title>ConsulMed - Inicio</title>
-        <link rel="stylesheet" href="css/home/home.css">
-    </head>
-    <body>
-        <!-- Menú de navegación -->
-        <nav>
-            <ul>
-                <li><a href="http://localhost:4000/comsulmed">Inicio</a></li>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Cristhian Guedes, Jeffrey Romero">
+    <title>ConsulMed - Inicio</title>
+    <link rel="stylesheet" href="css/home/home.css">
+</head>
+<body>
+
+    <!-- 🔹 Menú de navegación mejorado -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">ConsulMed</a>
+            <ul class="menu">
+                <li><a href="#">Inicio</a></li>
+
+                <!-- 🔹 Submenú de Servicios -->
                 <li class="submenu">
                     <a href="#">Servicios</a>
-                    <ul>
-                        <li><a
-                                href="http://localhost:4000/comsulmed/paciente/html">Pacientes</a></li>
-                        <li><a
-                                href="http://localhost:4000/comsulmed/centroMedico/html">Centro
-                                Médico</a></li>
-                        <li><a
-                                href="http://localhost:4000/comsulmed/enfermera/html">Enfermeras</a></li>
-                        <li><a
-                                href="http://localhost:4000/comsulmed/tomaSigno/html">Toma
-                                de Signos</a></li>
+                    <ul class="submenu-content">
+                        <li><a href="#">Pacientes</a></li>
+                        <li><a href="#">Centro Médico</a></li>
+                        <li><a href="#">Enfermeras</a></li>
+                        <li><a href="#">Toma de Signos</a></li>
                     </ul>
                 </li>
-                <li><a href="http://localhost:4000/comsulmed">Sobre
-                        Nosotros</a></li>
+
+                <li><a href="#">Sobre Nosotros</a></li>
+
+                <!-- 🔹 Submenú de Más -->
                 <li class="submenu">
                     <a href="#">Más</a>
-                    <ul>
+                    <ul class="submenu-content submenu-right">
                         <li><a href="#">Noticias</a></li>
                         <li><a href="#">Eventos</a></li>
                         <li><a href="#">Contacto</a></li>
                     </ul>
                 </li>
             </ul>
-        </nav>
+        </div>
+    </nav>
 
-        <!-- Contenido principal -->
-        <main>
-            <h1>Bienvenido a ConsulMed</h1>
-            <p>Tu salud es nuestra prioridad. Explora nuestros servicios y
-                encuentra la mejor atención médica.</p>
+    <!-- 🔹 Contenido Principal -->
+    <header class="hero">
+        <h1>Bienvenido a ConsulMed</h1>
+        <p>Tu salud es nuestra prioridad. Explora nuestros servicios y encuentra la mejor atención médica.</p>
+        <a href="#" class="btn">Explorar Servicios</a>
+    </header>
 
-            <!-- Galería de fotos -->
-            <section class="galeria">
-                <img src="image/home/first-ree.webp" alt="Imagen 1">
-                <img src="image/home/second-ree.webp" alt="Imagen 2">
-                <img src="image/home/third.webp" alt="Imagen 3">
-            </section>
-        </main>
+    <!-- 🔹 Galería de Imágenes -->
+    <section class="galeria">
+        <h2>Nuestra Atención Médica</h2>
+        <div class="imagenes">
+            <img src="image/home/first-ree.webp" alt="Imagen 1">
+            <img src="image/home/second-ree.webp" alt="Imagen 2">
+            <img src="image/home/third.webp" alt="Imagen 3">
+        </div>
+    </section>
 
-        <!-- Pie de página -->
-        <footer>
-            <p>&copy; 2025 Consulmed. Todos los derechos reservados.</p>
-        </footer>
+    <!-- 🔹 Pie de Página -->
+    <footer>
+        <p>&copy; 2025 ConsulMed. Todos los derechos reservados.</p>
+        <p>Contacto: <a href="mailto:info@consulmed.com">info@consulmed.com</a></p>
+        <p>Teléfono: +123 456 7890</p>
+    </footer>
 
-        <script src="js/home/home.js"></script>
-    </body>
+</body>
 </html>
