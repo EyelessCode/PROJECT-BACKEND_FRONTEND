@@ -34,11 +34,14 @@ class TomaSignoController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const tomaSignos = yield casoUso.obtenerTomaSignos();
+                if (!tomaSignos.length) {
+                    return res.status(404).json({ message: 'No se encontraron registros de toma de signos.' });
+                }
                 return res.status(200).json(tomaSignos);
             }
             catch (error) {
-                console.error(error);
-                return res.status(400).json({ message: error });
+                console.error('Error al obtener toma de signos:', error);
+                return res.status(500).json({ message: 'Error interno del servidor.' });
             }
         });
     }

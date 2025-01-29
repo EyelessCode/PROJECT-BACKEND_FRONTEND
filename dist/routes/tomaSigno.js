@@ -14,6 +14,6 @@ const controlador = new tomaSigno_controller_1.TomaSignoController();
 ruta.get("/html", (req, res) => {
     res.sendFile(path_1.default.join(__dirname, "..", "..", "view", "tomaSigno.html"));
 });
-ruta.get("/", controlador.controladorRegistrarTomaSigno.bind(controlador));
+ruta.get("/", controlador.controladorObtenerTomaSignos.bind(controlador));
 ruta.post("/", validation_middleware_1.validarTomaSigno, controlador.controladorRegistrarTomaSigno.bind(controlador));
 //# sourceMappingURL=tomaSigno.js.map

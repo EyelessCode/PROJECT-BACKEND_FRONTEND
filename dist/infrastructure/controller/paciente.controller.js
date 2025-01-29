@@ -110,7 +110,6 @@ class PacienteController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const pacientes = yield this.casoUso.obtenerPacientes();
-                logger_service_1.logger.info(`\nLISTADO DE PACIENTES\n`);
                 return res.status(200).json(pacientes);
             }
             catch (error) {

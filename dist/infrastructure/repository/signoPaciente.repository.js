@@ -19,9 +19,13 @@ class SignoPacienteRepositorio {
     }
     crearSignoPaciente(data) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield prisma_service_1.prisma.signosPacientes.create({
+            const signosPacientes = yield prisma_service_1.prisma.signosPacientes.createMany({
                 data: data
             });
+            if (signosPacientes.count !== data.length) {
+                throw new Error(`No todos los signos de paciente fueron creados`);
+            }
+            return data;
         });
     }
 }

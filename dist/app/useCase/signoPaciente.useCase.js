@@ -23,8 +23,10 @@ class SignoPacienteCasoUso {
     }
     registrarSignoPaciente(data) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield this.validarTipoSigno(data.TipoSignoId, data.valor);
-            yield this.validarTomaSigno(data.tomaSignosId);
+            for (const signo of data) {
+                yield this.validarTipoSigno(signo.tipoSignoId, signo.valor);
+                yield this.validarTomaSigno(signo.tomaSignosId);
+            }
             return yield this.signoPacienteRepositorio.crearSignoPaciente(data);
         });
     }

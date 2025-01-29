@@ -110,7 +110,6 @@ class EnfermeraController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const obtener = yield this.casoUso.obtenerEnfermeras();
-                logger_service_1.logger.info(`\nLISTADO DE PACIENTES\n`);
                 return res.status(200).json(obtener);
             }
             catch (error) {
