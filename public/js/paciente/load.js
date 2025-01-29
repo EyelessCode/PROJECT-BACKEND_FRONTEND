@@ -1,13 +1,15 @@
 
+import {calcularEdad} from './utils.js';
 
 export const API_URL = "http://localhost:4000/comsulmed/paciente";
 
-async function cargarPacientes() {
+export async function cargarPacientes() {
     try {
         console.log('Cargando Pacientes');
         const response = await fetch(API_URL);
         const pacientes = await response.json();
         console.log('Pacientes Cargados:', pacientes);
+        return pacientes
     } catch (error) {
         console.error('Error:', error);
         alert('Error al cargar los pacientes');
@@ -75,8 +77,8 @@ export async function editarPaciente(codigo) {
                 cargarPacientes();
             } catch (error) {
                 console.error('Error:', error);
-                console.error('Error en la respuesta del servidor (Editar):', responseData);
-                alert(`Error al actualizar el paciente: ${responseData.message || 'Desconocido'}`);
+                console.error('Error en la respuesta del servidor (Editar):', response);
+                alert(`Error al actualizar el paciente: ${response.message || 'Desconocido'}`);
             }
         }
     } catch (error) {
