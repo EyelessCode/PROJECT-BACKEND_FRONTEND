@@ -7,11 +7,17 @@ export class SignoPacienteRepositorio implements ISignoPacienteRepositorio{
         // throw new Error("Method not implemented.");
         return await prisma.signosPacientes.findMany()
     }
-    async crearSignoPaciente(data: SignosPacientes): Promise<SignosPacientes> {
+    async crearSignoPaciente(data: SignosPacientes[]): Promise<SignosPacientes[]> {
         // throw new Error("Method not implemented.");
-        return await prisma.signosPacientes.create({
+        const signosPacientes= await prisma.signosPacientes.createMany({
             data:data
         })
+
+        if (signosPacientes.count!==data.length) {
+            throw new Error(`No todos los signos de paciente fueron creados`);
+        }
+
+        return data
     }
 
 
