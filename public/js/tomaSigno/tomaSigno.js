@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("btnSeleccionarPaciente").addEventListener("click", abrirPopup);
     document.getElementById("btnCerrarPopup").addEventListener("click", cerrarPopup);
     document.getElementById("btnContinuar").addEventListener("click", mostrarFormularioSignos);
+    document.getElementById("btnNuevoSigno").addEventListener("click", mostrarNuevoFormularioSignos);
     document.getElementById("formSignoPaciente").addEventListener("submit", registrarDatos);
 
     // Eventos de unidad y valor
@@ -30,5 +31,15 @@ function mostrarFormularioSignos() {
         return;
     }
 
+    document.getElementById("formSignoPaciente").style.display = "block";
+}
+
+function mostrarNuevoFormularioSignos() {
+    const unidadSigno = document.getElementById("unidadSigno").value;
+    const valorSigno = document.getElementById("valorSigno").value;
+
+    if (!unidadSigno||!valorSigno) {
+        alert(`1ro rellene el 1er campo antes de agregar uno nuevo!`)
+    }
     document.getElementById("formSignoPaciente").style.display = "block";
 }
