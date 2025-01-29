@@ -115,7 +115,7 @@ export class EnfermeraController{
         try {
             const obtener=await this.casoUso.obtenerEnfermeras()
 
-            logger.info(`\nLISTADO DE PACIENTES\n`)
+            // logger.info(`\nLISTADO DE PACIENTES\n`)
 
             return res.status(200).json(obtener)
         } catch (error) {
