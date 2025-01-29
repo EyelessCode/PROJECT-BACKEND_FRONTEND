@@ -121,7 +121,7 @@ export class PacienteController {
 
             const pacientes = await this.casoUso.obtenerPacientes()
 
-            logger.info(`\nLISTADO DE PACIENTES\n`)
+            // logger.info(`\nLISTADO DE PACIENTES\n`)
             return res.status(200).json(pacientes)
         } catch (error) {
             console.error(error);
