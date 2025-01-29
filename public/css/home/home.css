@@ -1,4 +1,4 @@
-/* Estilos generales */
+/* 🔹 Estilos Generales */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,103 +6,189 @@ body {
     background-color: #f5f5f5;
 }
 
-/* Menú de navegación */
+/* 🔹 Menú de Navegación */
 nav {
     background-color: #0275d8;
-    text-align: center; /* Centrar el contenido del nav */
+    padding: 15px 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: inline-flex; /* Cambiar flex a inline-flex para centrar */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-nav li {
-    position: relative;
-}
-
-nav a {
-    display: block;
-    padding: 20px 30px; /* Agrandar los enlaces */
-    font-size: 18px; /* Agrandar el texto */
-    color: #fff;
+.logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
     text-decoration: none;
 }
 
-nav li:hover {
-    background-color: #025aa5;
-}
-
-nav .submenu ul {
-    display: none;
-    position: absolute;
-    background-color: #0275d8;
-    top: 50px;
-    left: 0;
-    flex-direction: column;
-}
-
-nav .submenu:hover ul {
+.menu {
+    margin: 0;
+    padding: 0;
     display: flex;
 }
 
-nav .submenu ul li {
-    width: 150px;
+.menu li {
+    position: relative;
+    list-style-type: none;
+
 }
 
-/* Contenido principal */
-main {
-    padding: 20px;
-    text-align: center;
+.menu a {
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    display: block;
 }
 
-/* Galería de fotos estilo "Tetris" */
-.galeria {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 300px); /* Incrementar la altura de las filas */
-    gap: 10px;
-    margin-top: 20px;
-    width: 80%; /* Ajustar el ancho de la galería */
-    margin-left: auto;
-    margin-right: auto; /* Centrar la galería */
+.menu a:hover {
+    background-color: #025aa5;
 }
 
-.galeria img {
+/* 🔹 Submenú */
+.submenu-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #0275d8;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 180px;
+    z-index: 100;
+    padding: 0;
+    margin: 0;
+}
+
+/* 🔹 Submenú de "Más" alineado a la derecha */
+.submenu-right {
+    left: auto;
+    right: 0;
+}
+
+.submenu-content li {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+}
+
+.submenu-content a {
+    padding: 10px 15px;
+    display: block;
+    color: white;
+}
+
+.submenu-content a:hover {
+    background-color: #025aa5;
+}
+
+/* 🔹 Mostrar Submenú */
+.submenu:hover .submenu-content {
+    display: block;
+}
+
+/* 🔹 Sección de Bienvenida (Hero) */
+.hero {
+    background-color: #0275d8;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background-color: white;
+    color: #0275d8;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background-color: #ddd;
+}
+
+/* 🔹 Galería */
+.galeria {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.galeria h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.imagenes {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.imagenes img {
+    width: 30%;
     border-radius: 10px;
+    transition: transform 0.3s;
 }
 
-/* Estilo específico para el diseño "Tetris" */
-.galeria img:nth-child(1) {
-    grid-column: 1 / 3;
-    grid-row: 1;
+.imagenes img:hover {
+    transform: scale(1.05);
 }
 
-.galeria img:nth-child(2) {
-    grid-column: 1 / 3;
-    grid-row: 2;
-}
-
-.galeria img:nth-child(3) {
-    grid-column: 3;
-    grid-row: 1 / 3;
-}
-
-/* Pie de página */
+/* 🔹 Pie de Página */
 footer {
     background-color: #0275d8;
     color: white;
     text-align: center;
-    padding: 10px;
-    margin-top: 20px;
+    padding: 20px 0;
+    margin-top: 40px;
 }
 
-/* Experiencia de Usuario */
-nav li:hover > a {
-    background-color: #025aa5;
+/* 🔹 Botón del Menú Móvil */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+/* 🔹 Mostrar solo en móviles */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        background-color: #0275d8;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 10px 0;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu-active {
+        display: flex;
+    }
 }
