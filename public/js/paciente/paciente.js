@@ -1,5 +1,5 @@
-import {calcularEdad} from './utils.js';
-import {API_URL} from './load.js';
+import {calcularEdad,mostrarTablaPaciente,} from './utils.js';
+import {API_URL,cargarPacientes} from './load.js';
 
 
 document.getElementById('btnRegistrar').addEventListener('click', () => {
@@ -9,12 +9,13 @@ document.getElementById('btnRegistrar').addEventListener('click', () => {
     document.getElementById('btnDesaparecer').style.display = 'none';
 });
 
-document.getElementById('btnListar').addEventListener('click', () => {
+document.getElementById('btnListar').addEventListener('click',async () => {
     console.log('Listar Pacientes');
     document.getElementById('tablaPacientes').style.display = 'block';
     document.getElementById('formRegistro').style.display = 'none';
     document.getElementById('btnDesaparecer').style.display = 'inline';
-    cargarPacientes();  // Llama a la función para cargar los datos en la tabla
+    const paciente=await cargarPacientes()
+    mostrarTablaPaciente(paciente)
 });
 
 document.getElementById('btnDesaparecer').addEventListener('click', () => {
