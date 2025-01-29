@@ -13,7 +13,18 @@ const casoUso=new SignoPacienteCasoUso(
 export class SignoPacienteController{
     async controladorRegistrarSignoPaciente(req:Request,res:Response):Promise<any>{
         try {
-            const data=req.body
+            let data=req.body
+
+            if (!Array.isArray(data)) {
+                data=[data]
+            }
+
+            if (data.length===0) {
+                return res.status(400).json({
+                    message:"Debe de al menos enviar un signo de paciente"
+                })
+            }
+
             const resultado=await casoUso.registrarSignoPaciente(data)
             return res.status(201).json(resultado)
         } catch (error) {
