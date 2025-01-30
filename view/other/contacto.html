@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author"
+            content="Cristhian Guedes, Jeffrey Romero, Toala Michael">
+        <title>Contacto | ConsulMed</title>
+        <link rel="shortcut icon" href="/image/icon/other/icon-contacto.ICO"
+            type="image/x-icon">
+        <link rel="stylesheet" href="/css/other/contacto.css">
+    </head>
+    <body>
+
+        <nav>
+            <div class="container">
+                <a href="#" class="logo">ConsulMed</a>
+                <ul class="menu">
+                    <li><a
+                            href="http://localhost:4000/comsulmed">Inicio</a></li>
+                    <li class="submenu">
+                        <a href="#">Servicios</a>
+                        <ul class="submenu-content">
+                            <li><a
+                                    href="http://localhost:4000/comsulmed/paciente/html">Pacientes</a></li>
+                            <li><a
+                                    href="http://localhost:4000/comsulmed/centroMedico/html">Centro
+                                    Médico</a></li>
+                            <li><a
+                                    href="http://localhost:4000/comsulmed/enfermera/html">Enfermeras</a></li>
+                            <li><a
+                                    href="http://localhost:4000/comsulmed/tomaSigno/html">Toma
+                                    de Signos</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Sobre Nosotros</a></li>
+                    <li class="submenu">
+                        <a href="#">Más</a>
+                        <ul class="submenu-content submenu-right">
+                            <li><a
+                                    href="http:localhost:4000/comsulmed/noticia/html">Noticias</a></li>
+                            <li><a
+                                    href="http:localhost:4000/comsulmed/evento/html">Eventos</a></li>
+                            <li><a
+                                    href="http:localhost:4000/comsulmed/contacto/html">Contacto</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <header class="hero">
+            <h1>Contacto</h1>
+            <p>Puedes contactarnos a través de los siguientes medios:</p>
+        </header>
+
+        <section class="contenido">
+            <h2>Información de Contacto</h2>
+            <ul>
+                <li>Correo: <a
+                        href="mailto:info@consulmed.com">info@consulmed.com</a></li>
+                <li>Teléfono: +123 456 7890</li>
+                <li>Dirección: Calle Falsa 123, Guayaquil, Ecuador</li>
+                <li>Horario de Atención: Lunes a Viernes, 8:00 AM - 5:00 PM</li>
+            </ul>
+        </section>
+
+        <!-- Sección de Especialidades Médicas -->
+        <section class="especialidades">
+            <h2>Nuestras Especialidades</h2>
+            <div class="especialidad">
+                <img src="/image/other/img-cardiologia.webp" alt="Cardiología">
+                <h3>Cardiología</h3>
+                <p>Diagnóstico y tratamiento de enfermedades del corazón y
+                    sistema circulatorio.</p>
+            </div>
+            <div class="especialidad">
+                <img src="/image/other/img-pediatra.webp" alt="Pediatría">
+                <h3>Pediatría</h3>
+                <p>Atención médica especializada para niños y adolescentes.</p>
+            </div>
+            <div class="especialidad">
+                <img src="/image/other/img-dermatologia.webp"
+                    alt="Dermatología">
+                <h3>Dermatología</h3>
+                <p>Cuidado y tratamiento de enfermedades de la piel, cabello y
+                    uñas.</p>
+            </div>
+        </section>
+
+        <!-- Sección de Equipo Médico -->
+        <section class="equipo">
+            <h2>Nuestro Equipo Médico</h2>
+            <div class="doctor">
+                <img src="/image/other/img-doctor1.webp" alt="Dr. Juan Pérez">
+                <h3>Dr. Juan Pérez</h3>
+                <p>Cardiólogo con más de 10 años de experiencia.</p>
+            </div>
+            <div class="doctor">
+                <img src="/image/other/img-doctora.webp" alt="Dra. María Gómez">
+                <h3>Dra. María Gómez</h3>
+                <p>Pediatra especializada en el cuidado de niños.</p>
+            </div>
+            <div class="doctor">
+                <img src="/image/other/img-medico2.webp"
+                    alt="Dr. Carlos Rodríguez">
+                <h3>Dr. Carlos Rodríguez</h3>
+                <p>Dermatólogo experto en tratamientos estéticos y de salud.</p>
+            </div>
+        </section>
+
+        <!-- Sección de Preguntas Frecuentes -->
+        <section class="faq">
+            <h2>Preguntas Frecuentes</h2>
+            <div class="pregunta">
+                <h3>¿Cómo puedo agendar una cita?</h3>
+                <p>Puedes agendar una cita llamándonos al +123 456 7890 o
+                    enviando un correo a <a
+                        href="mailto:citas@consulmed.com">citas@consulmed.com</a>.</p>
+            </div>
+            <div class="pregunta">
+                <h3>¿Cuáles son los costos de consulta?</h3>
+                <p>Los costos varían según la especialidad. Para más
+                    información, contáctanos directamente.</p>
+            </div>
+            <div class="pregunta">
+                <h3>¿Aceptan seguros médicos?</h3>
+                <p>Sí, trabajamos con varias aseguradoras. Consulta con nosotros
+                    para verificar si aceptamos tu seguro.</p>
+            </div>
+        </section>
+
+        <!-- Sección de Formulario de Contacto -->
+        <section class="formulario">
+            <h2>Déjanos tu mensaje</h2>
+            <form action="enviar_mensaje.php" method="POST">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="correo">Correo Electrónico:</label>
+                <input type="email" id="correo" name="correo" required>
+
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" rows="5"
+                    required></textarea>
+
+                <button type="button">Enviar Mensaje</button>
+            </form>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 ConsulMed. Todos los derechos reservados.</p>
+            <p>Contacto: <a
+                    href="mailto:info@consulmed.com">info@consulmed.com</a></p>
+            <p>Teléfono: +123 456 7890</p>
+        </footer>
+
+    </body>
+</html>
