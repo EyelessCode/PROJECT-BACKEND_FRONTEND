@@ -1,6 +1,15 @@
 /* Estilos generales del menú */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* 🔹 Menú de Navegación */
 nav {
-    background-color: #0275d8;
+    background-color: darkcyan;
     padding: 15px 0;
 }
 
@@ -38,7 +47,7 @@ nav {
 }
 
 .menu a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgb(0, 85, 85);
     border-radius: 5px;
 }
 
@@ -47,13 +56,14 @@ nav {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #0056b3;
+    background-color: darkcyan;
     list-style: none;
     padding: 0;
     margin: 0;
     display: none;
     min-width: 150px;
     border-radius: 5px;
+    border: 0.5px solid;
 }
 
 .submenu-content li {
@@ -73,15 +83,6 @@ nav {
     display: block;
 }
 
-/* Estilos generales */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-}
-
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -90,7 +91,7 @@ body {
 
 /* Estilos del encabezado */
 .hero {
-    background: url('../../images/eventos-banner.jpg') no-repeat center center/cover;
+    background: url('/image/other/img-cardiologia.webp') no-repeat center center/cover;
     text-align: center;
     padding: 80px 20px;
 }
@@ -145,7 +146,7 @@ body {
 .btn {
     display: inline-block;
     padding: 10px 15px;
-    background-color: #007BFF;
+    background-color: darkcyan;
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -153,7 +154,7 @@ body {
 }
 
 .btn:hover {
-    background-color: #0056b3;
+    background-color: rgb(0, 85, 85);
 }
 
 /* Sección de testimonios */
@@ -172,7 +173,7 @@ blockquote {
     font-style: italic;
     background: #f9f9f9;
     padding: 20px;
-    border-left: 5px solid #007BFF;
+    border-left: 5px solid darkcyan;
     margin: 10px auto;
     max-width: 600px;
 }
@@ -187,7 +188,7 @@ cite {
 .suscripcion {
     padding: 40px 20px;
     text-align: center;
-    background-color: #007BFF;
+    background-color: darkcyan;
     color: white;
 }
 
@@ -206,7 +207,7 @@ cite {
 .suscripcion button {
     padding: 10px 15px;
     background-color: white;
-    color: #007BFF;
+    color: darkcyan;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -216,7 +217,6 @@ cite {
     background-color: #f8f9fa;
 }
 
-/* Footer */
 footer {
     background: #333;
     color: white;
@@ -226,7 +226,7 @@ footer {
 }
 
 footer a {
-    color: #007BFF;
+    color: yellow;
     text-decoration: none;
 }
 

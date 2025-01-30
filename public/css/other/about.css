@@ -1,6 +1,15 @@
 /* Estilos generales del menú */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* 🔹 Menú de Navegación */
 nav {
-    background-color: #0275d8;
+    background-color: blueviolet;
     padding: 15px 0;
 }
 
@@ -38,7 +47,7 @@ nav {
 }
 
 .menu a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgb(92, 30, 151);
     border-radius: 5px;
 }
 
@@ -47,13 +56,14 @@ nav {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #0056b3;
+    background-color: blueviolet;
     list-style: none;
     padding: 0;
     margin: 0;
     display: none;
     min-width: 150px;
     border-radius: 5px;
+    border: 0.5px solid;
 }
 
 .submenu-content li {
@@ -73,14 +83,6 @@ nav {
     display: block;
 }
 
-/* Estilos generales */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-}
 
 .container {
     max-width: 1200px;
@@ -95,12 +97,6 @@ body {
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f9;
-    color: #333;
-}
 
 a {
     text-decoration: none;
@@ -140,13 +136,13 @@ ul {
 
 h2 {
     font-size: 2.2rem;
-    color: #0a74da;
+    color: blueviolet;
     margin-bottom: 20px;
 }
 
 p {
     font-size: 1.1rem;
-    color: #555;
+    /* color: #555; */
     line-height: 1.8;
 }
 
@@ -186,7 +182,7 @@ ul li {
 
 .doctor h3 {
     font-size: 1.6rem;
-    color: #0a74da;
+    color: blueviolet;
     margin-bottom: 10px;
 }
 
@@ -205,12 +201,12 @@ footer {
 }
 
 footer a {
-    color: #007BFF;
+    color: yellow;
     text-decoration: none;
 }
 
 footer a:hover {
-    text-decoration: underline;
+    text-decoration:underline;
 }
 
 
