@@ -231,6 +231,22 @@ footer a:hover {
     text-decoration: underline;
 }
 
+.btn-regresar {
+    padding: 10px 20px;
+    background-color: blueviolet;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px auto;
+    display: block;
+    font-size: 16px;
+}
+
+.btn-regresar:hover {
+    background-color: rgb(103, 31, 170);
+}
+
 .menu-toggle {
     display: none;
     background: none;
