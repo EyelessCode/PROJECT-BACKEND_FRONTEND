@@ -1,0 +1,294 @@
+/* Estilos generales del menú */
+nav {
+    background-color: #0275d8;
+    padding: 15px 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu li {
+    position: relative;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    padding: 10px 15px;
+    display: block;
+}
+
+.menu a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+/* Estilos del submenú */
+.submenu-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #0056b3;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none;
+    min-width: 150px;
+    border-radius: 5px;
+}
+
+.submenu-content li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.submenu-content li:last-child {
+    border-bottom: none;
+}
+
+.submenu-content a {
+    padding: 10px;
+    white-space: nowrap;
+}
+
+.submenu:hover .submenu-content {
+    display: block;
+}
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+/* 🔹 Sección de Bienvenida (Hero) */
+.hero {
+    background-color: #0275d8;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background-color: white;
+    color: #0275d8;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background-color: #ddd;
+}
+
+/* 🔹 Sección de Contenido */
+.contenido {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.contenido h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.contenido p {
+    font-size: 16px;
+    color: #333;
+}
+
+/* 🔹 Sección de Eventos */
+.eventos {
+    padding: 40px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.eventos h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.eventos ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.eventos ul li {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.eventos ul li strong {
+    color: #0275d8;
+}
+
+/* 🔹 Sección de Testimonios */
+.testimonios {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.testimonios h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.testimonios blockquote {
+    font-size: 16px;
+    color: #555;
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 10px 20px;
+    border-left: 4px solid #0275d8;
+    background-color: #fff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.testimonios cite {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #777;
+}
+
+/* 🔹 Sección de Suscripción */
+.suscripcion {
+    padding: 40px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.suscripcion h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.suscripcion form {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.suscripcion input[type="email"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.suscripcion button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #0275d8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.suscripcion button:hover {
+    background-color: #025aa5;
+}
+
+
+.formulario button:hover {
+    background: #005f73;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    margin-top: 20px;
+}
+
+footer a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+
+/* 🔹 Botón del Menú Móvil */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+/* 🔹 Mostrar solo en móviles */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        background-color: #0275d8;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 10px 0;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu-active {
+        display: flex;
+    }
+}

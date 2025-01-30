@@ -1,0 +1,235 @@
+/* Estilos generales del menú */
+nav {
+    background-color: #0275d8;
+    padding: 15px 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu li {
+    position: relative;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    padding: 10px 15px;
+    display: block;
+}
+
+.menu a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+/* Estilos del submenú */
+.submenu-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #0056b3;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none;
+    min-width: 150px;
+    border-radius: 5px;
+}
+
+.submenu-content li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.submenu-content li:last-child {
+    border-bottom: none;
+}
+
+.submenu-content a {
+    padding: 10px;
+    white-space: nowrap;
+}
+
+.submenu:hover .submenu-content {
+    display: block;
+}
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+/* Estilos del encabezado */
+.hero {
+    background: url('../../images/eventos-banner.jpg') no-repeat center center/cover;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+}
+
+/* Sección de eventos */
+.eventos {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: white;
+}
+
+.eventos h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.evento {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.evento img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.evento h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.evento p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+/* Botones */
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Sección de testimonios */
+.testimonios {
+    padding: 40px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.testimonios h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+blockquote {
+    font-style: italic;
+    background: #f9f9f9;
+    padding: 20px;
+    border-left: 5px solid #007BFF;
+    margin: 10px auto;
+    max-width: 600px;
+}
+
+cite {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Sección de suscripción */
+.suscripcion {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #007BFF;
+    color: white;
+}
+
+.suscripcion h2 {
+    font-size: 24px;
+}
+
+.suscripcion input {
+    padding: 10px;
+    width: 250px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.suscripcion button {
+    padding: 10px 15px;
+    background-color: white;
+    color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.suscripcion button:hover {
+    background-color: #f8f9fa;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    margin-top: 20px;
+}
+
+footer a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,215 @@
+/* Estilos generales del menú */
+nav {
+    background-color: #0275d8;
+    padding: 15px 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu li {
+    position: relative;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    padding: 10px 15px;
+    display: block;
+}
+
+.menu a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+/* Estilos del submenú */
+.submenu-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #0056b3;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none;
+    min-width: 150px;
+    border-radius: 5px;
+}
+
+.submenu-content li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.submenu-content li:last-child {
+    border-bottom: none;
+}
+
+.submenu-content a {
+    padding: 10px;
+    white-space: nowrap;
+}
+
+.submenu:hover .submenu-content {
+    display: block;
+}
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+}
+/* Estilos generales del contenido */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* HERO (Encabezado de contacto) */
+.hero {
+    background: url('../image/contact-bg.jpg') no-repeat center center/cover;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+}
+
+/* SECCIÓN DE CONTENIDO */
+.contenido, .especialidades, .equipo, .faq, .formulario {
+    width: 80%;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #005f73;
+    border-bottom: 2px solid #005f73;
+    padding-bottom: 10px;
+}
+
+/* Especialidades */
+.especialidad {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.especialidad img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+/* Equipo Médico */
+.equipo {
+    text-align: center;
+}
+
+.doctor {
+    display: inline-block;
+    width: 30%;
+    margin: 20px;
+}
+
+.doctor img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+/* Preguntas Frecuentes */
+.pregunta {
+    margin-bottom: 20px;
+}
+
+.pregunta h3 {
+    color: #0077b6;
+}
+
+/* FORMULARIO */
+.formulario label {
+    display: block;
+    margin-top: 10px;
+}
+
+.formulario input, .formulario textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.formulario button {
+    background: #0077b6;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+
+.formulario button:hover {
+    background: #005f73;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    margin-top: 20px;
+}
+
+footer a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
