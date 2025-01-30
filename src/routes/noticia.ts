@@ -5,7 +5,7 @@ import path from "path"
 const ruta=Router()
 
 ruta.get("/contacto/html",(req:Request,res:Response)=>{
-    res.sendFile(path.join(__dirname,"..","..","..","view","other","noticia.html"))
+    res.sendFile(path.join(__dirname,"..","..","view","other","noticia.html"))
 })
 
 export {ruta}
