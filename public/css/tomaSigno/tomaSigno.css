@@ -117,7 +117,7 @@ nav {
 .formulario h2 {
     font-size: 24px;
     margin-bottom: 20px;
-    color: #0275d8;
+    color: blueviolet;
 }
 
 .formulario label {
@@ -236,7 +236,7 @@ footer {
 }
 
 footer a {
-    color: white;
+    color: yellow;
     text-decoration: none;
 }
 
