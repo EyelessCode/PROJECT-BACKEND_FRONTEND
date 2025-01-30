@@ -8,7 +8,7 @@ body {
 
 /* 🔹 Menú de Navegación */
 nav {
-    background-color: #0275d8;
+    background-color: blueviolet;
     padding: 15px 0;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -48,7 +48,7 @@ nav {
 }
 
 .menu a:hover {
-    background-color: #025aa5;
+    background-color: rgb(103, 31, 170);
 }
 
 /* 🔹 Submenú */
@@ -57,7 +57,7 @@ nav {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #0275d8;
+    background-color: blueviolet;
     border-radius: 5px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     min-width: 180px;
@@ -83,7 +83,7 @@ nav {
 }
 
 .submenu-content a:hover {
-    background-color: #025aa5;
+    background-color: rgb(103, 31, 170);
 }
 
 /* 🔹 Mostrar Submenú */
@@ -95,7 +95,7 @@ nav {
 .header {
     text-align: center;
     padding: 30px 20px;
-    background-color: #0275d8;
+    background-color: blueviolet;
     color: white;
 }
 
@@ -112,7 +112,7 @@ nav {
 
 .btn-accion {
     padding: 10px 20px;
-    background-color: #0275d8;
+    background-color: blueviolet;
     color: white;
     border: none;
     border-radius: 5px;
@@ -122,7 +122,7 @@ nav {
 }
 
 .btn-accion:hover {
-    background-color: #025aa5;
+    background-color: rgb(103, 31, 170);
 }
 
 /* 🔹 Tabla de Enfermeras */
@@ -158,13 +158,18 @@ nav {
 }
 
 #tablaEnfermeras th {
-    background-color: #0275d8;
+    background-color: blueviolet;
     color: white;
+}
+
+#tablaEnfermeras tr:hover{
+    background-color: #868686;
+    color: black;
 }
 
 .btn-regresar {
     padding: 10px 20px;
-    background-color: #0275d8;
+    background-color: blueviolet;
     color: white;
     border: none;
     border-radius: 5px;
@@ -175,12 +180,12 @@ nav {
 }
 
 .btn-regresar:hover {
-    background-color: #025aa5;
+    background-color: rgb(103, 31, 170);
 }
 
 /* 🔹 Pie de Página */
 footer {
-    background-color: #0275d8;
+    background-color: blueviolet;
     color: white;
     text-align: center;
     padding: 20px 0;
@@ -188,7 +193,7 @@ footer {
 }
 
 footer a {
-    color: white;
+    color: yellow;
     text-decoration: none;
 }
 
@@ -215,7 +220,7 @@ footer a:hover {
     .menu {
         display: none;
         flex-direction: column;
-        background-color: #0275d8;
+        background-color: blueviolet;
         position: absolute;
         top: 60px;
         left: 0;
