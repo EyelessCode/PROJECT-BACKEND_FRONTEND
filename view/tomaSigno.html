@@ -1,87 +1,140 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ConsulMed - Toma de Signos y Signos Paciente</title>
-    <link rel="stylesheet" href="/css/tomaSigno/tomaSigno.css">
-</head>
-<body>
-    <header>
-        <h1>Toma de Signos</h1>
-    </header>
-    <main>
-        <!-- Formulario de Toma de Signos -->
-        <form id="formTomaSignos">
-            <label for="centroMedico">Seleccionar Centro Médico:</label>
-            <select id="centroMedico">
-                <option value="">Seleccione un centro médico</option>
-            </select>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author"
+            content="Cristhian Guedes, Jeffrey Romero, Toala Michael">
+        <title>Toma de Signos | ConsulMed</title>
+        <link rel="shortcut icon" href="/image/icon/icon-tomaSigno.ico"
+            type="image/x-icon">
+        <link rel="stylesheet" href="/css/tomaSigno/tomaSigno.css">
+        <script type="module" src="/js/tomaSigno/tomaSigno.js"></script>
+    </head>
+    <body>
+        <!-- Menú de navegación -->
+        <nav>
+            <div class="container">
+                <a href="#" class="logo">ConsulMed</a>
+                <ul class="menu">
+                    <li><a
+                            href="http://localhost:4000/comsulmed">Inicio</a></li>
+                    <li class="submenu">
+                        <a href="#">Servicios</a>
+                        <ul class="submenu-content">
+                            <li><a
+                                    href="http://localhost:4000/comsulmed/paciente/html">Pacientes</a></li>
+                            <li><a
+                                    href="http://localhost:4000/comsulmed/centroMedico/html">Centro
+                                    Médico</a></li>
+                            <li><a
+                                    href="http://localhost:4000/comsulmed/enfermera/html">Enfermeras</a></li>
+                            <li><a
+                                    href="http://localhost:4000/comsulmed/tomaSigno/html">Toma
+                                    de Signos</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Sobre Nosotros</a></li>
+                    <li class="submenu">
+                        <a href="#">Más</a>
+                        <ul class="submenu-content submenu-right">
+                            <li><a href="#">Noticias</a></li>
+                            <li><a href="#">Eventos</a></li>
+                            <li><a href="#">Contacto</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
-            <label for="enfermera">Seleccionar Enfermera:</label>
-            <select id="enfermera">
-                <option value="">Seleccione una enfermera</option>
-            </select>
-
-            <label for="codigoPaciente">Código del Paciente:</label>
-            <div style="display: flex; gap: 0.5rem;">
-                <input type="text" id="codigoPaciente" placeholder="Ingrese el código del paciente" required>
-                <button type="button" id="btnBuscarPaciente">Buscar</button>
-                <button type="button" id="btnSeleccionarPaciente">Seleccionar</button>
+        <!-- Contenido principal -->
+        <main>
+            <div class="header">
+                <h1>Gestión de Toma de Signos</h1>
             </div>
 
-            <!-- Datos del Paciente -->
-            <div id="datosPaciente" style="margin-top: 1rem; display: none;"></div>
+            <form id="formTomaSignos" class="formulario">
+                <h2>Datos de la Toma de Signos</h2>
+                <label for="centroMedico">Seleccionar Centro Médico:</label>
+                <select id="centroMedico">
+                    <option value>Seleccione un centro médico</option>
+                </select>
 
-            <div class="acciones">
-                <button type="button" id="btnContinuar">Continuar</button>
+                <label for="enfermera">Seleccionar Enfermera:</label>
+                <select id="enfermera">
+                    <option value>Seleccione una enfermera</option>
+                </select>
+
+                <label for="codigoPaciente">Código del Paciente:</label>
+                <div class="input-group">
+                    <input type="text" id="codigoPaciente"
+                        placeholder="Ingrese el código del paciente" required>
+                    <button type="button" id="btnBuscarPaciente"
+                        class="btn-accion">Buscar</button>
+                    <button type="button" id="btnSeleccionarPaciente"
+                        class="btn-accion">Seleccionar</button>
+                </div>
+
+                <div id="datosPaciente" class="datos-paciente"
+                    style="display: none;"></div>
+
+                <div class="acciones">
+                    <button type="button" id="btnContinuar"
+                        class="btn-accion">Continuar</button>
+                </div>
+            </form>
+
+            <form id="formSignoPaciente" class="formulario"
+                style="display: none;">
+                <h2>Signos del Paciente</h2>
+                <label for="unidadSigno">Unidad:</label>
+                <select id="unidadSigno">
+                    <option value>Seleccione una unidad</option>
+                </select>
+
+                <label for="valorSigno">Valor:</label>
+                <input type="number" id="valorSigno" required>
+
+                <label for="observacionSigno">Observación:</label>
+                <input type="text" id="observacionSigno" readonly>
+
+                <div class="acciones">
+                    <button type="button" id="btnCancelar"
+                        class="btn-accion">Cancelar</button>
+                    <button type="button" id="btnNuevoSigno"
+                        class="btn-accion">Agregar Signo</button>
+                    <button type="submit" id="btnGrabar"
+                        class="btn-accion">Grabar</button>
+                </div>
+            </form>
+
+            <div id="popupPacientes" class="popup" style="display: none;">
+                <div class="popup-content">
+                    <h3>Seleccionar Paciente</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Nombres</th>
+                                <th>Apellidos</th>
+                                <th>Edad</th>
+                                <th>Teléfono</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaPacientes"></tbody>
+                    </table>
+                    <button type="button" id="btnCerrarPopup"
+                        class="btn-accion">Cerrar</button>
+                </div>
             </div>
-        </form>
+        </main>
 
-        <!-- Formulario de Signos del Paciente -->
-        <form id="formSignoPaciente" style="display: none; margin-top: 2rem;">
-            <h2>Signos del Paciente</h2>
-            <label for="unidadSigno">Unidad:</label>
-            <select id="unidadSigno">
-                <option value="">Seleccione una unidad</option>
-            </select>
+        <footer>
+            <p>&copy; 2025 ConsulMed. Todos los derechos reservados.</p>
+            <p>Contacto: <a
+                    href="mailto:info@consulmed.com">info@consulmed.com</a></p>
+            <p>Teléfono: +123 456 7890</p>
+        </footer>
 
-            <label for="valorSigno">Valor:</label>
-            <input type="number" id="valorSigno" required>
-
-            <label for="observacionSigno">Observación:</label>
-            <input type="text" id="observacionSigno" readonly>
-
-            <div class="acciones">
-                <button type="button" id="btnCancelar">Cancelar</button>
-                <button type="button" id="btnNuevoSigno">Agregar Signo</button>
-                <button type="submit" id="btnGrabar">Grabar</button>
-            </div>
-        </form>
-
-        <!-- Contenedor para la ventana emergente -->
-        <div id="popupPacientes" class="popup" style="display: none;">
-            <div class="popup-content">
-                <h3>Seleccionar Paciente</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Código</th>
-                            <th>Nombres</th>
-                            <th>Apellidos</th>
-                            <th>Edad</th>
-                            <th>Teléfono</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tablaPacientes"></tbody>
-                </table>
-                <button type="button" id="btnCerrarPopup">Cerrar</button>
-            </div>
-        </div>
-    </main>
-    <footer>
-        <p>&copy; 2025 ConsulMed</p>
-    </footer>
-    <script defer type="module" src="/js/tomaSigno/tomaSigno.js"></script>
-</body>
+    </body>
 </html>
