@@ -1,82 +1,101 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Cristhian Guedes">
-    <title>ConsulMed - Centro Médico</title>
-    <link rel="stylesheet" href="/css/centroMedico/centroMedico.css">
-    <link rel="shortcut icon" href="/image/icon/icon-centroMedico.ICO" type="image/x-icon">
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Cristhian Guedes">
+        <title>ConsulMed - Centro Médico</title>
+        <link rel="stylesheet" href="/css/centroMedico/centroMedico.css">
+        <link rel="shortcut icon" href="/image/icon/icon-centroMedico.ICO"
+            type="image/x-icon">
+        <script type="module" src="/js/centroMedico/centroMedico.js"></script>
+    </head>
+    <body>
 
-    <!-- 🔹 Menú de navegación -->
-    <nav>
-        <div class="container">
-            <a href="#" class="logo">ConsulMed</a>
-            <ul class="menu">
-                <li><a href="http://localhost:4000/comsulmed">Inicio</a></li>
-                <li class="submenu">
-                    <a href="#">Servicios</a>
-                    <ul class="submenu-content">
-                        <li><a href="http://localhost:4000/comsulmed/paciente/html">Pacientes</a></li>
-                        <li><a href="http://localhost:4000/comsulmed/centroMedico/html">Centro Médico</a></li>
-                        <li><a href="http://localhost:4000/comsulmed/enfermera/html">Enfermeras</a></li>
-                        <li><a href="http://localhost:4000/comsulmed/tomaSigno/html">Toma de Signos</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Sobre Nosotros</a></li>
-                <li class="submenu">
-                    <a href="#">Más</a>
-                    <ul class="submenu-content submenu-right">
-                        <li><a href="#">Noticias</a></li>
-                        <li><a href="#">Eventos</a></li>
-                        <li><a href="#">Contacto</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- 🔹 Contenido principal -->
-    <main>
-        <div class="header">
-            <h1>Centros Médicos</h1>
-        </div>
-
-        <!-- 🔹 Botones de Acción -->
-        <div class="acciones">
-            <button id="btnListarCentros" class="btn-accion">Listar Centros Médicos</button>
-            <button id="btnOcultarCentros" style="display: none;">Ocultar Tabla</button>
-        </div>
-
-        <!-- 🔹 Tabla de Centros Médicos -->
-        <div id="tablaCentros" style="display: none;">
-            <div class="busqueda">
-                <input type="text" id="buscarCentro" placeholder="Buscar por código">
-                <button id="btnBuscarCentro" class="btn-accion">Buscar</button>
+        <!-- 🔹 Menú de navegación -->
+        <nav>
+            <div class="container">
+                <a href="#" class="logo">ConsulMed</a>
+                <ul class="menu">
+                    <li><a
+                            href="http://localhost:4000/comsulmed">Inicio</a></li>
+                    <li class="submenu">
+                        <a href="#">Servicios</a>
+                        <ul class="submenu-content">
+                            <li><a
+                                    href="http://localhost:4000/comsulmed/paciente/html">Pacientes</a></li>
+                            <li><a
+                                    href="http://localhost:4000/comsulmed/centroMedico/html">Centro
+                                    Médico</a></li>
+                            <li><a
+                                    href="http://localhost:4000/comsulmed/enfermera/html">Enfermeras</a></li>
+                            <li><a
+                                    href="http://localhost:4000/comsulmed/tomaSigno/html">Toma
+                                    de Signos</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Sobre Nosotros</a></li>
+                    <li class="submenu">
+                        <a href="#">Más</a>
+                        <ul class="submenu-content submenu-right">
+                            <li><a href="#">Noticias</a></li>
+                            <li><a href="#">Eventos</a></li>
+                            <li><a href="#">Contacto</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Código</th>
-                        <th>RUC</th>
-                        <th>Nombre</th>
-                        <th>Dirección</th>
-                        <th>Teléfono</th>
-                    </tr>
-                </thead>
-                <tbody id="cuerpoTablaCentros">
-                    <!-- Filas dinámicas generadas con JS -->
-                </tbody>
-            </table>
-        </div>
+        </nav>
 
-        <!-- 🔹 Botón de Regresar -->
-        <button onclick="window.location.href='http://localhost:4000/comsulmed';" class="btn-regresar">Regresar</button>
-    </main>
+        <!-- 🔹 Contenido principal -->
+        <main>
+            <div class="header">
+                <h1>Centros Médicos</h1>
+            </div>
 
-    <script type="module" src="/js/centroMedico/centroMedico.js"></script>
+            <!-- 🔹 Botones de Acción -->
+            <div class="acciones">
+                <button id="btnListarCentros" class="btn-accion">Listar Centros
+                    Médicos</button>
+                <button id="btnOcultarCentros" style="display: none;">Ocultar
+                    Tabla</button>
+            </div>
 
-</body>
+            <!-- 🔹 Tabla de Centros Médicos -->
+            <div id="tablaCentros" style="display: none;">
+                <div class="busqueda">
+                    <input type="text" id="buscarCentro"
+                        placeholder="Buscar por código">
+                    <button id="btnBuscarCentro"
+                        class="btn-accion">Buscar</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>RUC</th>
+                            <th>Nombre</th>
+                            <th>Dirección</th>
+                            <th>Teléfono</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cuerpoTablaCentros">
+                        <!-- Filas dinámicas generadas con JS -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 🔹 Botón de Regresar -->
+            <button
+                onclick="window.location.href='http://localhost:4000/comsulmed';"
+                class="btn-regresar">Regresar</button>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 ConsulMed. Todos los derechos reservados.</p>
+            <p>Contacto: <a
+                    href="mailto:info@consulmed.com">info@consulmed.com</a></p>
+            <p>Teléfono: +123 456 7890</p>
+        </footer>
+    </body>
 </html>
