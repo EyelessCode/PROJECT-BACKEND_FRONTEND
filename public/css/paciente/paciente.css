@@ -165,7 +165,6 @@ main {
 }
 
 /* Tabla */
-/* Tabla */
 #tablaPacientes {
     background-color: white;
     padding: 20px;
@@ -174,65 +173,30 @@ main {
     margin: 20px auto;
     display: block;
     max-width: 100%;
-    overflow-x: auto; /* Habilitar scroll horizontal para pantallas pequeñas */
+    overflow-x: auto;
 }
 
 #tablaPacientes table {
-    width: auto; /* Permitir que el ancho de la tabla se ajuste al contenido */
-    border-collapse: collapse; /* Alinear bordes sin espacios */
-    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
 }
 
 #tablaPacientes th,
 #tablaPacientes td {
-    padding: 10px 15px; /* Relleno interno para más espacio visual */
-    text-align: left; /* Alinear contenido a la izquierda */
-    vertical-align: middle;
-    border: 1px solid #ddd; /* Bordes finos para separación */
-    white-space: nowrap; /* Evitar que el texto se divida en varias líneas */
+    border: 1px solid #ddd;
+    /* padding: 10px; */
+    text-align: left;
+    word-wrap: break-word;
+    border-radius: 5px;
+    width: 100%;
 }
 
 #tablaPacientes th {
     background-color: #0275d8;
     color: white;
     text-align: center;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
 }
-
-#tablaPacientes td {
-    font-size: 14px;
-    color: #333;
-}
-
-#tablaPacientes tbody tr:hover {
-    background-color: #f1f1f1; /* Resaltar fila al pasar el mouse */
-}
-
-/* Botones dentro de las acciones */
-#tablaPacientes td .btn-accion {
-    display: inline-block;
-    margin: 0 5px;
-    padding: 8px 12px;
-    background-color: #0275d8;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 12px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#tablaPacientes td .btn-accion:hover {
-    background-color: #025aa5;
-}
-
-#tablaPacientes td .btn-accion:focus {
-    outline: none;
-    box-shadow: 0 0 3px 2px rgba(2, 117, 216, 0.5);
-}
-
 
 .busqueda {
     display: flex;
