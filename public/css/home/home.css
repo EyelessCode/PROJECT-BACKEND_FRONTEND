@@ -8,7 +8,7 @@ body {
 
 /* 🔹 Menú de Navegación */
 nav {
-    background-color: #0275d8;
+    background-color: blueviolet;
     padding: 15px 0;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -49,7 +49,7 @@ nav {
 }
 
 .menu a:hover {
-    background-color: #025aa5;
+    background-color: rgb(103, 31, 170);
 }
 
 /* 🔹 Submenú */
@@ -58,7 +58,7 @@ nav {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #0275d8;
+    background-color: blueviolet;
     border-radius: 5px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     min-width: 180px;
@@ -84,7 +84,7 @@ nav {
 }
 
 .submenu-content a:hover {
-    background-color: #025aa5;
+    background-color: rgb(103, 31, 170);
 }
 
 /* 🔹 Mostrar Submenú */
@@ -94,7 +94,7 @@ nav {
 
 /* 🔹 Sección de Bienvenida (Hero) */
 .hero {
-    background-color: #0275d8;
+    background-color: blueviolet;
     color: white;
     text-align: center;
     padding: 60px 20px;
@@ -112,7 +112,7 @@ nav {
 
 .btn {
     background-color: white;
-    color: #0275d8;
+    color: blueviolet;
     padding: 10px 20px;
     font-weight: bold;
     border-radius: 5px;
@@ -153,11 +153,20 @@ nav {
 
 /* 🔹 Pie de Página */
 footer {
-    background-color: #0275d8;
+    background-color: blueviolet;
     color: white;
     text-align: center;
     padding: 20px 0;
     margin-top: 40px;
+}
+
+footer a {
+    color: yellow;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
 
 /* 🔹 Botón del Menú Móvil */
@@ -179,7 +188,7 @@ footer {
     .menu {
         display: none;
         flex-direction: column;
-        background-color: #0275d8;
+        background-color: blueviolet;
         position: absolute;
         top: 60px;
         left: 0;
