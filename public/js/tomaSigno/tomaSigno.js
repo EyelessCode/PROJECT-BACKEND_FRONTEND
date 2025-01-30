@@ -1,6 +1,11 @@
-import {cerrarPopup,validarValor,manejarCambioUnidad} from './utils.js';
-import {abrirPopup,buscarPaciente,cargarCentrosMedicos,
-    cargarEnfermeras,cargarUnidades,registrarDatos
+import {cerrarPopup, validarValor, manejarCambioUnidad} from './utils.js';
+import {
+    abrirPopup,
+    buscarPaciente,
+    cargarCentrosMedicos,
+    cargarEnfermeras,
+    cargarUnidades,
+    registrarDatos,cargarUnidadesEnSelect
 } from './load.js';
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -13,12 +18,21 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("btnSeleccionarPaciente").addEventListener("click", abrirPopup);
     document.getElementById("btnCerrarPopup").addEventListener("click", cerrarPopup);
     document.getElementById("btnContinuar").addEventListener("click", mostrarFormularioSignos);
-    document.getElementById("btnNuevoSigno").addEventListener("click", mostrarNuevoFormularioSignos);
+    document.getElementById("btnAgregarSigno").addEventListener("click", agregarNuevoSigno);
     document.getElementById("formSignoPaciente").addEventListener("submit", registrarDatos);
 
-    // Eventos de unidad y valor
-    document.getElementById("unidadSigno").addEventListener("change", manejarCambioUnidad);
-    document.getElementById("valorSigno").addEventListener("input", validarValor);
+    // Eventos de unidad y valor (usando delegación de eventos)
+    const contenedorSignos = document.getElementById("contenedorSignos");
+    contenedorSignos.addEventListener("change", (event) => {
+        if (event.target.classList.contains("unidadSigno")) {
+            manejarCambioUnidad(event.target);
+        }
+    });
+    contenedorSignos.addEventListener("input", (event) => {
+        if (event.target.classList.contains("valorSigno")) {
+            validarValor(event.target);
+        }
+    });
 });
 
 function mostrarFormularioSignos() {
@@ -34,12 +48,26 @@ function mostrarFormularioSignos() {
     document.getElementById("formSignoPaciente").style.display = "block";
 }
 
-function mostrarNuevoFormularioSignos() {
-    const unidadSigno = document.getElementById("unidadSigno").value;
-    const valorSigno = document.getElementById("valorSigno").value;
+function agregarNuevoSigno() {
+    const contenedorSignos = document.getElementById("contenedorSignos");
+    const nuevoSigno = document.createElement("div");
+    nuevoSigno.classList.add("signo");
+    nuevoSigno.innerHTML = `
+        <label for="unidadSigno">Unidad:</label>
+        <select class="unidadSigno">
+            <option value>Seleccione una unidad</option>
+        </select>
 
-    if (!unidadSigno||!valorSigno) {
-        alert(`1ro rellene el 1er campo antes de agregar uno nuevo!`)
-    }
-    document.getElementById("formSignoPaciente").style.display = "block";
+        <label for="valorSigno">Valor:</label>
+        <input type="number" class="valorSigno" required>
+
+        <label for="observacionSigno">Observación:</label>
+        <input type="text" class="observacionSigno" readonly>
+    `;
+    contenedorSignos.appendChild(nuevoSigno);
+
+    // Cargar unidades en el nuevo combobox
+    cargarUnidadesEnSelect(nuevoSigno.querySelector(".unidadSigno"));
 }
+
+
