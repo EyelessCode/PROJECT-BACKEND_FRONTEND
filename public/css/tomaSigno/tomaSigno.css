@@ -2,22 +2,22 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
+/* 🔹 Menú de Navegación */
 nav {
     background-color: blueviolet;
     padding: 15px 0;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .logo {
@@ -28,58 +28,54 @@ nav {
 }
 
 .menu {
-    margin: 0;
-    padding: 0;
+    list-style: none;
     display: flex;
+    gap: 20px;
 }
 
 .menu li {
     position: relative;
-    list-style-type: none;
 }
 
 .menu a {
-    color: white;
     text-decoration: none;
-    padding: 15px 20px;
+    color: white;
+    font-size: 16px;
+    padding: 10px 15px;
     display: block;
 }
 
 .menu a:hover {
-    background-color: rgb(103, 31, 170);
+    background-color: rgb(92, 30, 151);
+    border-radius: 5px;
 }
 
+/* Estilos del submenú */
 .submenu-content {
-    display: none;
     position: absolute;
     top: 100%;
     left: 0;
     background-color: blueviolet;
-    border-radius: 5px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    min-width: 180px;
-    z-index: 100;
+    list-style: none;
     padding: 0;
     margin: 0;
-}
-
-.submenu-right {
-    left: auto;
-    right: 0;
+    display: none;
+    min-width: 150px;
+    border-radius: 5px;
+    border: 0.5px solid;
 }
 
 .submenu-content li {
-    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.submenu-content li:last-child {
+    border-bottom: none;
 }
 
 .submenu-content a {
-    padding: 10px 15px;
-    display: block;
-    color: white;
-}
-
-.submenu-content a:hover {
-    background-color: rgb(103, 31, 170);
+    padding: 10px;
+    white-space: nowrap;
 }
 
 .submenu:hover .submenu-content {
@@ -219,11 +215,11 @@ nav {
 }
 
 footer {
-    background-color: blueviolet;
+    background: #333;
     color: white;
     text-align: center;
-    padding: 20px 0;
-    margin-top: 40px;
+    padding: 20px 10px;
+    margin-top: 20px;
 }
 
 footer a {
