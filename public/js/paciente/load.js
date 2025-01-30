@@ -21,6 +21,7 @@ export async function editarPaciente(codigo) {
         const response = await fetch(`${API_URL}/${codigo}`);
         if (!response.ok) {
             alert('Paciente no encontrado');
+            return;
         }
 
         const paciente = await response.json();
@@ -44,11 +45,21 @@ export async function editarPaciente(codigo) {
 
         async function handleUpdateSubmit(e) {
             e.preventDefault();
+            
+            const fechaNacimiento = new Date(document.getElementById('fechaNacimiento').value);
+            const fechaActual = new Date();
+            
+            // Validación de fecha de nacimiento
+            if (fechaNacimiento > fechaActual) {
+                alert('La fecha de nacimiento no puede ser actual o futura.');
+                return;
+            }
+
             const pacienteActualizado = {
                 cedula: document.getElementById('cedula').value,
                 nombres: document.getElementById('nombres').value,
                 apellidos: document.getElementById('apellidos').value,
-                edad: calcularEdad(new Date(document.getElementById('fechaNacimiento').value)),
+                edad: calcularEdad(fechaNacimiento),
                 genero: document.getElementById('genero').value,
                 fechaNacimiento: document.getElementById('fechaNacimiento').value,
                 tipoSangre: document.getElementById('tipoSangre').value,

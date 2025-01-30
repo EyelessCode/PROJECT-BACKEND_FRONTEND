@@ -33,7 +33,16 @@ document.getElementById('btnCancelar').addEventListener('click', () => {
 document.getElementById('formPaciente').addEventListener('submit', async (e) => {
     e.preventDefault();
     console.log('Submit Paciente');
+    
     const fechaNacimiento = new Date(document.getElementById('fechaNacimiento').value);
+    const fechaActual = new Date();
+    
+    // Validación de fecha de nacimiento
+    if (fechaNacimiento > fechaActual) {
+        alert('La fecha de nacimiento no puede ser actual o futura.');
+        return;
+    }
+
     const edad = calcularEdad(fechaNacimiento);
 
     const paciente = {
@@ -66,7 +75,6 @@ document.getElementById('formPaciente').addEventListener('submit', async (e) => 
 
         if (!response.ok) {
             alert('Error al registrar el paciente');
-
         }
         alert('Paciente registrado correctamente');
         document.getElementById('formPaciente').reset();
