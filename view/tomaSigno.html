@@ -84,27 +84,27 @@
                 </div>
             </form>
 
-            <form id="formSignoPaciente" class="formulario"
-                style="display: none;">
+            <form id="formSignoPaciente" class="formulario" style="display: none;">
                 <h2>Signos del Paciente</h2>
-                <label for="unidadSigno">Unidad:</label>
-                <select id="unidadSigno">
-                    <option value>Seleccione una unidad</option>
-                </select>
-
-                <label for="valorSigno">Valor:</label>
-                <input type="number" id="valorSigno" required>
-
-                <label for="observacionSigno">Observación:</label>
-                <input type="text" id="observacionSigno" readonly>
-
+                <div id="contenedorSignos">
+                    <div class="signo">
+                        <label for="unidadSigno">Unidad:</label>
+                        <select class="unidadSigno">
+                            <option value>Seleccione una unidad</option>
+                        </select>
+            
+                        <label for="valorSigno">Valor:</label>
+                        <input type="number" class="valorSigno" required>
+            
+                        <label for="observacionSigno">Observación:</label>
+                        <input type="text" class="observacionSigno" readonly>
+                    </div>
+                </div>
+            
                 <div class="acciones">
-                    <button type="button" id="btnCancelar"
-                        class="btn-accion">Cancelar</button>
-                    <button type="button" id="btnNuevoSigno"
-                        class="btn-accion">Agregar Signo</button>
-                    <button type="submit" id="btnGrabar"
-                        class="btn-accion">Grabar</button>
+                    <button type="button" id="btnAgregarSigno" class="btn-accion">Agregar Signo</button>
+                    <button type="button" id="btnCancelar" class="btn-accion">Cancelar</button>
+                    <button type="submit" id="btnGrabar" class="btn-accion">Grabar</button>
                 </div>
             </form>
 
