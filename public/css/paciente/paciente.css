@@ -1,258 +1,14 @@
-/* Estilos Generales */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f5;
-    color: #333;
-}
-
-/* Menú de Navegación */
-nav {
-    background-color: #0275d8;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-nav ul {
-    display: flex;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-nav li {
-    position: relative;
-}
-
-nav a {
-    display: block;
-    padding: 15px 20px;
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-nav li:hover {
-    background-color: #025aa5;
-}
-
-nav .submenu ul {
-    display: none;
-    position: absolute;
-    background-color: #0275d8;
-    top: 100%;
-    left: 0;
-    flex-direction: column;
-    padding: 0;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-nav .submenu:hover ul {
-    display: flex;
-}
-
-nav .submenu ul li {
-    width: 200px;
-}
-
-nav .submenu ul li a {
-    padding: 10px;
-}
-
-/* Contenido Principal */
-main {
-    padding: 20px;
-    text-align: center;
-}
-
-h1 {
-    color: #0275d8;
-    font-size: 28px;
-    margin-bottom: 20px;
-}
-
-/* Botones de Acción */
-.acciones {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.acciones button {
-    padding: 10px 20px;
-    background-color: #0275d8;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-}
-
-.acciones button:hover {
-    background-color: #025aa5;
-}
-
-/* Formulario */
-#formRegistro {
-    max-width: 600px;
-    margin: 20px auto;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    display: none;
-}
-
-#formRegistro h2 {
-    color: #0275d8;
-    margin-bottom: 15px;
-    font-size: 22px;
-}
-
-#formRegistro form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-#formRegistro label {
-    text-align: left;
-    font-weight: bold;
-}
-
-#formRegistro input,
-#formRegistro select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-}
-
-#formRegistro button {
-    padding: 10px;
-    background-color: #0275d8;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-#formRegistro button:hover {
-    background-color: #025aa5;
-}
-
-/* Tabla de Pacientes */
-#tablaPacientes {
-    max-width: 100%;
-    margin: 20px auto;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    display: none;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-}
-
-th,
-td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
-    font-size: 14px;
-}
-
-th {
-    background-color: #0275d8;
-    color: white;
-}
-
-.busqueda {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-
-.busqueda input {
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.busqueda button {
-    padding: 5px 10px;
-    background-color: #0275d8;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-/* Botones en la Tabla */
-table td button {
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 12px;
-    color: white;
-    cursor: pointer;
-    margin: 0 5px;
-}
-
-table td button:first-child {
-    background-color: #ffc107;
-}
-
-table td button:last-child {
-    background-color: #d9534f;
-}
-
-table td button:hover:first-child {
-    background-color: #e0a800;
-}
-
-table td button:hover:last-child {
-    background-color: #c9302c;
-}
-
-/* Botón Regresar */
-button.btn-regresar {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    background-color: #0275d8;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-button.btn-regresar:hover {
-    background-color: #025aa5;
-}
-
-/*? Basado en home.css */
+/* Estilos generales */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
     color: #333;
+    line-height: 1.6;
 }
 
+/* Menú de navegación */
 nav {
     background-color: #0275d8;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -268,18 +24,18 @@ nav .container {
 }
 
 nav a.logo {
-    color: #fff;
-    font-size: 20px;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
     text-transform: uppercase;
     text-decoration: none;
-    font-weight: bold;
 }
 
 nav ul {
     display: flex;
     list-style: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
 }
 
 nav ul li {
@@ -308,32 +64,57 @@ nav .submenu-content {
     list-style: none;
     z-index: 1000;
     min-width: 200px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 nav .submenu:hover .submenu-content {
     display: block;
 }
 
-main {
-    padding: 20px;
-    max-width: 100%;
-    margin: auto;
+nav .submenu-content li a {
+    padding: 10px 15px;
 }
 
-h1 {
+nav .submenu-content li a:hover {
+    background-color: #025aa5;
+}
+
+nav .submenu-content.submenu-right {
+    left: auto;
+    right: 0;
+}
+
+/* Contenido principal */
+main {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.header h1 {
+    font-size: 28px;
     color: #0275d8;
+    text-align: center;
     margin-bottom: 20px;
 }
 
-.btn-accion {
+/* Botones de acción */
+.acciones {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 15px;
+}
+
+.btn-accion,#btnDesaparecer {
     background-color: #0275d8;
     color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
-    margin: 5px;
-    cursor: pointer;
     font-size: 14px;
+    cursor: pointer;
     transition: background-color 0.3s;
 }
 
@@ -341,58 +122,177 @@ h1 {
     background-color: #025aa5;
 }
 
-.hidden {
-    display: none;
+.btn-accion:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }
 
-.table, .formulario {
-    background: white;
-    border-radius: 10px;
+/* Formulario */
+#formRegistro {
+    background-color: white;
     padding: 20px;
+    border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#formRegistro h2 {
+    font-size: 24px;
+    color: #0275d8;
+    margin-bottom: 20px;
+}
+
+#formRegistro label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#formRegistro input,
+#formRegistro select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
 }
 
 /* Tabla */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-}
-table th, table td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
-}
-table th {
-    background-color: #0275d8;
-    color: white;
+/* Tabla */
+#tablaPacientes {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    display: block;
+    max-width: 100%;
+    overflow-x: auto; /* Habilitar scroll horizontal para pantallas pequeñas */
 }
 
-/* Botón Regresar */
-.btn-regresar {
-    display: inline-block;
-    margin: 20px auto;
+#tablaPacientes table {
+    width: auto; /* Permitir que el ancho de la tabla se ajuste al contenido */
+    border-collapse: collapse; /* Alinear bordes sin espacios */
+    margin-top: 20px;
+}
+
+#tablaPacientes th,
+#tablaPacientes td {
+    padding: 10px 15px; /* Relleno interno para más espacio visual */
+    text-align: left; /* Alinear contenido a la izquierda */
+    vertical-align: middle;
+    border: 1px solid #ddd; /* Bordes finos para separación */
+    white-space: nowrap; /* Evitar que el texto se divida en varias líneas */
+}
+
+#tablaPacientes th {
     background-color: #0275d8;
     color: white;
-    text-decoration: none;
+    text-align: center;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#tablaPacientes td {
+    font-size: 14px;
+    color: #333;
+}
+
+#tablaPacientes tbody tr:hover {
+    background-color: #f1f1f1; /* Resaltar fila al pasar el mouse */
+}
+
+/* Botones dentro de las acciones */
+#tablaPacientes td .btn-accion {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 8px 12px;
+    background-color: #0275d8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#tablaPacientes td .btn-accion:hover {
+    background-color: #025aa5;
+}
+
+#tablaPacientes td .btn-accion:focus {
+    outline: none;
+    box-shadow: 0 0 3px 2px rgba(2, 117, 216, 0.5);
+}
+
+
+.busqueda {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.busqueda input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.busqueda button {
+    background-color: #0275d8;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.busqueda button:hover {
+    background-color: #025aa5;
+}
+
+/* Botón de regresar */
+.btn-regresar {
+    background-color: #0275d8;
+    color: white;
+    border: none;
     padding: 10px 20px;
     border-radius: 5px;
-    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    margin: 30px auto;
     text-align: center;
+    text-decoration: none;
 }
 
+.btn-regresar:hover {
+    background-color: #025aa5;
+}
+
+/* Footer */
 footer {
     background-color: #0275d8;
     color: white;
     text-align: center;
-    padding: 20px 0;
-    margin-top: 40px;
+    padding: 20px;
+    margin-top: 30px;
+    font-size: 14px;
 }
 
-footer>p>a:link{
-    color: white;
+footer a {
+    color: #ffdd57;
+    text-decoration: none;
 }
 
-footer>p>a:hover{
-    color: blueviolet;
+footer a:hover {
+    text-decoration: underline;
 }

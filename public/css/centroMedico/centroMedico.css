@@ -1,12 +1,14 @@
-/* Basado en paciente.css */
+/* Estilos generales */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
     color: #333;
+    line-height: 1.6;
 }
 
+/* Menú de navegación */
 nav {
     background-color: #0275d8;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -22,18 +24,18 @@ nav .container {
 }
 
 nav a.logo {
-    color: #fff;
-    font-size: 20px;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
     text-transform: uppercase;
     text-decoration: none;
-    font-weight: bold;
 }
 
 nav ul {
     display: flex;
     list-style: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
 }
 
 nav ul li {
@@ -62,49 +64,57 @@ nav .submenu-content {
     list-style: none;
     z-index: 1000;
     min-width: 200px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 nav .submenu:hover .submenu-content {
     display: block;
 }
 
+nav .submenu-content li a {
+    padding: 10px 15px;
+}
+
+nav .submenu-content li a:hover {
+    background-color: #025aa5;
+}
+
+nav .submenu-content.submenu-right {
+    left: auto;
+    right: 0;
+}
+
+/* Contenido principal */
 main {
-    padding: 20px;
-    max-width: 100%;
+    max-width: 1200px;
     margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: column;
+    padding: 20px;
 }
 
-.busqueda{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-
-}
-
-.busqueda>input{
-    border-radius: 5px;
-    width: 10%;
-    height: 4vh;
-}
-
-h1 {
+.header h1 {
+    font-size: 28px;
     color: #0275d8;
+    text-align: center;
     margin-bottom: 20px;
 }
 
-.btn-accion {
+/* Botones de acción */
+.acciones {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 15px;
+}
+
+.btn-accion,#btnOcultarCentros {
     background-color: #0275d8;
     color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
-    margin: 5px;
-    cursor: pointer;
     font-size: 14px;
+    cursor: pointer;
     transition: background-color 0.3s;
 }
 
@@ -112,52 +122,139 @@ h1 {
     background-color: #025aa5;
 }
 
-.hidden {
-    display: none;
+.btn-accion:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }
 
-.tabla {
-    background: white;
-    border-radius: 10px;
+/* Formulario */
+#formRegistro {
+    background-color: white;
     padding: 20px;
+    border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#formRegistro h2 {
+    font-size: 24px;
+    color: #0275d8;
+    margin-bottom: 20px;
+}
+
+#formRegistro label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#formRegistro input,
+#formRegistro select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
 }
 
 /* Tabla */
-table {
-    width: 75vw;
-    border-collapse: collapse;
-    margin-top: 10px;
+#tablaCentros {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
 }
-table th, table td {
+
+#tablaCentros table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+#tablaCentros th,
+#tablaCentros td {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: left;
+    word-wrap: break-word;
 }
-table th {
+
+#tablaCentros th {
     background-color: #0275d8;
     color: white;
+    text-align: center;
 }
 
-tr:hover{
-    background-color: #a09d9d;
-    color: black;
+.busqueda {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
 }
 
-/* Botón Regresar */
+.busqueda input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.busqueda button {
+    background-color: #0275d8;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.busqueda button:hover {
+    background-color: #025aa5;
+}
+
+/* Botón de regresar */
 .btn-regresar {
-    display: inline-block;
-    margin: 20px auto;
     background-color: #0275d8;
     color: white;
-    text-decoration: none;
+    border: none;
     padding: 10px 20px;
     border-radius: 5px;
-    font-size: 16px;
-    text-align: center;
     cursor: pointer;
+    display: block;
+    margin: 30px auto;
+    text-align: center;
+    text-decoration: none;
 }
 
 .btn-regresar:hover {
     background-color: #025aa5;
+}
+
+/* Footer */
+footer {
+    background-color: #0275d8;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+footer a {
+    color: #ffdd57;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
