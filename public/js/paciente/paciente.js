@@ -84,12 +84,12 @@ document.getElementById('btnBuscar').addEventListener('click', async () => {
     try {
         console.log('Buscando Paciente con Código:', codigo)
         const response = await fetch(`${API_URL}/${codigo}`)
-        if (!response.ok) {
+        if (response.ok) {
+            const paciente = await response.json()
+            alert(`Paciente encontrado: ${paciente.nombres} ${paciente.apellidos}`)
+        } else {
             alert('Paciente no encontrado')
         }
-
-        const paciente = await response.json()
-        alert(`Paciente encontrado: ${paciente.nombres} ${paciente.apellidos}`)
     } catch (error) {
         console.error('Error:', error)
         alert('Error al buscar el paciente')
