@@ -64,14 +64,14 @@ document.getElementById('formPaciente').addEventListener('submit', async (e) => 
         const responseData = await response.json()
         console.log('Respuesta del Servidor:', responseData)
 
-        if (!response.ok) {
+        if (response.ok) {
+            alert('Paciente registrado correctamente')
+            document.getElementById('formPaciente').reset()
+            document.getElementById('formRegistro').style.display = 'none'
+            cargarPacientes()
+        } else {
             alert('Error al registrar el paciente')
-
         }
-        alert('Paciente registrado correctamente')
-        document.getElementById('formPaciente').reset()
-        document.getElementById('formRegistro').style.display = 'none'
-        cargarPacientes()
     } catch (error) {
         console.error('Error:', error)
         console.error('Error en la respuesta del servidor:', responseData)
