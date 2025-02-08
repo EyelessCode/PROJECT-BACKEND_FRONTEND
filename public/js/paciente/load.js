@@ -95,12 +95,12 @@ export async function eliminarPaciente(codigo) {
             method: 'DELETE'
         })
         console.log('Respuesta del Servidor (Eliminar):', response)
-        if (!response.ok) {
+        if (response.ok) {
+            alert('Paciente eliminado correctamente')
+            cargarPacientes()
+        } else {
             alert('Error al eliminar el paciente')
         }
-
-        alert('Paciente eliminado correctamente')
-        cargarPacientes()
     } catch (error) {
         console.error('Error:', error)
         alert('Error al eliminar el paciente')
