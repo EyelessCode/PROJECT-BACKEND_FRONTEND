@@ -6,7 +6,7 @@ export function calcularEdad(fechaNacimiento) {
     const mes = hoy.getMonth() - fechaNacimiento.getMonth() //! El mes actual MENOS el mes que se introdujo
     const dia = hoy.getDate() - fechaNacimiento.getDate() //! El día actual MENOS el día que se introdujo
 
-    //? Ajuste para el caso en que el cumpleaños no ha sido cumplido este año aún
+    //! Ajuste para el caso en que el cumpleaños no ha sido cumplido este año aún
     if (mes < 0 || (mes === 0 && dia < 0)) {
         edadCalculada--
     }
