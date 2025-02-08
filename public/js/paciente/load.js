@@ -1,5 +1,5 @@
 
-import {calcularEdad} from './utils.js';
+import { calcularEdad } from './utils.js';
 
 export const API_URL = "http://localhost:4000/comsulmed/paciente";
 
