@@ -245,7 +245,7 @@ export async function registrarDatos(e) {
         for (const signoData of signosPacienteData) {
             signoData.tomaSignosId = tomaSignosResult.numero //! Instalando el ID de tomaSigno
 
-            const responseSignoPaciente = await fetch(`${API_URL_BASE}/${API_URL_SIGNO_PACIENTE}`, {
+            const responseSignoPaciente = await fetch(`${API_URL_SIGNO_PACIENTE}`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(signoData),
