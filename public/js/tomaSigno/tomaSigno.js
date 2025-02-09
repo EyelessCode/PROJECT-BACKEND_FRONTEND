@@ -1,4 +1,4 @@
-import { cerrarPopup, validarValor, manejarCambioUnidad, limpiarFormularioTotal } from './utils.js';
+import { cerrarPopup, validarValor, manejarCambioUnidad, limpiarFormularioTotal, actualizarEstadoBotonAgregar } from './utils.js';
 import {
     abrirPopup, buscarPaciente, cargarCentrosMedicos, cargarEnfermeras, cargarUnidades,
     registrarDatos, cargarUnidadesEnSelect
@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     cargarUnidades()
     cargarCentrosMedicos()
     cargarEnfermeras()
+    actualizarEstadoBotonAgregar();
 
     document.getElementById("btnBuscarPaciente").addEventListener("click", buscarPaciente)
     document.getElementById("btnSeleccionarPaciente").addEventListener("click", abrirPopup)
@@ -44,10 +45,19 @@ function mostrarFormularioSignos() {
 }
 
 function agregarNuevoSigno() {
-    const contenedorSignos = document.getElementById("contenedorSignos")
-    const nuevoSigno = document.createElement("div")
-    nuevoSigno.classList.add("signo")
+    const contenedorSignos = document.getElementById("contenedorSignos");
+    const signosExistentes = document.querySelectorAll(".signo").length; // Contar signos actuales
+
+    // Validar máximo de 5 signos
+    if (signosExistentes >= 5) {
+        alert("¡Máximo 5 signos permitidos!");
+        return; // Detener la ejecución
+    }
+
+    const nuevoSigno = document.createElement("div");
+    nuevoSigno.classList.add("signo");
     nuevoSigno.innerHTML = `
+        <button type="button" class="btn-eliminar-signo">Eliminar Signo</button> <!-- Botón para eliminar -->
         <label for="unidadSigno">Unidad:</label>
         <select class="unidadSigno">
             <option value>Seleccione una unidad</option>
@@ -58,8 +68,16 @@ function agregarNuevoSigno() {
 
         <label for="observacionSigno">Observación:</label>
         <input type="text" class="observacionSigno" readonly>
-    `
-    contenedorSignos.appendChild(nuevoSigno)
+    `;
 
-    cargarUnidadesEnSelect(nuevoSigno.querySelector(".unidadSigno"))
+    contenedorSignos.appendChild(nuevoSigno);
+    cargarUnidadesEnSelect(nuevoSigno.querySelector(".unidadSigno"));
+
+    // Agregar evento al botón de eliminar
+    nuevoSigno.querySelector(".btn-eliminar-signo").addEventListener("click", () => {
+        nuevoSigno.remove(); // Eliminar el signo
+        actualizarEstadoBotonAgregar(); // Actualizar el botón
+    });
+
+    actualizarEstadoBotonAgregar(); // Actualizar el botón después de agregar
 }
