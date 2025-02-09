@@ -182,7 +182,6 @@ export async function registrarDatos(e) {
         observacion: "",
     }
 
-    // Obtener todos los signos dinámicos
     const signosPacienteData = []
     const signos = document.querySelectorAll(".signo")
     signos.forEach((signo) => {
