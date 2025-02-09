@@ -24,7 +24,7 @@ export function limpiarContenedorSignos() {
     const contenedorSignos = document.getElementById("contenedorSignos")
     if (contenedorSignos) {
         contenedorSignos.innerHTML =
-            `
+        `
             <div class="signo">
                 <label for="unidadSigno">Unidad:</label>
                 <select class="unidadSigno">
