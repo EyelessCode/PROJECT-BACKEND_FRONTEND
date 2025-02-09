@@ -34,6 +34,7 @@ export async function editarPaciente(codigo) {
             document.getElementById('formRegistro').style.display = 'block'
             document.getElementById('tablaPacientes').style.display = 'none'
             document.getElementById('btnDesaparecer').style.display = 'none'
+            document.getElementById('titulo-paciente').innerText = 'Editar Paciente'
 
             const formPaciente = document.getElementById('formPaciente')
             formPaciente.removeEventListener('submit', handleUpdateSubmit)
