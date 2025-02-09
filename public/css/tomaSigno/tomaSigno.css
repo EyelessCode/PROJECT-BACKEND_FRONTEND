@@ -277,3 +277,32 @@ footer a:hover {
         display: flex;
     }
 }
+
+/* Contenedor principal */
+.datos-paciente {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 20px;
+    background-color: #e0e0e0;
+}
+
+/* Fila de atributos */
+.fila-atributos {
+    display: flex;
+    gap: 30px; /* Espacio entre elementos */
+    margin-bottom: 10px;
+    flex-wrap: wrap; /* Para responsividad */
+}
+
+/* Items individuales */
+.item-atributo {
+    margin: 0;
+    flex: 1; /* Ocupa espacio disponible */
+    min-width: 200px; /* Evita que se compriman demasiado */
+}
+
+/* Ajustes para elementos únicos (como "Dirección") */
+.fila-atributos:has(.item-atributo:only-child) .item-atributo {
+    flex: 0 0 100%; /* Ocupa todo el ancho */
+}
