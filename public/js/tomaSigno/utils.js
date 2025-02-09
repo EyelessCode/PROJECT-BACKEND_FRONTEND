@@ -11,6 +11,7 @@ export function limpiarFormularioTotal() {
 
     //? 2. Limpiar el contenedor de signos dinámicos y dejar solo uno inicial
     limpiarContenedorSignos()
+    
 }
 
 export function limpiarContenedorSignos() {
@@ -47,6 +48,8 @@ export function limpiarContenedorSignos() {
     if (formTomaSignos) {
         formTomaSignos.style.display = "block"
     }
+    actualizarEstadoBotonAgregar()
+
 }
 
 export function cerrarPopup() {
@@ -95,4 +98,19 @@ export function manejarCambioUnidad(selectUnidad) {
     const signoDiv = selectUnidad.closest(".signo")
     signoDiv.querySelector(".valorSigno").value = ""
     signoDiv.querySelector(".observacionSigno").value = "Sin observaciones"
+}
+
+export function actualizarEstadoBotonAgregar() {
+    const btnAgregar = document.getElementById("btnAgregarSigno");
+    const signosExistentes = document.querySelectorAll(".signo").length;
+
+    //// btnAgregar.disabled = signosExistentes >= 5;
+    if (signosExistentes>=5) { //! Deshabilitar botón si hay 5 signos
+        btnAgregar.disabled=true
+    }else{
+        btnAgregar.disabled=false
+    }
+
+    //? Cambiar estilo visual si está deshabilitado
+    // btnAgregar.style.backgroundColor = signosExistentes >= 5 ? "#cccccc" : "#4CAF50";
 }
