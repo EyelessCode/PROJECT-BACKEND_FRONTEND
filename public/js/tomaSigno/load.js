@@ -41,28 +41,49 @@ export async function abrirPopup() {
 }
 
 function mostrarDatosPaciente(paciente) {
-    const datosPacienteDiv = document.getElementById("datosPaciente")
-    datosPacienteDiv.innerHTML = ""
+    const datosPacienteDiv = document.getElementById("datosPaciente");
+    datosPacienteDiv.innerHTML = "";
 
-    const atributos = [
-        { label: "Nombres y Apellidos", value: `${paciente.nombres} ${paciente.apellidos}` },
-        { label: "Edad", value: calcularEdad(new Date(paciente.fechaNacimiento)) },
-        { label: "Fecha de Nacimiento", value: paciente.fechaNacimiento },
-        { label: "Género", value: paciente.genero },
-        { label: "Teléfono", value: paciente.telefono || "N/A" },
-        { label: "Tipo de Sangre", value: paciente.tipoSangre || "N/A" },
-        { label: "Dirección", value: paciente.direccion || "No especificada" },
-        { label: "Correo", value: paciente.correo },
-        { label: "Ocupación", value: paciente.ocupacion || "No especificada" },
-    ]
+    // Definimos pares de atributos que deben ir juntos
+    const gruposAtributos = [
+        [
+            { label: "Nombres y Apellidos", value: `${paciente.nombres} ${paciente.apellidos}` }
+        ],
+        [
+            { label: "Edad", value: calcularEdad(new Date(paciente.fechaNacimiento)) },
+            { label: "Fecha de Nacimiento", value: paciente.fechaNacimiento }
+        ],
+        [
+            { label: "Género", value: paciente.genero },
+            { label: "Tipo de Sangre", value: paciente.tipoSangre || "N/A" }
+        ],
+        [
+            { label: "Teléfono", value: paciente.telefono || "N/A" },
+            { label: "Correo", value: paciente.correo }
+        ],
+        [
+            { label: "Dirección", value: paciente.direccion || "No especificada" }
+        ],
+        [
+            { label: "Ocupación", value: paciente.ocupacion || "No especificada" }
+        ]
+    ];
 
-    atributos.forEach((atributo) => {
-        const p = document.createElement("p")
-        p.innerHTML = `<strong>${atributo.label}:</strong> ${atributo.value}`
-        datosPacienteDiv.appendChild(p)
-    })
+    gruposAtributos.forEach((grupo) => {
+        const contenedor = document.createElement("div");
+        contenedor.className = "fila-atributos"; // Clase para el CSS
+        
+        grupo.forEach((atributo) => {
+            const p = document.createElement("p");
+            p.className = "item-atributo"; // Clase para el CSS
+            p.innerHTML = `<strong>${atributo.label}:</strong> ${atributo.value}`;
+            contenedor.appendChild(p);
+        });
 
-    datosPacienteDiv.style.display = "block"
+        datosPacienteDiv.appendChild(contenedor);
+    });
+
+    datosPacienteDiv.style.display = "block";
 }
 
 function seleccionarPaciente(paciente) {
