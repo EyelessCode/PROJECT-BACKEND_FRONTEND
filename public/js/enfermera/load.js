@@ -2,7 +2,7 @@ const API_URL = "http://localhost:4000/comsulmed/enfermera"
 
 export async function cargarEnfermeras() {
     try {
-        console.log('Cargando Enfermeras')
+        console.log('Cargando Enfermeras...')
         const response = await fetch(API_URL)
         const enfermeras = await response.json()
         console.log('Enfermeras Cargadas:', enfermeras)
