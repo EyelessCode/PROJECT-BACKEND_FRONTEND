@@ -199,6 +199,12 @@ table td button:hover:last-child {
     color: black;
 }
 
+tr:hover{
+    background-color: #737373;
+    /* font-weight: bolder; */
+    color: black;
+}
+
 .busqueda {
     text-align: right;
     margin-bottom: 10px;

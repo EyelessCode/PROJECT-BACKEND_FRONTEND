@@ -153,8 +153,9 @@ nav {
     color: white;
 }
 
-#tablaCentros tr:hover{
-    background-color: #868686;
+tr:hover{
+    background-color: #737373;
+    /* font-weight: bolder; */
     color: black;
 }
 
