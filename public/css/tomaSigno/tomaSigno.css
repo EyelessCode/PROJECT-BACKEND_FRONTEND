@@ -247,6 +247,43 @@ footer a:hover {
     background-color: rgb(103, 31, 170);
 }
 
+/* Botón de eliminar */
+.btn-eliminar-signo {
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    /* width: 25px; */
+    height: 25px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn-eliminar-signo:hover {
+    background-color: #cc0000;
+}
+
+#btnAgregarSigno {
+    background-color: #4CAF50;
+    cursor: pointer;
+    /* cursor: not-allowed; */
+}
+
+#btnAgregarSigno:hover {
+    background-color: #337736;
+    /* cursor: not-allowed; */
+}
+
+/* Botón deshabilitado */
+#btnAgregarSigno:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+
+
+
+
 .menu-toggle {
     display: none;
     background: none;
