@@ -28,6 +28,7 @@ document.getElementById('btnCancelar').addEventListener('click', () => {
     console.log('Cancelando Registro')
     document.getElementById('formPaciente').reset()
     document.getElementById('formRegistro').style.display = 'none'
+    document.getElementById('titulo-paciente').innerText="Registrar Nuevo Paciente"
 })
 
 document.getElementById('formPaciente').addEventListener('submit', async (e) => {
