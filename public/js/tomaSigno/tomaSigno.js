@@ -1,4 +1,4 @@
-import { cerrarPopup, validarValor, manejarCambioUnidad, limpiarFormulario } from './utils.js';
+import { cerrarPopup, validarValor, manejarCambioUnidad, limpiarFormularioTotal } from './utils.js';
 import {
     abrirPopup, buscarPaciente, cargarCentrosMedicos, cargarEnfermeras, cargarUnidades,
     registrarDatos, cargarUnidadesEnSelect
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("btnContinuar").addEventListener("click", mostrarFormularioSignos)
     document.getElementById("btnAgregarSigno").addEventListener("click", agregarNuevoSigno)
     document.getElementById("formSignoPaciente").addEventListener("submit", registrarDatos)
-    document.getElementById("btnCancelar").addEventListener("click", limpiarFormulario)
+    document.getElementById("btnCancelar").addEventListener("click", limpiarFormularioTotal)
 
     const contenedorSignos = document.getElementById("contenedorSignos")
     contenedorSignos.addEventListener("change", (e) => {
