@@ -1,23 +1,22 @@
-import {tiposSignos} from './load.js';
+import {tiposSignos,cargarUnidadesEnSelect} from './load.js';
 
 export function limpiarFormulario() {
     // Restablecer el formulario de TomaSignos
     const formTomaSignos = document.getElementById("formTomaSignos");
     if (formTomaSignos) {
-        formTomaSignos.reset(); // Restablece los campos del formulario
-        document.getElementById("datosPaciente").innerHTML = ""; // Limpia los datos del paciente
-        document.getElementById("datosPaciente").style.display = "none"; // Oculta el contenedor de datos
+        formTomaSignos.reset();
+        document.getElementById("datosPaciente").innerHTML = "";
+        document.getElementById("datosPaciente").style.display = "none";
     }
 
-    // Restablecer el formulario de SignosPaciente
+    // Ocultar y resetear el formulario de SignosPaciente
     const formSignoPaciente = document.getElementById("formSignoPaciente");
     if (formSignoPaciente) {
-        formSignoPaciente.reset(); // Restablece los campos del formulario
-        document.getElementById("observacionSigno").value = "Sin observaciones"; // Restablece la observación
-        formSignoPaciente.style.display = "none"; // Oculta el formulario de signos
+        formSignoPaciente.reset();
+        formSignoPaciente.style.display = "none"; // Asegurar que se oculte
     }
 
-    // Limpiar el contenedor de signos dinámicos
+    // Limpiar el contenedor de signos dinámicos y dejar solo uno inicial
     const contenedorSignos = document.getElementById("contenedorSignos");
     if (contenedorSignos) {
         contenedorSignos.innerHTML = `
@@ -26,17 +25,19 @@ export function limpiarFormulario() {
                 <select class="unidadSigno">
                     <option value>Seleccione una unidad</option>
                 </select>
-
                 <label for="valorSigno">Valor:</label>
                 <input type="number" class="valorSigno" required>
-
                 <label for="observacionSigno">Observación:</label>
                 <input type="text" class="observacionSigno" readonly>
             </div>
         `;
+
+        // Cargar unidades en el nuevo select
+        const nuevoSelect = contenedorSignos.querySelector(".unidadSigno");
+        cargarUnidadesEnSelect(nuevoSelect); // Asegurar que las unidades se carguen
     }
 
-    // Mostrar el formulario de TomaSignos
+    // Mostrar el formulario principal
     if (formTomaSignos) {
         formTomaSignos.style.display = "block";
     }
