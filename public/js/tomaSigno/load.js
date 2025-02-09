@@ -1,4 +1,4 @@
-import { calcularEdad, cerrarPopup, limpiarFormulario } from './utils.js';
+import { calcularEdad, cerrarPopup, limpiarFormularioTotal, limpiarContenedorSignos } from './utils.js';
 
 const API_URL_BASE = "http://localhost:4000/comsulmed"
 const API_URL_ENFERMERAS = `${API_URL_BASE}/enfermera`
@@ -15,7 +15,7 @@ export async function abrirPopup() {
     popup.style.display = "flex"
 
     try {
-        const response = await fetch("http://localhost:4000/comsulmed/paciente")
+        const response = await fetch(API_URL_PACIENTES)
         if (!response.ok) throw new Error("Error al cargar los pacientes.")
 
         const pacientes = await response.json()
@@ -71,6 +71,7 @@ function seleccionarPaciente(paciente) {
         document.getElementById("codigoPaciente").value = paciente.codigo
         mostrarDatosPaciente(paciente)
     }
+    limpiarContenedorSignos()
 }
 
 export async function buscarPaciente() {
@@ -87,6 +88,7 @@ export async function buscarPaciente() {
 
         const paciente = await response.json()
         mostrarDatosPaciente(paciente)
+        limpiarContenedorSignos()
     } catch (error) {
         console.error(error)
         alert("Error al buscar el paciente. Verifique el código ingresado.")
@@ -238,7 +240,7 @@ export async function registrarDatos(e) {
         alert("Toma de signos y signos del paciente registrados correctamente")
         console.log("TomaSignos Data:", tomaSignosData)
         console.log("SignosPaciente Data:", signosPacienteData)
-        limpiarFormulario() //! Limpia los formularios después del registro
+        limpiarFormularioTotal() //! Limpia los formularios después del registro
     } catch (error) {
         console.error("Error:", error)
         alert(error.message)
