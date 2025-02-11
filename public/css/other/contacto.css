@@ -1,95 +1,146 @@
 /* Estilos generales del menú */
 body {
-    font-family: Arial, sans-serif;
+    font-family: arvo;
+    font-size: 1.1em;
+
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
     color: #333;
 }
 
-/* 🔹 Menú de Navegación */
+/*! Fuente de Google Fonts  */
+.hachi-maru-pop-regular {
+    font-family: "Hachi Maru Pop", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.arvo-regular {
+    font-family: "Arvo", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.arvo-bold {
+    font-family: "Arvo", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.arvo-regular-italic {
+    font-family: "Arvo", serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.arvo-bold-italic {
+    font-family: "Arvo", serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
 nav {
-    background-color: darkblue;
+    background-color: #00718c;
     padding: 15px 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 .logo {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
     color: white;
-    font-size: 24px;
+    font-size: 1.8em;
     font-weight: bold;
     text-decoration: none;
+    letter-spacing: 0.3em;
+}
+
+.logo img{
+    width: 7vw;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 5px #003441);
+}
+
+.logo img:hover{
+    /* box-shadow: 0 0 3px red; */
+    filter: drop-shadow(0 0 10px #003441);
 }
 
 .menu {
-    list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
-    gap: 20px;
+    font-size: 1.2em;
 }
 
 .menu li {
     position: relative;
+    list-style-type: none;
 }
 
 .menu a {
-    text-decoration: none;
     color: white;
-    font-size: 16px;
-    padding: 10px 15px;
+    text-decoration: none;
+    padding: 15px 20px;
     display: block;
+    border-radius: 10px;
+
 }
 
 .menu a:hover {
-    background-color: rgb(0, 0, 62);
-    border-radius: 5px;
+    background-color: #005165;
 }
 
-/* Estilos del submenú */
 .submenu-content {
+    display: none;
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: darkblue;
-    list-style: none;
+    background-color: #04715c;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 180px;
+    z-index: 100;
     padding: 0;
     margin: 0;
-    display: none;
-    min-width: 150px;
-    border-radius: 5px;
-    border: 0.5px solid;
+}
+
+.submenu-right {
+    left: auto;
+    right: 0;
 }
 
 .submenu-content li {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.submenu-content li:last-child {
-    border-bottom: none;
+    width: 100%;
 }
 
 .submenu-content a {
-    padding: 10px;
-    white-space: nowrap;
+    padding: 10px 15px;
+    display: block;
+    color: white;
+}
+
+.submenu-content a:hover {
+    background-color: #034f3f;
 }
 
 .submenu:hover .submenu-content {
     display: block;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 15px;
-}
-
-/* HERO (Encabezado de contacto) */
 .hero {
     background: url('/image/other/img-medico.webp') no-repeat center center/cover;
     text-align: center;
@@ -97,12 +148,13 @@ nav {
 }
 
 .hero h1 {
-    font-size: 36px;
+    font-size: 3.4em;
     margin-bottom: 10px;
+    letter-spacing: 10px;
 }
 
 .hero p {
-    font-size: 18px;
+    font-size: 1.5em;
 }
 
 /* SECCIÓN DE CONTENIDO */
@@ -112,12 +164,22 @@ nav {
     padding: 20px;
     background: white;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 0 5px #04715c; */
+    transition: all 0.3s ease;
+}
+
+.contenido a, .especialidades a, .equipo a, .faq a, .formulario a {
+    font-style: italic;
+}
+
+.contenido:hover, .especialidades:hover, .equipo:hover, .faq:hover, .formulario:hover {
+
+    box-shadow: 0 0 10px #005165;
 }
 
 h2 {
-    color: darkblue;
-    border-bottom: 2px solid darkblue;
+    color: #04715c;
+    border-bottom: 2px solid #04715c;
     padding-bottom: 10px;
 }
 
@@ -126,6 +188,7 @@ h2 {
     display: flex;
     align-items: center;
     margin-top: 20px;
+    gap: 8.5px;
 }
 
 .especialidad img {
@@ -150,6 +213,7 @@ h2 {
     width: 120px;
     height: 120px;
     border-radius: 50%;
+    object-fit: contain;
 }
 
 /* Preguntas Frecuentes */
@@ -158,7 +222,7 @@ h2 {
 }
 
 .pregunta h3 {
-    color: darkblue;
+    color: #04715c;
 }
 
 /* FORMULARIO */
@@ -176,7 +240,7 @@ h2 {
 }
 
 .formulario button {
-    background: darkblue;
+    background: #04715c;
     color: white;
     padding: 10px 15px;
     border: none;
@@ -186,7 +250,7 @@ h2 {
 
 
 .formulario button:hover {
-    background: rgb(0, 0, 62);
+    background: #034f3f;
 }
 
 footer {
@@ -200,6 +264,7 @@ footer {
 footer a {
     color: yellow;
     text-decoration: none;
+    font-style: italic;
 }
 
 footer a:hover {

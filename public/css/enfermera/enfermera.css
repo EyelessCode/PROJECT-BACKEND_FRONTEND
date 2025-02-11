@@ -41,7 +41,7 @@ body {
 
 
 nav {
-    background-color: blueviolet;
+    background-color: #00718c;
     padding: 15px 0;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -56,6 +56,9 @@ nav {
 }
 
 .logo {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
     color: white;
     font-size: 1.8em;
     font-weight: bold;
@@ -63,10 +66,24 @@ nav {
     letter-spacing: 0.3em;
 }
 
+.logo img{
+    width: 7vw;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 5px #003441);
+}
+
+.logo img:hover{
+    /* box-shadow: 0 0 3px red; */
+    filter: drop-shadow(0 0 10px #003441);
+}
+
 .menu {
     margin: 0;
     padding: 0;
     display: flex;
+    font-size: 1.2em;
 }
 
 .menu li {
@@ -84,7 +101,7 @@ nav {
 }
 
 .menu a:hover {
-    background-color: rgb(103, 31, 170);
+    background-color: #005165;
 }
 
 .submenu-content {
@@ -92,8 +109,8 @@ nav {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: blueviolet;
-    border-radius: 5px;
+    background-color: #04715c;
+    border-radius: 10px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     min-width: 180px;
     z-index: 100;
@@ -117,7 +134,7 @@ nav {
 }
 
 .submenu-content a:hover {
-    background-color: rgb(103, 31, 170);
+    background-color: #034f3f;
 }
 
 .submenu:hover .submenu-content {
@@ -129,7 +146,7 @@ nav {
 .header {
     text-align: center;
     padding: 30px 20px;
-    background-color: blueviolet;
+    background-color: #3ed8c2;
     color: white;
 }
 
@@ -230,6 +247,7 @@ footer {
 footer a {
     color: yellow;
     text-decoration: none;
+    font-style: italic;
 }
 
 footer a:hover {
