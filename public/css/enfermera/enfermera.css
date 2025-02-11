@@ -1,11 +1,44 @@
 /* 🔹 Estilos Generales */
 body {
-    font-family: Arial, sans-serif;
+    font-family: arvo;
     margin: 0;
     padding: 0;
     background-color: #f5f5f5;
     color: #333;
+    font-size: 1.1em;
 }
+
+/*! Fuente de Google Fonts  */
+.hachi-maru-pop-regular {
+    font-family: "Hachi Maru Pop", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.arvo-regular {
+    font-family: "Arvo", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.arvo-bold {
+    font-family: "Arvo", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.arvo-regular-italic {
+    font-family: "Arvo", serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.arvo-bold-italic {
+    font-family: "Arvo", serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
 
 nav {
     background-color: blueviolet;
@@ -162,7 +195,7 @@ nav {
     color: white;
 }
 
-tr:hover{
+tr:hover {
     background-color: #737373;
     /* font-weight: bolder; */
     color: black;

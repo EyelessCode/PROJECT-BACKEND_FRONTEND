@@ -1,110 +1,127 @@
 /* Estilos generales del menú */
 body {
-    font-family: Arial, sans-serif;
+    font-family: arvo;
+    font-size: 1.1em;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
     color: #333;
 }
 
-/* 🔹 Menú de Navegación */
+/*! Fuente de Google Fonts  */
+.hachi-maru-pop-regular {
+    font-family: "Hachi Maru Pop", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.arvo-regular {
+    font-family: "Arvo", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.arvo-bold {
+    font-family: "Arvo", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.arvo-regular-italic {
+    font-family: "Arvo", serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.arvo-bold-italic {
+    font-family: "Arvo", serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+
 nav {
     background-color: blueviolet;
     padding: 15px 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 .logo {
     color: white;
-    font-size: 24px;
+    font-size: 1.8em;
     font-weight: bold;
     text-decoration: none;
+    letter-spacing: 0.3em;
 }
 
 .menu {
-    list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
-    gap: 20px;
 }
 
 .menu li {
     position: relative;
+    list-style-type: none;
 }
 
 .menu a {
-    text-decoration: none;
     color: white;
-    font-size: 16px;
-    padding: 10px 15px;
+    text-decoration: none;
+    padding: 15px 20px;
     display: block;
+    border-radius: 10px;
+
 }
 
 .menu a:hover {
-    background-color: rgb(92, 30, 151);
-    border-radius: 5px;
+    background-color: rgb(103, 31, 170);
 }
 
-/* Estilos del submenú */
 .submenu-content {
+    display: none;
     position: absolute;
     top: 100%;
     left: 0;
     background-color: blueviolet;
-    list-style: none;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 180px;
+    z-index: 100;
     padding: 0;
     margin: 0;
-    display: none;
-    min-width: 150px;
-    border-radius: 5px;
-    border: 0.5px solid;
+}
+
+.submenu-right {
+    left: auto;
+    right: 0;
 }
 
 .submenu-content li {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.submenu-content li:last-child {
-    border-bottom: none;
+    width: 100%;
 }
 
 .submenu-content a {
-    padding: 10px;
-    white-space: nowrap;
+    padding: 10px 15px;
+    display: block;
+    color: white;
+}
+
+.submenu-content a:hover {
+    background-color: rgb(103, 31, 170);
 }
 
 .submenu:hover .submenu-content {
     display: block;
-}
-
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 15px;
-}
-
-/* General */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-ul {
-    list-style: none;
 }
 
 /* Hero Section */
@@ -137,31 +154,31 @@ ul {
 h2 {
     font-size: 2.2rem;
     color: blueviolet;
-    margin-bottom: 20px;
+    margin: 20px;
 }
 
 p {
     font-size: 1.1rem;
     /* color: #555; */
     line-height: 1.8;
-}
 
-/* Sección de Valores */
-ul {
-    margin-top: 20px;
-}
-
-ul li {
-    font-size: 1.1rem;
-    margin-bottom: 15px;
 }
 
 /* Sección de Equipo Médico */
 .equipo {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(4, minmax(240px, 1fr));
     gap: 30px;
     margin-top: 50px;
+    padding: 0 50px;
+}
+
+.doctor-titulo{
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Opcional: Centra el contenido */
+    text-align: center; /* Opcional: Asegura alineación de texto */
+    margin-bottom: 30px; /* Espacio con la sección de médicos */
 }
 
 .doctor {
@@ -174,7 +191,7 @@ ul li {
 
 .doctor img {
     width: 100%;
-    height: 250px;
+    height: 350px;
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 20px;
