@@ -196,8 +196,8 @@ nav {
     color: white;
 }
 
-tr:hover {
-    background-color: #737373;
+tr:hover{
+    background-color: #979797;
     /* font-weight: bolder; */
     color: black;
 }

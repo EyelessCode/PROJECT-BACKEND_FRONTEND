@@ -241,7 +241,7 @@ table td button:hover:last-child {
 }
 
 tr:hover{
-    background-color: #737373;
+    background-color: #979797;
     /* font-weight: bolder; */
     color: black;
 }

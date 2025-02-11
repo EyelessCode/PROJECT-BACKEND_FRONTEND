@@ -230,7 +230,8 @@ nav {
 }
 
 .popup-content tr:hover{
-    background-color: #989898;
+    background-color: #979797;
+    /* font-weight: bolder; */
     color: black;
 }
 
