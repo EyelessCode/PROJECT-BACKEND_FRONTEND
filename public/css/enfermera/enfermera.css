@@ -7,7 +7,6 @@ body {
     color: #333;
 }
 
-/* 🔹 Menú de Navegación */
 nav {
     background-color: blueviolet;
     padding: 15px 0;
@@ -46,13 +45,14 @@ nav {
     text-decoration: none;
     padding: 15px 20px;
     display: block;
+    border-radius: 10px;
+
 }
 
 .menu a:hover {
     background-color: rgb(103, 31, 170);
 }
 
-/* 🔹 Submenú */
 .submenu-content {
     display: none;
     position: absolute;
@@ -67,7 +67,6 @@ nav {
     margin: 0;
 }
 
-/* 🔹 Submenú de "Más" alineado a la derecha */
 .submenu-right {
     left: auto;
     right: 0;
@@ -87,10 +86,10 @@ nav {
     background-color: rgb(103, 31, 170);
 }
 
-/* 🔹 Mostrar Submenú */
 .submenu:hover .submenu-content {
     display: block;
 }
+
 
 /* 🔹 Sección del Encabezado */
 .header {
@@ -187,11 +186,11 @@ tr:hover{
 
 /* 🔹 Pie de Página */
 footer {
-    background-color: blueviolet;
+    background: #333;
     color: white;
     text-align: center;
-    padding: 20px 0;
-    margin-top: 40px;
+    padding: 20px 10px;
+    margin-top: 20px;
 }
 
 footer a {
