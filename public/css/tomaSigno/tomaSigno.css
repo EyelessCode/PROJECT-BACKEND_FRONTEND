@@ -164,7 +164,7 @@ nav {
 .formulario h2 {
     font-size: 24px;
     margin-bottom: 20px;
-    color: blueviolet;
+    color: #04715c;
 }
 
 .formulario label {
@@ -200,7 +200,7 @@ nav {
 
 .btn-accion {
     padding: 10px 20px;
-    background-color: blueviolet;
+    background-color: #04715c;
     color: white;
     border: none;
     border-radius: 5px;
@@ -210,7 +210,7 @@ nav {
 }
 
 .btn-accion:hover {
-    background-color: rgb(103, 31, 170);
+    background-color: #034f3f;
 }
 
 .popup {
@@ -253,24 +253,8 @@ nav {
 }
 
 .popup-content th {
-    background-color: blueviolet;
+    background-color: #3ed8c2;
     color: white;
-}
-
-.btn-regresar {
-    padding: 10px 20px;
-    background-color: blueviolet;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 20px auto;
-    display: block;
-    font-size: 16px;
-}
-
-.btn-regresar:hover {
-    background-color: rgb(103, 31, 170);
 }
 
 footer {
@@ -293,7 +277,7 @@ footer a:hover {
 
 .btn-regresar {
     padding: 10px 20px;
-    background-color: blueviolet;
+    background-color: #04715c;
     color: white;
     border: none;
     border-radius: 5px;
@@ -304,7 +288,7 @@ footer a:hover {
 }
 
 .btn-regresar:hover {
-    background-color: rgb(103, 31, 170);
+    background-color: #034f3f;
 }
 
 /* Botón de eliminar */

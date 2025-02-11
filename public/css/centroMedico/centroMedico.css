@@ -161,7 +161,7 @@ nav {
 
 .btn-accion,#btnOcultarCentros {
     padding: 10px 20px;
-    background-color: blueviolet;
+    background-color: #04715c;
     color: white;
     border: none;
     border-radius: 5px;
@@ -171,7 +171,7 @@ nav {
 }
 
 .btn-accion:hover {
-    background-color: rgb(103, 31, 170);
+    background-color: #034f3f;
 }
 
 /* 🔹 Tabla de Pacientes */
@@ -207,8 +207,9 @@ nav {
 }
 
 #tablaCentros th {
-    background-color: blueviolet;
+    background-color: #3ed8c2;
     color: white;
+    font-weight: bolder;
 }
 
 tr:hover{
@@ -219,7 +220,7 @@ tr:hover{
 
 .btn-regresar {
     padding: 10px 20px;
-    background-color: blueviolet;
+    background-color: #04715c;
     color: white;
     border: none;
     border-radius: 5px;
@@ -230,7 +231,7 @@ tr:hover{
 }
 
 .btn-regresar:hover {
-    background-color: rgb(103, 31, 170);
+    background-color: #034f3f;
 }
 
 footer {

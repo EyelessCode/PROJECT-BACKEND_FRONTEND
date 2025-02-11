@@ -16,12 +16,14 @@ document.getElementById('btnListar').addEventListener('click', async () => {
     document.getElementById('btnDesaparecer').style.display = 'inline'
     const paciente = await cargarPacientes()
     mostrarTablaPaciente(paciente)
+    document.getElementById('titulo-paciente').innerText="Registrar Nuevo Paciente"
 })
 
 document.getElementById('btnDesaparecer').addEventListener('click', () => {
     console.log('Ocultando Tabla...')
     document.getElementById('tablaPacientes').style.display = 'none'
     document.getElementById('btnDesaparecer').style.display = 'none'
+    document.getElementById('titulo-paciente').innerText="Registrar Nuevo Paciente"
 })
 
 document.getElementById('btnCancelar').addEventListener('click', () => {

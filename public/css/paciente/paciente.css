@@ -161,7 +161,7 @@ nav {
 
 .btn-accion,#btnDesaparecer {
     padding: 10px 20px;
-    background-color: blueviolet;
+    background-color: #04715c;
     color: white;
     border: none;
     border-radius: 5px;
@@ -171,7 +171,7 @@ nav {
 }
 
 .btn-accion:hover {
-    background-color: rgb(103, 31, 170);
+    background-color: #034f3f;
 }
 
 /* 🔹 Formulario de Registro */
@@ -285,13 +285,14 @@ tr:hover{
 }
 
 #tablaPacientes th {
-    background-color: blueviolet;
+    background-color: #3ed8c2;
     color: white;
+    font-weight: bolder;
 }
 
 .btn-regresar {
     padding: 10px 20px;
-    background-color: blueviolet;
+    background-color: #04715c;
     color: white;
     border: none;
     border-radius: 5px;
@@ -303,6 +304,7 @@ tr:hover{
 
 .btn-regresar:hover {
     background-color: rgb(103, 31, 170);
+    background-color: #034f3f;
 }
 
 /* 🔹 Pie de Página */

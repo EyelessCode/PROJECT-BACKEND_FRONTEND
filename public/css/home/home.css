@@ -157,8 +157,8 @@ nav {
 }
 
 .btn {
-    background-color: white;
-    color: blueviolet;
+    background-color: #04715c;
+    color: white;
     padding: 10px 20px;
     font-weight: bold;
     border-radius: 5px;
@@ -167,7 +167,7 @@ nav {
 }
 
 .btn:hover {
-    background-color: #ddd;
+    background-color: #034f3f;
 }
 
 .galeria {
