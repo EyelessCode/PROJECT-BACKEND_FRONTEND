@@ -84,6 +84,11 @@ document.getElementById('formPaciente').addEventListener('submit', async (e) => 
 
 document.getElementById('btnBuscar').addEventListener('click', async () => {
     const codigo = document.getElementById('buscarCodigo').value
+
+    if (!codigo) {
+        return alert(`Ingrese un código de paciente`)
+    }
+    
     try {
         console.log('Buscando Paciente con Código:', codigo)
         const response = await fetch(`${API_URL}/${codigo}`)
