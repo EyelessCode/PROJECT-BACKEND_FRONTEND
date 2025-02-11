@@ -60,18 +60,34 @@
             </div>
 
             <div class="acciones">
-                <button id="btnListarEnfermeras" class="btn-accion">Listar
-                    Enfermeras</button>
-                <button id="btnOcultarEnfermeras" class="btn-accion"
-                    style="display: none;">Ocultar Tabla</button>
+                <!-- <button id="btnListarEnfermeras" class="btn-accion">Listar
+                    Enfermeras</button> -->
+                <button id="btnListarEnfermeras" class="btn-listar">
+                    Listar Enfermeras
+                    <svg class="svgListar" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M360-240h440v-107H360v107ZM160-613h120v-107H160v107Zm0 187h120v-107H160v107Zm0 186h120v-107H160v107Zm200-186h440v-107H360v107Zm0-187h440v-107H360v107ZM160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Z"/></svg>
+                </button>
+                <!-- <button id="btnOcultarEnfermeras" class="btn-accion"
+                    style="display: none;">Ocultar Tabla</button> -->
+                <button id="btnOcultarEnfermeras" style="display: none;" class="btn-desaparecer">
+                    Ocultar Tabla
+                    <svg class="svgDesaparecer" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m644-428-58-58q9-47-27-88t-93-32l-58-58q17-8 34.5-12t37.5-4q75 0 127.5 52.5T660-500q0 20-4 37.5T644-428Zm128 126-58-56q38-29 67.5-63.5T832-500q-50-101-143.5-160.5T480-720q-29 0-57 4t-55 12l-62-62q41-17 84-25.5t90-8.5q151 0 269 83.5T920-500q-23 59-60.5 109.5T772-302Zm20 246L624-222q-35 11-70.5 16.5T480-200q-151 0-269-83.5T40-500q21-53 53-98.5t73-81.5L56-792l56-56 736 736-56 56ZM222-624q-29 26-53 57t-41 67q50 101 143.5 160.5T480-280q20 0 39-2.5t39-5.5l-36-38q-11 3-21 4.5t-21 1.5q-75 0-127.5-52.5T300-500q0-11 1.5-21t4.5-21l-84-82Zm319 93Zm-151 75Z"/></svg>
+                </button>
             </div>
 
             <div id="tablaEnfermeras" style="display: none;">
                 <div class="busqueda">
                     <input type="text" id="buscarEnfermera"
                         placeholder="Buscar por código">
-                    <button id="btnBuscarEnfermera"
-                        class="btn-accion">Buscar</button>
+                    <!-- <button id="btnBuscarEnfermera"
+                        class="btn-accion">Buscar</button> -->
+                    <button id="btnBuscarEnfermera" class="btn-buscar">
+                            Buscar
+                            <svg class="svgBuscar"
+                                xmlns="http://www.w3.org/2000/svg" height="180px"
+                                viewBox="0 -960 960 960" width="180px"
+                                fill="#000000"><path fill-rule="evenodd"
+                                    d="M796-121 533-384q-30 26-69.96 40.5Q423.08-329 378-329q-108.16 0-183.08-75Q120-479 120-585t75-181q75-75 181.5-75t181 75Q632-691 632-584.85 632-542 618-502q-14 40-42 75l264 262-44 44ZM377-389q81.25 0 138.13-57.5Q572-504 572-585t-56.87-138.5Q458.25-781 377-781q-82.08 0-139.54 57.5Q180-666 180-585t57.46 138.5Q294.92-389 377-389Z" /></svg>
+                    </button>
                 </div>
                 <table>
                     <thead>
@@ -89,9 +105,15 @@
                 </table>
             </div>
 
-            <button
+            <!-- <button
                 onclick="window.location.href='http://localhost:4000/comsulmed';"
-                class="btn-regresar">Regresar</button>
+                class="btn-regresar">Regresar</button> -->
+            <button id="btnRegresar" class="btn-regresar" onclick="window.location.href='http://localhost:4000/comsulmed';">
+                Regresar
+                <svg class="svgRegresar" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
+                    <path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 	320 240v480H520v-240h-80v240H160Zm320-350Z"/>
+                </svg>
+            </button>
         </main>
 
         <footer>

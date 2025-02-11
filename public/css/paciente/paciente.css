@@ -159,21 +159,6 @@ nav {
     margin: 20px 0;
 }
 
-.btn-accion,#btnDesaparecer {
-    padding: 10px 20px;
-    background-color: #04715c;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 0 10px;
-    font-size: 16px;
-}
-
-.btn-accion:hover {
-    background-color: #034f3f;
-}
-
 /* 🔹 Formulario de Registro */
 #formRegistro {
     background-color: white;
@@ -187,7 +172,7 @@ nav {
 #formRegistro h2 {
     font-size: 24px;
     margin-bottom: 20px;
-    color: blueviolet;
+    color: #04715c;
 }
 
 #formPaciente label {
@@ -212,7 +197,7 @@ nav {
 }
 
 .form-buttons .btn-accion {
-    width: 45%;
+    /* width: 45%; */
     margin: 0 2.5%;
 }
 
@@ -290,23 +275,6 @@ tr:hover{
     font-weight: bolder;
 }
 
-.btn-regresar {
-    padding: 10px 20px;
-    background-color: #04715c;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 20px auto;
-    display: block;
-    font-size: 16px;
-}
-
-.btn-regresar:hover {
-    background-color: rgb(103, 31, 170);
-    background-color: #034f3f;
-}
-
 /* 🔹 Pie de Página */
 footer {
     background: #333;
@@ -345,7 +313,7 @@ footer a:hover {
     .menu {
         display: none;
         flex-direction: column;
-        background-color: blueviolet;
+        background-color: #00718c;
         position: absolute;
         top: 60px;
         left: 0;
@@ -357,4 +325,98 @@ footer a:hover {
     .menu-active {
         display: flex;
     }
+}
+
+
+/*! test */
+.btn-listar,.btn-registrar,.btn-desaparecer,.btn-regresar,.btn-buscar,
+.btn-accion {
+    position: relative;
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 40px;
+    border: none;
+    padding: 0px 20px;
+    background-color: #45a049;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 5px 5px 0px #1c4a1e;
+    transition-duration: 0.3s;
+    
+    padding: 10px 20px;
+    background-color: #04715c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+.btn-registrar{
+    width: 225px;
+}
+
+.btn-desaparecer{
+    width: 180px;
+}
+
+.btn-regresar{
+    width: 150px;
+    /* padding: 10px 20px; */
+    margin: 20px auto;
+    display: block;
+
+}
+
+.btn-accion{
+    margin-top: 90px;
+}
+
+.btn-buscar{
+    width: 130px;
+}
+
+.svgListar,.svgRegistrar,.svgDesaparecer,.svgRegresar,.svgBuscar,
+.svgCancelar,.svgGuardar {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    right: 0;
+    margin-right: 15px;
+    fill: white;
+    transition-duration: 0.3s;
+    stroke: white;
+    stroke-width: 30;
+}
+
+.svgRegistrar,.svgGuardar {
+    stroke-width: 75;
+}
+
+.btn-listar:hover,.btn-registrar:hover,.btn-desaparecer:hover,.btn-regresar:hover,
+.btn-buscar:hover,.btn-accion:hover {
+    color: transparent;
+}
+
+.btn-listar:hover svg,.btn-registrar:hover svg
+,.btn-desaparecer:hover svg,.btn-regresar:hover svg,
+.btn-buscar:hover svg,.btn-accion:hover svg {
+    right: 43%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    transition-duration: 0.3s;
+}
+
+.btn-listar:active,.btn-registrar:active
+,.btn-desaparecer:active,.btn-regresar:active,
+.btn-buscar:active,.btn-accion:active {
+    transform: translate(3px, 3px);
+    transition-duration: 0.3s;
+    box-shadow: 2px 2px 0px white;
 }

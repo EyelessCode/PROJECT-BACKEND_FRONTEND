@@ -198,21 +198,6 @@ nav {
     margin-top: 20px;
 }
 
-.btn-accion {
-    padding: 10px 20px;
-    background-color: #04715c;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 0 10px;
-    font-size: 16px;
-}
-
-.btn-accion:hover {
-    background-color: #034f3f;
-}
-
 .popup {
     position: fixed;
     top: 0;
@@ -223,6 +208,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 1000; /* Asegura que esté por encima de todo */
 }
 
 .popup-content {
@@ -273,22 +259,6 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
-}
-
-.btn-regresar {
-    padding: 10px 20px;
-    background-color: #04715c;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 20px auto;
-    display: block;
-    font-size: 16px;
-}
-
-.btn-regresar:hover {
-    background-color: #034f3f;
 }
 
 /* Botón de eliminar */
@@ -386,4 +356,95 @@ footer a:hover {
 /* Ajustes para elementos únicos (como "Dirección") */
 .fila-atributos:has(.item-atributo:only-child) .item-atributo {
     flex: 0 0 100%; /* Ocupa todo el ancho */
+}
+
+/*! test */
+.btn-regresar,.btn-buscar,
+.btn-accion {
+    position: relative;
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 40px;
+    border: none;
+    padding: 0px 20px;
+    background-color: #45a049;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 5px 5px 0px #1c4a1e;
+    transition-duration: 0.3s;
+    
+    padding: 10px 20px;
+    background-color: #04715c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+.btn-regresar,#btnContinuar{
+    width: 160px;
+    /* padding: 10px 20px; */
+    margin: 20px auto;
+    display: block;
+}
+
+/* .btn-accion,#btnCerrarPopup{
+    margin-top: 90px;
+} */
+
+.btn-accion,#btnCerrarPopup{
+    margin-top: 20px;
+}
+
+#btnBuscarPaciente,#btnCerrarPopup{
+    width: 130px;
+}
+
+#btnSeleccionarPaciente{
+    width: 170px;
+}
+
+.svgRegresar,.svgBuscar,.svgCancelar
+,.svgGrabar,.svgCerrarPopup
+,.svgAgregarSigno,.svgContinuar,.svgSeleccionar {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    right: 0;
+    margin-right: 15px;
+    fill: white;
+    transition-duration: 0.3s;
+    stroke: white;
+    stroke-width: 30;
+}
+
+.svgRegistrar,.srvGrabar {
+    stroke-width: 75;
+}
+
+.btn-regresar:hover,
+.btn-buscar:hover,.btn-accion:hover {
+    color: transparent;
+}
+
+.btn-regresar:hover svg,
+.btn-buscar:hover svg,.btn-accion:hover svg {
+    right: 43%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    transition-duration: 0.3s;
+}
+
+.btn-regresar:active,
+.btn-buscar:active,.btn-accion:active {
+    transform: translate(3px, 3px);
+    transition-duration: 0.3s;
+    box-shadow: 2px 2px 0px white;
 }
