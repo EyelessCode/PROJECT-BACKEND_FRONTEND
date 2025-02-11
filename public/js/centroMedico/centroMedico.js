@@ -18,6 +18,10 @@ document.getElementById('btnOcultarCentros').addEventListener('click', () => {
 
 document.getElementById('btnBuscarCentro').addEventListener('click', async () => {
     const codigo = document.getElementById('buscarCentro').value
+    if (!codigo) {
+        return alert('Ingrese el código del centro médico a buscar')
+    }
+
     const result = await buscarCentroMedico(codigo)
     if (result.success) {
         alert(`Centro Médico encontrado: ${result.centro.nombre} en ${result.centro.direccion}`)

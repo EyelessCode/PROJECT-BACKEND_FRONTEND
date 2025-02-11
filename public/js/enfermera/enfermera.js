@@ -18,6 +18,10 @@ document.getElementById('btnOcultarEnfermeras').addEventListener('click', () => 
 
 document.getElementById('btnBuscarEnfermera').addEventListener('click', async () => {
     const codigo = document.getElementById('buscarEnfermera').value
+    if (!codigo) {
+        return alert('Ingrese el código de la enfermera')
+    }
+
     const result = await buscarEnfermera(codigo)
     if (result.success) {
         alert(`Enfermera encontrada: ${result.enfermera.nombres} en ${result.enfermera.especialidad}`)
