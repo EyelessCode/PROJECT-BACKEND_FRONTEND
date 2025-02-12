@@ -22,7 +22,7 @@ export function mostrarTablaPaciente(pacientes) {
         const fila = document.createElement('tr')
 
         let celda = document.createElement('td')
-        celda.textContent = paciente.codigo
+        celda.textContent = Number(paciente.codigo)
         fila.appendChild(celda)
 
         celda = document.createElement('td')
@@ -38,12 +38,12 @@ export function mostrarTablaPaciente(pacientes) {
         fila.appendChild(celda)
 
         celda = document.createElement('td')
-        celda.textContent = paciente.edad
+        celda.textContent = Number(paciente.edad)
         fila.appendChild(celda)
 
-        celda = document.createElement('td')
+        /* celda = document.createElement('td')
         celda.textContent = paciente.genero
-        fila.appendChild(celda)
+        fila.appendChild(celda) */
 
         celda = document.createElement('td')
         celda.textContent = paciente.fechaNacimiento
@@ -53,31 +53,31 @@ export function mostrarTablaPaciente(pacientes) {
         celda.textContent = paciente.tipoSangre
         fila.appendChild(celda)
 
-        celda = document.createElement('td')
+        /* celda = document.createElement('td')
         celda.textContent = paciente.telefono
-        fila.appendChild(celda)
+        fila.appendChild(celda) */
 
-        celda = document.createElement('td')
+        /* celda = document.createElement('td')
         celda.textContent = paciente.direccion
-        fila.appendChild(celda)
+        fila.appendChild(celda) */
 
-        celda = document.createElement('td')
+        /* celda = document.createElement('td')
         celda.textContent = paciente.correo
         fila.appendChild(celda)
 
         celda = document.createElement('td')
         celda.textContent = paciente.ocupacion
-        fila.appendChild(celda)
+        fila.appendChild(celda) */
 
         const acciones = document.createElement('td')
         const btnEditar = document.createElement('button')
         btnEditar.textContent = 'Editar'
-        btnEditar.onclick = () => editarPaciente(paciente.codigo)
+        btnEditar.onclick = () => editarPaciente(Number(paciente.codigo))
         acciones.appendChild(btnEditar)
 
         const btnEliminar = document.createElement('button')
         btnEliminar.textContent = 'Eliminar'
-        btnEliminar.onclick = () => eliminarPaciente(paciente.codigo)
+        btnEliminar.onclick = () => eliminarPaciente(Number(paciente.codigo))
         acciones.appendChild(btnEliminar)
 
         fila.appendChild(acciones)
