@@ -65,7 +65,7 @@ nav {
     letter-spacing: 0.3em;
 }
 
-.logo img{
+.logo img {
     width: 7vw;
     height: auto;
     object-fit: contain;
@@ -73,7 +73,7 @@ nav {
     filter: drop-shadow(0 0 5px #003441);
 }
 
-.logo img:hover{
+.logo img:hover {
     /* box-shadow: 0 0 3px red; */
     filter: drop-shadow(0 0 10px #003441);
 }
@@ -241,7 +241,7 @@ table td button:hover:last-child {
     color: black;
 }
 
-tr:hover{
+tr:hover {
     background-color: #979797;
     /* font-weight: bolder; */
     color: black;
@@ -329,7 +329,7 @@ footer a:hover {
 
 
 /*! test */
-.btn-listar,.btn-registrar,.btn-desaparecer,.btn-regresar,.btn-buscar,
+.btn-listar, .btn-registrar, .btn-desaparecer, .btn-regresar, .btn-buscar,
 .btn-accion {
     position: relative;
     /* display: flex; */
@@ -346,7 +346,7 @@ footer a:hover {
     border-radius: 10px;
     box-shadow: 5px 5px 0px #1c4a1e;
     transition-duration: 0.3s;
-    
+
     padding: 10px 20px;
     background-color: #04715c;
     color: white;
@@ -357,15 +357,15 @@ footer a:hover {
     font-size: 16px;
 }
 
-.btn-registrar{
+.btn-registrar {
     width: 225px;
 }
 
-.btn-desaparecer{
+.btn-desaparecer {
     width: 180px;
 }
 
-.btn-regresar{
+.btn-regresar {
     width: 150px;
     /* padding: 10px 20px; */
     margin: 20px auto;
@@ -373,16 +373,16 @@ footer a:hover {
 
 }
 
-.btn-accion{
+.btn-accion {
     margin-top: 90px;
 }
 
-.btn-buscar{
+.btn-buscar {
     width: 130px;
 }
 
-.svgListar,.svgRegistrar,.svgDesaparecer,.svgRegresar,.svgBuscar,
-.svgCancelar,.svgGuardar {
+.svgListar, .svgRegistrar, .svgDesaparecer, .svgRegresar, .svgBuscar,
+.svgCancelar, .svgGuardar {
     width: 18px;
     height: 18px;
     position: absolute;
@@ -394,18 +394,17 @@ footer a:hover {
     stroke-width: 30;
 }
 
-.svgRegistrar,.svgGuardar {
+.svgRegistrar, .svgGuardar {
     stroke-width: 75;
 }
 
-.btn-listar:hover,.btn-registrar:hover,.btn-desaparecer:hover,.btn-regresar:hover,
-.btn-buscar:hover,.btn-accion:hover {
+.btn-listar:hover, .btn-registrar:hover, .btn-desaparecer:hover, .btn-regresar:hover,
+.btn-buscar:hover, .btn-accion:hover {
     color: transparent;
 }
 
-.btn-listar:hover svg,.btn-registrar:hover svg
-,.btn-desaparecer:hover svg,.btn-regresar:hover svg,
-.btn-buscar:hover svg,.btn-accion:hover svg {
+.btn-listar:hover svg, .btn-registrar:hover svg, .btn-desaparecer:hover svg, .btn-regresar:hover svg,
+.btn-buscar:hover svg, .btn-accion:hover svg {
     right: 43%;
     margin: 0;
     padding: 0;
@@ -413,9 +412,8 @@ footer a:hover {
     transition-duration: 0.3s;
 }
 
-.btn-listar:active,.btn-registrar:active
-,.btn-desaparecer:active,.btn-regresar:active,
-.btn-buscar:active,.btn-accion:active {
+.btn-listar:active, .btn-registrar:active, .btn-desaparecer:active, .btn-regresar:active,
+.btn-buscar:active, .btn-accion:active {
     transform: translate(3px, 3px);
     transition-duration: 0.3s;
     box-shadow: 2px 2px 0px white;
@@ -423,13 +421,15 @@ footer a:hover {
 
 /* Sidebar oculto con solo iconos visibles */
 .sidebar {
-    width: 60px; /* Reducimos el ancho del sidebar */
+    width: 60px;
+    /* Reducimos el ancho del sidebar */
     height: 100vh;
     position: fixed;
     left: 0;
     top: 0;
     background-color: #005165;
-    padding: 20px 10px; /* Espaciado más reducido */
+    padding: 20px 10px;
+    /* Espaciado más reducido */
     color: white;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
     transition: width 0.3s ease-in-out;
@@ -438,7 +438,8 @@ footer a:hover {
 
 /* Sidebar expandido */
 .sidebar.active {
-    width: 250px; /* Expande el sidebar */
+    width: 250px;
+    /* Expande el sidebar */
 }
 
 /* Ajuste de los enlaces dentro del menú */
@@ -508,7 +509,8 @@ footer a:hover {
 
 /* Mueve solo el primer ítem del menú (Inicio) un poco más abajo */
 .sidebar-menu li:first-child {
-    margin-top: 60px; /* Ajusta este valor según lo necesites */
+    margin-top: 60px;
+    /* Ajusta este valor según lo necesites */
 }
 
 
@@ -516,10 +518,93 @@ footer a:hover {
 
 /* Ajuste del contenido principal */
 body {
-    margin-left: 0; /* No desplazamos el contenido */
+    margin-left: 0;
+    /* No desplazamos el contenido */
     transition: margin-left 0.3s;
 }
 
 body.sidebar-open {
-    margin-left: 250px; /* Mueve el contenido cuando la barra está abierta */
+    margin-left: 250px;
+    /* Mueve el contenido cuando la barra está abierta */
+}
+
+.card {
+    /* width: fit-content; */
+    height: fit-content;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    gap: 20px;
+}
+
+/* for all social containers*/
+.socialContainer {
+    width: 52px;
+    height: 52px;
+    background-color: rgb(65, 29, 131);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition-duration: 0.3s;
+    border-radius: 30px;
+}
+
+/* instagram*/
+.containerOne:hover {
+    background-color: #d62976;
+    transition-duration: 0.3s;
+    transform: scale(1.2);
+}
+
+/* twitter*/
+.containerTwo:hover {
+    background-color: #00acee;
+    transition-duration: 0.3s;
+    transform: scale(1.2);
+}
+
+/* linkdin*/
+.containerThree:hover {
+    background-color: #0072b1;
+    transition-duration: 0.3s;
+    transform: scale(1.2);
+}
+
+/* Whatsapp*/
+.containerFour:hover {
+    background-color: #128c7e;
+    transition-duration: 0.3s;
+    transform: scale(1.2);
+}
+
+.socialContainer:active {
+    transform: scale(0.9);
+    transition-duration: 0.3s;
+}
+
+.socialSvg {
+    width: 17px;
+}
+
+.socialSvg path {
+    fill: rgb(255, 255, 255);
+}
+
+.socialContainer:hover .socialSvg {
+    animation: slide-in-top 0.3s both;
+}
+
+@keyframes slide-in-top {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }

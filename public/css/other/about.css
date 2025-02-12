@@ -66,7 +66,7 @@ nav {
     letter-spacing: 0.3em;
 }
 
-.logo img{
+.logo img {
     width: 7vw;
     height: auto;
     object-fit: contain;
@@ -74,7 +74,7 @@ nav {
     filter: drop-shadow(0 0 5px #003441);
 }
 
-.logo img:hover{
+.logo img:hover {
     /* box-shadow: 0 0 3px red; */
     filter: drop-shadow(0 0 10px #003441);
 }
@@ -197,12 +197,15 @@ p {
     padding: 0 50px;
 }
 
-.doctor-titulo{
+.doctor-titulo {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Opcional: Centra el contenido */
-    text-align: center; /* Opcional: Asegura alineación de texto */
-    margin-bottom: 30px; /* Espacio con la sección de médicos */
+    align-items: center;
+    /* Opcional: Centra el contenido */
+    text-align: center;
+    /* Opcional: Asegura alineación de texto */
+    margin-bottom: 30px;
+    /* Espacio con la sección de médicos */
 }
 
 .doctor {
@@ -214,7 +217,7 @@ p {
     transition: all 0.3s ease;
 }
 
-.doctor:hover{
+.doctor:hover {
     transform: rotate(1deg) translateY(1%);
     box-shadow: 0 0 3px #04715c;
 }
@@ -254,18 +257,20 @@ footer a {
 }
 
 footer a:hover {
-    text-decoration:underline;
+    text-decoration: underline;
 }
 
 /* Sidebar oculto con solo iconos visibles */
 .sidebar {
-    width: 60px; /* Reducimos el ancho del sidebar */
+    width: 60px;
+    /* Reducimos el ancho del sidebar */
     height: 100vh;
     position: fixed;
     left: 0;
     top: 0;
     background-color: #005165;
-    padding: 20px 10px; /* Espaciado más reducido */
+    padding: 20px 10px;
+    /* Espaciado más reducido */
     color: white;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
     transition: width 0.3s ease-in-out;
@@ -274,7 +279,8 @@ footer a:hover {
 
 /* Sidebar expandido */
 .sidebar.active {
-    width: 250px; /* Expande el sidebar */
+    width: 250px;
+    /* Expande el sidebar */
 }
 
 /* Ajuste de los enlaces dentro del menú */
@@ -344,7 +350,8 @@ footer a:hover {
 
 /* Mueve solo el primer ítem del menú (Inicio) un poco más abajo */
 .sidebar-menu li:first-child {
-    margin-top: 60px; /* Ajusta este valor según lo necesites */
+    margin-top: 60px;
+    /* Ajusta este valor según lo necesites */
 }
 
 
@@ -352,12 +359,93 @@ footer a:hover {
 
 /* Ajuste del contenido principal */
 body {
-    margin-left: 0; /* No desplazamos el contenido */
+    margin-left: 0;
+    /* No desplazamos el contenido */
     transition: margin-left 0.3s;
 }
 
 body.sidebar-open {
-    margin-left: 250px; /* Mueve el contenido cuando la barra está abierta */
+    margin-left: 250px;
+    /* Mueve el contenido cuando la barra está abierta */
 }
 
+.card {
+    /* width: fit-content; */
+    height: fit-content;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    gap: 20px;
+}
 
+/* for all social containers*/
+.socialContainer {
+    width: 52px;
+    height: 52px;
+    background-color: rgb(65, 29, 131);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition-duration: 0.3s;
+    border-radius: 30px;
+}
+
+/* instagram*/
+.containerOne:hover {
+    background-color: #d62976;
+    transition-duration: 0.3s;
+    transform: scale(1.2);
+}
+
+/* twitter*/
+.containerTwo:hover {
+    background-color: #00acee;
+    transition-duration: 0.3s;
+    transform: scale(1.2);
+}
+
+/* linkdin*/
+.containerThree:hover {
+    background-color: #0072b1;
+    transition-duration: 0.3s;
+    transform: scale(1.2);
+}
+
+/* Whatsapp*/
+.containerFour:hover {
+    background-color: #128c7e;
+    transition-duration: 0.3s;
+    transform: scale(1.2);
+}
+
+.socialContainer:active {
+    transform: scale(0.9);
+    transition-duration: 0.3s;
+}
+
+.socialSvg {
+    width: 17px;
+}
+
+.socialSvg path {
+    fill: rgb(255, 255, 255);
+}
+
+.socialContainer:hover .socialSvg {
+    animation: slide-in-top 0.3s both;
+}
+
+@keyframes slide-in-top {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
