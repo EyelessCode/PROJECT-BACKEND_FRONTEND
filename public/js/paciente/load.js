@@ -64,7 +64,7 @@ export async function editarPaciente(codigo) {
 }
 
 
-async function handleUpdateSubmit(e) {
+async function handleFormSubmit(e) {
     e.preventDefault(); // Evita que el formulario recargue la página
 
     const formPaciente = document.getElementById('formPaciente');
