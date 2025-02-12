@@ -9,6 +9,7 @@
         <link rel="shortcut icon" href="image/icon/other/icon-evento.ICO"
             type="image/x-icon">
         <link rel="stylesheet" href="/css/other/evento.css">
+        <script src="/js/other/evento.js"></script>
     </head>
     <body>
         <nav>
@@ -51,6 +52,21 @@
                 </ul>
             </div>
         </nav>
+
+        <button id="toggleSidebar" class="sidebar-toggle">&#9776;</button>
+        <aside id="sidebar" class="sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="http://localhost:4000/comsulmed"><span class="icon" id="superiorAsidebar">🏠</span> <span class="text" id="superiorAsidebar">Inicio</span></a></li>
+                <li><a href="http://localhost:4000/comsulmed/paciente/html"><span class="icon">👩‍⚕️</span> <span class="text">Pacientes</span></a></li>
+                <li><a href="http://localhost:4000/comsulmed/centroMedico/html"><span class="icon">🏥</span> <span class="text">Centro Médico</span></a></li>
+                <li><a href="http://localhost:4000/comsulmed/enfermera/html"><span class="icon">🩺</span> <span class="text">Enfermeras</span></a></li>
+                <li><a href="http://localhost:4000/comsulmed/tomaSigno/html"><span class="icon">🩸</span> <span class="text">Toma de Signos</span></a></li>
+                <li><a href="http://localhost:4000/comsulmed/noticia/html"><span class="icon">📰</span> <span class="text">Noticias</span></a></li>
+                <li><a href="#"><span class="icon">📅</span> <span class="text">Eventos</span></a></li>
+                <li><a href="http://localhost:4000/comsulmed/contacto/html"><span class="icon">📞</span> <span class="text">Contacto</span></a></li>
+                <li><a href="http://localhost:4000/comsulmed/about/html"><span class="icon">ℹ️</span> <span class="text">Sobre Nosotros</span></a></li>
+            </ul>
+        </aside>
 
         <header class="hero">
             <h1>Eventos Médicos</h1>

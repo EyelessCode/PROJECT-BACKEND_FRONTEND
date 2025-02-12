@@ -257,5 +257,107 @@ footer a:hover {
     text-decoration:underline;
 }
 
+/* Sidebar oculto con solo iconos visibles */
+.sidebar {
+    width: 60px; /* Reducimos el ancho del sidebar */
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #005165;
+    padding: 20px 10px; /* Espaciado más reducido */
+    color: white;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: width 0.3s ease-in-out;
+    z-index: 150;
+}
+
+/* Sidebar expandido */
+.sidebar.active {
+    width: 250px; /* Expande el sidebar */
+}
+
+/* Ajuste de los enlaces dentro del menú */
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-menu li {
+    margin: 15px 0;
+}
+
+.sidebar-menu a {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+/* Iconos en el sidebar */
+.sidebar-menu .icon {
+    font-size: 24px;
+    width: 40px;
+    text-align: center;
+}
+
+/* Texto de los enlaces */
+.sidebar-menu .text {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    white-space: nowrap;
+}
+
+/* Cuando el sidebar se expande, mostrar los textos */
+.sidebar.active .text {
+    opacity: 1;
+    margin-left: 10px;
+}
+
+/* Hover para mejorar la interacción */
+.sidebar-menu a:hover {
+    background-color: #034f3f;
+}
+
+/* Ajustar la posición del botón de abrir/cerrar */
+.sidebar-toggle {
+    position: fixed;
+    left: 10px;
+    top: 20px;
+    background: #005165;
+    color: white;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background 0.3s;
+    z-index: 200;
+}
+
+.sidebar-toggle:hover {
+    background: #034f3f;
+}
+
+/* Mueve solo el primer ítem del menú (Inicio) un poco más abajo */
+.sidebar-menu li:first-child {
+    margin-top: 60px; /* Ajusta este valor según lo necesites */
+}
+
+
+
+
+/* Ajuste del contenido principal */
+body {
+    margin-left: 0; /* No desplazamos el contenido */
+    transition: margin-left 0.3s;
+}
+
+body.sidebar-open {
+    margin-left: 250px; /* Mueve el contenido cuando la barra está abierta */
+}
 
 
