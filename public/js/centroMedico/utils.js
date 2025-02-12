@@ -2,6 +2,7 @@ export function mostrarCentrosEnTabla(centros) {
     const cuerpoTabla = document.getElementById('cuerpoTablaCentros')
     cuerpoTabla.innerHTML = ''
 
+    centros.sort((a, b) => a.codigo - b.codigo);
     centros.forEach(centro => {
         const fila = document.createElement('tr')
 

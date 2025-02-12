@@ -2,6 +2,7 @@ export function mostrarEnfermerasTabla(enfermeras) {
     const cuerpoTabla = document.getElementById('cuerpoTablaEnfermeras')
     cuerpoTabla.innerHTML = ''
 
+    enfermeras.sort((a, b) => a.codigo - b.codigo);
     enfermeras.forEach(enfermera => {
         const fila = document.createElement('tr')
 
