@@ -35,12 +35,32 @@ export class PacienteRepositorio implements IPacienteRepositorio{
             throw new Error("El código debe ser un número positivo mayor a cero.");
         }
 
+        // 🔹 1. Buscar si el paciente existe antes de actualizar
+        const pacienteExistente = await prisma.paciente.findUnique({
+            where: { codigo }
+        });
+
+        if (!pacienteExistente) {
+            console.error(`Paciente con código ${codigo} no encontrado.`);
+            return null; // Evita la actualización si no existe
+        }
+
+        // 🔹 2. Asegurar que la cédula no cause duplicados
+        if (data.cedula && data.cedula !== pacienteExistente.cedula) {
+            const cedulaExistente = await prisma.paciente.findUnique({
+                where: { cedula: data.cedula }
+            });
+
+            if (cedulaExistente) {
+                throw new Error(`La cédula ${data.cedula} ya está registrada en otro paciente.`);
+            }
+        }
+
+        // 🔹 3. Realizar la actualización
         return await prisma.paciente.update({
-            where:{
-                codigo:codigo
-            },
-            data:data
-        })
+            where: { codigo },
+            data
+        });
     }
 
     async eliminarPaciente(codigo: number): Promise<Paciente | null> {

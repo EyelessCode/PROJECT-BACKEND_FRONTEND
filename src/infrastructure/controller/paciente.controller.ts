@@ -30,10 +30,15 @@ export class PacienteController {
     async controladorActualizarPaciente(req: Request, res: Response): Promise<any> {
         try {
             const codigo = parseInt(req.params.codigo)
-
-
-
+            console.log("Código recibido en la URL:", codigo);
+            if (isNaN(codigo) || codigo <= 0) {
+                return res.status(400).json({ message: "Código inválido" });
+            }
+            
+            
             const data = req.body
+            console.log("Datos recibidos para actualización:", data);
+
 
             const pacienteActualizado = await this.casoUso.actualizarPaciente(codigo, data)
 

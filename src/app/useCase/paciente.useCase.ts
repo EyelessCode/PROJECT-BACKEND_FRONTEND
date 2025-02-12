@@ -11,7 +11,11 @@ export class PacienteCasoUso implements IPacientecasoUso{
     
     async actualizarPaciente(codigo:number,data:Partial<Paciente>):Promise<Paciente|null>{
         try {
-    
+            
+            if (!data || Object.keys(data).length === 0) {
+                throw new Error("El objeto de datos está vacío.");
+            }
+
             return await this.repositorio.actualizarPaciente(codigo,data)
         } catch (error) {
             console.error(`Error al actualizar un Paciente: ${error}`);
