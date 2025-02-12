@@ -1,4 +1,4 @@
-import {editarPaciente,eliminarPaciente} from './load.js';
+import {editarPaciente,eliminarPaciente,actualizarPaciente,cargarPacientes} from './load.js';
 
 export function calcularEdad(fechaNacimiento) {
     const hoy = new Date() //! Obtiene la fecha actual
@@ -17,6 +17,7 @@ export function calcularEdad(fechaNacimiento) {
 export function mostrarTablaPaciente(pacientes) {
     const cuerpoTabla = document.getElementById('cuerpoTabla')
     cuerpoTabla.innerHTML = ''
+    pacientes.sort((a, b) => a.codigo - b.codigo);
 
     pacientes.forEach(paciente => {
         const fila = document.createElement('tr')
@@ -72,7 +73,10 @@ export function mostrarTablaPaciente(pacientes) {
         const acciones = document.createElement('td')
         const btnEditar = document.createElement('button')
         btnEditar.textContent = 'Editar'
-        btnEditar.onclick = () => editarPaciente(Number(paciente.codigo))
+        btnEditar.addEventListener('click', () => {
+            console.log(`Botón editar presionado para código: ${paciente.codigo}`); // 🔹 Depuración
+            editarPaciente(Number(paciente.codigo));
+        });
         acciones.appendChild(btnEditar)
 
         const btnEliminar = document.createElement('button')
@@ -83,4 +87,66 @@ export function mostrarTablaPaciente(pacientes) {
         fila.appendChild(acciones)
         cuerpoTabla.appendChild(fila)
     })
+}
+
+export function volverAInicio() {
+    document.getElementById('formContainer').innerHTML = '';
+    document.getElementById('tablaPacientes').style.display = 'none';
+    document.getElementById('btnDesaparecer').style.display = 'none';
+    cargarPacientes();
+}
+
+
+export function generarFormularioEdicion(paciente) {
+    const contenedor = document.getElementById('formContainer');
+    contenedor.innerHTML = `
+        <div id="formRegistro">
+            <h2 id="titulo-paciente">Editar Paciente</h2>
+            <form id="formPaciente">
+                <label for="cedula">Cédula:</label>
+                <input type="text" id="cedula" value="${paciente.cedula}" required maxlength="10" minlength="10" disabled>
+                
+                <label for="nombres">Nombres:</label>
+                <input type="text" id="nombres" value="${paciente.nombres}" required>
+                
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" id="apellidos" value="${paciente.apellidos}" required>
+                
+                <label for="genero">Género:</label>
+                <select id="genero" required>
+                    <option value="Masculino" ${paciente.genero === 'Masculino' ? 'selected' : ''}>Masculino</option>
+                    <option value="Femenino" ${paciente.genero === 'Femenino' ? 'selected' : ''}>Femenino</option>
+                </select>
+                
+                <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                <input type="date" id="fechaNacimiento" value="${paciente.fechaNacimiento}" required>
+                
+                <label for="tipoSangre">Tipo de Sangre:</label>
+                <input type="text" id="tipoSangre" value="${paciente.tipoSangre}" required>
+                
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" value="${paciente.telefono}" required>
+                
+                <label for="direccion">Dirección:</label>
+                <input type="text" id="direccion" value="${paciente.direccion || ''}">
+                
+                <label for="correo">Correo:</label>
+                <input type="email" id="correo" value="${paciente.correo}" required>
+                
+                <label for="ocupacion">Ocupación:</label>
+                <input type="text" id="ocupacion" value="${paciente.ocupacion || 'ninguno'}" required>
+                
+                <div class="form-buttons">
+                    <button id="btnActualizar" class="btn-accion" type="submit">Actualizar</button>
+                    <button id="btnCancelar" class="btn-accion" type="button">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    `;
+    
+    document.getElementById('tablaPacientes').style.display = 'none';
+    document.getElementById('btnDesaparecer').style.display = 'none';
+    
+    document.getElementById('formPaciente').addEventListener('submit', (e) => actualizarPaciente(e, paciente.codigo));
+    document.getElementById('btnCancelar').addEventListener('click', () => volverAInicio());
 }

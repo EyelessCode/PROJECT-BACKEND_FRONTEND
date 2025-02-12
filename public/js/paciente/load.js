@@ -1,5 +1,5 @@
 
-import { calcularEdad } from './utils.js';
+import { calcularEdad,volverAInicio,generarFormularioEdicion } from './utils.js';
 
 export const API_URL = "http://localhost:4000/comsulmed/paciente"
 
@@ -17,46 +17,25 @@ export async function cargarPacientes() {
 }
 
 export async function editarPaciente(codigo) {
+    console.log(`Llamando a editarPaciente con código: ${codigo}`);
+    
+    if (!codigo || isNaN(codigo)) {
+        console.error("Error: Código inválido recibido en editarPaciente");
+        alert("Error: Código del paciente no es válido.");
+        return;
+    }
+
     try {
         const response = await fetch(`${API_URL}/${codigo}`);
-
         if (!response.ok) {
             alert(`Error: Paciente con código ${codigo} no encontrado.`);
             return;
         }
 
         const paciente = await response.json();
+        console.log("Paciente obtenido de la API:", paciente);
 
-        // 🔹 Llenar el formulario con los datos del paciente
-        document.getElementById('cedula').value = paciente.cedula;
-        document.getElementById('cedula').dataset.codigo = codigo; // Guardar el código en dataset
-        document.getElementById('nombres').value = paciente.nombres;
-        document.getElementById('apellidos').value = paciente.apellidos;
-        document.getElementById('fechaNacimiento').value = paciente.fechaNacimiento;
-        document.getElementById('genero').value = paciente.genero;
-        document.getElementById('tipoSangre').value = paciente.tipoSangre;
-        document.getElementById('telefono').value = paciente.telefono;
-        document.getElementById('direccion').value = paciente.direccion || "";
-        document.getElementById('correo').value = paciente.correo;
-        document.getElementById('ocupacion').value = paciente.ocupacion || "ninguno";
-
-        // 🔹 Cambiar el formulario a modo "edición"
-        const formPaciente = document.getElementById('formPaciente');
-        formPaciente.dataset.mode = "edit";
-
-        // 🔹 Cambiar el texto del botón
-        document.getElementById('btnGuardar').innerText = "Actualizar";
-
-        // 🔹 Mostrar el formulario y ocultar la tabla
-        document.getElementById('formRegistro').style.display = 'block';
-        document.getElementById('tablaPacientes').style.display = 'none';
-        document.getElementById('btnDesaparecer').style.display = 'none'
-        document.getElementById('titulo-paciente').innerText = 'Editar Paciente';
-
-        // 🔹 Asegurar que solo se agregue un event listener al formulario
-        formPaciente.removeEventListener('submit', handleFormSubmit);
-        formPaciente.addEventListener('submit', handleFormSubmit);
-
+        generarFormularioEdicion(paciente);
     } catch (error) {
         console.error('Error al cargar el paciente:', error);
         alert('Error al obtener los datos del paciente.');
@@ -64,13 +43,10 @@ export async function editarPaciente(codigo) {
 }
 
 
-async function handleFormSubmit(e) {
-    e.preventDefault(); // Evita que el formulario recargue la página
 
-    const formPaciente = document.getElementById('formPaciente');
-    const mode = formPaciente.dataset.mode; // Detectar si es "create" o "edit"
-    const codigo = document.getElementById('cedula').dataset.codigo; // Obtener código solo si es edición
-
+export async function actualizarPaciente(e, codigo) {
+    e.preventDefault();
+    
     const pacienteData = {
         cedula: document.getElementById('cedula').value,
         nombres: document.getElementById('nombres').value,
@@ -86,44 +62,31 @@ async function handleFormSubmit(e) {
     };
 
     try {
-        let response;
-
-        if (mode === "edit") {
-            // 🔹 Modo edición: Actualizar el paciente
-            response = await fetch(`${API_URL}/${codigo}`, {
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(pacienteData)
-            });
-        } else {
-            // 🔹 Modo creación: Registrar un nuevo paciente
-            response = await fetch(`${API_URL}`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(pacienteData)
-            });
-        }
-
-        console.log('Respuesta del Servidor:', response);
-
+        const response = await fetch(`${API_URL}/${codigo}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(pacienteData)
+        });
+        
         if (!response.ok) {
             const responseData = await response.json();
             alert(`Error: ${responseData.message || 'Error desconocido'}`);
             return;
         }
 
-        alert(mode === "edit" ? 'Paciente actualizado correctamente' : 'Paciente registrado correctamente');
-        document.getElementById('formPaciente').reset();
-        document.getElementById('formRegistro').style.display = 'none';
-
-        // 🔹 Volver a cargar la lista de pacientes
-        cargarPacientes();
-
+        alert('Paciente actualizado correctamente');
+        volverAInicio();
     } catch (error) {
         console.error('Error en la operación:', error);
         alert('Error de red: ' + error.message);
     }
 }
+
+
+
+
+
+
 
 
 
@@ -135,6 +98,9 @@ export async function eliminarPaciente(codigo) {
         console.log('Respuesta del Servidor (Eliminar):', response)
         if (response.ok) {
             alert('Paciente eliminado correctamente')
+            document.getElementById('formRegistro').style.display = 'none';
+            document.getElementById('tablaPacientes').style.display = 'none';
+            document.getElementById('btnDesaparecer').style.display = 'none';
             cargarPacientes()
         } else {
             alert('Error al eliminar el paciente')

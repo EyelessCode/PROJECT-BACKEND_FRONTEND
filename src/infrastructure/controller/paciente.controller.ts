@@ -29,38 +29,35 @@ export class PacienteController {
 
     async controladorActualizarPaciente(req: Request, res: Response): Promise<any> {
         try {
-            const codigo = parseInt(req.params.codigo)
+            const codigo = parseInt(req.params.codigo);
+            const data = req.body;
+    
             console.log("Código recibido en la URL:", codigo);
-            if (isNaN(codigo) || codigo <= 0) {
-                return res.status(400).json({ message: "Código inválido" });
-            }
-            
-            
-            const data = req.body
             console.log("Datos recibidos para actualización:", data);
-
-
-            const pacienteActualizado = await this.casoUso.actualizarPaciente(codigo, data)
-
-            if (!pacienteActualizado) {
-                return res.status(404).json({
-                    message: `El Paciente: ${codigo} no existe`
-                })
+    
+            if (!data || Object.keys(data).length === 0) {
+                return res.status(400).json({ message: "No se enviaron datos para actualizar." });
             }
-
-            logger.info(`PACIENTE ACTUALIZADO ${pacienteActualizado.cedula}`)
-
-            return res.status(200).json(pacienteActualizado)
+    
+            // 🔹 Asegurar que el código en la URL y en el body sean iguales
+            if (data.codigo && data.codigo !== codigo) {
+                return res.status(400).json({ message: "El código en el body no coincide con la URL." });
+            }
+    
+            const pacienteActualizado = await this.casoUso.actualizarPaciente(codigo, data);
+    
+            if (!pacienteActualizado) {
+                return res.status(404).json({ message: `El Paciente con código ${codigo} no existe y no se puede actualizar.` });
+            }
+    
+            console.log("Paciente actualizado con éxito:", pacienteActualizado);
+            return res.status(200).json(pacienteActualizado);
         } catch (error) {
-            console.error(error);
-            logger.error(`ERROR AL ACTUALIZAR AL PACIENTE. ${error}`)
-            return res.status(500).json({
-                message: "Error al actualizar el Paciente",
-                error: error
-
-            })
+            console.error("Error en controladorActualizarPaciente:", error);
+            return res.status(500).json({ message: "Error al actualizar el Paciente", error });
         }
     }
+    
 
     async controladorEliminarPaciente(req: Request, res: Response): Promise<any> {
         try {
