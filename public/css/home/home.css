@@ -246,39 +246,72 @@ footer a:hover {
     }
 } */
 
-.sidebar h2 {
-    font-size: 1.5em;
-    text-align: center;
-    margin-bottom: 15px;
-    border-bottom: 2px solid white;
-    padding-bottom: 10px;
+/* Sidebar oculto con solo iconos visibles */
+.sidebar {
+    width: 60px; /* Reducimos el ancho del sidebar */
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #005165;
+    padding: 20px 10px; /* Espaciado más reducido */
+    color: white;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: width 0.3s ease-in-out;
+    z-index: 150;
 }
 
-.sidebar ul {
+/* Sidebar expandido */
+.sidebar.active {
+    width: 250px; /* Expande el sidebar */
+}
+
+/* Ajuste de los enlaces dentro del menú */
+.sidebar-menu {
     list-style: none;
     padding: 0;
 }
 
-.sidebar ul li {
-    margin: 10px 0;
+.sidebar-menu li {
+    margin: 15px 0;
 }
 
-.sidebar ul li a {
+.sidebar-menu a {
+    display: flex;
+    align-items: center;
     color: white;
     text-decoration: none;
-    font-size: 1.1em;
-    display: block;
     padding: 10px;
     border-radius: 5px;
     transition: background 0.3s;
 }
 
-.sidebar ul li a:hover {
+/* Iconos en el sidebar */
+.sidebar-menu .icon {
+    font-size: 24px;
+    width: 40px;
+    text-align: center;
+}
+
+/* Texto de los enlaces */
+.sidebar-menu .text {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    white-space: nowrap;
+}
+
+/* Cuando el sidebar se expande, mostrar los textos */
+.sidebar.active .text {
+    opacity: 1;
+    margin-left: 10px;
+}
+
+/* Hover para mejorar la interacción */
+.sidebar-menu a:hover {
     background-color: #034f3f;
 }
 
-/*  */
-/* Botón de la barra lateral */
+/* Ajustar la posición del botón de abrir/cerrar */
 .sidebar-toggle {
     position: fixed;
     left: 10px;
@@ -298,25 +331,13 @@ footer a:hover {
     background: #034f3f;
 }
 
-/* Barra lateral oculta por defecto */
-.sidebar {
-    width: 250px;
-    height: 100vh;
-    position: fixed;
-    left: -250px; /* Oculta la barra */
-    top: 0;
-    background-color: #005165;
-    padding: 20px;
-    color: white;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-    transition: left 0.3s ease-in-out;
-    z-index: 150;
+/* Mueve solo el primer ítem del menú (Inicio) un poco más abajo */
+.sidebar-menu li:first-child {
+    margin-top: 60px; /* Ajusta este valor según lo necesites */
 }
 
-/* Cuando la barra está activa */
-.sidebar.active {
-    left: 0; /* Se muestra la barra */
-}
+
+
 
 /* Ajuste del contenido principal */
 body {
