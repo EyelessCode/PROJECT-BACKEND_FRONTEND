@@ -5,6 +5,7 @@ body {
     background-color: #f4f4f4;
     color: #333;
     font-size: 1.1em;
+    margin-left: 250px;
 }
 
 /*! Fuente de Google Fonts  */
@@ -223,7 +224,7 @@ footer a:hover {
     cursor: pointer;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .menu-toggle {
         display: block;
     }
@@ -243,4 +244,86 @@ footer a:hover {
     .menu-active {
         display: flex;
     }
+} */
+
+.sidebar h2 {
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 15px;
+    border-bottom: 2px solid white;
+    padding-bottom: 10px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 10px 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: #034f3f;
+}
+
+/*  */
+/* Botón de la barra lateral */
+.sidebar-toggle {
+    position: fixed;
+    left: 10px;
+    top: 20px;
+    background: #005165;
+    color: white;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background 0.3s;
+    z-index: 200;
+}
+
+.sidebar-toggle:hover {
+    background: #034f3f;
+}
+
+/* Barra lateral oculta por defecto */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    left: -250px; /* Oculta la barra */
+    top: 0;
+    background-color: #005165;
+    padding: 20px;
+    color: white;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: left 0.3s ease-in-out;
+    z-index: 150;
+}
+
+/* Cuando la barra está activa */
+.sidebar.active {
+    left: 0; /* Se muestra la barra */
+}
+
+/* Ajuste del contenido principal */
+body {
+    margin-left: 0; /* No desplazamos el contenido */
+    transition: margin-left 0.3s;
+}
+
+body.sidebar-open {
+    margin-left: 250px; /* Mueve el contenido cuando la barra está abierta */
 }
