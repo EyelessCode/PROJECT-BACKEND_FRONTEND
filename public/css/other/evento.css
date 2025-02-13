@@ -325,7 +325,7 @@ footer a:hover {
 }
 
 .sidebar-menu li {
-    margin: 15px 0;
+    margin: 10px 0;
 }
 
 .sidebar-menu a {
@@ -389,7 +389,17 @@ footer a:hover {
     /* Ajusta este valor según lo necesites */
 }
 
+#separacionAsidebar{
+    border-bottom: 2px solid #3ed8c2;
+    padding: 10px;
+    width: 100%;
+    letter-spacing: 5px;
+    transition: all 0.3s ease-in-out;
+}
 
+#separacionAsidebar:hover{
+border-color: yellow;
+}
 
 
 /* Ajuste del contenido principal */
