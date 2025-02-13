@@ -60,10 +60,19 @@ export function cerrarPopup() {
 }
 
 export function cerrarPopupClickAfuera(e) {
-    const contenidoPopup = document.querySelector(".popup-content"); // Ajusta según tu HTML
+    const popup = document.getElementById("popupConsultas");
+    const contenidoPopup = document.querySelector("#popupConsultas .popup-content");
+
     if (!contenidoPopup.contains(e.target)) {
+        popup.style.display = "none";
+        document.removeEventListener("click", cerrarPopupClickAfuera);
         cerrarPopup();
     }
+
+    /* const contenidoPopup = document.querySelector(".popup-content"); // Ajusta según tu HTML
+    if (!contenidoPopup.contains(e.target)) {
+        cerrarPopup();
+    } */
 }
 
 export function calcularEdad(fechaNacimiento) {

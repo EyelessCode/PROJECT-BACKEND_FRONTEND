@@ -1,12 +1,10 @@
-import { cerrarPopup, validarValor, manejarCambioUnidad, limpiarFormularioTotal, actualizarEstadoBotonAgregar } from './utils.js';
+import { cerrarPopup, validarValor, manejarCambioUnidad, limpiarFormularioTotal, actualizarEstadoBotonAgregar
+    ,cerrarPopupClickAfuera
+ } from './utils.js';
 import {
     abrirPopup, buscarPaciente, cargarCentrosMedicos, cargarEnfermeras, cargarUnidades,
     registrarDatos, cargarUnidadesEnSelect
 } from './load.js';
-
-const API_URL_SIGNO_PACIENTE = `/signoPaciente`
-const API_URL_PACIENTES = `/paciente`
-const API_URL_TIPO_SIGNO = `/tipoSigno`
 
 document.addEventListener("DOMContentLoaded", () => {
     cargarUnidades()
@@ -128,7 +126,9 @@ document.getElementById("btnVerConsultas").addEventListener("click", async () =>
             `
 
             tablaConsultas.appendChild(fila)
+            popup.addEventListener("click", cerrarPopupClickAfuera);
         });
+
     } catch (error) {
         console.error(error);
         alert("Error al cargar los signos vitales.");
