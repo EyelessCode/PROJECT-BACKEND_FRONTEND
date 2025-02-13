@@ -148,6 +148,8 @@ nav {
 .hero {
     text-align: center;
     padding: 80px 20px;
+    background-color: #87dbc3;
+    color: black;
 }
 
 .hero h1 {
@@ -165,11 +167,12 @@ nav {
 .valores,
 .historia {
     background-color: white;
-    margin: 40px 20px;
+    margin: 40px 130px;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+    /* width: 100%; */
 }
 
 .contenido:hover,
@@ -198,7 +201,7 @@ p {
     grid-template-columns: repeat(4, minmax(240px, 1fr));
     gap: 30px;
     margin-top: 50px;
-    padding: 0 50px;
+    padding: 0 150px;
 }
 
 .doctor-titulo {
