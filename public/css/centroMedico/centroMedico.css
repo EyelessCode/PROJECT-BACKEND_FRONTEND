@@ -64,6 +64,10 @@ nav {
     letter-spacing: 0.3em;
 }
 
+.logo>span{
+    text-shadow: 4px 4px 4px black;
+}
+
 .logo img {
     width: 7vw;
     height: auto;
