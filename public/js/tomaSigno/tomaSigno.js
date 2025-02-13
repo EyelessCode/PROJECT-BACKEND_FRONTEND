@@ -97,3 +97,47 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+document.getElementById("btnVerConsultas").addEventListener("click", async () => {
+    /* const codigoPaciente = document.getElementById("codigoPaciente").value;
+
+    if (!codigoPaciente) {
+        alert("Ingrese un código de paciente.");
+        return;
+    } */
+
+    const popup = document.getElementById("popupConsultas");
+    popup.style.display = "flex";
+
+    try {
+        const respuestaSignoPaciente=await fetch(`http://localhost:4000/comsulmed/signoPaciente`)
+        const signoPaciente=await respuestaSignoPaciente.json()
+
+        const tablaConsultas = document.getElementById("tablaConsultas");
+        tablaConsultas.innerHTML = "";
+
+        signoPaciente.forEach(signo => {
+            const fila=document.createElement("tr")
+            fila.innerHTML=
+            `
+                <td>${signo.linea}</td>
+                <td>${signo.valor}</td>
+                <td>${signo.tipoSignoId}</td>
+                <td>${signo.tomaSignosId}</td>
+                <td>${signo.fecha}</td>
+                <td>${signo.comentario}</td>
+            `
+
+            tablaConsultas.appendChild(fila)
+        });
+    } catch (error) {
+        console.error(error);
+        alert("Error al cargar los signos vitales.");
+    }
+});
+
+
+// Cerrar el popup cuando se haga clic en el botón de cerrar
+document.getElementById("cerrarPopupConsultas").addEventListener("click", () => {
+    document.getElementById("popupConsultas").style.display = "none";
+});
+
