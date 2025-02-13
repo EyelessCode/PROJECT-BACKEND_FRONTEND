@@ -422,7 +422,8 @@ footer a:hover {
     width: 170px;
 }
 
-.svgRegresar, .svgBuscar, .svgCancelar, .svgGrabar, .svgCerrarPopup, .svgAgregarSigno, .svgContinuar, .svgSeleccionar {
+.svgRegresar, .svgBuscar, .svgCancelar, .svgGrabar, .svgCerrarPopup, .svgAgregarSigno, .svgContinuar, .svgSeleccionar
+,.svgConsulta {
     width: 18px;
     height: 18px;
     position: absolute;
