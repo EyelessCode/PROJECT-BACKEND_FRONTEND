@@ -4,6 +4,10 @@ import {
     registrarDatos, cargarUnidadesEnSelect
 } from './load.js';
 
+const API_URL_SIGNO_PACIENTE = `/signoPaciente`
+const API_URL_PACIENTES = `/paciente`
+const API_URL_TIPO_SIGNO = `/tipoSigno`
+
 document.addEventListener("DOMContentLoaded", () => {
     cargarUnidades()
     cargarCentrosMedicos()
@@ -92,3 +96,4 @@ document.addEventListener("DOMContentLoaded", function () {
         body.classList.toggle("sidebar-open");
     });
 });
+
