@@ -1,4 +1,6 @@
-import { calcularEdad, cerrarPopup, limpiarFormularioTotal, limpiarContenedorSignos } from './utils.js';
+import { calcularEdad, cerrarPopup, limpiarFormularioTotal, limpiarContenedorSignos
+    ,cerrarPopupClickAfuera
+ } from './utils.js';
 
 const API_URL_BASE = "http://localhost:4000/comsulmed"
 const API_URL_ENFERMERAS = `${API_URL_BASE}/enfermera`
@@ -21,7 +23,7 @@ export async function abrirPopup() {
         const pacientes = await response.json()
         const tablaPacientes = document.getElementById("tablaPacientes")
         tablaPacientes.innerHTML = ""
-
+        pacientes.sort((a,b)=>a.codigo-b.codigo)
         pacientes.forEach((paciente) => {
             const fila = document.createElement("tr")
             fila.innerHTML = `
@@ -33,6 +35,8 @@ export async function abrirPopup() {
             `
             fila.addEventListener("click", () => seleccionarPaciente(paciente))
             tablaPacientes.appendChild(fila)
+
+            popup.addEventListener("click", cerrarPopupClickAfuera);
         })
     } catch (error) {
         console.error(error)

@@ -53,7 +53,17 @@ export function limpiarContenedorSignos() {
 }
 
 export function cerrarPopup() {
-    document.getElementById("popupPacientes").style.display = "none"
+    const popup = document.getElementById("popupPacientes")
+    popup.style.display = "none"
+
+    popup.removeEventListener("click", cerrarPopupClickAfuera);
+}
+
+export function cerrarPopupClickAfuera(event) {
+    const contenidoPopup = document.querySelector(".popup-content"); // Ajusta según tu HTML
+    if (!contenidoPopup.contains(event.target)) {
+        cerrarPopup();
+    }
 }
 
 export function calcularEdad(fechaNacimiento) {
