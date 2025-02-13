@@ -86,6 +86,7 @@ export function validarValor(inputValor) {
 
     if (!unidadSeleccionada || !inputValor.value) {
         observacionInput.value = "Sin observaciones"
+        observacionInput.style.borderColor="#ccc"
         return
     }
 
@@ -97,10 +98,16 @@ export function validarValor(inputValor) {
 
     if (valor < valorMinimo) {
         observacionInput.value = "Valor por debajo del rango permitido"
+        // observacionInput.style.borderColor="none"
+        observacionInput.style.borderColor="red"
     } else if (valor > valorMaximo) {
         observacionInput.value = "Valor por encima del rango permitido"
+        // observacionInput.style.borderColor="none"
+        observacionInput.style.borderColor="red"
     } else {
         observacionInput.value = "Valor dentro del rango normal"
+        // observacionInput.style.borderColor="none"
+        observacionInput.style.borderColor="lime"
     }
 }
 
