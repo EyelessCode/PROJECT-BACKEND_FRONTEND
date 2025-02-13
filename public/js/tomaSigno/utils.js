@@ -59,9 +59,9 @@ export function cerrarPopup() {
     popup.removeEventListener("click", cerrarPopupClickAfuera);
 }
 
-export function cerrarPopupClickAfuera(event) {
+export function cerrarPopupClickAfuera(e) {
     const contenidoPopup = document.querySelector(".popup-content"); // Ajusta según tu HTML
-    if (!contenidoPopup.contains(event.target)) {
+    if (!contenidoPopup.contains(e.target)) {
         cerrarPopup();
     }
 }
