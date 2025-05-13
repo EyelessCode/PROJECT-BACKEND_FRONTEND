@@ -103,3 +103,8 @@
 2025-02-12T05:36:01.029Z [ERROR]: ERROR AL CREAR AL PACIENTE. Error: No se pudo crear un nuevo Paciente
 2025-02-12T05:36:52.729Z [ERROR]: ERROR AL CREAR AL PACIENTE. Error: No se pudo crear un nuevo Paciente
 2025-02-12T16:34:31.529Z [ERROR]: ERROR AL CREAR AL PACIENTE. Error: No se pudo crear un nuevo Paciente
+2025-05-13T01:40:59.234Z [ERROR]: ERROR AL OBTENER LAS ENFERMERAS. Error: No se pudo obtener las Enfermeras
+2025-05-13T01:41:05.417Z [ERROR]: ERROR AL OBTENER LAS ENFERMERAS. Error: No se pudo obtener las Enfermeras
+2025-05-13T01:43:44.841Z [ERROR]: ERROR AL OBTENER LOS PACIENTES. Error: No se pudo obtener los Pacientes
+2025-05-13T05:26:58.959Z [ERROR]: ERROR AL CREAR AL PACIENTE. Error: No se pudo crear un nuevo Paciente
+2025-05-13T05:38:51.571Z [ERROR]: ERROR AL OBTENER LOS PACIENTES. Error: No se pudo obtener los Pacientes
